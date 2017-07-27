@@ -29,11 +29,15 @@ public class AbstractDialogAddOrRemove extends Dialog {
     protected ImageView arrow_down1=null;
     protected ImageView arrow_down2=null;
     protected List<String> alarms = new ArrayList<String>();
-    protected int counterAlarmSound;
 
     public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm main_activity) {
         super(context);
         this.main_activity=main_activity;
+        alarms.add("alarm1");
+        alarms.add("alarm2");
+        alarms.add("alarm3");
+        alarms.add("alarm4");
+        alarms.add("alarm5");
     }
 
     @Override
@@ -41,12 +45,6 @@ public class AbstractDialogAddOrRemove extends Dialog {
         super.onCreate(savedInstance);
 
         list_tone = (Spinner) findViewById(R.id.list_tone);
-        counterAlarmSound=0;
-        alarms.add("alarm1");
-        alarms.add("alarm2");
-        alarms.add("alarm3");
-        alarms.add("alarm4");
-        alarms.add("alarm5");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(main_activity, android.R.layout.simple_spinner_dropdown_item, alarms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         list_tone.setAdapter(adapter);
@@ -124,17 +122,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
         });
     }
 
-    public void setCounterAlarmSound(int counterAlarmSound)
-    {
-        this.counterAlarmSound=counterAlarmSound;
-    }
-
-    public int getCounterAlarmSound()
-    {
-        return this.counterAlarmSound++;
-    }
-
-    public List<String>getAlarms()
+    public List<String> getAlarms()
     {
         return alarms;
     }

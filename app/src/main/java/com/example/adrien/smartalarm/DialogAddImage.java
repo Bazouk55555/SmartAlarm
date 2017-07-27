@@ -12,6 +12,7 @@ import android.widget.Button;
 
 public class DialogAddImage extends Dialog {
 
+    public static int AUTHORIZATION_IMAGE=1;
     private Button cancel = null;
     private Button ok = null;
     private Button lookForImage = null;
@@ -42,7 +43,9 @@ public class DialogAddImage extends Dialog {
             @Override
             public void onClick(View v) {
                 smartAlarm.setUriImage(uriDialog);
-                smartAlarm.getTakeOffImagesMenuItem().setEnabled(true);
+                if(uriDialog!=null) {
+                    smartAlarm.getTakeOffImageMenuItem().setEnabled(true);
+                }
                 DialogAddImage.this.dismiss();
             }
         });
@@ -51,7 +54,7 @@ public class DialogAddImage extends Dialog {
         lookForImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                smartAlarm.startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI),3);
+                smartAlarm.startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI),AUTHORIZATION_IMAGE);
             }
         });
     }

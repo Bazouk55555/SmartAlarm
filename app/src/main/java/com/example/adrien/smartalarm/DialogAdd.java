@@ -24,8 +24,7 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
                 String time = hours.getText().toString()+":"+DialogAdd.this.minutes.getText().toString();
                 String title = editTitle.getText().toString();
                 main_activity.setNewAlarm(time,title, Integer.parseInt(hours.getText().toString()),Integer.parseInt(minutes.getText().toString()));
-                System.out.println("alors??: "+main_activity.getUriImage());
-                Runnable activateAlarm = new ActivateAlarm(main_activity,main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),main_activity.getUriImage(),title);
+                Runnable activateAlarm = new ActivateAlarm(main_activity,main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
                 Thread threadAlarm = new Thread(activateAlarm);
                 main_activity.getListThreadAlarms().add(activateAlarm);
                 threadAlarm.start();

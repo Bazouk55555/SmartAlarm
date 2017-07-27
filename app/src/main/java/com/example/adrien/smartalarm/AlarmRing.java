@@ -41,9 +41,19 @@ public class AlarmRing extends AppCompatActivity {
         titleView.setText(getIntent().getStringExtra("title"));
         switch(getIntent().getStringExtra("sound")) {
             case "alarm1":
-            mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
-            break;
+                mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
+                break;
+            case "alarm6":
+                mediaPlayer = new MediaPlayer();
+                Uri uriSound = getIntent().getParcelableExtra("uri_sound");
+                try {
+                    mediaPlayer.setDataSource(getApplicationContext(), uriSound);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
+
         mediaPlayer.start();
         stopAlarm = (Button)findViewById(R.id.stop_alarm);
         stopAlarm.setOnClickListener(new View.OnClickListener() {

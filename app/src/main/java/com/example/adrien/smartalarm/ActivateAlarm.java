@@ -11,15 +11,13 @@ public class ActivateAlarm implements Runnable{
     private String sound;
     private String title;
     private boolean continueThread = true;
-    private Uri uriImage;
 
-    public ActivateAlarm(SmartAlarm smartAlarm, int index, String sound, Uri uriImage, String title)
+    public ActivateAlarm(SmartAlarm smartAlarm, int index, String sound,String title)
     {
         this.smartAlarm=smartAlarm;
         this.index=index;
         this.sound=sound;
         this.title=title;
-        this.uriImage=uriImage;
     }
 
     public void run(){
@@ -33,7 +31,8 @@ public class ActivateAlarm implements Runnable{
                 String time = hour+":"+minute;
                 intent_to_alarm_ring.putExtra("time",time);
                 intent_to_alarm_ring.putExtra("title",title);
-                intent_to_alarm_ring.putExtra("uri_image",uriImage);
+                intent_to_alarm_ring.putExtra("uri_image",smartAlarm.getUriImage());
+                intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
                 smartAlarm.startActivity(intent_to_alarm_ring);
                 continueThread=false;

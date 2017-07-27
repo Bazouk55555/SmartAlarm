@@ -1,5 +1,6 @@
 package com.example.adrien.smartalarm;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,10 @@ public class SmartAlarm extends AppCompatActivity {
     private List<Runnable> listThreadAlarms;
     private Uri uriImage;
     private DialogAddImage dialogAddImage;
-    private MenuItem takeOffImagesMenuItem;
+    private MenuItem takeOffImageMenuItem;
+    private Uri uriSound;
+    private DialogAddSound dialogAddSound;
+    private MenuItem takeOffSoundMenuItem;
 
 
     @Override
@@ -44,6 +48,7 @@ public class SmartAlarm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_alarm);
 
+        dialog_add=new DialogAdd(this,this);
         list_view_alarms=(ListView)findViewById(R.id.list_alarm);
         list_view_activates=(ListView)findViewById(R.id.list_activate);
         listMapOfEachAlarm = new ArrayList<>();
@@ -91,7 +96,8 @@ public class SmartAlarm extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        takeOffImagesMenuItem = menu.findItem(R.id.takeof_image);
+        takeOffImageMenuItem = menu.findItem(R.id.takeof_image);
+        takeOffSoundMenuItem = menu.findItem(R.id.takeof_sound);
         return true;
     }
 
@@ -100,14 +106,12 @@ public class SmartAlarm extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.add:
-                dialog_add=new DialogAdd(this,this);
                 dialog_add.show();
                 break;
             case R.id.add_sound:
-                DialogAddSound dialogAddSound = new DialogAddSound(this);
+                DialogAddSound dialogAddSound = new DialogAddSound(this,this);
                 dialogAddSound.show();
-                dialog_add.getAlarms().add("TEST");
-                dialog_add.setCounterAlarmSound(dialog_add.getCounterAlarmSound()+1);
+                dialog_add.getAlarms().add("alarm6");
                 break;
             case R.id.add_image:
                 dialogAddImage = new DialogAddImage(this,this);
@@ -115,7 +119,11 @@ public class SmartAlarm extends AppCompatActivity {
                 break;
             case R.id.takeof_image:
                 uriImage=null;
-                takeOffImagesMenuItem.setEnabled(false);
+                takeOffImageMenuItem.setEnabled(false);
+            case R.id.takeof_sound:
+                uriSound=null;
+                dialog_add.getAlarms().remove("alarm6"); //CHECKER SI J AI PAS BESOIN DE NOTIFY L ADAPTER
+                takeOffSoundMenuItem.setEnabled(false);
         }
         return true;
     }
@@ -182,22 +190,39 @@ public class SmartAlarm extends AppCompatActivity {
         return uriImage;
     }
 
+    public Uri getUriSound()
+    {
+        return uriSound;
+    }
+
     public void setUriImage(Uri uriImage)
     {
         this.uriImage=uriImage;
     }
 
+    public void setUriSound(Uri uriSound)
+    {
+        this.uriSound=uriSound;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        System.out.println("HERE");
-        if(requestCode==3){
+        if(requestCode==DialogAddImage.AUTHORIZATION_IMAGE && resultCode== Activity.RESULT_OK){
             dialogAddImage.setUriDialog(data.getData());
+        }
+        else if(requestCode==DialogAddSound.AUTHORIZATION_SOUND && resultCode== Activity.RESULT_OK){
+            dialogAddSound.setUriDialog(data.getData());
         }
     }
 
-    public MenuItem getTakeOffImagesMenuItem()
+    public MenuItem getTakeOffImageMenuItem()
     {
-        return takeOffImagesMenuItem;
+        return takeOffImageMenuItem;
+    }
+
+    public MenuItem getTakeOffSoundMenuItem()
+    {
+        return takeOffSoundMenuItem;
     }
 }

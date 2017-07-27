@@ -15,6 +15,12 @@
                 app:showAsAction="ifRoom" />
 
             <item
+                android:id="@+id/takeof_sound"
+                android:enabled="false"
+                android:title="Take of the image"
+                app:showAsAction="ifRoom" />
+
+            <item
                 android:id="@+id/add_image"
                 android:title="Add an image"
                 app:showAsAction="ifRoom" />
