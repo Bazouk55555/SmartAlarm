@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="45">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="69dp"
+                android:id="@+id/arrow_up1"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_up"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/hours"
+                android:gravity="center"
+                android:text="00"
+                android:selectAllOnFocus="true"
+                android:inputType="number"/>
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="49dp"
+                android:id="@+id/arrow_down1"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_low"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="45">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="69dp"
+                android:id="@+id/arrow_up2"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_up"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/minutes"
+                android:gravity="center"
+                android:selectAllOnFocus="true"
+                android:text="00"
+                android:inputType="number"/>
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="49dp"
+                android:id="@+id/arrow_down2"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_low"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/editTitle"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="@color/blue"
+            android:text="Tone: "/>
+
+        <Spinner
+            android:id="@+id/list_tone"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:choiceMode="singleChoice"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/save"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="CANCEL"
+            android:id="@+id/cancel"/>
+
+    </LinearLayout>
+
+</LinearLayout>
