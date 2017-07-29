@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class DialogAddSound extends Dialog {
 
@@ -22,6 +23,7 @@ public class DialogAddSound extends Dialog {
     public DialogAddSound(@NonNull Context context, SmartAlarm smartAlarm) {
         super(context);
         this.smartAlarm=smartAlarm;
+        uriDialog=null;
     }
 
     @Override
@@ -62,5 +64,17 @@ public class DialogAddSound extends Dialog {
     public void setUriDialog(Uri uriDialog)
     {
         this.uriDialog=uriDialog;
+    }
+
+    public Uri getUriDialog()
+    {
+        return uriDialog;
+    }
+
+    public void setImageOk()
+    {
+        if (uriDialog != null) {
+            ((ImageView) findViewById(R.id.image_loaded)).setImageResource(R.drawable.ic_loaded);
+        }
     }
 }

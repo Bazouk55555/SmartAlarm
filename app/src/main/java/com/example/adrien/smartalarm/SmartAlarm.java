@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -109,7 +110,7 @@ public class SmartAlarm extends AppCompatActivity {
                 dialog_add.show();
                 break;
             case R.id.add_sound:
-                DialogAddSound dialogAddSound = new DialogAddSound(this,this);
+                dialogAddSound = new DialogAddSound(this,this);
                 dialogAddSound.show();
                 dialog_add.getAlarms().add("alarm6");
                 break;
@@ -210,9 +211,16 @@ public class SmartAlarm extends AppCompatActivity {
     {
         if(requestCode==DialogAddImage.AUTHORIZATION_IMAGE && resultCode== Activity.RESULT_OK){
             dialogAddImage.setUriDialog(data.getData());
+            if(dialogAddImage.getUriDialog()!=null) {
+                dialogAddImage.setImageOk();
+            }
         }
         else if(requestCode==DialogAddSound.AUTHORIZATION_SOUND && resultCode== Activity.RESULT_OK){
             dialogAddSound.setUriDialog(data.getData());
+            if(dialogAddSound.getUriDialog()!=null)
+            {
+                dialogAddSound.setImageOk();
+            }
         }
     }
 

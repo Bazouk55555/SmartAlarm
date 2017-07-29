@@ -18,11 +18,11 @@
             android:layout_weight="45">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="69dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/arrow_up1"
                 android:layout_gravity="center"
-                android:src="@drawable/arrow_up"/>
+                android:src="@drawable/ic_arrow_up"/>
 
             <EditText
                 android:layout_height="wrap_content"
@@ -34,11 +34,11 @@
                 android:inputType="number"/>
 
             <ImageView
-                android:layout_width="58dp"
-                android:layout_height="49dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/arrow_down1"
                 android:layout_gravity="center"
-                android:src="@drawable/arrow_low"/>
+                android:src="@drawable/ic_arrow_down"/>
 
         </LinearLayout>
 
@@ -54,11 +54,11 @@
             android:layout_weight="45">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="69dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/arrow_up2"
                 android:layout_gravity="center"
-                android:src="@drawable/arrow_up"/>
+                android:src="@drawable/ic_arrow_up"/>
 
             <EditText
                 android:layout_height="wrap_content"
@@ -70,20 +70,31 @@
                 android:inputType="number"/>
 
             <ImageView
-                android:layout_width="58dp"
-                android:layout_height="49dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/arrow_down2"
                 android:layout_gravity="center"
-                android:src="@drawable/arrow_low"/>
+                android:src="@drawable/ic_arrow_down"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <EditText
+    <LinearLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTitle"/>
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title: "/>
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/editTitle"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

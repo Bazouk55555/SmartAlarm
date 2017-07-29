@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class DialogAddImage extends Dialog {
 
@@ -62,5 +63,16 @@ public class DialogAddImage extends Dialog {
     public void setUriDialog(Uri uriDialog)
     {
         this.uriDialog=uriDialog;
+    }
+
+    public Uri getUriDialog()
+    {
+        return uriDialog;
+    }
+
+    public void setImageOk() {
+        if (uriDialog != null) {
+            ((ImageView) findViewById(R.id.image_loaded)).setImageResource(R.drawable.ic_loaded);
+        }
     }
 }

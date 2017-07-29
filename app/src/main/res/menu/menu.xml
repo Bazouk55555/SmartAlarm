@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/configuration"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/ic_settings"
         android:title="Configuration"
         app:showAsAction="ifRoom">
 
@@ -17,7 +17,7 @@
             <item
                 android:id="@+id/takeof_sound"
                 android:enabled="false"
-                android:title="Take of the image"
+                android:title="Take of the sound"
                 app:showAsAction="ifRoom" />
 
             <item
@@ -36,7 +36,7 @@
 
     <item
         android:id="@+id/add"
-        android:icon="@android:drawable/arrow_up_float"
+        android:icon="@drawable/ic_add"
         android:title="Add"
         app:showAsAction="ifRoom" />
 

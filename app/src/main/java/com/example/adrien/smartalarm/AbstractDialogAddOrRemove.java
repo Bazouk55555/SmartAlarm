@@ -172,9 +172,20 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     }
                     if(start==1)
                     {
+                        boolean goToNextStep = true;
                         if(Character.getNumericValue(s.toString().charAt(0))>firstLimitTime|| (Character.getNumericValue(s.toString().charAt(0))==firstLimitTime && Character.getNumericValue(s.toString().charAt(start))>secondLimitTime))
                         {
                             editText.setText(s.toString().substring(0, 1));
+                            goToNextStep=false;
+                        }
+                        if(goToNextStep==true)
+                        {
+                            if(editText==hours){
+                                minutes.requestFocus();
+                            }
+                            else if (editText==minutes){
+                                findViewById(R.id.editTitle).requestFocus();
+                            }
                         }
                     }
                     canModifyText=true;

@@ -21,6 +21,11 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/sound_loaded"/>
+
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
