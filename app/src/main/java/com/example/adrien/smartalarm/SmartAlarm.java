@@ -96,6 +96,10 @@ public class SmartAlarm extends AppCompatActivity {
                                     final int position,
                                     long id) {
                 dialogRemove=new DialogRemove(SmartAlarm.this,SmartAlarm.this,position,alarmsHours.get(position).toString(),alarmsMinutes.get(position).toString());
+                if(isAlarmSix ==true)
+                {
+                    dialogRemove.getAlarms().add("alarm6");
+                }
                 dialogRemove.show();
             }
         });
@@ -137,7 +141,6 @@ public class SmartAlarm extends AppCompatActivity {
                 takeOffImageMenuItem.setEnabled(false);
             case R.id.takeof_sound:
                 uriSound=null;
-                dialog_add.getAlarms().remove("alarm6"); //CHECKER SI J AI PAS BESOIN DE NOTIFY L ADAPTER
                 isAlarmSix=false;
                 takeOffSoundMenuItem.setEnabled(false);
         }

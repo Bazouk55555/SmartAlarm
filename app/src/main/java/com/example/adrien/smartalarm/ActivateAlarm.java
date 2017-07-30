@@ -18,6 +18,7 @@ public class ActivateAlarm implements Runnable{
         this.index=index;
         this.sound=sound;
         this.title=title;
+        System.out.println("HAHA:"+sound);
     }
 
     public void run(){

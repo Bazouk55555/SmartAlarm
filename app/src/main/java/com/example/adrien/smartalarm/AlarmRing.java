@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,7 +31,6 @@ public class AlarmRing extends AppCompatActivity {
     private Uri uriImage;
     private MediaPlayer mediaPlayer;
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +44,9 @@ public class AlarmRing extends AppCompatActivity {
                 mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
                 break;
             case "alarm6":
-                mediaPlayer = new MediaPlayer();
+                System.out.println("HAHAHAHAHA");
                 Uri uriSound = getIntent().getParcelableExtra("uri_sound");
-                try {
-                    mediaPlayer.setDataSource(getApplicationContext(), uriSound);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                mediaPlayer = mediaPlayer.create(this, uriSound);
                 break;
         }
 
