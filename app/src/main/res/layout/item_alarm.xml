@@ -3,7 +3,8 @@
     android:orientation="horizontal"
     android:id="@+id/layout_alarm"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    android:background="@color/bright">
 
     <TextView
         android:layout_height="wrap_content"

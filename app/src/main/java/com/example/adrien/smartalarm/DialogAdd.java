@@ -32,4 +32,10 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
             }
         });
     }
+
+    public void setToZero()
+    {
+        hours.setText("00");
+        minutes.setText("00");
+    }
 }

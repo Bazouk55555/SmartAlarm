@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:padding="10dp">
 
     <LinearLayout
@@ -18,8 +20,8 @@
             android:layout_weight="45">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
                 android:id="@+id/arrow_up1"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_up"/>
@@ -34,8 +36,8 @@
                 android:inputType="number"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
                 android:id="@+id/arrow_down1"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_down"/>
@@ -54,8 +56,8 @@
             android:layout_weight="45">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
                 android:id="@+id/arrow_up2"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_up"/>
@@ -70,8 +72,8 @@
                 android:inputType="number"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
                 android:id="@+id/arrow_down2"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_arrow_down"/>

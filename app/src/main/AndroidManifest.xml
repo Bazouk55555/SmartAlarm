@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlarmRing"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
     </application>
 
 </manifest>

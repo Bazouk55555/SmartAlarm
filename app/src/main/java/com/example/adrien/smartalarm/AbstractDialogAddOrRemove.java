@@ -3,6 +3,7 @@ package com.example.adrien.smartalarm;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,6 +30,8 @@ public class AbstractDialogAddOrRemove extends Dialog {
     protected ImageView arrow_down1=null;
     protected ImageView arrow_down2=null;
     protected List<String> alarms = new ArrayList<String>();
+    Handler redArrowForShortTime;
+    //protected Thread integerLessThanTenThread;
 
     public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm main_activity) {
         super(context);
@@ -62,13 +65,32 @@ public class AbstractDialogAddOrRemove extends Dialog {
         hours = (EditText) findViewById(R.id.hours);
         hours.addTextChangedListener(new TextWatcherTime(2,3,hours));
 
+        /*integerLessThanTenThread= new Thread(){
+            @Override
+            public void run()
+            {
+                while(true) {
+                    if (hours.getText().toString().length()!=2 && !hours.isSelected()) {
+                        hours.setText("0"+hours.getText().toString());
+                    }
+                    if (minutes.getText().toString().length()!=2 && !minutes.isSelected()) {
+                        minutes.setText("0"+minutes.getText().toString());
+                    }
+                }
+            }
+        };
+        integerLessThanTenThread.start();*/
+
         minutes = (EditText) findViewById(R.id.minutes);
         minutes.addTextChangedListener(new TextWatcherTime(6,-1,minutes));
+
+        redArrowForShortTime= new Handler();
 
         arrow_up1 = (ImageView) findViewById(R.id.arrow_up1);
         arrow_up1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrow_up1.setImageResource(R.drawable.ic_arrow_up_red);
                 int number =(Integer.parseInt(hours.getText().toString())+1)%24;
                 String text_number= String.valueOf(number);
                 if(number>-1 && number<10)
@@ -76,6 +98,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     text_number="0"+text_number;
                 }
                 hours.setText(text_number);
+                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_up1, R.drawable.ic_arrow_up),150);
             }
         });
 
@@ -83,6 +106,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
         arrow_down1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrow_down1.setImageResource(R.drawable.ic_arrow_down_red);
                 int number = ((Integer.parseInt(hours.getText().toString())-1)+24)%24;
                 String text_number= String.valueOf(number);
                 if(number>-1 && number<10)
@@ -90,6 +114,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     text_number="0"+text_number;
                 }
                 hours.setText(text_number);
+                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_down1, R.drawable.ic_arrow_down),150);
             }
         });
 
@@ -97,6 +122,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
         arrow_up2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrow_up2.setImageResource(R.drawable.ic_arrow_up_red);
                 int number = (Integer.parseInt(minutes.getText().toString())+1)%60;
                 String text_number= String.valueOf(number);
                 if(number>-1 && number<10)
@@ -104,6 +130,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     text_number="0"+text_number;
                 }
                 minutes.setText(text_number);
+                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_up2, R.drawable.ic_arrow_up),150);
             }
         });
 
@@ -111,6 +138,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
         arrow_down2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrow_down2.setImageResource(R.drawable.ic_arrow_down_red);
                 int number = ((Integer.parseInt(minutes.getText().toString())-1)+60)%60;
                 String text_number= String.valueOf(number);
                 if(number>-1 && number<10)
@@ -118,6 +146,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     text_number="0"+text_number;
                 }
                 minutes.setText(text_number);
+                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_down2, R.drawable.ic_arrow_down),150);
             }
         });
     }
@@ -191,6 +220,23 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     canModifyText=true;
                 }
             }
+        }
+    }
+
+    private class redArrowRunnable implements Runnable {
+
+        ImageView imageView;
+        int drawableArrow;
+
+        public redArrowRunnable(ImageView imageView, int drawableArrow)
+        {
+            this.imageView=imageView;
+            this.drawableArrow=drawableArrow;
+        }
+
+        @Override
+        public void run() {
+            imageView.setImageResource(drawableArrow);
         }
     }
 }

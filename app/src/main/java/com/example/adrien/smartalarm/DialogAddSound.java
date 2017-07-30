@@ -71,10 +71,10 @@ public class DialogAddSound extends Dialog {
         return uriDialog;
     }
 
-    public void setImageOk()
+    public void setSoundOk()
     {
         if (uriDialog != null) {
-            ((ImageView) findViewById(R.id.image_loaded)).setImageResource(R.drawable.ic_loaded);
+            ((ImageView) findViewById(R.id.sound_loaded)).setImageResource(R.drawable.ic_loaded);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.adrien.smartalarm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class SmartAlarm extends AppCompatActivity {
     private Uri uriSound;
     private DialogAddSound dialogAddSound;
     private MenuItem takeOffSoundMenuItem;
+    private boolean isAlarmSix = false;
 
 
     @Override
@@ -69,14 +71,19 @@ public class SmartAlarm extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final TextView activatedTextView = (TextView)view.findViewById(R.id.activate);
-                if(activatedTextView.getCurrentTextColor()==getResources().getColor(blue)){
-                    activatedTextView.setTextColor(getResources().getColor(black));
-                    activatedTextView.setText("Activate");
+                final View alarmView = list_view_alarms.getChildAt(position);
+                if(activatedTextView.getCurrentTextColor()==getResources().getColor(black)){
+                    activatedTextView.setTextColor(getResources().getColor(blue));
+                    activatedTextView.setText("ACTIVATE");
+                    activatedTextView.setBackgroundColor(getResources().getColor(R.color.dark));
+                    alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmsActivated.set(position,false);
                 }
                 else{
-                    activatedTextView.setTextColor(getResources().getColor(blue));
+                    activatedTextView.setTextColor(getResources().getColor(black));
                     activatedTextView.setText("Deactivate");
+                    activatedTextView.setBackgroundColor(getResources().getColor(R.color.bright));
+                    alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
                     alarmsActivated.set(position,true);
                 }
             }
@@ -107,12 +114,19 @@ public class SmartAlarm extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.add:
+                dialog_add= new DialogAdd(this,this);
+                if(isAlarmSix ==true)
+                {
+                    dialog_add.getAlarms().add("alarm6");
+                }
                 dialog_add.show();
+
                 break;
             case R.id.add_sound:
                 dialogAddSound = new DialogAddSound(this,this);
                 dialogAddSound.show();
                 dialog_add.getAlarms().add("alarm6");
+                isAlarmSix=true;
                 break;
             case R.id.add_image:
                 dialogAddImage = new DialogAddImage(this,this);
@@ -124,6 +138,7 @@ public class SmartAlarm extends AppCompatActivity {
             case R.id.takeof_sound:
                 uriSound=null;
                 dialog_add.getAlarms().remove("alarm6"); //CHECKER SI J AI PAS BESOIN DE NOTIFY L ADAPTER
+                isAlarmSix=false;
                 takeOffSoundMenuItem.setEnabled(false);
         }
         return true;
@@ -219,7 +234,7 @@ public class SmartAlarm extends AppCompatActivity {
             dialogAddSound.setUriDialog(data.getData());
             if(dialogAddSound.getUriDialog()!=null)
             {
-                dialogAddSound.setImageOk();
+                dialogAddSound.setSoundOk();
             }
         }
     }

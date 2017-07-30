@@ -86,19 +86,9 @@ public class AlarmRing extends AppCompatActivity {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                    ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
-                    byte [] buffer = new byte[1024];
-                    int len;
-                    try {
-                        while((len=inputStream.read(buffer))!=-1)
-                        {
-                            byteBuffer.write(buffer, 0,len);
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    byte [] byteArray = byteBuffer.toByteArray();
-                    Bitmap bitmapImage = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+
+                    BitmapFactory.Options option= new BitmapFactory.Options();
+                    Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
                     mainLayout.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmapImage));
                 }
         }
