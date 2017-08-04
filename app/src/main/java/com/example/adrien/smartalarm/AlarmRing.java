@@ -1,6 +1,7 @@
 package com.example.adrien.smartalarm;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,10 +32,15 @@ public class AlarmRing extends AppCompatActivity {
     private RelativeLayout mainLayout=null;
     private Uri uriImage;
     private MediaPlayer mediaPlayer;
+    private PowerManager.WakeLock wl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
+        wl.acquire();
+
         setContentView(R.layout.alarm_ring);
         timeView = (TextView) findViewById(R.id.time);
         titleView = (TextView) findViewById(R.id.title);
@@ -64,11 +71,21 @@ public class AlarmRing extends AppCompatActivity {
         uriImage=getIntent().getParcelableExtra("uri_image");
         if(uriImage!=null)
         {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
+            //ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
+            InputStream inputStream=null;
+            try {
+                inputStream = getContentResolver().openInputStream(uriImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            BitmapFactory.Options option= new BitmapFactory.Options();
+            Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
+            mainLayout.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmapImage));
         }
     }
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, String permission [], int[] grantResult)
     {
         switch(requestCode)
@@ -88,5 +105,11 @@ public class AlarmRing extends AppCompatActivity {
                     mainLayout.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmapImage));
                 }
         }
+    }*/
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        wl.release();
     }
 }

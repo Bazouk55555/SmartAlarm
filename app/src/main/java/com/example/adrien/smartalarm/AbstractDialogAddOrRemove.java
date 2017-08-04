@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,8 +31,8 @@ public class AbstractDialogAddOrRemove extends Dialog {
     protected ImageView arrow_down1=null;
     protected ImageView arrow_down2=null;
     protected List<String> alarms = new ArrayList<String>();
-    Handler redArrowForShortTime;
-    //protected Thread integerLessThanTenThread;
+    protected Handler redArrowForShortTime;
+    protected Thread integerLessThanTenThread;
 
     public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm main_activity) {
         super(context);
@@ -64,27 +65,27 @@ public class AbstractDialogAddOrRemove extends Dialog {
 
         hours = (EditText) findViewById(R.id.hours);
         hours.addTextChangedListener(new TextWatcherTime(2,3,hours));
-
-        /*integerLessThanTenThread= new Thread(){
+        hours.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
-            public void run()
-            {
-                while(true) {
-                    if (hours.getText().toString().length()!=2 && !hours.isSelected()) {
-                        hours.setText("0"+hours.getText().toString());
-                    }
-                    if (minutes.getText().toString().length()!=2 && !minutes.isSelected()) {
-                        minutes.setText("0"+minutes.getText().toString());
-                    }
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus==false && ((EditText)v).getText().toString().length() != 2 ) {
+                    ((EditText)v).setText("0" + ((EditText)v).getText().toString());
                 }
             }
-        };
-        integerLessThanTenThread.start();*/
+        });
 
         minutes = (EditText) findViewById(R.id.minutes);
         minutes.addTextChangedListener(new TextWatcherTime(6,-1,minutes));
+        minutes.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus==false && ((EditText)v).getText().toString().length() != 2 ) {
+                    ((EditText)v).setText("0" + ((EditText)v).getText().toString());
+                }
+            }
+        });
 
-        redArrowForShortTime= new Handler();
+        redArrowForShortTime= new Handler(Looper.getMainLooper());
 
         arrow_up1 = (ImageView) findViewById(R.id.arrow_up1);
         arrow_up1.setOnClickListener(new View.OnClickListener() {
@@ -185,9 +186,33 @@ public class AbstractDialogAddOrRemove extends Dialog {
         public void afterTextChanged(Editable s) {
             if(canModifyText) {
                 if (s.toString().length() == 3) {
-                    canModifyText = false;
-                    editText.setText(s.toString().substring(0, 2));
-                    canModifyText = true;
+                    if(start==2) {
+                        canModifyText = false;
+                        editText.setText(s.toString().substring(0, 2));
+                        canModifyText = true;
+                    }
+                    else if(start==1)
+                    {
+                        if(Character.getNumericValue(s.toString().charAt(0))>firstLimitTime || (Character.getNumericValue(s.toString().charAt(0))==firstLimitTime && Character.getNumericValue(s.toString().charAt(start))>secondLimitTime))
+                        {
+                            editText.setText(s.toString().substring(0, 1)+s.toString().substring(2, 3));
+                        }
+                        else
+                        {
+                            editText.setText(s.toString().substring(0, 2));
+                        }
+                    }
+                    else if(start==0)
+                    {
+                        if(Character.getNumericValue(s.toString().charAt(start))>firstLimitTime || (Character.getNumericValue(s.toString().charAt(start))==firstLimitTime && Character.getNumericValue(s.toString().charAt(1))>secondLimitTime))
+                        {
+                            editText.setText(s.toString().substring(1, 3));
+                        }
+                        else
+                        {
+                            editText.setText(s.toString().substring(0, 2));
+                        }
+                    }
                 }
                 if(s.toString().length() == 2)
                 {
@@ -202,7 +227,7 @@ public class AbstractDialogAddOrRemove extends Dialog {
                     if(start==1)
                     {
                         boolean goToNextStep = true;
-                        if(Character.getNumericValue(s.toString().charAt(0))>firstLimitTime|| (Character.getNumericValue(s.toString().charAt(0))==firstLimitTime && Character.getNumericValue(s.toString().charAt(start))>secondLimitTime))
+                        if(Character.getNumericValue(s.toString().charAt(0))>firstLimitTime || (Character.getNumericValue(s.toString().charAt(0))==firstLimitTime && Character.getNumericValue(s.toString().charAt(start))>secondLimitTime))
                         {
                             editText.setText(s.toString().substring(0, 1));
                             goToNextStep=false;
