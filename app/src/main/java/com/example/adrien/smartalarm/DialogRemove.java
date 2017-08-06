@@ -13,12 +13,16 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
     private final int position;
     private String hour;
     private String minute;
+    private String title;
+    private int soundSelected;
 
-    public DialogRemove(@NonNull Context context, SmartAlarm main_activity, int position, String hour, String minute) {
+    public DialogRemove(@NonNull Context context, SmartAlarm main_activity, int position, String hour, String minute, String title, int soundSelected) {
         super(context,main_activity);
         this.hour=hour;
         this.minute=minute;
+        this.title=title;
         this.position=position;
+        this.soundSelected=soundSelected;
     }
 
     @Override
@@ -26,16 +30,21 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
         setContentView(R.layout.dialog_remove);
         super.onCreate(savedInstance);
 
+        editTitle.setText(title);
+        list_tone.setSelection(soundSelected);
         save = (Button) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 String time = hours.getText().toString()+":"+minutes.getText().toString();
                 String title = editTitle.getText().toString();
-                main_activity.changeAlarm(time , title, position, Integer.parseInt(hours.getText().toString()), Integer.parseInt(minutes.getText().toString()));
+                List<Runnable> listThread = main_activity.getListThreadAlarms();
+                ((ActivateAlarm)listThread.get(position)).setContinueThread(false);
+                soundSelected=list_tone.getSelectedItemPosition();
+                main_activity.changeAlarm(time , title, position, Integer.parseInt(hours.getText().toString()), Integer.parseInt(minutes.getText().toString()), soundSelected);
                 Runnable activateAlarm = new ActivateAlarm(main_activity,position,list_tone.getSelectedItem().toString(),title);
                 Thread threadAlarm = new Thread(activateAlarm);
-                main_activity.getListThreadAlarms().set(position,activateAlarm);
+                listThread.set(position,activateAlarm);
                 threadAlarm.start();
                 DialogRemove.this.dismiss();
             }

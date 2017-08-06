@@ -1,28 +1,23 @@
 package com.example.adrien.smartalarm;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class AlarmRing extends AppCompatActivity {
@@ -33,6 +28,9 @@ public class AlarmRing extends AppCompatActivity {
     private Uri uriImage;
     private MediaPlayer mediaPlayer;
     private PowerManager.WakeLock wl;
+    Thread multiColorThread;
+    boolean isAlarmStopped;
+    Thread titleMoveThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +38,108 @@ public class AlarmRing extends AppCompatActivity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
         wl.acquire();
+        this.getWindow().setFlags(
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                        WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                        WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
+        System.out.println("show when locked: "+WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        System.out.println("turn screen on: "+WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         setContentView(R.layout.alarm_ring);
         timeView = (TextView) findViewById(R.id.time);
         titleView = (TextView) findViewById(R.id.title);
+
+        isAlarmStopped=false;
+        multiColorThread = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                Handler multiColorHandler = new Handler(Looper.getMainLooper());
+                while(!isAlarmStopped)
+                {
+                    multiColorHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            timeView.setTextColor(getResources().getColor(R.color.red));
+                        }
+                    },200);
+                    multiColorHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            timeView.setTextColor(getResources().getColor(R.color.blue));
+                        }
+                    },400);
+                    multiColorHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            timeView.setTextColor(getResources().getColor(R.color.orange));
+                        }
+                    },600);
+                    multiColorHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            timeView.setTextColor(getResources().getColor(R.color.black));
+                        }
+                    },800);
+                    try {
+                        Thread.sleep(800);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        multiColorThread.start();
+
+        titleMoveThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("STEP 1");
+                Handler titleMoveHandler = new Handler(Looper.getMainLooper());
+                while(!isAlarmStopped)
+                {
+                    titleMoveHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(titleView.getX()<findViewById(R.id.second_layout).getWidth()) {
+                                titleView.setX(titleView.getX()+10);
+                            }
+                            else
+                            {
+                                titleView.setX(-titleView.getTextSize());
+                            }
+                        }
+                    });
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        titleMoveThread.start();
+
         timeView.setText(getIntent().getStringExtra("time"));
         titleView.setText(getIntent().getStringExtra("title"));
         switch(getIntent().getStringExtra("sound")) {
             case "alarm1":
                 mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
                 break;
+            case "alarm2":
+                mediaPlayer = MediaPlayer.create(this, R.raw.alarm2);
+                break;
+            case "alarm3":
+                mediaPlayer = MediaPlayer.create(this, R.raw.alarm3);
+                break;
+            case "alarm4":
+                mediaPlayer = MediaPlayer.create(this, R.raw.alarm4);
+                break;
+            case "alarm5":
+                mediaPlayer = MediaPlayer.create(this, R.raw.alarm5);
+                break;
             case "alarm6":
-                System.out.println("HAHAHAHAHA");
                 Uri uriSound = getIntent().getParcelableExtra("uri_sound");
                 mediaPlayer = mediaPlayer.create(this, uriSound);
                 break;
@@ -63,6 +151,7 @@ public class AlarmRing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer.stop();
+                isAlarmStopped = true;
             }
         });
 

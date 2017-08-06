@@ -36,6 +36,8 @@ public class SmartAlarm extends AppCompatActivity {
     private List<Boolean> alarmsActivated;
     private List<Integer> alarmsHours;
     private List<Integer> alarmsMinutes;
+    private List<String> alarmsTitle;
+    private List<Integer> alarmsSound;
     private List<Runnable> listThreadAlarms;
     private Uri uriImage;
     private DialogAddImage dialogAddImage;
@@ -65,6 +67,8 @@ public class SmartAlarm extends AppCompatActivity {
         listThreadAlarms = new ArrayList<>();
         alarmsHours = new ArrayList<>();
         alarmsMinutes = new ArrayList<>();
+        alarmsTitle = new ArrayList<>();
+        alarmsSound = new ArrayList<>();
 
         alarmsActivated = new ArrayList<>();
         list_view_activates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -95,7 +99,7 @@ public class SmartAlarm extends AppCompatActivity {
                                     View view,
                                     final int position,
                                     long id) {
-                dialogRemove=new DialogRemove(SmartAlarm.this,SmartAlarm.this,position,alarmsHours.get(position).toString(),alarmsMinutes.get(position).toString());
+                dialogRemove=new DialogRemove(SmartAlarm.this,SmartAlarm.this,position,alarmsHours.get(position).toString(),alarmsMinutes.get(position).toString(),alarmsTitle.get(position),alarmsSound.get(position));
                 if(isAlarmSix ==true)
                 {
                     dialogRemove.getAlarms().add("alarm6");
@@ -147,10 +151,12 @@ public class SmartAlarm extends AppCompatActivity {
         return true;
     }
 
-    public void setNewAlarm(String time,String title, int hour, int minute)
+    public void setNewAlarm(String time,String title, int hour, int minute, int soundSelected)
     {
         alarmsHours.add(hour);
         alarmsMinutes.add(minute);
+        alarmsTitle.add(title);
+        alarmsSound.add(soundSelected);
         HashMap<String,String> mapOfTheNewAlarm = new HashMap<>();
         mapOfTheNewAlarm.put("alarm", time);
         mapOfTheNewAlarm.put("title", title);
@@ -162,10 +168,12 @@ public class SmartAlarm extends AppCompatActivity {
         adapter_activates.notifyDataSetChanged();
     }
 
-    public void changeAlarm(String time, String title, int position, int hour, int minute)
+    public void changeAlarm(String time, String title, int position, int hour, int minute, int soundSelected)
     {
         alarmsHours.set(position,hour);
         alarmsMinutes.set(position,minute);
+        alarmsTitle.set(position,title);
+        alarmsSound.set(position,soundSelected);
         HashMap<String,String> mapOfTheNewAlarm = new HashMap<>();
         mapOfTheNewAlarm.put("alarm", time);
         mapOfTheNewAlarm.put("title", title);
@@ -177,6 +185,8 @@ public class SmartAlarm extends AppCompatActivity {
     {
         alarmsHours.remove(position);
         alarmsMinutes.remove(position);
+        alarmsTitle.remove(position);
+        alarmsSound.remove(position);
         listMapOfEachAlarm.remove(position);
         adapter_alarms.notifyDataSetChanged();
 
