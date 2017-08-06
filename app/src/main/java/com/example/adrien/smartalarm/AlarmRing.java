@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -155,6 +156,8 @@ public class AlarmRing extends AppCompatActivity {
             }
         });
 
+        //Toolbar toolbar = (Toolbar) findViewById(android.R.id.t.my_awesome_toolbar)
+
         mainLayout = (RelativeLayout) findViewById(R.id.main_layout);
 
         uriImage=getIntent().getParcelableExtra("uri_image");
@@ -201,4 +204,11 @@ public class AlarmRing extends AppCompatActivity {
         super.onStop();
         wl.release();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mediaPlayer.stop();
+    }
+
 }

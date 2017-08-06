@@ -12,7 +12,13 @@ public class BackgroundService extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        Intent intentToRingAlarm = new Intent();
+        System.out.println("HERE 2");
+        Intent intentToRingAlarm = new Intent(this, AlarmRing.class);
+        intentToRingAlarm.putExtra("time",intent.getStringExtra("time"));
+        intentToRingAlarm.putExtra("title",intent.getStringExtra("title"));
+        intentToRingAlarm.putExtra("uri_image",intent.getParcelableExtra("uri_image"));
+        intentToRingAlarm.putExtra("uri_sound",intent.getParcelableExtra("uri_sound"));
+        intentToRingAlarm.putExtra("sound",intent.getStringExtra("sound"));
         startActivity(intent);
     }
 }

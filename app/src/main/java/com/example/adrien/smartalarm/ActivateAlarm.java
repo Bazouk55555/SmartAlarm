@@ -35,6 +35,7 @@ public class ActivateAlarm implements Runnable{
                 intent_to_alarm_ring.putExtra("uri_image",smartAlarm.getUriImage());
                 intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
+                System.out.println("HERE 1");
                 smartAlarm.startActivity(intent_to_alarm_ring);
                 continueThread=false;
             }

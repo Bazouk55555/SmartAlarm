@@ -91,138 +91,47 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
         redArrowForShortTime= new Handler(Looper.getMainLooper());
 
         arrow_up1 = (ImageView) findViewById(R.id.arrow_up1);
-        prepareArrows(arrow_up1, hours);
-
-        //arrow_up1 = (ImageView) findViewById(R.id.arrow_up1);
-        /*arrow_up1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isShortPressed)
-                {
-                    arrow_up1.setImageResource(R.drawable.ic_arrow_up_red);
-                    int number = (Integer.parseInt(hours.getText().toString()) + 1) % 24;
-                    String text_number = String.valueOf(number);
-                    if (number > -1 && number < 10) {
-                        text_number = "0" + text_number;
-                    }
-                    hours.setText(text_number);
-                    redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_up1, R.drawable.ic_arrow_up), 150);
-                }
-            }
-        });
-
-        arrow_up1.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                isShortPressed=false;
-                arrow_up1.setImageResource(R.drawable.ic_arrow_up_red);
-                Thread longClickThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while(isLongPressed) {
-                            main_activity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    int number = (Integer.parseInt(hours.getText().toString()) + 1) % 24;
-                                    String text_number = String.valueOf(number);
-                                    if (number > -1 && number < 10) {
-                                        text_number = "0" + text_number;
-                                    }
-                                    hours.setText(text_number);
-                                }
-                            });
-                            try {
-                                Thread.sleep(200);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-                longClickThread.start();
-                return false;
-            }
-        });
-        arrow_up1.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        isLongPressed=true;
-                        isShortPressed=true;
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isLongPressed=false;
-                        redArrowForShortTime.post(new redArrowRunnable(arrow_up1, R.drawable.ic_arrow_up));
-                        break;
-                }
-                return false;
-            }
-        });*/
-
-        arrow_down1 = (ImageView) findViewById(R.id.arrow_down1);
-        arrow_down1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                arrow_down1.setImageResource(R.drawable.ic_arrow_down_red);
-                int number = ((Integer.parseInt(hours.getText().toString())-1)+24)%24;
-                String text_number= String.valueOf(number);
-                if(number>-1 && number<10)
-                {
-                    text_number="0"+text_number;
-                }
-                hours.setText(text_number);
-                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_down1, R.drawable.ic_arrow_down),150);
-            }
-        });
+        prepareArrows(arrow_up1, hours, R.drawable.ic_arrow_up, R.drawable.ic_arrow_up_red, true);
 
         arrow_up2 = (ImageView) findViewById(R.id.arrow_up2);
-        arrow_up2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                arrow_up2.setImageResource(R.drawable.ic_arrow_up_red);
-                int number = (Integer.parseInt(minutes.getText().toString())+1)%60;
-                String text_number= String.valueOf(number);
-                if(number>-1 && number<10)
-                {
-                    text_number="0"+text_number;
-                }
-                minutes.setText(text_number);
-                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_up2, R.drawable.ic_arrow_up),150);
-            }
-        });
+        prepareArrows(arrow_up2, minutes, R.drawable.ic_arrow_up, R.drawable.ic_arrow_up_red, true);
+
+        arrow_down1 = (ImageView) findViewById(R.id.arrow_down1);
+        prepareArrows(arrow_down1, hours, R.drawable.ic_arrow_down, R.drawable.ic_arrow_down_red, false);
 
         arrow_down2 = (ImageView) findViewById(R.id.arrow_down2);
-        arrow_down2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                arrow_down2.setImageResource(R.drawable.ic_arrow_down_red);
-                int number = ((Integer.parseInt(minutes.getText().toString())-1)+60)%60;
-                String text_number= String.valueOf(number);
-                if(number>-1 && number<10)
-                {
-                    text_number="0"+text_number;
-                }
-                minutes.setText(text_number);
-                redArrowForShortTime.postDelayed(new redArrowRunnable(arrow_down2, R.drawable.ic_arrow_down),150);
-            }
-        });
+        prepareArrows(arrow_down2, minutes, R.drawable.ic_arrow_down, R.drawable.ic_arrow_down_red, false);
     }
 
-    private void prepareArrows(final ImageView arrow, final EditText editTextTime) {
+    private void prepareArrows(final ImageView arrow, final EditText editTextTime, final int arrowDrawable, final int arrowRedDrawable, final boolean isAdded) {
         arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isShortPressed)
                 {
-                    arrow.setImageResource(R.drawable.ic_arrow_up_red);
-                    int number = (Integer.parseInt(hours.getText().toString()) + 1) % 24;
+                    arrow.setImageResource(arrowRedDrawable);
+                    int number;
+                    if(isAdded==true && editTextTime==hours){
+                        number = (Integer.parseInt(editTextTime.getText().toString()) + 1) % 24;
+                    }
+                    else if(isAdded==false && editTextTime==hours)
+                    {
+                        number = ((Integer.parseInt(editTextTime.getText().toString()) - 1)+24) % 24;
+                    }
+                    else if(isAdded==true && editTextTime==minutes)
+                    {
+                        number = (Integer.parseInt(editTextTime.getText().toString()) + 1) % 60;
+                    }
+                    else
+                    {
+                        number = ((Integer.parseInt(editTextTime.getText().toString()) - 1)+60) % 60;
+                    }
                     String text_number = String.valueOf(number);
                     if (number > -1 && number < 10) {
                         text_number = "0" + text_number;
                     }
                     editTextTime.setText(text_number);
-                    redArrowForShortTime.postDelayed(new redArrowRunnable(arrow, R.drawable.ic_arrow_up), 150);
+                    redArrowForShortTime.postDelayed(new redArrowRunnable(arrow, arrowDrawable), 150);
                 }
             }
         });
@@ -231,7 +140,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
             @Override
             public boolean onLongClick(View v) {
                 isShortPressed=false;
-                arrow.setImageResource(R.drawable.ic_arrow_up_red);
+                arrow.setImageResource(arrowRedDrawable);
                 Thread longClickThread = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -239,7 +148,22 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
                             main_activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    int number = (Integer.parseInt(editTextTime.getText().toString()) + 1) % 24;
+                                    int number;
+                                    if(isAdded==true && editTextTime==hours){
+                                        number = (Integer.parseInt(editTextTime.getText().toString()) + 1) % 24;
+                                    }
+                                    else if(isAdded==false && editTextTime==hours)
+                                    {
+                                        number = ((Integer.parseInt(editTextTime.getText().toString()) - 1)+24) % 24;
+                                    }
+                                    else if(isAdded==true && editTextTime==minutes)
+                                    {
+                                        number = (Integer.parseInt(editTextTime.getText().toString()) + 1) % 60;
+                                    }
+                                    else
+                                    {
+                                        number = ((Integer.parseInt(editTextTime.getText().toString()) - 1)+60) % 60;
+                                    }
                                     String text_number = String.valueOf(number);
                                     if (number > -1 && number < 10) {
                                         text_number = "0" + text_number;
@@ -269,7 +193,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
                         break;
                     case MotionEvent.ACTION_UP:
                         isLongPressed=false;
-                        redArrowForShortTime.post(new redArrowRunnable(arrow_up1, R.drawable.ic_arrow_up));
+                        redArrowForShortTime.post(new redArrowRunnable(arrow, arrowDrawable));
                         break;
                 }
                 return false;
