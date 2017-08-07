@@ -45,9 +45,6 @@ public class AlarmRing extends AppCompatActivity {
                         WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
                         WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-        System.out.println("show when locked: "+WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
-        System.out.println("turn screen on: "+WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-
         setContentView(R.layout.alarm_ring);
         timeView = (TextView) findViewById(R.id.time);
         titleView = (TextView) findViewById(R.id.title);
@@ -156,8 +153,6 @@ public class AlarmRing extends AppCompatActivity {
             }
         });
 
-        //Toolbar toolbar = (Toolbar) findViewById(android.R.id.t.my_awesome_toolbar)
-
         mainLayout = (RelativeLayout) findViewById(R.id.main_layout);
 
         uriImage=getIntent().getParcelableExtra("uri_image");
@@ -202,7 +197,9 @@ public class AlarmRing extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        wl.release();
+        if(wl.isHeld()) {
+            wl.release();
+        }
     }
 
     @Override

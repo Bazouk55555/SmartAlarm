@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 public class BackgroundService extends IntentService {
 
     public BackgroundService() {
-        super("");
+        super("a service");
     }
 
     @Override
@@ -19,6 +19,7 @@ public class BackgroundService extends IntentService {
         intentToRingAlarm.putExtra("uri_image",intent.getParcelableExtra("uri_image"));
         intentToRingAlarm.putExtra("uri_sound",intent.getParcelableExtra("uri_sound"));
         intentToRingAlarm.putExtra("sound",intent.getStringExtra("sound"));
-        startActivity(intent);
+        intentToRingAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intentToRingAlarm);
     }
 }

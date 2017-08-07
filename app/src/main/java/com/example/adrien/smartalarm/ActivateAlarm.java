@@ -2,6 +2,7 @@ package com.example.adrien.smartalarm;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Parcelable;
 
 import java.util.Calendar;
 
@@ -26,7 +27,7 @@ public class ActivateAlarm implements Runnable{
             int hourOfTheDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
             int minuteOfTheDay = Calendar.getInstance().get(Calendar.MINUTE);
             if (continueThread && smartAlarm.getAlarmsActivated().get(index) && smartAlarm.getAlarmsHours().get(index) == hourOfTheDay && smartAlarm.getAlarmsMinutes().get(index) == minuteOfTheDay) {
-                Intent intent_to_alarm_ring=new Intent(smartAlarm,AlarmRing.class);
+                Intent intent_to_alarm_ring=new Intent(smartAlarm,BackgroundService.class);
                 String hour = (smartAlarm.getAlarmsHours().get(index)>=0 && smartAlarm.getAlarmsHours().get(index)<10)? "0" + smartAlarm.getAlarmsHours().get(index) : "" + smartAlarm.getAlarmsHours().get(index);
                 String minute = (smartAlarm.getAlarmsMinutes().get(index)>=0 && smartAlarm.getAlarmsMinutes().get(index)<10)? "0" + smartAlarm.getAlarmsMinutes().get(index) : "" + smartAlarm.getAlarmsMinutes().get(index);
                 String time = hour+":"+minute;
@@ -36,7 +37,7 @@ public class ActivateAlarm implements Runnable{
                 intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
                 System.out.println("HERE 1");
-                smartAlarm.startActivity(intent_to_alarm_ring);
+                smartAlarm.startService(intent_to_alarm_ring);
                 continueThread=false;
             }
         }

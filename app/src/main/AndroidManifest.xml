@@ -24,6 +24,7 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
+        <service android:name=".BackgroundService"></service>
     </application>
 
 </manifest>

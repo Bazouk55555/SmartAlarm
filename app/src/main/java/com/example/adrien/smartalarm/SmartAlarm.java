@@ -133,8 +133,6 @@ public class SmartAlarm extends AppCompatActivity {
             case R.id.add_sound:
                 dialogAddSound = new DialogAddSound(this,this);
                 dialogAddSound.show();
-                dialog_add.getAlarms().add("alarm6");
-                isAlarmSix=true;
                 break;
             case R.id.add_image:
                 dialogAddImage = new DialogAddImage(this,this);
@@ -260,5 +258,15 @@ public class SmartAlarm extends AppCompatActivity {
     public MenuItem getTakeOffSoundMenuItem()
     {
         return takeOffSoundMenuItem;
+    }
+
+    public void setIsAlarmSix(boolean isAlarmSix)
+    {
+        this.isAlarmSix=isAlarmSix;
+    }
+
+    public DialogAdd getDialogAddImage()
+    {
+        return dialog_add;
     }
 }
