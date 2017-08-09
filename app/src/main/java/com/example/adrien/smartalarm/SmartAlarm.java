@@ -107,6 +107,14 @@ public class SmartAlarm extends AppCompatActivity {
                 dialogRemove.show();
             }
         });
+
+        System.out.println("LOLITA!!!!");
+        Sports questionSport = new Sports(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah");
+        SportsDAO sportsDAO = new SportsDAO(this);
+        sportsDAO.open();
+        System.out.println("HERE I AM");
+        sportsDAO.add(questionSport);
+        sportsDAO.close();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.adrien.smartalarm;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,9 +30,9 @@ public class AlarmRing extends AppCompatActivity {
     private Uri uriImage;
     private MediaPlayer mediaPlayer;
     private PowerManager.WakeLock wl;
-    Thread multiColorThread;
+    private Thread multiColorThread;
     boolean isAlarmStopped;
-    Thread titleMoveThread;
+    private Thread titleMoveThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +149,12 @@ public class AlarmRing extends AppCompatActivity {
         stopAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.stop();
+                SportsDAO sportsDAO = new SportsDAO(getBaseContext());
+                sportsDAO.open();
+                Sports test = sportsDAO.select(1);
+                DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this,test.getQuestion(),test.getAnswer(), mediaPlayer);
+                dialogNewGame.show();
+                //mediaPlayer.stop();
                 isAlarmStopped = true;
             }
         });
@@ -170,6 +176,13 @@ public class AlarmRing extends AppCompatActivity {
             Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
             mainLayout.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmapImage));
         }
+        SportsDAO sportsDAO = new SportsDAO(getBaseContext());
+        sportsDAO.open();
+        Sports test = sportsDAO.select(1);
+        sportsDAO.close();
+        System.out.println("BEFOREETAPE1!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(test.getAnswer());
+        System.out.println("BEFOREETAPE2!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     /*@Override
