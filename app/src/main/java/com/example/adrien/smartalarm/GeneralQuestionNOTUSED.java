@@ -1,14 +1,14 @@
 package com.example.adrien.smartalarm;
 
-public class GeneralCatalog {
+public class GeneralQuestionNOTUSED {
 
     private long id;
     private String category;
 
-    public GeneralCatalog(long id, String category) {
+    public GeneralQuestionNOTUSED(long id, String category) {
         super();
         this.id = id;
-        this.category= category;
+        this.category = category;
     }
 
     public long getId() {

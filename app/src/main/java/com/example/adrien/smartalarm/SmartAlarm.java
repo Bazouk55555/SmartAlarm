@@ -30,9 +30,9 @@ public class SmartAlarm extends AppCompatActivity {
     private ListView list_view_alarms;
     private ListView list_view_activates;
     private List<HashMap<String, String>> listMapOfEachAlarm;
-    private List<String> listActivates;
+    private List<HashMap<String, Integer>> listMapOfActivates;
     private SimpleAdapter adapter_alarms;
-    private ArrayAdapter adapter_activates;
+    private SimpleAdapter adapter_activates;
     private List<Boolean> alarmsActivated;
     private List<Integer> alarmsHours;
     private List<Integer> alarmsMinutes;
@@ -57,10 +57,11 @@ public class SmartAlarm extends AppCompatActivity {
         list_view_alarms=(ListView)findViewById(R.id.list_alarm);
         list_view_activates=(ListView)findViewById(R.id.list_activate);
         listMapOfEachAlarm = new ArrayList<>();
-        listActivates = new ArrayList<>();
+        listMapOfActivates = new ArrayList<>();
         adapter_alarms = new SimpleAdapter(this,listMapOfEachAlarm, R.layout.item_alarm, new String[] {"alarm", "title"},
                 new int[] {R.id.time, R.id.title });
-        adapter_activates = new ArrayAdapter(this, R.layout.item_activate, listActivates);
+        adapter_activates = new SimpleAdapter(this,listMapOfActivates, R.layout.item_activate, new String[] {"alarm_drawable"},
+                new int[] {R.id.activate});
         list_view_alarms.setAdapter(adapter_alarms);
         list_view_activates.setAdapter(adapter_activates);
 
@@ -74,19 +75,17 @@ public class SmartAlarm extends AppCompatActivity {
         list_view_activates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final TextView activatedTextView = (TextView)view.findViewById(R.id.activate);
+                final ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
                 final View alarmView = list_view_alarms.getChildAt(position);
-                if(activatedTextView.getCurrentTextColor()==getResources().getColor(black)){
-                    activatedTextView.setTextColor(getResources().getColor(blue));
-                    activatedTextView.setText("ACTIVATE");
-                    activatedTextView.setBackgroundColor(getResources().getColor(R.color.dark));
+                if(alarmsActivated.get(position)==true){
+                    activatedImageView.setImageResource(R.drawable.alarm_off);
+                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmsActivated.set(position,false);
                 }
                 else{
-                    activatedTextView.setTextColor(getResources().getColor(black));
-                    activatedTextView.setText("Deactivate");
-                    activatedTextView.setBackgroundColor(getResources().getColor(R.color.bright));
+                    activatedImageView.setImageResource(R.drawable.alarm_on);
+                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.bright));
                     alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
                     alarmsActivated.set(position,true);
                 }
@@ -108,12 +107,10 @@ public class SmartAlarm extends AppCompatActivity {
             }
         });
 
-        System.out.println("LOLITA!!!!");
-        Sports questionSport = new Sports(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah");
-        SportsDAO sportsDAO = new SportsDAO(this);
+        Question question = new Question(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah");
+        BaseDAO sportsDAO = new SportsDAO(this);
         sportsDAO.open();
-        System.out.println("HERE I AM");
-        sportsDAO.add(questionSport);
+        ((SportsDAO)sportsDAO).add(question);
         sportsDAO.close();
     }
 
@@ -163,6 +160,7 @@ public class SmartAlarm extends AppCompatActivity {
         alarmsMinutes.add(minute);
         alarmsTitle.add(title);
         alarmsSound.add(soundSelected);
+
         HashMap<String,String> mapOfTheNewAlarm = new HashMap<>();
         mapOfTheNewAlarm.put("alarm", time);
         mapOfTheNewAlarm.put("title", title);
@@ -170,7 +168,9 @@ public class SmartAlarm extends AppCompatActivity {
         adapter_alarms.notifyDataSetChanged();
 
         alarmsActivated.add(true);
-        listActivates.add("Deactivate");
+        HashMap<String,Integer> mapOfTheAlarmDrawable = new HashMap<>();
+        mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
+        listMapOfActivates.add(mapOfTheAlarmDrawable);
         adapter_activates.notifyDataSetChanged();
     }
 
@@ -197,7 +197,7 @@ public class SmartAlarm extends AppCompatActivity {
         adapter_alarms.notifyDataSetChanged();
 
         alarmsActivated.remove(position);
-        listActivates.remove(position);
+        listMapOfActivates.remove(position);
         adapter_activates.notifyDataSetChanged();
     }
 

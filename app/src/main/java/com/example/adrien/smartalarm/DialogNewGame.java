@@ -2,9 +2,11 @@ package com.example.adrien.smartalarm;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +19,9 @@ public class DialogNewGame extends Dialog {
     private Button oKButton = null;
     private MediaPlayer mediaPlayer;
     private String answer;
+    private AlarmRing alarmRing;
 
-    public DialogNewGame(@NonNull Context context, String question, String answer, MediaPlayer mediaPlayer) {
+    public DialogNewGame(@NonNull Context context, String question, String answer, MediaPlayer mediaPlayer, AlarmRing alarmRing) {
         super(context);
         setContentView(R.layout.dialog_start_game);
 
@@ -26,6 +29,7 @@ public class DialogNewGame extends Dialog {
         this.questionTextView.setText(question);
         this.answer = answer;
         this.mediaPlayer = mediaPlayer;
+        this.alarmRing = alarmRing;
     }
 
     @Override
@@ -42,6 +46,7 @@ public class DialogNewGame extends Dialog {
                 {
                     mediaPlayer.stop();
                     DialogNewGame.this.dismiss();
+                    alarmRing.onBackPressed();
                 }
             }
         });

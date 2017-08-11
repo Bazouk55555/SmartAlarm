@@ -3,21 +3,20 @@ package com.example.adrien.smartalarm;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-public abstract class SportsBaseDAO {
+public abstract class BaseDAO {
     // Nous sommes à la première version de la base
     // Si je décide de la mettre à jour, il faudra changer cet attribut
-    protected final static int VERSION = 2;
+    protected final static int VERSION = 1;
     protected final static String DATABASE = "database";
 
     protected SQLiteDatabase mDb = null;
-    protected DatabaseSportsHandler sportsHandler = null;
+    protected AbstractDatabaseHandler databaseHandler = null;
 
-    public SportsBaseDAO(Context pContext) {
-        this.sportsHandler = new DatabaseSportsHandler(pContext, DATABASE, null, VERSION);
-    }
+    public static final String QUESTION = "Question";
+    public static final String ANSWER = "Answer";
 
     public SQLiteDatabase open() {
-        mDb = sportsHandler.getWritableDatabase();
+        mDb = databaseHandler.getWritableDatabase();
         return mDb;
     }
 

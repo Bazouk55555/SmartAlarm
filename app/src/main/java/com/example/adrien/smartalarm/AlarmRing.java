@@ -149,12 +149,11 @@ public class AlarmRing extends AppCompatActivity {
         stopAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SportsDAO sportsDAO = new SportsDAO(getBaseContext());
+                BaseDAO sportsDAO = new SportsDAO(getBaseContext());
                 sportsDAO.open();
-                Sports test = sportsDAO.select(1);
-                DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this,test.getQuestion(),test.getAnswer(), mediaPlayer);
+                Question test = ((SportsDAO) sportsDAO).select();
+                DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this,test.getQuestion(),test.getAnswer(), mediaPlayer, AlarmRing.this);
                 dialogNewGame.show();
-                //mediaPlayer.stop();
                 isAlarmStopped = true;
             }
         });
@@ -176,13 +175,6 @@ public class AlarmRing extends AppCompatActivity {
             Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
             mainLayout.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmapImage));
         }
-        SportsDAO sportsDAO = new SportsDAO(getBaseContext());
-        sportsDAO.open();
-        Sports test = sportsDAO.select(1);
-        sportsDAO.close();
-        System.out.println("BEFOREETAPE1!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(test.getAnswer());
-        System.out.println("BEFOREETAPE2!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     /*@Override

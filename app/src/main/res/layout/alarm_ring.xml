@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_layout">
-    <!--android:background="@drawable/adrien_and_dogs">-->
 
     <LinearLayout
         android:orientation="vertical"
