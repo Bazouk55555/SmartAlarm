@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.example.adrien.smartalarm.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
 
+        this.setCanceledOnTouchOutside(false);
         list_tone = (Spinner) findViewById(R.id.list_tone);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(main_activity, android.R.layout.simple_spinner_dropdown_item, alarms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

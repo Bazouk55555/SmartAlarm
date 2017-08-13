@@ -13,18 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SmartAlarm"
+        <activity android:name=".mainActivity.SmartAlarm"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlarmRing"
+        <activity android:name=".AfterAlarmRing.AlarmRing"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
-        <service android:name=".BackgroundService"></service>
+        <service android:name=".AfterAlarmRing.BackgroundService"></service>
     </application>
 
 </manifest>

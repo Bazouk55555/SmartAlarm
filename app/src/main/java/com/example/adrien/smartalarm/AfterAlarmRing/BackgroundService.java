@@ -1,8 +1,10 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.AfterAlarmRing;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+
+import com.example.adrien.smartalarm.AfterAlarmRing.AlarmRing;
 
 public class BackgroundService extends IntentService {
 
@@ -19,6 +21,7 @@ public class BackgroundService extends IntentService {
         intentToRingAlarm.putExtra("uri_image",intent.getParcelableExtra("uri_image"));
         intentToRingAlarm.putExtra("uri_sound",intent.getParcelableExtra("uri_sound"));
         intentToRingAlarm.putExtra("sound",intent.getStringExtra("sound"));
+        intentToRingAlarm.putExtra("activate_game",intent.getBooleanExtra("activate_game",false));
         intentToRingAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intentToRingAlarm);
     }

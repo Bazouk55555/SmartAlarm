@@ -1,8 +1,8 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Parcelable;
+
+import com.example.adrien.smartalarm.AfterAlarmRing.BackgroundService;
 
 import java.util.Calendar;
 
@@ -19,7 +19,6 @@ public class ActivateAlarm implements Runnable{
         this.index=index;
         this.sound=sound;
         this.title=title;
-        System.out.println("HAHA:"+sound);
     }
 
     public void run(){
@@ -36,7 +35,8 @@ public class ActivateAlarm implements Runnable{
                 intent_to_alarm_ring.putExtra("uri_image",smartAlarm.getUriImage());
                 intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
-                System.out.println("HERE 1");
+                System.out.println("FIRST: "+ smartAlarm.isActivateGame());
+                intent_to_alarm_ring.putExtra("activate_game",smartAlarm.isActivateGame());
                 smartAlarm.startService(intent_to_alarm_ring);
                 continueThread=false;
             }

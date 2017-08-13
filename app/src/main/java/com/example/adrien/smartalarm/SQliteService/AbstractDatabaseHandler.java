@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.SQliteService;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,13 +8,19 @@ public abstract class AbstractDatabaseHandler extends SQLiteOpenHelper {
     public static final String ID_KEY = "id";
     public static final String QUESTION = "Question";
     public static final String ANSWER = "Answer";
+    public static final String WRONG_ANSWER_1 = "First";
+    public static final String WRONG_ANSWER_2 = "Second";
+    public static final String WRONG_ANSWER_3 = "Third";
 
     public static String TABLE_NAME;
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     ID_KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     QUESTION + " TEXT, " +
-                    ANSWER + " TEXT);";
+                    ANSWER + " TEXT, " +
+                    WRONG_ANSWER_1 + " TEXT, " +
+                    WRONG_ANSWER_2 + " TEXT, " +
+                    WRONG_ANSWER_3 + " TEXT);";
     public static final String TABLE_DROP = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
 
     public AbstractDatabaseHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

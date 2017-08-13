@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,31 +11,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class DialogAddImage extends Dialog {
+import com.example.adrien.smartalarm.R;
 
-    public static int AUTHORIZATION_IMAGE=1;
+public class DialogAddSound extends Dialog {
+
+    public static int AUTHORIZATION_SOUND=2;
     private Button cancel = null;
     private Button ok = null;
-    private Button lookForImage = null;
+    private Button lookForSound = null;
     private SmartAlarm smartAlarm;
     private Uri uriDialog;
 
-    public DialogAddImage(@NonNull Context context, SmartAlarm smartAlarm) {
+    public DialogAddSound(@NonNull Context context, SmartAlarm smartAlarm) {
         super(context);
         this.smartAlarm=smartAlarm;
+        uriDialog=null;
     }
 
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        setContentView(R.layout.dialog_add_image);
+        setContentView(R.layout.dialog_add_sound);
+        this.setCanceledOnTouchOutside(false);
 
         cancel = (Button)findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 uriDialog=null;
-                DialogAddImage.this.dismiss();
+                DialogAddSound.this.dismiss();
             }
         });
 
@@ -43,19 +47,21 @@ public class DialogAddImage extends Dialog {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                smartAlarm.setUriImage(uriDialog);
+                smartAlarm.setUriSound(uriDialog);
                 if(uriDialog!=null) {
-                    smartAlarm.getTakeOffImageMenuItem().setEnabled(true);
+                    smartAlarm.getTakeOffSoundMenuItem().setEnabled(true);
                 }
-                DialogAddImage.this.dismiss();
+                smartAlarm.setIsAlarmSix(false);
+                smartAlarm.getDialogAddImage().getAlarms().add("alarm6");
+                DialogAddSound.this.dismiss();
             }
         });
 
-        lookForImage = (Button) findViewById(R.id.button_image);
-        lookForImage.setOnClickListener(new View.OnClickListener(){
+        lookForSound = (Button) findViewById(R.id.button_sound);
+        lookForSound.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                smartAlarm.startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI),AUTHORIZATION_IMAGE);
+                smartAlarm.startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.INTERNAL_CONTENT_URI),AUTHORIZATION_SOUND);
             }
         });
     }
@@ -70,9 +76,10 @@ public class DialogAddImage extends Dialog {
         return uriDialog;
     }
 
-    public void setImageOk() {
+    public void setSoundOk()
+    {
         if (uriDialog != null) {
-            ((ImageView) findViewById(R.id.image_loaded)).setImageResource(R.drawable.ic_loaded);
+            ((ImageView) findViewById(R.id.sound_loaded)).setImageResource(R.drawable.ic_loaded);
         }
     }
 }

@@ -1,6 +1,5 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.AfterAlarmRing;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,12 +11,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.adrien.smartalarm.R;
+import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
+import com.example.adrien.smartalarm.SQliteService.Question;
+import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -149,12 +152,20 @@ public class AlarmRing extends AppCompatActivity {
         stopAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseDAO sportsDAO = new SportsDAO(getBaseContext());
-                sportsDAO.open();
-                Question test = ((SportsDAO) sportsDAO).select();
-                DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this,test.getQuestion(),test.getAnswer(), mediaPlayer, AlarmRing.this);
-                dialogNewGame.show();
-                isAlarmStopped = true;
+                if(getIntent().getBooleanExtra("activate_game",false)) {
+                    AbstractBaseDAO sportsDAO = new SportsDAO(getBaseContext());
+                    sportsDAO.open();
+                    Question question = ((SportsDAO) sportsDAO).select();
+                    DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, question, mediaPlayer, AlarmRing.this);
+                    dialogNewGame.show();
+                    isAlarmStopped = true;
+                }
+                else
+                    {
+                        isAlarmStopped = true;
+                        mediaPlayer.stop();
+                        onBackPressed();
+                    }
             }
         });
 

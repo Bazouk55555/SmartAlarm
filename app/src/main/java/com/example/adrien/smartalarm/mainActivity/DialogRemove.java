@@ -1,10 +1,12 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.adrien.smartalarm.R;
 
 import java.util.List;
 

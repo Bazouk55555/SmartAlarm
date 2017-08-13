@@ -1,8 +1,7 @@
-package com.example.adrien.smartalarm;
+package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,18 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
+
+import com.example.adrien.smartalarm.R;
+import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
+import com.example.adrien.smartalarm.SQliteService.Question;
+import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.example.adrien.smartalarm.R.color.blue;
-import static com.example.adrien.smartalarm.R.color.black;
 
 public class SmartAlarm extends AppCompatActivity {
 
@@ -46,12 +46,15 @@ public class SmartAlarm extends AppCompatActivity {
     private DialogAddSound dialogAddSound;
     private MenuItem takeOffSoundMenuItem;
     private boolean isAlarmSix = false;
+    private CheckBox activateGame = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_alarm);
+
+        activateGame = (CheckBox) findViewById(R.id.checkbox);
 
         dialog_add=new DialogAdd(this,this);
         list_view_alarms=(ListView)findViewById(R.id.list_alarm);
@@ -107,9 +110,9 @@ public class SmartAlarm extends AppCompatActivity {
             }
         });
 
-        Question question = new Question(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah");
-        BaseDAO sportsDAO = new SportsDAO(this);
-        sportsDAO.open();
+        Question question = new Question(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah", "Anna", "3Anna", "Boulboulah");
+        SportsDAO sportsDAO = new SportsDAO(this);
+        ((SportsDAO)sportsDAO).open();
         ((SportsDAO)sportsDAO).add(question);
         sportsDAO.close();
     }
@@ -276,5 +279,10 @@ public class SmartAlarm extends AppCompatActivity {
     public DialogAdd getDialogAddImage()
     {
         return dialog_add;
+    }
+
+    public boolean isActivateGame()
+    {
+        return activateGame.isChecked();
     }
 }
