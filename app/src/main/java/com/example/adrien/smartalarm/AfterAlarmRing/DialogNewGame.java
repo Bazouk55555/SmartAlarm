@@ -57,11 +57,11 @@ public class DialogNewGame extends Dialog {
                     public void run() {
                         RadioButton radioButtonClicked = (RadioButton)findViewById(answerRadioGroup.getCheckedRadioButtonId());
                         System.out.println("MAYBE HERE: "+ numberQuestion);
-                        if(numberQuestion<5) {
+                        if(numberQuestion<alarmRing.NUMBER_OF_QUESTIONS) {
                             if (radioButtonClicked.getText().equals(questions.get(numberQuestion).getAnswer())) {
                                 System.out.println("NUMBER IS: " + numberQuestion);
                                 numberQuestion++;
-                                if(numberQuestion<5) {
+                                if(numberQuestion<alarmRing.NUMBER_OF_QUESTIONS) {
                                     alarmRing.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

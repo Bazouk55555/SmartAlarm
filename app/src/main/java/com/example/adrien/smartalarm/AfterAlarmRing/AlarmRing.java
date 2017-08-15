@@ -25,6 +25,7 @@ import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.List;
 
 public class AlarmRing extends AppCompatActivity {
@@ -39,6 +40,7 @@ public class AlarmRing extends AppCompatActivity {
     boolean isAlarmStopped;
     private Thread backgroundmultiColorThread;
     private Thread titleMoveThread;
+    public final int NUMBER_OF_QUESTIONS = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,10 +201,11 @@ public class AlarmRing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(getIntent().getBooleanExtra("activate_game",false)) {
-                    SportsDAO sportsDAO = new SportsDAO(getBaseContext());
+                    AbstractBaseDAO sportsDAO = new SportsDAO(getBaseContext());
                     sportsDAO.open();
-                    List<Question> question = ((SportsDAO) sportsDAO).select();
-                    DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, question, mediaPlayer, AlarmRing.this);
+                    List<Question> questions = sportsDAO.select(NUMBER_OF_QUESTIONS);
+                    Collections.shuffle(questions);
+                    DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
                     dialogNewGame.show();
                     isAlarmStopped = true;
                 }

@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.adrien.smartalarm.SQliteService.AbstractDatabaseHandler;
 
+import java.util.List;
+
 public abstract class AbstractBaseDAO {
     // Nous sommes à la première version de la base
     // Si je décide de la mettre à jour, il faudra changer cet attribut
@@ -12,6 +14,7 @@ public abstract class AbstractBaseDAO {
 
     protected SQLiteDatabase mDb = null;
     protected AbstractDatabaseHandler databaseHandler = null;
+    protected final int NUMBER_OF_QUESTION = 6;
 
     public SQLiteDatabase open() {
         mDb = databaseHandler.getWritableDatabase();
@@ -22,9 +25,9 @@ public abstract class AbstractBaseDAO {
         mDb.close();
     }
 
-    public SQLiteDatabase getDb() {
-        return mDb;
-    }
+    public abstract void add(Question question);
+
+    public abstract List<Question> select(int number);
 
 }
 

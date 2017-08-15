@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.adrien.smartalarm.R;
+import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
 import com.example.adrien.smartalarm.SQliteService.Question;
 import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
@@ -117,7 +118,7 @@ public class SmartAlarm extends AppCompatActivity {
         for(int i = 0 ;i<5;i++) {
             arrayToFillTheQuestion.add("");
         }
-        SportsDAO sportsDAO = new SportsDAO(this);
+        AbstractBaseDAO sportsDAO = new SportsDAO(this);
         sportsDAO.open();
         try{
             InputStream ips=getResources().openRawResource(R.raw.sport_questions);;
@@ -125,7 +126,6 @@ public class SmartAlarm extends AppCompatActivity {
             BufferedReader br=new BufferedReader(ipsr);
             String line;
             while ((line=br.readLine())!=null){
-                //System.out.println(line);
                 int wordInArray=0;
                 for(int i=0;i<line.length();i++)
                 {
@@ -138,7 +138,6 @@ public class SmartAlarm extends AppCompatActivity {
                         wordInArray++;
                     }
                 }
-                //System.out.println("Q: "+arrayToFillTheQuestion[0]+" A: "+arrayToFillTheQuestion[1]+" F: "+arrayToFillTheQuestion[2]+" S: "+arrayToFillTheQuestion[3]+" T: "+arrayToFillTheQuestion[3]);
                 Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),arrayToFillTheQuestion.get(2),arrayToFillTheQuestion.get(3),arrayToFillTheQuestion.get(4));
                 sportsDAO.add(question);
                 for(int i = 0 ;i<5;i++) {
