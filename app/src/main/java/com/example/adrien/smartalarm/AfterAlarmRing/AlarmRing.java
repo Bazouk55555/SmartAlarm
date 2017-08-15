@@ -13,7 +13,8 @@ import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,17 +25,19 @@ import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 
 public class AlarmRing extends AppCompatActivity {
     private TextView timeView=null;
     private TextView titleView=null;
-    private Button stopAlarm=null;
+    private ImageView stopAlarm=null;
     private RelativeLayout mainLayout=null;
     private Uri uriImage;
     private MediaPlayer mediaPlayer;
     private PowerManager.WakeLock wl;
     private Thread multiColorThread;
     boolean isAlarmStopped;
+    private Thread backgroundmultiColorThread;
     private Thread titleMoveThread;
 
     @Override
@@ -52,6 +55,8 @@ public class AlarmRing extends AppCompatActivity {
         setContentView(R.layout.alarm_ring);
         timeView = (TextView) findViewById(R.id.time);
         titleView = (TextView) findViewById(R.id.title);
+        timeView.setText(getIntent().getStringExtra("time"));
+        titleView.setText(getIntent().getStringExtra("title"));
 
         isAlarmStopped=false;
         multiColorThread = new Thread(new Runnable(){
@@ -94,37 +99,74 @@ public class AlarmRing extends AppCompatActivity {
         });
         multiColorThread.start();
 
-        titleMoveThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("STEP 1");
-                Handler titleMoveHandler = new Handler(Looper.getMainLooper());
-                while(!isAlarmStopped)
-                {
-                    titleMoveHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if(titleView.getX()<findViewById(R.id.second_layout).getWidth()) {
-                                titleView.setX(titleView.getX()+10);
+        if(!titleView.getText().toString().isEmpty()) {
+            titleMoveThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("STEP 1");
+                    Handler titleMoveHandler = new Handler(Looper.getMainLooper());
+                    while (!isAlarmStopped) {
+                        titleMoveHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (titleView.getX() < findViewById(R.id.second_layout).getWidth()) {
+                                    titleView.setX(titleView.getX() + 10);
+                                } else {
+                                    titleView.setX(-titleView.getTextSize());
+                                }
                             }
-                            else
-                            {
-                                titleView.setX(-titleView.getTextSize());
-                            }
+                        });
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                    });
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
-            }
-        });
-        titleMoveThread.start();
+            });
+            titleMoveThread.start();
 
-        timeView.setText(getIntent().getStringExtra("time"));
-        titleView.setText(getIntent().getStringExtra("title"));
+            backgroundmultiColorThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Handler multiColorHandler = new Handler(Looper.getMainLooper());
+                    final LinearLayout backgroundTitle = (LinearLayout) findViewById(R.id.background_title);
+                    while (!isAlarmStopped) {
+                        multiColorHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                backgroundTitle.setBackgroundColor(getResources().getColor(R.color.red));
+                            }
+                        }, 200);
+                        multiColorHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                backgroundTitle.setBackgroundColor(getResources().getColor(R.color.blue));
+                            }
+                        }, 400);
+                        multiColorHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                backgroundTitle.setBackgroundColor(getResources().getColor(R.color.orange));
+                            }
+                        }, 600);
+                        multiColorHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                backgroundTitle.setBackgroundColor(getResources().getColor(R.color.black));
+                            }
+                        }, 800);
+                        try {
+                            Thread.sleep(800);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+            backgroundmultiColorThread.start();
+        }
+
         switch(getIntent().getStringExtra("sound")) {
             case "alarm1":
                 mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
@@ -148,14 +190,18 @@ public class AlarmRing extends AppCompatActivity {
         }
 
         mediaPlayer.start();
-        stopAlarm = (Button)findViewById(R.id.stop_alarm);
+        stopAlarm = (ImageView)findViewById(R.id.stop_alarm);
+        if(!getIntent().getBooleanExtra("activate_game",false))
+        {
+            stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
+        }
         stopAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(getIntent().getBooleanExtra("activate_game",false)) {
-                    AbstractBaseDAO sportsDAO = new SportsDAO(getBaseContext());
+                    SportsDAO sportsDAO = new SportsDAO(getBaseContext());
                     sportsDAO.open();
-                    Question question = ((SportsDAO) sportsDAO).select();
+                    List<Question> question = ((SportsDAO) sportsDAO).select();
                     DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, question, mediaPlayer, AlarmRing.this);
                     dialogNewGame.show();
                     isAlarmStopped = true;

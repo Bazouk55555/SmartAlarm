@@ -15,10 +15,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
 import com.example.adrien.smartalarm.SQliteService.Question;
 import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -110,10 +113,43 @@ public class SmartAlarm extends AppCompatActivity {
             }
         });
 
-        Question question = new Question(0, "Quel est le nom de la fille de Sonia", "3Iboulboulah", "Anna", "3Anna", "Boulboulah");
+        List<String>arrayToFillTheQuestion = new ArrayList<>();
+        for(int i = 0 ;i<5;i++) {
+            arrayToFillTheQuestion.add("");
+        }
         SportsDAO sportsDAO = new SportsDAO(this);
-        ((SportsDAO)sportsDAO).open();
-        ((SportsDAO)sportsDAO).add(question);
+        sportsDAO.open();
+        try{
+            InputStream ips=getResources().openRawResource(R.raw.sport_questions);;
+            InputStreamReader ipsr=new InputStreamReader(ips);
+            BufferedReader br=new BufferedReader(ipsr);
+            String line;
+            while ((line=br.readLine())!=null){
+                //System.out.println(line);
+                int wordInArray=0;
+                for(int i=0;i<line.length();i++)
+                {
+                    if(line.charAt(i)!=',')
+                    {
+                        arrayToFillTheQuestion.set(wordInArray, arrayToFillTheQuestion.get(wordInArray)+line.charAt(i));
+                    }
+                    else
+                    {
+                        wordInArray++;
+                    }
+                }
+                //System.out.println("Q: "+arrayToFillTheQuestion[0]+" A: "+arrayToFillTheQuestion[1]+" F: "+arrayToFillTheQuestion[2]+" S: "+arrayToFillTheQuestion[3]+" T: "+arrayToFillTheQuestion[3]);
+                Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),arrayToFillTheQuestion.get(2),arrayToFillTheQuestion.get(3),arrayToFillTheQuestion.get(4));
+                sportsDAO.add(question);
+                for(int i = 0 ;i<5;i++) {
+                    arrayToFillTheQuestion.set(i,"");
+                }
+            }
+            br.close();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
         sportsDAO.close();
     }
 

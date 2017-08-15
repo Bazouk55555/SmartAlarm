@@ -26,18 +26,20 @@ public class DialogNewGame extends Dialog {
     private RadioGroup answerRadioGroup = null;
     private Button oKButton = null;
     private MediaPlayer mediaPlayer;
-    private Question question;
+    private List<Question> questions;
     private AlarmRing alarmRing;
+    private int numberQuestion;
 
-    public DialogNewGame(@NonNull Context context, Question question, MediaPlayer mediaPlayer, AlarmRing alarmRing) {
+    public DialogNewGame(@NonNull Context context, List<Question> questions, MediaPlayer mediaPlayer, AlarmRing alarmRing) {
         super(context);
         setContentView(R.layout.dialog_start_game);
 
         this.questionTextView = (TextView) findViewById(R.id.question);
-        this.questionTextView.setText(question.getQuestion());
-        this.question = question;
+        this.questionTextView.setText(questions.get(0).getQuestion());
+        this.questions = questions;
         this.mediaPlayer = mediaPlayer;
         this.alarmRing = alarmRing;
+        numberQuestion=0;
     }
 
     @Override
@@ -45,35 +47,66 @@ public class DialogNewGame extends Dialog {
         super.onCreate(savedInstance);
         this.setCanceledOnTouchOutside(false);
 
-        List<Integer> randomNumberList = new ArrayList<>();
+        updateQuestion(0);
+        oKButton = (Button) findViewById(R.id.ok);
+        oKButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Thread answeringQuestionsThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        RadioButton radioButtonClicked = (RadioButton)findViewById(answerRadioGroup.getCheckedRadioButtonId());
+                        System.out.println("MAYBE HERE: "+ numberQuestion);
+                        if(numberQuestion<5) {
+                            if (radioButtonClicked.getText().equals(questions.get(numberQuestion).getAnswer())) {
+                                System.out.println("NUMBER IS: " + numberQuestion);
+                                numberQuestion++;
+                                if(numberQuestion<5) {
+                                    alarmRing.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            updateQuestion(numberQuestion);
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    mediaPlayer.stop();
+                                    DialogNewGame.this.dismiss();
+                                    alarmRing.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            alarmRing.onBackPressed();
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+                });
+                answeringQuestionsThread.start();
+            }
+        });
+    }
+
+    private void updateQuestion(int numberQuestion)
+    {
+        questionTextView.setText(questions.get(numberQuestion).getQuestion());
+        List<Integer> randomNumberList= new ArrayList<>();
         randomNumberList.add(0);
         randomNumberList.add(1);
         randomNumberList.add(2);
         randomNumberList.add(3);
         answerRadioGroup = (RadioGroup) findViewById(R.id.answer_radio_group);
         int randomNumber = new Random().nextInt(4);
-        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(question.getAnswer());
+        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(questions.get(numberQuestion).getAnswer());
         randomNumberList.remove(randomNumber);
         randomNumber = new Random().nextInt(3);
-        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(question.getWrongAnswer1());
+        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(questions.get(numberQuestion).getWrongAnswer1());
         randomNumberList.remove(randomNumber);
         randomNumber = new Random().nextInt(2);
-        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(question.getWrongAnswer2());
+        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(questions.get(numberQuestion).getWrongAnswer2());
         randomNumberList.remove(randomNumber);
-        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(0))).setText(question.getWrongAnswer3());
-
-        oKButton = (Button) findViewById(R.id.ok);
-        oKButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RadioButton radioButtonClicked = (RadioButton)findViewById(answerRadioGroup.getCheckedRadioButtonId());
-                if(radioButtonClicked.getText().equals(question.getAnswer()))
-                {
-                    mediaPlayer.stop();
-                    DialogNewGame.this.dismiss();
-                    alarmRing.onBackPressed();
-                }
-            }
-        });
+        ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(0))).setText(questions.get(numberQuestion).getWrongAnswer3());
     }
 }

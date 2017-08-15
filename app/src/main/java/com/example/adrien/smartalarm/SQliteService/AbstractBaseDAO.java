@@ -7,7 +7,7 @@ import com.example.adrien.smartalarm.SQliteService.AbstractDatabaseHandler;
 public abstract class AbstractBaseDAO {
     // Nous sommes à la première version de la base
     // Si je décide de la mettre à jour, il faudra changer cet attribut
-    protected final static int VERSION = 2;
+    protected final static int VERSION = 5;
     protected final static String DATABASE = "database";
 
     protected SQLiteDatabase mDb = null;

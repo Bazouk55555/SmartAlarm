@@ -26,12 +26,11 @@ public class HistoryDAO extends AbstractBaseDAO {
         value.put(databaseHandler.WRONG_ANSWER_1, question.getWrongAnswer1());
         value.put(databaseHandler.WRONG_ANSWER_2, question.getWrongAnswer2());
         value.put(databaseHandler.WRONG_ANSWER_3, question.getWrongAnswer3());
-        mDb.insert(databaseHandler.TABLE_NAME, null, value);
-        mDb.insert(databaseHandler.TABLE_NAME, null, value);
+        mDb.insert(((DatabaseHistoryHandler)databaseHandler).TABLE_NAME, null, value);
     }
 
     public Question select() {
-        Cursor c = mDb.rawQuery("select * from " + databaseHandler.TABLE_NAME + " LIMIT ?", new String[]{"1"});
+        Cursor c = mDb.rawQuery("select * from " + ((DatabaseHistoryHandler)databaseHandler).TABLE_NAME + " LIMIT ?", new String[]{"1"});
         int idKey=0;
         String question="";
         String answer="";
@@ -48,7 +47,7 @@ public class HistoryDAO extends AbstractBaseDAO {
             wrongAnswer3 = c.getString(5);
         }
         c.close();
-        return new Question(idKey,question,answer,wrongAnswer1,wrongAnswer2,wrongAnswer3);
+        return new Question(question,answer,wrongAnswer1,wrongAnswer2,wrongAnswer3);
     }
 }
 

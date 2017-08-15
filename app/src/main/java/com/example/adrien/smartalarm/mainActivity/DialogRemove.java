@@ -38,7 +38,15 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String time = hours.getText().toString()+":"+minutes.getText().toString();
+                String hour = hours.getText().toString();
+                String minute = minutes.getText().toString();
+                if (hour.length()==1) {
+                    hour = "0" + hour;
+                }
+                if (minute.length()==1) {
+                    minute = "0" + minute;
+                }
+                String time = hour+":"+minute;
                 String title = editTitle.getText().toString();
                 List<Runnable> listThread = main_activity.getListThreadAlarms();
                 ((ActivateAlarm)listThread.get(position)).setContinueThread(false);
