@@ -1,0 +1,6 @@
+Who was the winner of the UEFA Champions League in 2017?,MReal Madrid,Barcelona,Juventus,PSG
+Who was the winner of the UEFA Champions League in 2016?,MReal Madrid,Barcelona,Atletico Madrid,PSG
+Who was the winner of the UEFA Champions League in 2015?,MBarcelona,Real Madrid,Juventus,Atletico Madrid
+Who was the winner of the UEFA Champions League in 2014?,MReal Madrid,Barcelona,Dortmund,Bayern Munich
+Who was the winner of the UEFA Champions League in 2013?,MBayern Munich,Barcelona,Real Madrid,Chelsea
+Who was the winner of the UEFA Champions League in 2012?,MChelsea,Barcelona,Real Madrid,Bayern Munich
