@@ -26,10 +26,30 @@
                 app:showAsAction="ifRoom" />
 
             <item
-            android:id="@+id/takeof_image"
-            android:enabled="false"
-            android:title="Take of the image"
-            app:showAsAction="ifRoom" />
+                android:id="@+id/takeof_image"
+                android:enabled="false"
+                android:title="Take of the image"
+                app:showAsAction="ifRoom" />
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/game"
+        android:icon="@drawable/ic_game"
+        android:title="Configuration of the game"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/category_of_question"
+                android:title="Choose the category"
+                app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/number_of_question"
+                android:title="number_of_question"
+                app:showAsAction="ifRoom" />
         </menu>
 
     </item>

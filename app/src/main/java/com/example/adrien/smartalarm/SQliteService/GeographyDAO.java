@@ -12,15 +12,7 @@ import java.util.Random;
 public class GeographyDAO extends AbstractBaseDAO {
 
     public GeographyDAO(Context pContext) {
-        this.databaseHandler = new DatabaseGeographyHandler(pContext, DATABASE, null, VERSION);
-    }
-
-    public void close() {
-        mDb.close();
-    }
-
-    public SQLiteDatabase getDb() {
-        return mDb;
+        super(pContext);
     }
 
     public void add(Question question) {
@@ -30,10 +22,10 @@ public class GeographyDAO extends AbstractBaseDAO {
         value.put(databaseHandler.WRONG_ANSWER_1, question.getWrongAnswer1());
         value.put(databaseHandler.WRONG_ANSWER_2, question.getWrongAnswer2());
         value.put(databaseHandler.WRONG_ANSWER_3, question.getWrongAnswer3());
-        mDb.insert(((DatabaseGeographyHandler)databaseHandler).TABLE_NAME, null, value);
+        mDb.insert(databaseHandler.TABLE_GEOGRAPHY_NAME, null, value);
     }
     public List<Question> select(int numberOfQuestion) {
-        String query = "select * from " + ((DatabaseSportsHandler)databaseHandler).TABLE_NAME ;
+        String query = "select * from " + databaseHandler.TABLE_GEOGRAPHY_NAME ;
         List<Integer>numbersChosen = new ArrayList<>();
         int randomNumber = new Random().nextInt(NUMBER_OF_QUESTION)+1;
         System.out.println("FIRST RANDOM NUMBER="+ randomNumber);
@@ -66,7 +58,6 @@ public class GeographyDAO extends AbstractBaseDAO {
             wrongAnswer3 = c.getString(5);
             questionList.add(new Question(question,answer,wrongAnswer1,wrongAnswer2,wrongAnswer3));
         }
-        System.out.println("THE SIZE IS: "+questionList.size());
         c.close();
         return questionList;
     }

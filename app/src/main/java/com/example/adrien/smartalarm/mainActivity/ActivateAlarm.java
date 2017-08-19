@@ -35,8 +35,14 @@ public class ActivateAlarm implements Runnable{
                 intent_to_alarm_ring.putExtra("uri_image",smartAlarm.getUriImage());
                 intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
-                System.out.println("FIRST: "+ smartAlarm.isActivateGame());
                 intent_to_alarm_ring.putExtra("activate_game",smartAlarm.isActivateGame());
+                if(smartAlarm.getCategory()!=null) {
+                    intent_to_alarm_ring.putExtra("category", smartAlarm.getCategory());
+                }
+                else
+                {
+                    intent_to_alarm_ring.putExtra("category", "Random");
+                }
                 smartAlarm.startService(intent_to_alarm_ring);
                 continueThread=false;
             }

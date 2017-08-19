@@ -1,20 +1,21 @@
 package com.example.adrien.smartalarm.SQliteService;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-
-import com.example.adrien.smartalarm.SQliteService.AbstractDatabaseHandler;
 
 import java.util.List;
 
 public abstract class AbstractBaseDAO {
-    // Nous sommes à la première version de la base
-    // Si je décide de la mettre à jour, il faudra changer cet attribut
-    protected final static int VERSION = 5;
+    protected final static int VERSION = 1;
     protected final static String DATABASE = "database";
 
     protected SQLiteDatabase mDb = null;
-    protected AbstractDatabaseHandler databaseHandler = null;
+    protected DatabaseHandler databaseHandler = null;
     protected final int NUMBER_OF_QUESTION = 6;
+
+    public AbstractBaseDAO(Context pContext) {
+        this.databaseHandler = new DatabaseHandler(pContext, DATABASE, null, VERSION);
+    }
 
     public SQLiteDatabase open() {
         mDb = databaseHandler.getWritableDatabase();

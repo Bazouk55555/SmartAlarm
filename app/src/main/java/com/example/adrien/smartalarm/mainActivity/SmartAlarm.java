@@ -1,6 +1,7 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,10 @@ import android.widget.SimpleAdapter;
 
 import com.example.adrien.smartalarm.R;
 import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
+import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
+import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
+import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
+import com.example.adrien.smartalarm.SQliteService.MusicDAO;
 import com.example.adrien.smartalarm.SQliteService.Question;
 import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
@@ -51,12 +56,15 @@ public class SmartAlarm extends AppCompatActivity {
     private MenuItem takeOffSoundMenuItem;
     private boolean isAlarmSix = false;
     private CheckBox activateGame = null;
+    private String category;
+    private CategoryDialog categoryDialog=null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_alarm);
+        System.out.println("HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH");
 
         activateGame = (CheckBox) findViewById(R.id.checkbox);
 
@@ -114,42 +122,11 @@ public class SmartAlarm extends AppCompatActivity {
             }
         });
 
-        List<String>arrayToFillTheQuestion = new ArrayList<>();
-        for(int i = 0 ;i<5;i++) {
-            arrayToFillTheQuestion.add("");
-        }
-        AbstractBaseDAO sportsDAO = new SportsDAO(this);
-        sportsDAO.open();
-        try{
-            InputStream ips=getResources().openRawResource(R.raw.sport_questions);;
-            InputStreamReader ipsr=new InputStreamReader(ips);
-            BufferedReader br=new BufferedReader(ipsr);
-            String line;
-            while ((line=br.readLine())!=null){
-                int wordInArray=0;
-                for(int i=0;i<line.length();i++)
-                {
-                    if(line.charAt(i)!=',')
-                    {
-                        arrayToFillTheQuestion.set(wordInArray, arrayToFillTheQuestion.get(wordInArray)+line.charAt(i));
-                    }
-                    else
-                    {
-                        wordInArray++;
-                    }
-                }
-                Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),arrayToFillTheQuestion.get(2),arrayToFillTheQuestion.get(3),arrayToFillTheQuestion.get(4));
-                sportsDAO.add(question);
-                for(int i = 0 ;i<5;i++) {
-                    arrayToFillTheQuestion.set(i,"");
-                }
-            }
-            br.close();
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-        sportsDAO.close();
+        /*addQuestionOnASubject(new CinemaDAO(this));
+        addQuestionOnASubject(new GeographyDAO(this));
+        addQuestionOnASubject(new HistoryDAO(this));
+        addQuestionOnASubject(new MusicDAO(this));
+        addQuestionOnASubject(new SportsDAO(this));*/
     }
 
     @Override
@@ -188,6 +165,12 @@ public class SmartAlarm extends AppCompatActivity {
                 uriSound=null;
                 isAlarmSix=false;
                 takeOffSoundMenuItem.setEnabled(false);
+            case R.id.category_of_question:
+                if(categoryDialog==null)
+                {
+                 categoryDialog=new CategoryDialog(this,this);
+                }
+                categoryDialog.show();
         }
         return true;
     }
@@ -320,4 +303,68 @@ public class SmartAlarm extends AppCompatActivity {
     {
         return activateGame.isChecked();
     }
+
+    public void setCategory(String category)
+    {
+        this.category=category;
+    }
+
+    public String getCategory()
+    {
+        return category;
+    }
+
+    /*private void addQuestionOnASubject(AbstractBaseDAO abstractBaseDAO)
+    {
+        List<String>arrayToFillTheQuestion = new ArrayList<>();
+        for(int i = 0 ;i<5;i++) {
+            arrayToFillTheQuestion.add("");
+        }
+        abstractBaseDAO.open();
+        try{
+            InputStream ips=null;
+            if (abstractBaseDAO instanceof CinemaDAO){
+                ips=getResources().openRawResource(R.raw.cinema_questions);
+            }
+            else if (abstractBaseDAO instanceof GeographyDAO){
+                ips=getResources().openRawResource(R.raw.geography_questions);
+            }
+            else if (abstractBaseDAO instanceof HistoryDAO){
+                ips=getResources().openRawResource(R.raw.history_questions);
+            }
+            else if (abstractBaseDAO instanceof MusicDAO){
+                ips=getResources().openRawResource(R.raw.music_questions);
+            }
+            else if(abstractBaseDAO instanceof SportsDAO){
+                ips=getResources().openRawResource(R.raw.sport_questions);
+            }
+            InputStreamReader ipsr=new InputStreamReader(ips);
+            BufferedReader br=new BufferedReader(ipsr);
+            String line;
+            while ((line=br.readLine())!=null){
+                int wordInArray=0;
+                for(int i=0;i<line.length();i++)
+                {
+                    if(line.charAt(i)!=',')
+                    {
+                        arrayToFillTheQuestion.set(wordInArray, arrayToFillTheQuestion.get(wordInArray)+line.charAt(i));
+                    }
+                    else
+                    {
+                        wordInArray++;
+                    }
+                }
+                Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),arrayToFillTheQuestion.get(2),arrayToFillTheQuestion.get(3),arrayToFillTheQuestion.get(4));
+                abstractBaseDAO.add(question);
+                for(int i = 0 ;i<5;i++) {
+                    arrayToFillTheQuestion.set(i,"");
+                }
+            }
+            br.close();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        abstractBaseDAO.close();
+    }*/
 }

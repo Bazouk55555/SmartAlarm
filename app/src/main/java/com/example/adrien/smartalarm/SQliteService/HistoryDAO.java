@@ -12,15 +12,7 @@ import java.util.Random;
 public class HistoryDAO extends AbstractBaseDAO {
 
     public HistoryDAO(Context pContext) {
-        this.databaseHandler = new DatabaseHistoryHandler(pContext, DATABASE, null, VERSION);
-    }
-
-    public void close() {
-        mDb.close();
-    }
-
-    public SQLiteDatabase getDb() {
-        return mDb;
+        super(pContext);
     }
 
     public void add(Question question) {
@@ -30,11 +22,11 @@ public class HistoryDAO extends AbstractBaseDAO {
         value.put(databaseHandler.WRONG_ANSWER_1, question.getWrongAnswer1());
         value.put(databaseHandler.WRONG_ANSWER_2, question.getWrongAnswer2());
         value.put(databaseHandler.WRONG_ANSWER_3, question.getWrongAnswer3());
-        mDb.insert(((DatabaseHistoryHandler)databaseHandler).TABLE_NAME, null, value);
+        mDb.insert(databaseHandler.TABLE_HISTORY_NAME, null, value);
     }
 
     public List<Question> select(int numberOfQuestion) {
-        String query = "select * from " + ((DatabaseSportsHandler)databaseHandler).TABLE_NAME ;
+        String query = "select * from " + databaseHandler.TABLE_HISTORY_NAME ;
         List<Integer>numbersChosen = new ArrayList<>();
         int randomNumber = new Random().nextInt(NUMBER_OF_QUESTION)+1;
         System.out.println("FIRST RANDOM NUMBER="+ randomNumber);
@@ -67,7 +59,6 @@ public class HistoryDAO extends AbstractBaseDAO {
             wrongAnswer3 = c.getString(5);
             questionList.add(new Question(question,answer,wrongAnswer1,wrongAnswer2,wrongAnswer3));
         }
-        System.out.println("THE SIZE IS: "+questionList.size());
         c.close();
         return questionList;
     }
