@@ -26,7 +26,7 @@ public abstract class AbstractBaseDAO {
         mDb.close();
     }
 
-    public abstract void add(Question question);
+    public abstract int getNumberOfQuestion();
 
     public abstract List<Question> select(int number);
 

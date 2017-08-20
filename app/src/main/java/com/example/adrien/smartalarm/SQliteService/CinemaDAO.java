@@ -17,14 +17,9 @@ public class CinemaDAO extends AbstractBaseDAO {
         super(pContext);
     }
 
-    public void add(Question question) {
-        ContentValues value = new ContentValues();
-        value.put(databaseHandler.QUESTION, question.getQuestion());
-        value.put(databaseHandler.ANSWER, question.getAnswer());
-        value.put(databaseHandler.WRONG_ANSWER_1, question.getWrongAnswer1());
-        value.put(databaseHandler.WRONG_ANSWER_2, question.getWrongAnswer2());
-        value.put(databaseHandler.WRONG_ANSWER_3, question.getWrongAnswer3());
-        mDb.insert(databaseHandler.TABLE_CINEMA_NAME, null, value);
+    public int getNumberOfQuestion()
+    {
+        return mDb.rawQuery("select * from " + databaseHandler.TABLE_CINEMA_NAME,null).getCount() ;
     }
 
     public List<Question> select(int numberOfQuestion) {

@@ -56,15 +56,16 @@ public class SmartAlarm extends AppCompatActivity {
     private MenuItem takeOffSoundMenuItem;
     private boolean isAlarmSix = false;
     private CheckBox activateGame = null;
-    private String category;
+    private String category = "Random Category";
     private CategoryDialog categoryDialog=null;
+    private int numberOfQuestions=0;
+    private NumberQuestionsDialog numberQuestionsDialog=null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_alarm);
-        System.out.println("HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH");
 
         activateGame = (CheckBox) findViewById(R.id.checkbox);
 
@@ -121,12 +122,6 @@ public class SmartAlarm extends AppCompatActivity {
                 dialogRemove.show();
             }
         });
-
-        /*addQuestionOnASubject(new CinemaDAO(this));
-        addQuestionOnASubject(new GeographyDAO(this));
-        addQuestionOnASubject(new HistoryDAO(this));
-        addQuestionOnASubject(new MusicDAO(this));
-        addQuestionOnASubject(new SportsDAO(this));*/
     }
 
     @Override
@@ -148,7 +143,6 @@ public class SmartAlarm extends AppCompatActivity {
                     dialog_add.getAlarms().add("alarm6");
                 }
                 dialog_add.show();
-
                 break;
             case R.id.add_sound:
                 dialogAddSound = new DialogAddSound(this,this);
@@ -161,16 +155,26 @@ public class SmartAlarm extends AppCompatActivity {
             case R.id.takeof_image:
                 uriImage=null;
                 takeOffImageMenuItem.setEnabled(false);
+                break;
             case R.id.takeof_sound:
                 uriSound=null;
                 isAlarmSix=false;
                 takeOffSoundMenuItem.setEnabled(false);
+                break;
             case R.id.category_of_question:
                 if(categoryDialog==null)
                 {
                  categoryDialog=new CategoryDialog(this,this);
                 }
                 categoryDialog.show();
+                break;
+            case R.id.number_of_question:
+                if(numberQuestionsDialog==null)
+                {
+                    numberQuestionsDialog=new NumberQuestionsDialog(this,this);
+                }
+                numberQuestionsDialog.show();
+                break;
         }
         return true;
     }
@@ -307,6 +311,7 @@ public class SmartAlarm extends AppCompatActivity {
     public void setCategory(String category)
     {
         this.category=category;
+        numberQuestionsDialog = new NumberQuestionsDialog(this,this);
     }
 
     public String getCategory()
@@ -314,57 +319,11 @@ public class SmartAlarm extends AppCompatActivity {
         return category;
     }
 
-    /*private void addQuestionOnASubject(AbstractBaseDAO abstractBaseDAO)
-    {
-        List<String>arrayToFillTheQuestion = new ArrayList<>();
-        for(int i = 0 ;i<5;i++) {
-            arrayToFillTheQuestion.add("");
-        }
-        abstractBaseDAO.open();
-        try{
-            InputStream ips=null;
-            if (abstractBaseDAO instanceof CinemaDAO){
-                ips=getResources().openRawResource(R.raw.cinema_questions);
-            }
-            else if (abstractBaseDAO instanceof GeographyDAO){
-                ips=getResources().openRawResource(R.raw.geography_questions);
-            }
-            else if (abstractBaseDAO instanceof HistoryDAO){
-                ips=getResources().openRawResource(R.raw.history_questions);
-            }
-            else if (abstractBaseDAO instanceof MusicDAO){
-                ips=getResources().openRawResource(R.raw.music_questions);
-            }
-            else if(abstractBaseDAO instanceof SportsDAO){
-                ips=getResources().openRawResource(R.raw.sport_questions);
-            }
-            InputStreamReader ipsr=new InputStreamReader(ips);
-            BufferedReader br=new BufferedReader(ipsr);
-            String line;
-            while ((line=br.readLine())!=null){
-                int wordInArray=0;
-                for(int i=0;i<line.length();i++)
-                {
-                    if(line.charAt(i)!=',')
-                    {
-                        arrayToFillTheQuestion.set(wordInArray, arrayToFillTheQuestion.get(wordInArray)+line.charAt(i));
-                    }
-                    else
-                    {
-                        wordInArray++;
-                    }
-                }
-                Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),arrayToFillTheQuestion.get(2),arrayToFillTheQuestion.get(3),arrayToFillTheQuestion.get(4));
-                abstractBaseDAO.add(question);
-                for(int i = 0 ;i<5;i++) {
-                    arrayToFillTheQuestion.set(i,"");
-                }
-            }
-            br.close();
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-        abstractBaseDAO.close();
-    }*/
+    public void setNumberOfQuestions(int numberOfQuestions) {
+        this.numberOfQuestions = numberOfQuestions;
+    }
+
+    public int getNumberOfQuestions() {
+        return numberOfQuestions;
+    }
 }

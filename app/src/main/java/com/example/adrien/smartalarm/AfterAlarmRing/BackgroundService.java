@@ -22,6 +22,7 @@ public class BackgroundService extends IntentService {
         intentToRingAlarm.putExtra("uri_sound",intent.getParcelableExtra("uri_sound"));
         intentToRingAlarm.putExtra("sound",intent.getStringExtra("sound"));
         intentToRingAlarm.putExtra("category",intent.getStringExtra("category"));
+        intentToRingAlarm.putExtra("number_of_questions",intent.getIntExtra("number_of_questions",5));
         intentToRingAlarm.putExtra("activate_game",intent.getBooleanExtra("activate_game",false));
         intentToRingAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intentToRingAlarm);

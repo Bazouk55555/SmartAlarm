@@ -15,15 +15,9 @@ public class SportsDAO extends AbstractBaseDAO {
         super(pContext);
     }
 
-    public void add(Question question) {
-        ContentValues value = new ContentValues();
-        System.out.println("HERE PUREE!!!");
-        value.put(databaseHandler.QUESTION, question.getQuestion());
-        value.put(databaseHandler.ANSWER, question.getAnswer());
-        value.put(databaseHandler.WRONG_ANSWER_1, question.getWrongAnswer1());
-        value.put(databaseHandler.WRONG_ANSWER_2, question.getWrongAnswer2());
-        value.put(databaseHandler.WRONG_ANSWER_3, question.getWrongAnswer3());
-        mDb.insert(databaseHandler.TABLE_SPORTS_NAME, null, value);
+    public int getNumberOfQuestion()
+    {
+        return mDb.rawQuery("select * from " + databaseHandler.TABLE_SPORTS_NAME,null).getCount() ;
     }
 
     public List<Question> select(int numberOfQuestion) {

@@ -38,6 +38,7 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                checkBeforeSave();
                 String hour = hours.getText().toString();
                 String minute = minutes.getText().toString();
                 if (hour.length()==1) {

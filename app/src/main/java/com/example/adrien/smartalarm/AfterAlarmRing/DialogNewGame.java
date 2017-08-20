@@ -45,7 +45,7 @@ public class DialogNewGame extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        this.setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(false);
 
         updateQuestion(0);
         oKButton = (Button) findViewById(R.id.ok);
@@ -56,10 +56,10 @@ public class DialogNewGame extends Dialog {
                     @Override
                     public void run() {
                         RadioButton radioButtonClicked = (RadioButton)findViewById(answerRadioGroup.getCheckedRadioButtonId());
-                        if(numberQuestion<alarmRing.NUMBER_OF_QUESTIONS) {
+                        if(numberQuestion<alarmRing.getNumberOfQuestions()) {
                             if (radioButtonClicked.getText().equals(questions.get(numberQuestion).getAnswer())) {
                                 numberQuestion++;
-                                if(numberQuestion<alarmRing.NUMBER_OF_QUESTIONS) {
+                                if(numberQuestion<alarmRing.getNumberOfQuestions()) {
                                     alarmRing.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

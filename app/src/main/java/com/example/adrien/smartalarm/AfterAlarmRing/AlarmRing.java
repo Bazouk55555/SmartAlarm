@@ -44,10 +44,10 @@ public class AlarmRing extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private PowerManager.WakeLock wl;
     private Thread multiColorThread;
-    boolean isAlarmStopped;
+    private boolean isAlarmStopped;
     private Thread backgroundmultiColorThread;
     private Thread titleMoveThread;
-    public final int NUMBER_OF_QUESTIONS = 3;
+    private int numberOfQuestions = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,6 @@ public class AlarmRing extends AppCompatActivity {
             titleMoveThread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("STEP 1");
                     Handler titleMoveHandler = new Handler(Looper.getMainLooper());
                     while (!isAlarmStopped) {
                         titleMoveHandler.post(new Runnable() {
@@ -209,9 +208,9 @@ public class AlarmRing extends AppCompatActivity {
             public void onClick(View v) {
                 if(getIntent().getBooleanExtra("activate_game",false)) {
                     AbstractBaseDAO categoryDAO = chooseCategory();
-                    System.out.println("CATEGORY: "+ getIntent().getStringExtra("category"));
+                    numberOfQuestions = getIntent().getIntExtra("number_of_questions",5);
                     categoryDAO.open();
-                    List<Question> questions = categoryDAO.select(NUMBER_OF_QUESTIONS);
+                    List<Question> questions = categoryDAO.select(numberOfQuestions);
                     categoryDAO.close();
                     Collections.shuffle(questions);
                     DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
@@ -260,11 +259,14 @@ public class AlarmRing extends AppCompatActivity {
                 return abstractBaseDAOList.get(3);
             case "Sports":
                 return abstractBaseDAOList.get(4);
-            case "Random Category":
-                return abstractBaseDAOList.get(new Random().nextInt(5));
             default:
                 return abstractBaseDAOList.get(new Random().nextInt(5));
         }
+    }
+
+    public int getNumberOfQuestions()
+    {
+        return numberOfQuestions;
     }
 
     /*@Override

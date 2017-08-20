@@ -52,7 +52,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
 
-        this.setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(false);
         list_tone = (Spinner) findViewById(R.id.list_tone);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(main_activity, android.R.layout.simple_spinner_dropdown_item, alarms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -73,8 +73,15 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
         hours.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus==false && ((EditText)v).getText().toString().length() != 2 ) {
-                    ((EditText)v).setText("0" + ((EditText)v).getText().toString());
+                if (hasFocus==false){
+                    String hourModified = ((EditText)v).getText().toString();
+                    if(hourModified.isEmpty())
+                    {
+                        ((EditText)v).setText("00");
+                    }
+                    else if(hourModified.length()!= 2){
+                        ((EditText)v).setText("0" + ((EditText)v).getText().toString());
+                    }
                 }
             }
         });
@@ -84,8 +91,16 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
         minutes.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus==false && ((EditText)v).getText().toString().length() != 2 ) {
-                    ((EditText)v).setText("0" + ((EditText)v).getText().toString());
+                if (hasFocus==false){
+                    String minuteModified = ((EditText)v).getText().toString();
+                    if(minuteModified.isEmpty())
+                    {
+                        ((EditText)v).setText("00");
+                    }
+                    else if(minuteModified.length()!= 2)
+                    {
+                        ((EditText) v).setText("0" + ((EditText) v).getText().toString());
+                    }
                 }
             }
         });
@@ -206,6 +221,18 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
     public List<String> getAlarms()
     {
         return alarms;
+    }
+
+    public void checkBeforeSave()
+    {
+        if(hours.getText().toString().isEmpty())
+        {
+            hours.setText("00");
+        }
+        if(minutes.getText().toString().isEmpty())
+        {
+            minutes.setText("00");
+        }
     }
 
     private class TextWatcherTime implements TextWatcher

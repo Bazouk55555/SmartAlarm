@@ -31,7 +31,7 @@ public class DialogAddImage extends Dialog {
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.dialog_add_image);
-        this.setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(false);
 
         cancel = (Button)findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {

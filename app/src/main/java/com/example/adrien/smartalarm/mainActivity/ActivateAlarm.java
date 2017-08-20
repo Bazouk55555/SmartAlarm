@@ -39,10 +39,13 @@ public class ActivateAlarm implements Runnable{
                 if(smartAlarm.getCategory()!=null) {
                     intent_to_alarm_ring.putExtra("category", smartAlarm.getCategory());
                 }
-                else
-                {
-                    intent_to_alarm_ring.putExtra("category", "Random");
+                if(smartAlarm.getNumberOfQuestions()!=0) {
+                    intent_to_alarm_ring.putExtra("number_of_questions", smartAlarm.getNumberOfQuestions());
                 }
+                /*else
+                {
+                    intent_to_alarm_ring.putExtra("number_of_questions", 5);
+                }*/
                 smartAlarm.startService(intent_to_alarm_ring);
                 continueThread=false;
             }

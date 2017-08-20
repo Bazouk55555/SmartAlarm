@@ -26,6 +26,8 @@ public class CategoryDialog extends Dialog {
     {
         setContentView(R.layout.dialog_category_question);
         super.onCreate(savedInstance);
+        setCanceledOnTouchOutside(false);
+
         oKButton = (Button) findViewById(R.id.ok);
         categoryRadioGroup = (RadioGroup) findViewById(R.id.category_radio_group);
         oKButton.setOnClickListener(new View.OnClickListener() {
