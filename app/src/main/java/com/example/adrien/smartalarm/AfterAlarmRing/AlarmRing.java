@@ -1,6 +1,7 @@
 package com.example.adrien.smartalarm.AfterAlarmRing;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -47,7 +48,8 @@ public class AlarmRing extends AppCompatActivity {
     private boolean isAlarmStopped;
     private Thread backgroundmultiColorThread;
     private Thread titleMoveThread;
-    private int numberOfQuestions = 3;
+    private int numberOfQuestions;
+    DialogNewGame dialogNewGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,7 +215,7 @@ public class AlarmRing extends AppCompatActivity {
                     List<Question> questions = categoryDAO.select(numberOfQuestions);
                     categoryDAO.close();
                     Collections.shuffle(questions);
-                    DialogNewGame dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
+                    dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
                     dialogNewGame.show();
                     isAlarmStopped = true;
                 }
@@ -300,9 +302,17 @@ public class AlarmRing extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == DialogNewGame.CODE_DIALOG_BACK) {
+            if (resultCode == RESULT_OK) {
+                dialogNewGame.show();
+            }
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         mediaPlayer.stop();
     }
-
 }

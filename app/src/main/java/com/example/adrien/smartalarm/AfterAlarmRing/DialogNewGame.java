@@ -2,6 +2,7 @@ package com.example.adrien.smartalarm.AfterAlarmRing;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,6 +23,7 @@ import java.util.Random;
 
 public class DialogNewGame extends Dialog {
 
+    public static final int CODE_DIALOG_BACK =0;
     private TextView questionTextView = null;
     private RadioGroup answerRadioGroup = null;
     private Button oKButton = null;
@@ -29,6 +31,7 @@ public class DialogNewGame extends Dialog {
     private List<Question> questions;
     private AlarmRing alarmRing;
     private int numberQuestion;
+    private int numberRightQuestion=0;
 
     public DialogNewGame(@NonNull Context context, List<Question> questions, MediaPlayer mediaPlayer, AlarmRing alarmRing) {
         super(context);
@@ -57,27 +60,47 @@ public class DialogNewGame extends Dialog {
                     public void run() {
                         RadioButton radioButtonClicked = (RadioButton)findViewById(answerRadioGroup.getCheckedRadioButtonId());
                         if(numberQuestion<alarmRing.getNumberOfQuestions()) {
-                            if (radioButtonClicked.getText().equals(questions.get(numberQuestion).getAnswer())) {
-                                numberQuestion++;
-                                if(numberQuestion<alarmRing.getNumberOfQuestions()) {
-                                    alarmRing.runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            updateQuestion(numberQuestion);
-                                        }
-                                    });
+                            Boolean hasWon;
+                            if (radioButtonClicked.getText().equals(questions.get(numberQuestion).getAnswer()))
+                            {
+                                numberRightQuestion++;
+                                hasWon=true;
+                            }
+                            else
+                            {
+                                hasWon=false;
+                            }
+                            dismiss();
+                            numberQuestion++;
+                            if(numberQuestion<alarmRing.getNumberOfQuestions()) {
+                                alarmRing.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        updateQuestion(numberQuestion);
+                                    }
+                                });
+                                if(hasWon==true) {
+                                    Intent intentWin= new Intent(alarmRing, ImagesGame.class);
+                                    intentWin.putExtra("hasWon",true);
+                                    alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
                                 }
                                 else
                                 {
-                                    mediaPlayer.stop();
-                                    DialogNewGame.this.dismiss();
-                                    alarmRing.runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            alarmRing.onBackPressed();
-                                        }
-                                    });
+                                    Intent intentWin= new Intent(alarmRing, ImagesGame.class);
+                                    intentWin.putExtra("hasWon",false);
+                                    alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
                                 }
+                            }
+                            else
+                            {
+                                mediaPlayer.stop();
+                                DialogNewGame.this.dismiss();
+                                alarmRing.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        alarmRing.onBackPressed();
+                                    }
+                                });
                             }
                         }
                     }
@@ -106,5 +129,10 @@ public class DialogNewGame extends Dialog {
         ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(randomNumber))).setText(questions.get(numberQuestion).getWrongAnswer2());
         randomNumberList.remove(randomNumber);
         ((RadioButton) answerRadioGroup.getChildAt(randomNumberList.get(0))).setText(questions.get(numberQuestion).getWrongAnswer3());
+    }
+
+    @Override
+    public void onBackPressed()
+    {
     }
 }

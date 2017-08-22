@@ -24,6 +24,10 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
+        <activity android:name=".AfterAlarmRing.ImagesGame"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <service android:name=".AfterAlarmRing.BackgroundService"></service>
     </application>
 
