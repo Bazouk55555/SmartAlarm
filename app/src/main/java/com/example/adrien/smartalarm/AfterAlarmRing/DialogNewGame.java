@@ -72,6 +72,8 @@ public class DialogNewGame extends Dialog {
                             }
                             dismiss();
                             numberQuestion++;
+                            Intent intentWin= new Intent(alarmRing, ImagesGame.class);
+                            intentWin.putExtra("score",(int)(numberRightQuestion*100/numberQuestion));
                             if(numberQuestion<alarmRing.getNumberOfQuestions()) {
                                 alarmRing.runOnUiThread(new Runnable() {
                                     @Override
@@ -79,22 +81,15 @@ public class DialogNewGame extends Dialog {
                                         updateQuestion(numberQuestion);
                                     }
                                 });
-                                if(hasWon==true) {
-                                    Intent intentWin= new Intent(alarmRing, ImagesGame.class);
-                                    intentWin.putExtra("hasWon",true);
-                                    alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
-                                }
-                                else
-                                {
-                                    Intent intentWin= new Intent(alarmRing, ImagesGame.class);
-                                    intentWin.putExtra("hasWon",false);
-                                    alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
-                                }
+                                intentWin.putExtra("hasWon",hasWon);
+                                alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
                             }
                             else
                             {
                                 mediaPlayer.stop();
                                 DialogNewGame.this.dismiss();
+                                intentWin.putExtra("final",true);
+                                alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
                                 alarmRing.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
