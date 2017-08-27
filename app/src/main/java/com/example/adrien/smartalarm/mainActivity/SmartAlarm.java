@@ -5,6 +5,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.example.adrien.smartalarm.AfterAlarmRing.BackgroundService;
+import com.example.adrien.smartalarm.AfterAlarmRing.AlarmRing;
 import com.example.adrien.smartalarm.R;
 import com.example.adrien.smartalarm.SQliteService.Alarm;
 import com.example.adrien.smartalarm.SQliteService.AlarmBaseDAO;
@@ -39,9 +41,9 @@ public class SmartAlarm extends AppCompatActivity {
     private List<Boolean> alarmsActivated;
     private List<Integer> alarmsHours;
     private List<Integer> alarmsMinutes;
+    private List<String> alarmsTime;
     private List<String> alarmsTitle;
     private List<Integer> alarmsSound;
-    //private List<Runnable> listThreadAlarms;
     AlarmManager alarmManager;
     private Uri uriImage;
     private DialogAddImage dialogAddImage;
@@ -57,6 +59,7 @@ public class SmartAlarm extends AppCompatActivity {
     private NumberQuestionsDialog numberQuestionsDialog=null;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,10 +79,10 @@ public class SmartAlarm extends AppCompatActivity {
         list_view_alarms.setAdapter(adapter_alarms);
         list_view_activates.setAdapter(adapter_activates);
 
-        //listThreadAlarms = new ArrayList<>();
         alarmManager = (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
         alarmsHours = new ArrayList<>();
         alarmsMinutes = new ArrayList<>();
+        alarmsTime = new ArrayList<>();
         alarmsTitle = new ArrayList<>();
         alarmsSound = new ArrayList<>();
         alarmsActivated = new ArrayList<>();
@@ -91,8 +94,11 @@ public class SmartAlarm extends AppCompatActivity {
             System.out.println("je suis la frero!!!");
             for(Alarm alarm: alarmList) {
                 System.out.println("Nouvelle alarme avec ID="+alarm.getId()+" et time="+alarm.getTime());
+                String timeAlarm = alarm.getTime();
+                String titleAlarm = alarm.getTitle();
                 alarmsHours.add(alarm.getHour());
                 alarmsMinutes.add(alarm.getMinute());
+                alarmsTime.add(timeAlarm);
                 alarmsTitle.add(alarm.getTitle());
                 alarmsSound.add(alarm.getSound());
                 alarmsActivated.add(alarm.getActivated());
@@ -111,10 +117,34 @@ public class SmartAlarm extends AppCompatActivity {
                 }
                 listMapOfActivates.add(mapOfTheAlarmDrawable);
                 adapter_activates.notifyDataSetChanged();
-                Runnable activateAlarm = new ActivateAlarm(this,(int)alarm.getId()-1,"alarm"+(alarm.getSound()+1),alarm.getTitle());
-                //Thread threadAlarm = new Thread(activateAlarm);
-                //listThreadAlarms.add(activateAlarm);
-                //threadAlarm.start();
+
+                int index = (int)alarm.getId()-1;
+                Intent intent_to_alarm_ring=new Intent(this, AlarmRing.class);
+                intent_to_alarm_ring.putExtra("time",timeAlarm);
+                intent_to_alarm_ring.putExtra("title",titleAlarm);
+                intent_to_alarm_ring.putExtra("uri_image",uriImage);
+                intent_to_alarm_ring.putExtra("uri_sound",uriSound);
+                intent_to_alarm_ring.putExtra("sound","alarm"+(alarm.getSound()+1));
+                intent_to_alarm_ring.putExtra("activate_game",activateGame.isChecked());
+                System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
+                if(category!=null) {
+                    intent_to_alarm_ring.putExtra("category", category);
+                }
+                if(numberOfQuestions!=0) {
+                    intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
+                }
+                PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                        index, intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MINUTE, alarmsMinutes.get(index));
+                cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(index));
+                if(cal.getTime().before(Calendar.getInstance().getTime()))
+                {
+                    cal.add(Calendar.DAY_OF_YEAR,1);
+                }
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                        pendingIntent);
             }
             alarmBaseDAO.close();
         }
@@ -129,12 +159,38 @@ public class SmartAlarm extends AppCompatActivity {
                     activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmsActivated.set(position,false);
+                    Intent intent_to_alarm_ring=new Intent(SmartAlarm.this, AlarmRing.class);
+                    intent_to_alarm_ring.putExtra("time",alarmsTime.get(position));
+                    intent_to_alarm_ring.putExtra("title",alarmsTitle.get(position));
+                    intent_to_alarm_ring.putExtra("uri_image",uriImage);
+                    intent_to_alarm_ring.putExtra("uri_sound",uriSound);
+                    intent_to_alarm_ring.putExtra("sound","alarm"+(alarmsSound.get(position)+1));
+                    intent_to_alarm_ring.putExtra("activate_game",activateGame.isChecked());
+                    System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
+                    if(category!=null) {
+                        intent_to_alarm_ring.putExtra("category", category);
+                    }
+                    if(numberOfQuestions!=0) {
+                        intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
+                    }
+                    PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this,
+                            position, intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
+                    Calendar cal = Calendar.getInstance();
+                    cal.set(Calendar.SECOND, 0);
+                    cal.set(Calendar.MINUTE, alarmsMinutes.get(position));
+                    cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(position));
+                    if(cal.getTime().before(Calendar.getInstance().getTime()))
+                    {
+                        cal.add(Calendar.DAY_OF_YEAR,1);
+                    }
+                    alarmManager.cancel(pendingIntent);
                 }
                 else{
                     activatedImageView.setImageResource(R.drawable.alarm_on);
                     activatedImageView.setBackgroundColor(getResources().getColor(R.color.bright));
                     alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
                     alarmsActivated.set(position,true);
+                    setAlarmManager(position, "alarm"+(alarmsSound.get(position)+1), alarmsTitle.get(position));
                 }
             }
         });
@@ -214,6 +270,7 @@ public class SmartAlarm extends AppCompatActivity {
     {
         alarmsHours.add(hour);
         alarmsMinutes.add(minute);
+        alarmsTime.add(time);
         alarmsTitle.add(title);
         alarmsSound.add(soundSelected);
 
@@ -238,6 +295,7 @@ public class SmartAlarm extends AppCompatActivity {
     {
         alarmsHours.set(position,hour);
         alarmsMinutes.set(position,minute);
+        alarmsTime.set(position,time);
         alarmsTitle.set(position,title);
         alarmsSound.set(position,soundSelected);
 
@@ -256,6 +314,7 @@ public class SmartAlarm extends AppCompatActivity {
     {
         alarmsHours.remove(position);
         alarmsMinutes.remove(position);
+        alarmsTime.remove(position);
         alarmsTitle.remove(position);
         alarmsSound.remove(position);
 
@@ -286,14 +345,10 @@ public class SmartAlarm extends AppCompatActivity {
         return alarmsActivated;
     }
 
-    //public List<Runnable> getListThreadAlarms()
-    //{
-    //    return listThreadAlarms;
-    //}
-
-    public void setAlarmManager(int index,String sound,String title)
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void setAlarmManager(int index, String sound, String title)
     {
-        Intent intent_to_alarm_ring=new Intent(this,BackgroundService.class);
+        Intent intent_to_alarm_ring=new Intent(this, AlarmRing.class);
         String hour = (alarmsHours.get(index)>=0 && alarmsHours.get(index)<10)? "0" + alarmsHours.get(index) : "" + alarmsHours.get(index);
         String minute = (alarmsMinutes.get(index)>=0 && alarmsMinutes.get(index)<10)? "0" + alarmsMinutes.get(index) : "" + alarmsMinutes.get(index);
         String time = hour+":"+minute;
@@ -315,13 +370,25 @@ public class SmartAlarm extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MINUTE, alarmsMinutes.get(index));
-        cal.set(Calendar.HOUR, alarmsHours.get(index));
-        System.out.println(cal);
+        cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(index));
         if(cal.getTime().before(Calendar.getInstance().getTime()))
         {
             cal.add(Calendar.DAY_OF_YEAR,1);
         }
-        alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+
+        System.out.println("**********");
+        System.out.println(cal);
+        System.out.println(Calendar.getInstance());
+        System.out.println("**********");
+        System.out.println(cal.getTimeInMillis());
+        System.out.println(Calendar.getInstance().getTimeInMillis());
+        System.out.println("**********");
+        System.out.println(cal.getTime());
+        System.out.println(Calendar.getInstance().getTime());
+        System.out.println("**********");
+        System.out.println("INDEX= "+index);
+        System.out.println("**********");
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
                 pendingIntent);
     }
 
@@ -411,10 +478,6 @@ public class SmartAlarm extends AppCompatActivity {
     public void onBackPressed()
     {
         System.out.println("Before onBackPressed");
-        /*for(int i=0;i<listThreadAlarms.size();i++)
-        {
-            ((ActivateAlarm)listThreadAlarms.get(i)).setContinueThread(false);
-        }*/
         super.onBackPressed();
     }
 
@@ -428,10 +491,6 @@ public class SmartAlarm extends AppCompatActivity {
     @Override
     public void onDestroy()
     {
-        for(int i=0;i<alarmsActivated.size();i++)
-        {
-            alarmsActivated.set(i,false);
-        }
         super.onDestroy();
     }
 
@@ -440,5 +499,79 @@ public class SmartAlarm extends AppCompatActivity {
     {
         super.finish();
         System.out.println("FINISH!!!!");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void removeAlarmManager(int position) {
+        for(int i=position; i<alarmsHours.size()-1;i++)
+        {
+            Intent intent_to_alarm_ring=new Intent(this, AlarmRing.class);
+            String hour = (alarmsHours.get(i+1)>=0 && alarmsHours.get(i+1)<10)? "0" + alarmsHours.get(i+1) : "" + alarmsHours.get(i+1);
+            String minute = (alarmsMinutes.get(i+1)>=0 && alarmsMinutes.get(i+1)<10)? "0" + alarmsMinutes.get(i+1) : "" + alarmsMinutes.get(i+1);
+            String time = hour+":"+minute;
+            intent_to_alarm_ring.putExtra("time",time);
+            intent_to_alarm_ring.putExtra("title",alarmsTitle.get(i+1));
+            intent_to_alarm_ring.putExtra("uri_image",uriImage);
+            intent_to_alarm_ring.putExtra("uri_sound",uriSound);
+            intent_to_alarm_ring.putExtra("sound","alarm"+(alarmsSound.get(i+1)+1));
+            intent_to_alarm_ring.putExtra("activate_game",activateGame.isChecked());
+            System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
+            if(category!=null) {
+                intent_to_alarm_ring.putExtra("category", category);
+            }
+            if(numberOfQuestions!=0) {
+                intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
+            }
+            PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                    i, intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MINUTE, alarmsMinutes.get(i+1));
+            cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(i+1));
+        /*if(cal.getTime().before(Calendar.getInstance().getTime()))
+        {
+            cal.add(Calendar.DAY_OF_YEAR,1);
+        }*/
+            System.out.println("**********");
+            System.out.println(cal);
+            System.out.println(Calendar.getInstance());
+            System.out.println("**********");
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                    pendingIntent);
+        }
+
+        int size = alarmsHours.size();
+        Intent intent_to_alarm_ring=new Intent(this, AlarmRing.class);
+        String hour = (alarmsHours.get(size-1)>=0 && alarmsHours.get(size-1)<10)? "0" + alarmsHours.get(size-1) : "" + alarmsHours.get(size-1);
+        String minute = (alarmsMinutes.get(size-1)>=0 && alarmsMinutes.get(size-1)<10)? "0" + alarmsMinutes.get(size-1) : "" + alarmsMinutes.get(size-1);
+        String time = hour+":"+minute;
+        intent_to_alarm_ring.putExtra("time",time);
+        intent_to_alarm_ring.putExtra("title",alarmsTitle.get(size-1));
+        intent_to_alarm_ring.putExtra("uri_image",uriImage);
+        intent_to_alarm_ring.putExtra("uri_sound",uriSound);
+        intent_to_alarm_ring.putExtra("sound","alarm"+(alarmsSound.get(size-1)+1));
+        intent_to_alarm_ring.putExtra("activate_game",activateGame.isChecked());
+        System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
+        if(category!=null) {
+            intent_to_alarm_ring.putExtra("category", category);
+        }
+        if(numberOfQuestions!=0) {
+            intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
+        }
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                size-1, intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, alarmsMinutes.get(size-1));
+        cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(size-1));
+        if(cal.getTime().before(Calendar.getInstance().getTime()))
+        {
+            cal.add(Calendar.DAY_OF_YEAR,1);
+        }
+        System.out.println("**********");
+        System.out.println(cal);
+        System.out.println(Calendar.getInstance());
+        System.out.println("**********");
+        alarmManager.cancel(pendingIntent);
     }
 }

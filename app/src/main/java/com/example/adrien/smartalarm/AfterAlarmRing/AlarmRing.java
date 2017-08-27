@@ -31,6 +31,7 @@ import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -67,6 +68,10 @@ public class AlarmRing extends AppCompatActivity {
         titleView = (TextView) findViewById(R.id.title);
         timeView.setText(getIntent().getStringExtra("time"));
         titleView.setText(getIntent().getStringExtra("title"));
+
+        System.out.println("**********");
+        System.out.println("DANS AALARMRING AVEC TITLE= "+getIntent().getStringExtra("title"));
+        System.out.println("**********");
 
         isAlarmStopped=false;
         multiColorThread = new Thread(new Runnable(){

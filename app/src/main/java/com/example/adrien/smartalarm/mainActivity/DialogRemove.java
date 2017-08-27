@@ -1,8 +1,10 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
@@ -36,6 +38,7 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
         list_tone.setSelection(soundSelected);
         save = (Button) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 checkBeforeSave();
@@ -49,29 +52,19 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
                 }
                 String time = hour+":"+minute;
                 String title = editTitle.getText().toString();
-                //List<Runnable> listThread = main_activity.getListThreadAlarms();
-                //((ActivateAlarm)listThread.get(position)).setContinueThread(false);
                 soundSelected=list_tone.getSelectedItemPosition();
                 main_activity.changeAlarm(time , title, position, Integer.parseInt(hours.getText().toString()), Integer.parseInt(minutes.getText().toString()), soundSelected);
-                //Runnable activateAlarm = new ActivateAlarm(main_activity,position,list_tone.getSelectedItem().toString(),title);
-                //Thread threadAlarm = new Thread(activateAlarm);
-                //listThread.set(position,activateAlarm);
-                //threadAlarm.start();
+                main_activity.setAlarmManager(position,list_tone.getSelectedItem().toString(),title);
                 DialogRemove.this.dismiss();
             }
         });
 
         remove = (Button) findViewById(R.id.remove);
         remove.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                //List<Runnable> listThread = main_activity.getListThreadAlarms();
-                //((ActivateAlarm)listThread.get(position)).setContinueThread(false);
-                //listThread.remove(position);
-                //for(int i=position;i<listThread.size();i++)
-                //{
-                //    ((ActivateAlarm)listThread.get(i)).setIndex(((ActivateAlarm)listThread.get(i)).getIndex()-1);
-                //}
+                main_activity.removeAlarmManager(position);
                 main_activity.removeAlarm(position);
                 DialogRemove.this.dismiss();
             }

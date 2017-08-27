@@ -1,8 +1,10 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,6 +23,7 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
 
         save = (Button) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 checkBeforeSave();
@@ -36,10 +39,6 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
                 String title = editTitle.getText().toString();
                 main_activity.setNewAlarm(time,title, Integer.parseInt(hours.getText().toString()),Integer.parseInt(minutes.getText().toString()),list_tone.getSelectedItemPosition());
                 main_activity.setAlarmManager(main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
-                //Runnable activateAlarm = new ActivateAlarm(main_activity,main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
-                //Thread threadAlarm = new Thread(activateAlarm);
-                //main_activity.getListThreadAlarms().add(activateAlarm);
-                //threadAlarm.start();
                 DialogAdd.this.dismiss();
             }
         });
