@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SportsDAO extends AbstractBaseDAO {
+public class SportsDAO extends AbstractQuestionBaseDAO {
 
     public SportsDAO(Context pContext) {
         super(pContext);

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CinemaDAO extends AbstractBaseDAO {
+public class CinemaDAO extends AbstractQuestionBaseDAO {
 
     public static final String TABLE_NAME = "Cinema";
 
@@ -26,7 +26,6 @@ public class CinemaDAO extends AbstractBaseDAO {
         String query = "select * from " + databaseHandler.TABLE_CINEMA_NAME ;
         List<Integer>numbersChosen = new ArrayList<>();
         int randomNumber = new Random().nextInt(NUMBER_OF_QUESTION)+1;
-        System.out.println("FIRST RANDOM NUMBER="+ randomNumber);
         query+= " WHERE "+ databaseHandler.ID_KEY+"="+randomNumber;
         numbersChosen.add(randomNumber);
         for(int i = 1;i<numberOfQuestion;i++)
@@ -36,7 +35,6 @@ public class CinemaDAO extends AbstractBaseDAO {
             {
                 randomNumber=new Random().nextInt(NUMBER_OF_QUESTION)+1;
             }
-            System.out.println("FIRST RANDOM NUMBER="+ randomNumber);
             numbersChosen.add(randomNumber);
             query+=" OR "+databaseHandler.ID_KEY+"="+randomNumber;
         }

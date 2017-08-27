@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MusicDAO extends AbstractBaseDAO {
+public class MusicDAO extends AbstractQuestionBaseDAO {
 
     public MusicDAO(Context pContext) {
         super(pContext);

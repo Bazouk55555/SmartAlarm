@@ -22,6 +22,7 @@ public class ActivateAlarm implements Runnable{
     }
 
     public void run(){
+        System.out.println("ALARM ACTIVATED WITH POSITION: "+index);
         while(continueThread) {
             int hourOfTheDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
             int minuteOfTheDay = Calendar.getInstance().get(Calendar.MINUTE);
@@ -36,20 +37,18 @@ public class ActivateAlarm implements Runnable{
                 intent_to_alarm_ring.putExtra("uri_sound",smartAlarm.getUriSound());
                 intent_to_alarm_ring.putExtra("sound",sound);
                 intent_to_alarm_ring.putExtra("activate_game",smartAlarm.isActivateGame());
+                System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
                 if(smartAlarm.getCategory()!=null) {
                     intent_to_alarm_ring.putExtra("category", smartAlarm.getCategory());
                 }
                 if(smartAlarm.getNumberOfQuestions()!=0) {
                     intent_to_alarm_ring.putExtra("number_of_questions", smartAlarm.getNumberOfQuestions());
                 }
-                /*else
-                {
-                    intent_to_alarm_ring.putExtra("number_of_questions", 5);
-                }*/
                 smartAlarm.startService(intent_to_alarm_ring);
                 continueThread=false;
             }
         }
+        System.out.println("ALARM DEACTIVATED WITH POSITION: "+index);
     }
 
     public void setIndex(int index)

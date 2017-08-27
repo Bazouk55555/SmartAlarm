@@ -49,14 +49,14 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
                 }
                 String time = hour+":"+minute;
                 String title = editTitle.getText().toString();
-                List<Runnable> listThread = main_activity.getListThreadAlarms();
-                ((ActivateAlarm)listThread.get(position)).setContinueThread(false);
+                //List<Runnable> listThread = main_activity.getListThreadAlarms();
+                //((ActivateAlarm)listThread.get(position)).setContinueThread(false);
                 soundSelected=list_tone.getSelectedItemPosition();
                 main_activity.changeAlarm(time , title, position, Integer.parseInt(hours.getText().toString()), Integer.parseInt(minutes.getText().toString()), soundSelected);
-                Runnable activateAlarm = new ActivateAlarm(main_activity,position,list_tone.getSelectedItem().toString(),title);
-                Thread threadAlarm = new Thread(activateAlarm);
-                listThread.set(position,activateAlarm);
-                threadAlarm.start();
+                //Runnable activateAlarm = new ActivateAlarm(main_activity,position,list_tone.getSelectedItem().toString(),title);
+                //Thread threadAlarm = new Thread(activateAlarm);
+                //listThread.set(position,activateAlarm);
+                //threadAlarm.start();
                 DialogRemove.this.dismiss();
             }
         });
@@ -65,13 +65,13 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Runnable> listThread = main_activity.getListThreadAlarms();
-                ((ActivateAlarm)listThread.get(position)).setContinueThread(false);
-                listThread.remove(position);
-                for(int i=position;i<listThread.size();i++)
-                {
-                    ((ActivateAlarm)listThread.get(i)).setIndex(((ActivateAlarm)listThread.get(i)).getIndex()-1);
-                }
+                //List<Runnable> listThread = main_activity.getListThreadAlarms();
+                //((ActivateAlarm)listThread.get(position)).setContinueThread(false);
+                //listThread.remove(position);
+                //for(int i=position;i<listThread.size();i++)
+                //{
+                //    ((ActivateAlarm)listThread.get(i)).setIndex(((ActivateAlarm)listThread.get(i)).getIndex()-1);
+                //}
                 main_activity.removeAlarm(position);
                 DialogRemove.this.dismiss();
             }

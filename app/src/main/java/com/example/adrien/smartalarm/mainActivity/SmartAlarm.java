@@ -1,7 +1,8 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -15,20 +16,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.adrien.smartalarm.AfterAlarmRing.BackgroundService;
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
-import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
-import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
-import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
-import com.example.adrien.smartalarm.SQliteService.MusicDAO;
-import com.example.adrien.smartalarm.SQliteService.Question;
-import com.example.adrien.smartalarm.SQliteService.SportsDAO;
+import com.example.adrien.smartalarm.SQliteService.Alarm;
+import com.example.adrien.smartalarm.SQliteService.AlarmBaseDAO;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,7 +41,8 @@ public class SmartAlarm extends AppCompatActivity {
     private List<Integer> alarmsMinutes;
     private List<String> alarmsTitle;
     private List<Integer> alarmsSound;
-    private List<Runnable> listThreadAlarms;
+    //private List<Runnable> listThreadAlarms;
+    AlarmManager alarmManager;
     private Uri uriImage;
     private DialogAddImage dialogAddImage;
     private MenuItem takeOffImageMenuItem;
@@ -81,19 +76,55 @@ public class SmartAlarm extends AppCompatActivity {
         list_view_alarms.setAdapter(adapter_alarms);
         list_view_activates.setAdapter(adapter_activates);
 
-        listThreadAlarms = new ArrayList<>();
+        //listThreadAlarms = new ArrayList<>();
+        alarmManager = (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
         alarmsHours = new ArrayList<>();
         alarmsMinutes = new ArrayList<>();
         alarmsTitle = new ArrayList<>();
         alarmsSound = new ArrayList<>();
-
         alarmsActivated = new ArrayList<>();
+
+        AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
+        alarmBaseDAO.open();
+        List<Alarm>alarmList = alarmBaseDAO.select();
+        if(!alarmList.isEmpty()) {
+            System.out.println("je suis la frero!!!");
+            for(Alarm alarm: alarmList) {
+                System.out.println("Nouvelle alarme avec ID="+alarm.getId()+" et time="+alarm.getTime());
+                alarmsHours.add(alarm.getHour());
+                alarmsMinutes.add(alarm.getMinute());
+                alarmsTitle.add(alarm.getTitle());
+                alarmsSound.add(alarm.getSound());
+                alarmsActivated.add(alarm.getActivated());
+                HashMap<String, String> mapOfTheNewAlarm = new HashMap<>();
+                mapOfTheNewAlarm.put("alarm", alarm.getTime());
+                mapOfTheNewAlarm.put("title", alarm.getTitle());
+                listMapOfEachAlarm.add(mapOfTheNewAlarm);
+                adapter_alarms.notifyDataSetChanged();
+                HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
+                if(alarm.getActivated()) {
+                    mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
+                }
+                else
+                {
+                    mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_off);
+                }
+                listMapOfActivates.add(mapOfTheAlarmDrawable);
+                adapter_activates.notifyDataSetChanged();
+                Runnable activateAlarm = new ActivateAlarm(this,(int)alarm.getId()-1,"alarm"+(alarm.getSound()+1),alarm.getTitle());
+                //Thread threadAlarm = new Thread(activateAlarm);
+                //listThreadAlarms.add(activateAlarm);
+                //threadAlarm.start();
+            }
+            alarmBaseDAO.close();
+        }
+
         list_view_activates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
                 final View alarmView = list_view_alarms.getChildAt(position);
-                if(alarmsActivated.get(position)==true){
+                if(alarmsActivated.get(position)){
                     activatedImageView.setImageResource(R.drawable.alarm_off);
                     activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
                     alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
@@ -186,6 +217,10 @@ public class SmartAlarm extends AppCompatActivity {
         alarmsTitle.add(title);
         alarmsSound.add(soundSelected);
 
+        AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
+        alarmBaseDAO.open();
+        alarmBaseDAO.add(new Alarm(alarmsHours.size()-1,hour,minute,time,title,soundSelected,true));
+
         HashMap<String,String> mapOfTheNewAlarm = new HashMap<>();
         mapOfTheNewAlarm.put("alarm", time);
         mapOfTheNewAlarm.put("title", title);
@@ -205,6 +240,11 @@ public class SmartAlarm extends AppCompatActivity {
         alarmsMinutes.set(position,minute);
         alarmsTitle.set(position,title);
         alarmsSound.set(position,soundSelected);
+
+        AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
+        alarmBaseDAO.open();
+        alarmBaseDAO.update(new Alarm(position+1,hour,minute,time,title,soundSelected,true));
+
         HashMap<String,String> mapOfTheNewAlarm = new HashMap<>();
         mapOfTheNewAlarm.put("alarm", time);
         mapOfTheNewAlarm.put("title", title);
@@ -218,6 +258,12 @@ public class SmartAlarm extends AppCompatActivity {
         alarmsMinutes.remove(position);
         alarmsTitle.remove(position);
         alarmsSound.remove(position);
+
+        AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
+        alarmBaseDAO.open();
+        System.out.println("Before remove");
+        alarmBaseDAO.remove(position+1, alarmsHours.size()-position);
+
         listMapOfEachAlarm.remove(position);
         adapter_alarms.notifyDataSetChanged();
 
@@ -240,9 +286,43 @@ public class SmartAlarm extends AppCompatActivity {
         return alarmsActivated;
     }
 
-    public List<Runnable> getListThreadAlarms()
+    //public List<Runnable> getListThreadAlarms()
+    //{
+    //    return listThreadAlarms;
+    //}
+
+    public void setAlarmManager(int index,String sound,String title)
     {
-        return listThreadAlarms;
+        Intent intent_to_alarm_ring=new Intent(this,BackgroundService.class);
+        String hour = (alarmsHours.get(index)>=0 && alarmsHours.get(index)<10)? "0" + alarmsHours.get(index) : "" + alarmsHours.get(index);
+        String minute = (alarmsMinutes.get(index)>=0 && alarmsMinutes.get(index)<10)? "0" + alarmsMinutes.get(index) : "" + alarmsMinutes.get(index);
+        String time = hour+":"+minute;
+        intent_to_alarm_ring.putExtra("time",time);
+        intent_to_alarm_ring.putExtra("title",title);
+        intent_to_alarm_ring.putExtra("uri_image",uriImage);
+        intent_to_alarm_ring.putExtra("uri_sound",uriSound);
+        intent_to_alarm_ring.putExtra("sound",sound);
+        intent_to_alarm_ring.putExtra("activate_game",activateGame.isChecked());
+        System.out.println("JE SUIS LA JE SUIS PAS MORT!!!");
+        if(category!=null) {
+            intent_to_alarm_ring.putExtra("category", category);
+        }
+        if(numberOfQuestions!=0) {
+            intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
+        }
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                index, intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, alarmsMinutes.get(index));
+        cal.set(Calendar.HOUR, alarmsHours.get(index));
+        System.out.println(cal);
+        if(cal.getTime().before(Calendar.getInstance().getTime()))
+        {
+            cal.add(Calendar.DAY_OF_YEAR,1);
+        }
+        alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                pendingIntent);
     }
 
     public Uri getUriImage()
@@ -325,5 +405,40 @@ public class SmartAlarm extends AppCompatActivity {
 
     public int getNumberOfQuestions() {
         return numberOfQuestions;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        System.out.println("Before onBackPressed");
+        /*for(int i=0;i<listThreadAlarms.size();i++)
+        {
+            ((ActivateAlarm)listThreadAlarms.get(i)).setContinueThread(false);
+        }*/
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onStop()
+    {
+        System.out.println("STOP!!!!!!!!!!!!");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        for(int i=0;i<alarmsActivated.size();i++)
+        {
+            alarmsActivated.set(i,false);
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void finish()
+    {
+        super.finish();
+        System.out.println("FINISH!!!!");
     }
 }

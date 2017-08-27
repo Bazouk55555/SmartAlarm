@@ -35,10 +35,11 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
                 String time = hour+":"+minute;
                 String title = editTitle.getText().toString();
                 main_activity.setNewAlarm(time,title, Integer.parseInt(hours.getText().toString()),Integer.parseInt(minutes.getText().toString()),list_tone.getSelectedItemPosition());
-                Runnable activateAlarm = new ActivateAlarm(main_activity,main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
-                Thread threadAlarm = new Thread(activateAlarm);
-                main_activity.getListThreadAlarms().add(activateAlarm);
-                threadAlarm.start();
+                main_activity.setAlarmManager(main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
+                //Runnable activateAlarm = new ActivateAlarm(main_activity,main_activity.getAlarmsMinutes().size()-1,list_tone.getSelectedItem().toString(),title);
+                //Thread threadAlarm = new Thread(activateAlarm);
+                //main_activity.getListThreadAlarms().add(activateAlarm);
+                //threadAlarm.start();
                 DialogAdd.this.dismiss();
             }
         });

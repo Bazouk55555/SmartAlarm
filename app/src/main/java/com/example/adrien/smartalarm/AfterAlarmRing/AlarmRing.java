@@ -20,7 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
+import com.example.adrien.smartalarm.SQliteService.AbstractQuestionBaseDAO;
 import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
 import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
 import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
@@ -30,7 +30,6 @@ import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -49,7 +48,7 @@ public class AlarmRing extends AppCompatActivity {
     private Thread backgroundmultiColorThread;
     private Thread titleMoveThread;
     private int numberOfQuestions;
-    DialogNewGame dialogNewGame;
+    private DialogNewGame dialogNewGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,7 +208,7 @@ public class AlarmRing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(getIntent().getBooleanExtra("activate_game",false)) {
-                    AbstractBaseDAO categoryDAO = chooseCategory();
+                    AbstractQuestionBaseDAO categoryDAO = chooseCategory();
                     numberOfQuestions = getIntent().getIntExtra("number_of_questions",5);
                     categoryDAO.open();
                     List<Question> questions = categoryDAO.select(numberOfQuestions);
@@ -247,8 +246,8 @@ public class AlarmRing extends AppCompatActivity {
         }
     }
 
-    private AbstractBaseDAO chooseCategory() {
-        List<AbstractBaseDAO> abstractBaseDAOList = Arrays.asList(new CinemaDAO(this),new GeographyDAO(this),new HistoryDAO(this),new MusicDAO(this),new SportsDAO(this));
+    private AbstractQuestionBaseDAO chooseCategory() {
+        List<AbstractQuestionBaseDAO> abstractBaseDAOList = Arrays.asList(new CinemaDAO(this),new GeographyDAO(this),new HistoryDAO(this),new MusicDAO(this),new SportsDAO(this));
         switch(getIntent().getStringExtra("category"))
         {
             case "Cinema":

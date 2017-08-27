@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class DatabaseQuestionHandler extends SQLiteOpenHelper {
     public static final String ID_KEY = "id";
     public static final String QUESTION = "Question";
     public static final String ANSWER = "Answer";
@@ -78,7 +78,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private Context dbContext;
 
-    public DatabaseHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DatabaseQuestionHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.dbContext = context;
     }

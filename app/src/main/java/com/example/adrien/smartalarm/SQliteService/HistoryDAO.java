@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HistoryDAO extends AbstractBaseDAO {
+public class HistoryDAO extends AbstractQuestionBaseDAO {
 
     public HistoryDAO(Context pContext) {
         super(pContext);

@@ -4,12 +4,11 @@ public class Question {
 
     private String question;
     private String answer;
-    String wrongAnswer1;
-    String wrongAnswer2;
-    String wrongAnswer3;
+    private String wrongAnswer1;
+    private String wrongAnswer2;
+    private String wrongAnswer3;
 
     public Question(String question, String answer, String wrongAnswer1, String wrongAnswer2, String wrongAnswer3) {
-        super();
         this.question= question;
         this.answer = answer;
         this.wrongAnswer1 = wrongAnswer1;

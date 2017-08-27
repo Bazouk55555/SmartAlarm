@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractBaseDAO;
+import com.example.adrien.smartalarm.SQliteService.AbstractQuestionBaseDAO;
 import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
 import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
 import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
@@ -82,7 +82,7 @@ public class NumberQuestionsDialog extends Dialog {
                 sportsDAO.close();
                 break;
             default:
-                List<? extends AbstractBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm), new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm), new SportsDAO(smartAlarm));
+                List<? extends AbstractQuestionBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm), new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm), new SportsDAO(smartAlarm));
                 abstractDAOList.get(0).open();
                 numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestion();
                 abstractDAOList.get(0).close();
