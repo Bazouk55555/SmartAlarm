@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseQuestionHandler extends SQLiteOpenHelper {
-	public static final String ID_KEY = "id";
+	public static final String ID_KEY = "Id";
 	public static final String QUESTION = "Question";
 	public static final String ANSWER = "Answer";
 	public static final String WRONG_ANSWER_1 = "First";

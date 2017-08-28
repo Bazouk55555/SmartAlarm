@@ -22,17 +22,23 @@ public class GeographyDAO extends AbstractQuestionBaseDAO {
 	public List<Question> select(int numberOfQuestion) {
 		String query = "select * from " + DatabaseQuestionHandler.TABLE_GEOGRAPHY_NAME;
 		List<Integer> numbersChosen = new ArrayList<>();
-		int randomNumber = new Random().nextInt(numberOfQuestion) + 1;
+		System.out.println("numberOfQuestions: "+numberOfQuestion);
+		int randomNumber = RANDOM_NUMBER.nextInt(numberOfQuestion) + 1;
 		query += " WHERE " + DatabaseQuestionHandler.ID_KEY + "=" + randomNumber;
 		numbersChosen.add(randomNumber);
+		StringBuilder buffer = new StringBuilder();
 		for (int i = 1; i < numberOfQuestion; i++) {
-			randomNumber = new Random().nextInt(numberOfQuestion) + 1;
+			randomNumber = RANDOM_NUMBER.nextInt(numberOfQuestion) + 1;
 			while (numbersChosen.contains(randomNumber)) {
-				randomNumber = new Random().nextInt(numberOfQuestion) + 1;
+				randomNumber = RANDOM_NUMBER.nextInt(numberOfQuestion) + 1;
 			}
 			numbersChosen.add(randomNumber);
-			query += " OR " + DatabaseQuestionHandler.ID_KEY + "=" + randomNumber;
+			buffer.append(" OR ");
+			buffer.append(DatabaseQuestionHandler.ID_KEY);
+			buffer.append("=");
+			buffer.append(randomNumber);
 		}
+		query+=buffer.toString();
 		List<Question> questionList = new ArrayList<>();
 		Cursor c = mDb.rawQuery(query, null);
 		String question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3;

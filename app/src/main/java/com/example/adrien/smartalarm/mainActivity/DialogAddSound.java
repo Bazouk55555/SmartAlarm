@@ -15,7 +15,7 @@ import com.example.adrien.smartalarm.R;
 
 public class DialogAddSound extends Dialog {
 
-	public static int AUTHORIZATION_SOUND = 2;
+	public static final int AUTHORIZATION_SOUND = 2;
 	private Button cancel = null;
 	private Button ok = null;
 	private Button lookForSound = null;

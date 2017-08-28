@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.List;
+import java.util.Random;
 
 public abstract class AbstractQuestionBaseDAO {
 	private final static int VERSION = 1;
@@ -12,14 +13,15 @@ public abstract class AbstractQuestionBaseDAO {
 	protected SQLiteDatabase mDb = null;
 	protected DatabaseQuestionHandler databaseHandler = null;
 	protected int numberOfQuestion;
+	protected final static Random RANDOM_NUMBER= new Random();
 
 	AbstractQuestionBaseDAO(Context pContext) {
 		this.databaseHandler = new DatabaseQuestionHandler(pContext, DATABASE, null, VERSION);
-		numberOfQuestion = getNumberOfQuestionInFile();
 	}
 
 	public SQLiteDatabase open() {
 		mDb = databaseHandler.getWritableDatabase();
+		numberOfQuestion = getNumberOfQuestionInFile();
 		return mDb;
 	}
 

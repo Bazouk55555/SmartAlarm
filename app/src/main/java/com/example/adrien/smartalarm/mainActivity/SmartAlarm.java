@@ -42,7 +42,7 @@ public class SmartAlarm extends AppCompatActivity {
 	private List<Integer> alarmsMinutes;
 	private List<String> alarmsTitle;
 	private List<Integer> alarmsSound;
-	AlarmManager alarmManager;
+	private AlarmManager alarmManager;
 	private Uri uriImage;
 	private DialogAddImage dialogAddImage;
 	private MenuItem takeOffImageMenuItem;
@@ -53,7 +53,7 @@ public class SmartAlarm extends AppCompatActivity {
 	private CheckBox activateGame = null;
 	private String category = "Random Category";
 	private CategoryDialog categoryDialog = null;
-	private int numberOfQuestions;
+	private int numberOfQuestions=1;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -265,6 +265,10 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public List<Integer> getAlarmsMinutes() {
 		return alarmsMinutes;
+	}
+
+	public List<Integer> getAlarmsHours() {
+		return alarmsHours;
 	}
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)

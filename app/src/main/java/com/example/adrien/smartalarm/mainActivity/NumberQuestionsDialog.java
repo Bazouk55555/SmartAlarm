@@ -211,7 +211,7 @@ public class NumberQuestionsDialog extends Dialog {
 		});
 	}
 
-	private class redArrowRunnable implements Runnable {
+	private static class redArrowRunnable implements Runnable {
 
 		ImageView imageView;
 		int drawableArrow;

@@ -1,10 +1,12 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,22 +41,19 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 			@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 			@Override
 			public void onClick(View v) {
-				checkBeforeSave();
-				String hour = hours.getText().toString();
-				String minute = minutes.getText().toString();
-				if (hour.length() == 1) {
-					hour = "0" + hour;
+				String time = getTimeBeforeSave();
+				int hour = Integer.parseInt(hours.getText().toString());
+				int minute = Integer.parseInt(minutes.getText().toString());
+				if (smartAlarm.getAlarmsHours().contains(hour) && smartAlarm.getAlarmsMinutes().contains(minute)) {
+					alertAlarmInDouble();
+				} else {
+					String title = editTitle.getText().toString();
+					soundSelected = list_tone.getSelectedItemPosition();
+					smartAlarm.changeAlarm(time, title, position, Integer.parseInt(hours.getText().toString()),
+							Integer.parseInt(minutes.getText().toString()), soundSelected);
+					smartAlarm.setAlarmManager(position, list_tone.getSelectedItem().toString(), title);
+					DialogRemove.this.dismiss();
 				}
-				if (minute.length() == 1) {
-					minute = "0" + minute;
-				}
-				String time = hour + ":" + minute;
-				String title = editTitle.getText().toString();
-				soundSelected = list_tone.getSelectedItemPosition();
-				main_activity.changeAlarm(time, title, position, Integer.parseInt(hours.getText().toString()),
-						Integer.parseInt(minutes.getText().toString()), soundSelected);
-				main_activity.setAlarmManager(position, list_tone.getSelectedItem().toString(), title);
-				DialogRemove.this.dismiss();
 			}
 		});
 
@@ -63,8 +62,8 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 			@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 			@Override
 			public void onClick(View v) {
-				main_activity.removeAlarmManager(position);
-				main_activity.removeAlarm(position);
+				smartAlarm.removeAlarmManager(position);
+				smartAlarm.removeAlarm(position);
 				DialogRemove.this.dismiss();
 			}
 		});

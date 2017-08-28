@@ -15,7 +15,7 @@ import com.example.adrien.smartalarm.R;
 
 public class DialogAddImage extends Dialog {
 
-	public static int AUTHORIZATION_IMAGE = 1;
+	public static final int AUTHORIZATION_IMAGE = 1;
 	private Button cancel = null;
 	private Button ok = null;
 	private Button lookForImage = null;

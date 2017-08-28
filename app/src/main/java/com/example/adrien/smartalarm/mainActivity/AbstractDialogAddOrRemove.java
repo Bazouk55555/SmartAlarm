@@ -2,10 +2,13 @@ package com.example.adrien.smartalarm.mainActivity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractDialogAddOrRemove extends Dialog {
-	protected SmartAlarm main_activity;
+	protected SmartAlarm smartAlarm;
 	protected Spinner list_tone = null;
 	protected Button save = null;
 	protected EditText hours = null;
@@ -35,7 +38,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 
 	public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm main_activity) {
 		super(context);
-		this.main_activity = main_activity;
+		this.smartAlarm = main_activity;
 		alarms.add("alarm1");
 		alarms.add("alarm2");
 		alarms.add("alarm3");
@@ -49,7 +52,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 
 		setCanceledOnTouchOutside(false);
 		list_tone = (Spinner) findViewById(R.id.list_tone);
-		ArrayAdapter<String> adapter = new ArrayAdapter<>(main_activity, android.R.layout.simple_spinner_dropdown_item,
+		ArrayAdapter<String> adapter = new ArrayAdapter<>(smartAlarm, android.R.layout.simple_spinner_dropdown_item,
 				alarms);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		list_tone.setAdapter(adapter);
@@ -98,10 +101,14 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 
 		redArrowForShortTime = new Handler(Looper.getMainLooper());
 
-		prepareArrows((ImageView) findViewById(R.id.arrow_up1), hours, R.drawable.ic_arrow_up, R.drawable.ic_arrow_up_red, true);
-		prepareArrows((ImageView) findViewById(R.id.arrow_up2), minutes, R.drawable.ic_arrow_up, R.drawable.ic_arrow_up_red, true);
-		prepareArrows((ImageView) findViewById(R.id.arrow_down1), hours, R.drawable.ic_arrow_down, R.drawable.ic_arrow_down_red, false);
-		prepareArrows( (ImageView) findViewById(R.id.arrow_down2), minutes, R.drawable.ic_arrow_down, R.drawable.ic_arrow_down_red, false);
+		prepareArrows((ImageView) findViewById(R.id.arrow_up1), hours, R.drawable.ic_arrow_up,
+				R.drawable.ic_arrow_up_red, true);
+		prepareArrows((ImageView) findViewById(R.id.arrow_up2), minutes, R.drawable.ic_arrow_up,
+				R.drawable.ic_arrow_up_red, true);
+		prepareArrows((ImageView) findViewById(R.id.arrow_down1), hours, R.drawable.ic_arrow_down,
+				R.drawable.ic_arrow_down_red, false);
+		prepareArrows((ImageView) findViewById(R.id.arrow_down2), minutes, R.drawable.ic_arrow_down,
+				R.drawable.ic_arrow_down_red, false);
 	}
 
 	private void prepareArrows(final ImageView arrow, final EditText editTextTime, final int arrowDrawable,
@@ -140,7 +147,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 					@Override
 					public void run() {
 						while (isLongPressed) {
-							main_activity.runOnUiThread(new Runnable() {
+							smartAlarm.runOnUiThread(new Runnable() {
 								@Override
 								public void run() {
 									int number;
@@ -184,7 +191,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 						isLongPressed = false;
 						redArrowForShortTime.post(new redArrowRunnable(arrow, arrowDrawable));
 						break;
-					default:
+					default :
 						break;
 				}
 				return false;
@@ -196,13 +203,42 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		return alarms;
 	}
 
-	public void checkBeforeSave() {
+	String getTimeBeforeSave() {
+		checkNonEmptyBeforeSave();
+		String hour = hours.getText().toString();
+		String minute = minutes.getText().toString();
+		if (hour.length() == 1) {
+			hour = "0" + hour;
+		}
+		if (minute.length() == 1) {
+			minute = "0" + minute;
+		}
+		return hour + ":" + minute;
+	}
+
+	private void checkNonEmptyBeforeSave()
+	{
 		if (hours.getText().toString().isEmpty()) {
 			hours.setText("00");
 		}
 		if (minutes.getText().toString().isEmpty()) {
 			minutes.setText("00");
 		}
+	}
+
+	protected void alertAlarmInDouble()
+	{
+		AlertDialog.Builder builder;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			builder = new AlertDialog.Builder(smartAlarm, android.R.style.Theme_Material_Dialog_Alert);
+		} else {
+			builder = new AlertDialog.Builder(smartAlarm);
+		}
+		builder.setTitle("Alarm already set").setMessage("You have already set an alarm at this time")
+				.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				}).setIcon(android.R.drawable.ic_dialog_alert).show();
 	}
 
 	private class TextWatcherTime implements TextWatcher {
@@ -285,7 +321,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		}
 	}
 
-	private class redArrowRunnable implements Runnable {
+	private static class redArrowRunnable implements Runnable {
 
 		ImageView imageView;
 		int drawableArrow;
