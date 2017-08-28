@@ -7,39 +7,43 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
         android:textSize="30dp"
-        android:id="@+id/question"/>
+        android:textStyle="italic" />
 
     <RadioGroup
+        android:id="@+id/answer_radio_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/answer_radio_group">
+        android:layout_height="wrap_content">
+
         <RadioButton
+            android:id="@+id/answer_radio_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:id="@+id/answer_radio_button1"/>
+            android:checked="true" />
+
         <RadioButton
+            android:id="@+id/answer_radio_button2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/answer_radio_button2"/>
+            android:layout_height="wrap_content" />
+
         <RadioButton
+            android:id="@+id/answer_radio_button3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/answer_radio_button3"/>
+            android:layout_height="wrap_content" />
+
         <RadioButton
+            android:id="@+id/answer_radio_button4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/answer_radio_button4"/>
+            android:layout_height="wrap_content" />
     </RadioGroup>
 
     <Button
+        android:id="@+id/ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:id="@+id/ok"/>
+        android:text="OK" />
 
 </LinearLayout>

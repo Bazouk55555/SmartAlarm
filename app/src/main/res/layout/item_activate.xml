@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/activate"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:id="@+id/activate"
     android:background="@color/bright"
     android:gravity="center_vertical"
-    android:src="@drawable/alarm_on"/>
+    android:orientation="vertical"
+    android:src="@drawable/alarm_on" />

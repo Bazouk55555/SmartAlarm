@@ -2,40 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
-    android:background="@drawable/crazy_alarm">
+    android:background="@drawable/crazy_alarm"
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <CheckBox
+        android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="Check the box if you want to activate the game"
-        android:id="@+id/checkbox"/>
+        android:text="Check the box if you want to activate the game" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ListView
-        android:id="@+id/list_alarm"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="8"
-        android:divider="#FF0000"
-        android:dividerHeight="2dp"
-        android:choiceMode="singleChoice"/>
+        <ListView
+            android:id="@+id/list_alarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:choiceMode="singleChoice"
+            android:divider="#FF0000"
+            android:dividerHeight="2dp" />
 
-    <ListView
-        android:id="@+id/list_activate"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:divider="#FF0000"
-        android:dividerHeight="2dp"
-        android:choiceMode="singleChoice"/>
+        <ListView
+            android:id="@+id/list_activate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:choiceMode="singleChoice"
+            android:divider="#FF0000"
+            android:dividerHeight="2dp" />
 
     </LinearLayout>
 

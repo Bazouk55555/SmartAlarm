@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Your sound: "/>
+            android:layout_height="wrap_content"
+            android:text="Your sound: " />
 
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:id="@+id/button_sound"
-            android:text="Look for your sound"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Look for your sound" />
 
     </LinearLayout>
 
     <ImageView
-        android:layout_height="wrap_content"
+        android:id="@+id/sound_loaded"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/sound_loaded"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:id="@+id/ok"
-            android:text="Ok"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ok" />
 
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
             android:id="@+id/cancel"
-            android:text="Cancel"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
     </LinearLayout>
 
 </LinearLayout>

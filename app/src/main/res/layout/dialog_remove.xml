@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:orientation="vertical"
     android:padding="10dp">
 
     <LinearLayout
@@ -16,88 +16,88 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="45">
+            android:layout_weight="45"
+            android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/arrow_up1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/arrow_up1"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_up"/>
+                android:src="@drawable/ic_arrow_up" />
 
             <EditText
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:selectAllOnFocus="true"
+                android:imeOptions="actionDone"
                 android:inputType="number"
-                android:imeOptions="actionDone"/>
+                android:selectAllOnFocus="true" />
 
             <ImageView
+                android:id="@+id/arrow_down1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/arrow_down1"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_down"/>
+                android:src="@drawable/ic_arrow_down" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_weight="10"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="10" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="45">
+            android:layout_weight="45"
+            android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/arrow_up2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/arrow_up2"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_up"/>
+                android:src="@drawable/ic_arrow_up" />
 
             <EditText
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
                 android:id="@+id/minutes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:selectAllOnFocus="true"
+                android:imeOptions="actionDone"
                 android:inputType="number"
-                android:imeOptions="actionDone"/>
+                android:selectAllOnFocus="true" />
 
             <ImageView
+                android:id="@+id/arrow_down2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/arrow_down2"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_down"/>
+                android:src="@drawable/ic_arrow_down" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title: "/>
+            android:text="Title: " />
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/editTitle"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:maxLength="13"/>
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:maxLength="13"
+            android:singleLine="true" />
 
     </LinearLayout>
 
@@ -106,16 +106,16 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textColor="@color/blue"
-            android:text="Tone: "/>
+            android:layout_height="wrap_content"
+            android:text="Tone: "
+            android:textColor="@color/blue" />
 
         <Spinner
             android:id="@+id/list_tone"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:choiceMode="singleChoice"/>
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
 
     </LinearLayout>
 
@@ -125,24 +125,24 @@
         android:layout_gravity="center">
 
         <Button
-            android:layout_height="wrap_content"
+            android:id="@+id/save"
             android:layout_width="wrap_content"
-            android:text="SAVE"
-            android:id="@+id/save"/>
+            android:layout_height="wrap_content"
+            android:text="SAVE" />
 
         <Button
-            android:layout_height="wrap_content"
+            android:id="@+id/cancel"
             android:layout_width="wrap_content"
-            android:text="CANCEL"
-            android:id="@+id/cancel"/>
+            android:layout_height="wrap_content"
+            android:text="CANCEL" />
 
     </LinearLayout>
 
     <Button
-        android:layout_height="wrap_content"
+        android:id="@+id/remove"
         android:layout_width="wrap_content"
-        android:text="Remove"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/remove"/>
+        android:text="Remove" />
 
 </LinearLayout>

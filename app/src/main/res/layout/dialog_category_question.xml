@@ -7,54 +7,60 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/category_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="30dp"
         android:text="Choose the category of the questions"
-        android:id="@+id/category_text"/>
+        android:textSize="30dp"
+        android:textStyle="italic" />
 
     <RadioGroup
+        android:id="@+id/category_radio_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/category_radio_group">
+        android:layout_height="wrap_content">
+
         <RadioButton
+            android:id="@+id/category6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Random Category"
             android:checked="true"
-            android:id="@+id/category6"/>
+            android:text="Random Category" />
+
         <RadioButton
+            android:id="@+id/category1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cinema"
-            android:id="@+id/category1"/>
+            android:text="Cinema" />
+
         <RadioButton
+            android:id="@+id/category2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Geography"
-            android:id="@+id/category2"/>
+            android:text="Geography" />
+
         <RadioButton
+            android:id="@+id/category3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="History"
-            android:id="@+id/category3"/>
+            android:text="History" />
+
         <RadioButton
+            android:id="@+id/category4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Music"
-            android:id="@+id/category4"/>
+            android:text="Music" />
+
         <RadioButton
+            android:id="@+id/category5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sports"
-            android:id="@+id/category5"/>
+            android:text="Sports" />
     </RadioGroup>
 
     <Button
+        android:id="@+id/ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:id="@+id/ok"/>
+        android:text="OK" />
 
 </LinearLayout>

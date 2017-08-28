@@ -6,30 +6,34 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.List;
 
 public abstract class AbstractQuestionBaseDAO {
-    protected final static int VERSION = 1;
-    protected final static String DATABASE = "database";
+	private final static int VERSION = 1;
+	private final static String DATABASE = "database_question";
 
-    protected SQLiteDatabase mDb = null;
-    protected DatabaseQuestionHandler databaseHandler = null;
-    protected final int NUMBER_OF_QUESTION = 6;
+	protected SQLiteDatabase mDb = null;
+	protected DatabaseQuestionHandler databaseHandler = null;
+	protected int numberOfQuestion;
 
-    public AbstractQuestionBaseDAO(Context pContext) {
-        this.databaseHandler = new DatabaseQuestionHandler(pContext, DATABASE, null, VERSION);
-    }
+	AbstractQuestionBaseDAO(Context pContext) {
+		this.databaseHandler = new DatabaseQuestionHandler(pContext, DATABASE, null, VERSION);
+		numberOfQuestion = getNumberOfQuestionInFile();
+	}
 
-    public SQLiteDatabase open() {
-        mDb = databaseHandler.getWritableDatabase();
-        return mDb;
-    }
+	public SQLiteDatabase open() {
+		mDb = databaseHandler.getWritableDatabase();
+		return mDb;
+	}
 
-    public void close() {
-        mDb.close();
-    }
+	public void close() {
+		mDb.close();
+	}
 
-    public abstract int getNumberOfQuestion();
+	public int getNumberOfQuestion()
+	{
+		return numberOfQuestion;
+	}
 
-    public abstract List<Question> select(int number);
+	public abstract int getNumberOfQuestionInFile();
+
+	public abstract List<Question> select(int number);
 
 }
-
-

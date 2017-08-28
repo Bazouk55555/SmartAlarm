@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -24,273 +23,246 @@ import com.example.adrien.smartalarm.SQliteService.SportsDAO;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class NumberQuestionsDialog extends Dialog {
 
-    private Button oKButton;
-    private SmartAlarm smartAlarm;
-    private boolean isLongPressed;
-    private boolean isShortPressed;
-    private ImageView arrow_up1=null;
-    private ImageView arrow_down1=null;
-    private EditText numberOfQuestions = null;
-    private Handler redArrowForShortTime;
-    private int numberMaximumOfQuestions=6;
+	private SmartAlarm smartAlarm;
+	private boolean isLongPressed;
+	private boolean isShortPressed;
+	private EditText numberOfQuestions = null;
+	private Handler redArrowForShortTime;
+	private int numberMaximumOfQuestions;
 
-    public NumberQuestionsDialog(@NonNull Context context, SmartAlarm smartAlarm) {
-        super(context);
-        this.smartAlarm = smartAlarm;
-    }
+	public NumberQuestionsDialog(@NonNull Context context, SmartAlarm smartAlarm) {
+		super(context);
+		this.smartAlarm = smartAlarm;
+	}
 
-    protected void onCreate(Bundle savedInstance)
-    {
-        setContentView(R.layout.dialog_number_of_question);
-        super.onCreate(savedInstance);
-        setCanceledOnTouchOutside(false);
+	protected void onCreate(Bundle savedInstance) {
+		setContentView(R.layout.dialog_number_of_question);
+		super.onCreate(savedInstance);
+		setCanceledOnTouchOutside(false);
 
-        switch(smartAlarm.getCategory())
-        {
-            case "Cinema":
-                CinemaDAO cinemaDAO = new CinemaDAO(smartAlarm);
-                cinemaDAO.open();
-                numberMaximumOfQuestions= cinemaDAO.getNumberOfQuestion();
-                cinemaDAO.close();
-                break;
-            case "Geography":
-                GeographyDAO geographyDAO = new GeographyDAO(smartAlarm);
-                geographyDAO.open();
-                numberMaximumOfQuestions= geographyDAO.getNumberOfQuestion();
-                geographyDAO.close();
-                break;
-            case "History":
-                HistoryDAO historyDAO = new HistoryDAO(smartAlarm);
-                historyDAO.open();
-                numberMaximumOfQuestions= historyDAO.getNumberOfQuestion();
-                historyDAO.close();
-                break;
-            case "Music":
-                MusicDAO musicDAO = new MusicDAO(smartAlarm);
-                musicDAO.open();
-                numberMaximumOfQuestions= musicDAO.getNumberOfQuestion();
-                musicDAO.close();
-                break;
-            case "Sports":
-                SportsDAO sportsDAO = new SportsDAO(smartAlarm);
-                sportsDAO.open();
-                numberMaximumOfQuestions= sportsDAO.getNumberOfQuestion();
-                sportsDAO.close();
-                break;
-            default:
-                List<? extends AbstractQuestionBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm), new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm), new SportsDAO(smartAlarm));
-                abstractDAOList.get(0).open();
-                numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestion();
-                abstractDAOList.get(0).close();
-                for(int i =1;i<abstractDAOList.size();i++)
-                {
-                    abstractDAOList.get(i).open();
-                    int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestion();
-                    if(maximumOfNewAbstractDAO<numberMaximumOfQuestions)
-                    {
-                        numberMaximumOfQuestions = maximumOfNewAbstractDAO;
-                    }
-                    abstractDAOList.get(i).close();
-                }
-                break;
-        }
+		determinateNumberMaximumOfQuestions();
 
-        numberOfQuestions = (EditText) findViewById(R.id.number_of_questions);
-        numberOfQuestions.addTextChangedListener(new TextWatcherTime(numberOfQuestions));
+		numberOfQuestions = (EditText) findViewById(R.id.number_of_questions);
+		numberOfQuestions.addTextChangedListener(new TextWatcherTime(numberOfQuestions));
 
-        redArrowForShortTime= new Handler(Looper.getMainLooper());
+		redArrowForShortTime = new Handler(Looper.getMainLooper());
 
-        arrow_up1 = (ImageView) findViewById(R.id.arrow_up1);
-        prepareArrows(arrow_up1, numberOfQuestions, R.drawable.ic_arrow_up, R.drawable.ic_arrow_up_red, true);
+		prepareArrows((ImageView) findViewById(R.id.arrow_up1), numberOfQuestions, R.drawable.ic_arrow_up,
+				R.drawable.ic_arrow_up_red, true);
+		prepareArrows((ImageView) findViewById(R.id.arrow_down1), numberOfQuestions, R.drawable.ic_arrow_down,
+				R.drawable.ic_arrow_down_red, false);
 
-        arrow_down1 = (ImageView) findViewById(R.id.arrow_down1);
-        prepareArrows(arrow_down1, numberOfQuestions, R.drawable.ic_arrow_down, R.drawable.ic_arrow_down_red, false);
+		findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				checkBeforeSave();
+				smartAlarm.setNumberOfQuestions(Integer.parseInt(numberOfQuestions.getText().toString()));
+				dismiss();
+			}
+		});
+	}
 
-        oKButton = (Button) findViewById(R.id.ok);
-        oKButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkBeforeSave();
-                smartAlarm.setNumberOfQuestions(Integer.parseInt(numberOfQuestions.getText().toString()));
-                dismiss();
-            }
-        });
-    }
+	private void determinateNumberMaximumOfQuestions() {
+		switch (smartAlarm.getCategory()) {
+			case "Cinema" :
+				CinemaDAO cinemaDAO = new CinemaDAO(smartAlarm);
+				cinemaDAO.open();
+				numberMaximumOfQuestions = cinemaDAO.getNumberOfQuestion();
+				cinemaDAO.close();
+				break;
+			case "Geography" :
+				GeographyDAO geographyDAO = new GeographyDAO(smartAlarm);
+				geographyDAO.open();
+				numberMaximumOfQuestions = geographyDAO.getNumberOfQuestion();
+				geographyDAO.close();
+				break;
+			case "History" :
+				HistoryDAO historyDAO = new HistoryDAO(smartAlarm);
+				historyDAO.open();
+				numberMaximumOfQuestions = historyDAO.getNumberOfQuestion();
+				historyDAO.close();
+				break;
+			case "Music" :
+				MusicDAO musicDAO = new MusicDAO(smartAlarm);
+				musicDAO.open();
+				numberMaximumOfQuestions = musicDAO.getNumberOfQuestion();
+				musicDAO.close();
+				break;
+			case "Sports" :
+				SportsDAO sportsDAO = new SportsDAO(smartAlarm);
+				sportsDAO.open();
+				numberMaximumOfQuestions = sportsDAO.getNumberOfQuestion();
+				sportsDAO.close();
+				break;
+			default :
+				List<? extends AbstractQuestionBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm),
+						new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm),
+						new SportsDAO(smartAlarm));
+				abstractDAOList.get(0).open();
+				numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestion();
+				abstractDAOList.get(0).close();
+				for (int i = 1; i < abstractDAOList.size(); i++) {
+					abstractDAOList.get(i).open();
+					int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestion();
+					if (maximumOfNewAbstractDAO < numberMaximumOfQuestions) {
+						numberMaximumOfQuestions = maximumOfNewAbstractDAO;
+					}
+					abstractDAOList.get(i).close();
+				}
+				break;
+		}
+	}
 
-    public void checkBeforeSave()
-    {
-        if(numberOfQuestions.getText().toString().isEmpty())
-        {
-            numberOfQuestions.setText("1");
-        }
-    }
+	private void checkBeforeSave() {
+		if (numberOfQuestions.getText().toString().isEmpty()) {
+			numberOfQuestions.setText("1");
+		}
+	}
 
-    private void prepareArrows(final ImageView arrow, final EditText editTextTime, final int arrowDrawable, final int arrowRedDrawable, final boolean isAdded) {
-        arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isShortPressed)
-                {
-                    arrow.setImageResource(arrowRedDrawable);
-                    int number;
-                    if(isAdded==true){
-                        if(Integer.parseInt(editTextTime.getText().toString())<numberMaximumOfQuestions)
-                        {
-                            number = Integer.parseInt(editTextTime.getText().toString()) + 1;
-                        }
-                        else
-                        {
-                            number=1;
-                        }
-                    }
-                    else
-                    {
-                        if(Integer.parseInt(editTextTime.getText().toString())>1)
-                        {
-                            number = Integer.parseInt(editTextTime.getText().toString()) - 1;
-                        }
-                        else
-                        {
-                            number=numberMaximumOfQuestions;
-                        }
-                    }
-                    editTextTime.setText(String.valueOf(number));
-                    redArrowForShortTime.postDelayed(new redArrowRunnable(arrow, arrowDrawable), 150);
-                }
-            }
-        });
+	private void prepareArrows(final ImageView arrow, final EditText editTextTime, final int arrowDrawable,
+			final int arrowRedDrawable, final boolean isAdded) {
+		arrow.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isShortPressed) {
+					arrow.setImageResource(arrowRedDrawable);
+					int number;
+					if (isAdded) {
+						if (Integer.parseInt(editTextTime.getText().toString()) < numberMaximumOfQuestions) {
+							number = Integer.parseInt(editTextTime.getText().toString()) + 1;
+						} else {
+							number = 1;
+						}
+					} else {
+						if (Integer.parseInt(editTextTime.getText().toString()) > 1) {
+							number = Integer.parseInt(editTextTime.getText().toString()) - 1;
+						} else {
+							number = numberMaximumOfQuestions;
+						}
+					}
+					editTextTime.setText(String.valueOf(number));
+					redArrowForShortTime.postDelayed(new redArrowRunnable(arrow, arrowDrawable), 150);
+				}
+			}
+		});
 
-        arrow.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                isShortPressed=false;
-                arrow.setImageResource(arrowRedDrawable);
-                Thread longClickThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while(isLongPressed) {
-                            smartAlarm.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    int number;
-                                    if(isAdded==true){
-                                        if(Integer.parseInt(editTextTime.getText().toString())<numberMaximumOfQuestions)
-                                        {
-                                            number = Integer.parseInt(editTextTime.getText().toString()) + 1;
-                                        }
-                                        else
-                                        {
-                                            number=1;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if(Integer.parseInt(editTextTime.getText().toString())>1)
-                                        {
-                                            number = Integer.parseInt(editTextTime.getText().toString()) - 1;
-                                        }
-                                        else
-                                        {
-                                            number=numberMaximumOfQuestions;
-                                        }
-                                    }
-                                    editTextTime.setText(String.valueOf(number));
-                                }
-                            });
-                            try {
-                                Thread.sleep(200);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-                longClickThread.start();
-                return false;
-            }
-        });
-        arrow.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        isLongPressed=true;
-                        isShortPressed=true;
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isLongPressed=false;
-                        redArrowForShortTime.post(new redArrowRunnable(arrow, arrowDrawable));
-                        break;
-                }
-                return false;
-            }
-        });
-    }
+		arrow.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				isShortPressed = false;
+				arrow.setImageResource(arrowRedDrawable);
+				Thread longClickThread = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						while (isLongPressed) {
+							smartAlarm.runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									int number;
+									if (isAdded) {
+										if (Integer.parseInt(
+												editTextTime.getText().toString()) < numberMaximumOfQuestions) {
+											number = Integer.parseInt(editTextTime.getText().toString()) + 1;
+										} else {
+											number = 1;
+										}
+									} else {
+										if (Integer.parseInt(editTextTime.getText().toString()) > 1) {
+											number = Integer.parseInt(editTextTime.getText().toString()) - 1;
+										} else {
+											number = numberMaximumOfQuestions;
+										}
+									}
+									editTextTime.setText(String.valueOf(number));
+								}
+							});
+							try {
+								Thread.sleep(200);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				});
+				longClickThread.start();
+				return false;
+			}
+		});
+		arrow.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) {
+					case MotionEvent.ACTION_DOWN :
+						isLongPressed = true;
+						isShortPressed = true;
+						break;
+					case MotionEvent.ACTION_UP :
+						isLongPressed = false;
+						redArrowForShortTime.post(new redArrowRunnable(arrow, arrowDrawable));
+						break;
+					default:
+						break;
+				}
+				return false;
+			}
+		});
+	}
 
-    private class redArrowRunnable implements Runnable {
+	private class redArrowRunnable implements Runnable {
 
-        ImageView imageView;
-        int drawableArrow;
+		ImageView imageView;
+		int drawableArrow;
 
-        public redArrowRunnable(ImageView imageView, int drawableArrow)
-        {
-            this.imageView=imageView;
-            this.drawableArrow=drawableArrow;
-        }
+		public redArrowRunnable(ImageView imageView, int drawableArrow) {
+			this.imageView = imageView;
+			this.drawableArrow = drawableArrow;
+		}
 
-        @Override
-        public void run() {
-            imageView.setImageResource(drawableArrow);
-        }
-    }
+		@Override
+		public void run() {
+			imageView.setImageResource(drawableArrow);
+		}
+	}
 
-    private class TextWatcherTime implements TextWatcher
-    {;
-        private EditText editText;
-        private String beforeChange;
-        private boolean canModifyText=true;
+	private class TextWatcherTime implements TextWatcher {
+		;
+		private EditText editText;
+		private String beforeChange;
+		private boolean canModifyText = true;
 
-        public TextWatcherTime(EditText editText)
-        {
-            this.editText=editText;
-        }
+		public TextWatcherTime(EditText editText) {
+			this.editText = editText;
+		}
 
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        {
-            beforeChange=s.toString();
-        }
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			beforeChange = s.toString();
+		}
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-        }
+		}
 
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (!s.toString().isEmpty() && canModifyText) {
-                System.out.println("HERE: "+s.toString()+" END");
-                canModifyText=false;
-                if(s.toString().substring(0,1).equals("0"))
-                {
-                    editText.setText(beforeChange);
-                }
-                else if(Integer.parseInt(s.toString())>numberMaximumOfQuestions)
-                {
-                    if(!beforeChange.isEmpty()) {
-                        editText.setText(beforeChange);
-                    }
-                    else
-                    {
-                        editText.setText("1");
-                    }
-                }
-                canModifyText=true;
-            }
-        }
-    }
+		@Override
+		public void afterTextChanged(Editable s) {
+			if (!s.toString().isEmpty() && canModifyText) {
+				System.out.println("HERE: " + s.toString() + " END");
+				canModifyText = false;
+				if (s.toString().substring(0, 1).equals("0")) {
+					editText.setText(beforeChange);
+				} else if (Integer.parseInt(s.toString()) > numberMaximumOfQuestions) {
+					if (!beforeChange.isEmpty()) {
+						editText.setText(beforeChange);
+					} else {
+						editText.setText("1");
+					}
+				}
+				canModifyText = true;
+			}
+		}
+	}
 }
