@@ -271,6 +271,10 @@ public class SmartAlarm extends AppCompatActivity {
 		return alarmsHours;
 	}
 
+	public List<Boolean> getAlarmsActivated() {
+		return alarmsActivated;
+	}
+
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void setAlarmManager(int index, String sound, String title) {
 		Intent intent_to_alarm_ring = new Intent(this, AlarmRing.class);

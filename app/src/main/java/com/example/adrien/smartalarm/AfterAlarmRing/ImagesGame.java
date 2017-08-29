@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,10 +24,21 @@ public class ImagesGame extends AppCompatActivity {
 		final TextView scoreView = (TextView) findViewById(R.id.score);
 		final TextView commentView = (TextView) findViewById(R.id.comment);
 		final RelativeLayout imageGamesLayout = (RelativeLayout) findViewById(R.id.images_game);
+		final boolean finalImage = getIntent().getBooleanExtra("final", false);
+		imageGamesLayout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(!finalImage) {
+					Intent result = new Intent();
+					setResult(RESULT_OK, result);
+				}
+				finish();
+			}
+		});
 		List<Integer> imagesBackgroundList;
 		int score = getIntent().getIntExtra("score", 0);
 		scoreView.setText("Score: " + String.valueOf(score) + "%");
-		if (!getIntent().getBooleanExtra("final", false)) {
+		if (finalImage) {
 			if (getIntent().getBooleanExtra("hasWon", false)) {
 				imagesBackgroundList = Arrays.asList(R.drawable.image_background_won1, R.drawable.image_background_won2,
 						R.drawable.image_background_won3, R.drawable.image_background_won4,

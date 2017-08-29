@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlarmBaseDAO {
-	private final static int VERSION = 3;
+	private final static int VERSION = 1;
 	private final static String DATABASE = "database_alarm";
 
 	private SQLiteDatabase mDb = null;

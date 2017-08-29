@@ -1,16 +1,17 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.adrien.smartalarm.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DialogRemove extends AbstractDialogAddOrRemove {
 	private final int position;
@@ -44,14 +45,23 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 				String time = getTimeBeforeSave();
 				int hour = Integer.parseInt(hours.getText().toString());
 				int minute = Integer.parseInt(minutes.getText().toString());
-				if (smartAlarm.getAlarmsHours().contains(hour) && smartAlarm.getAlarmsMinutes().contains(minute)) {
+				List<String> alarmsTimeList = new ArrayList<>();
+				for (int i = 0; i < smartAlarm.getAlarmsHours().size(); i++) {
+					if (i != position) {
+						alarmsTimeList.add(String.valueOf(smartAlarm.getAlarmsHours().get(i))
+								+ String.valueOf(smartAlarm.getAlarmsMinutes().get(i)));
+					}
+				}
+				if (alarmsTimeList.contains(String.valueOf(hour) + String.valueOf(minute))) {
 					alertAlarmInDouble();
 				} else {
 					String title = editTitle.getText().toString();
 					soundSelected = list_tone.getSelectedItemPosition();
 					smartAlarm.changeAlarm(time, title, position, Integer.parseInt(hours.getText().toString()),
 							Integer.parseInt(minutes.getText().toString()), soundSelected);
-					smartAlarm.setAlarmManager(position, list_tone.getSelectedItem().toString(), title);
+					if (smartAlarm.getAlarmsActivated().get(position)) {
+						smartAlarm.setAlarmManager(position, list_tone.getSelectedItem().toString(), title);
+					}
 					DialogRemove.this.dismiss();
 				}
 			}
