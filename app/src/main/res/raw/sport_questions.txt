@@ -1,6 +1,47 @@
-Who was the winner of the UEFA Champions League in 2017?,Real Madrid,Barcelona,Juventus,PSG
-Who was the winner of the UEFA Champions League in 2016?,Real Madrid,Barcelona,Atletico Madrid,PSG
-Who was the winner of the UEFA Champions League in 2015?,Barcelona,Real Madrid,Juventus,Atletico Madrid
-Who was the winner of the UEFA Champions League in 2014?,Real Madrid,Barcelona,Dortmund,Bayern Munich
-Who was the winner of the UEFA Champions League in 2013?,Bayern Munich,Barcelona,Real Madrid,Chelsea
-Who was the winner of the UEFA Champions League in 2012?,Chelsea,Barcelona,Real Madrid,Bayern Munich
+Who won the FIFA world cup in 2014?;Germany;France;Brazil;Spain
+who has won the most grand slams in tennis?;Roger Federer;Novak Djokovic;Rafael Nadal;Pete Sampras
+Who is the world record holder in the 100 meter dash?;Usain Bolt;Asafa Powell;Justin Gatlin;Maurice Green
+Which of these football players has never played for the FC Barcelona?;Zinedine Zidane;Lionel Messi;Carles Puyol;Luis Figo
+How many substitutions are allowed during a football game?;3;0;1;2
+How many sets does a man tennis player need to win to win a Grand Slam match?;3;4;5;2
+Which football player has been bought by the PSG for 222 millions euros?;Neymar Jr;Lionel Messi;Cristiano Ronaldo;Kilian Mbappe 
+What is the national sport in New Zealand?;Rugby;Football;Tennis;Golf
+Which of this football player is an argentinian player?;Diego Maradona;Cristiano Ronaldo;Pele;Neymar Jr
+Which of this tennis player is a swiss player?;Roger Federer;Yannick Noah;Richard Gasquet;David Goffin
+Which of this football player is a belgian player?;Eden Hazard;Antoine Griezmann;Frank Ribery;Karim Benzema
+Who won the Men's Olympic Basketball in 2016?;United States;Spain;Argentina;Serbia
+What is the nationality of the basketball player Lebron James?;American;English;French;Australian
+What is the color of the card meaning that a player is expelled from the pitch in football?;Red;Yellow;Green;White
+How is called the way of scoring 5 points in rugby?;Try;Goal;Set;Point
+Medium:
+How many times have New Zealand won the rugby World Cup?;3;1;2;4
+How many gold medals does Michael Phelps hold?;23;28;13;21
+How many F1 World Championship did Michael Schumacher win?;7;6;8;9
+How many time has Portugal won the UEFA European Championship?;1;0;2;3 
+How many NBA Finals did Michael Jordan win?;6;5;7;8
+How many PGA Tour did Tiger Wood win?;79;41;53;68
+Who is the world record holder in men's pole vaulting?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
+How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes  
+What is the national sport in India?;Field Hockey;Cricket;Football;Baseball
+Which of these tennis players has won all the grand slams?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
+Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell  
+What is the nationality of the handball player Nikola karabatic?;French;Yugoslav;Ukrainian;German
+Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
+Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
+Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah  
+Hard:
+How many times have New Zealand won the rugby World Cup?;3;1;2;4
+How many gold medals does Michael Phelps hold?;23;28;13;21
+How many F1 World Championship did Michael Schumacher win?;7;6;8;9
+How many time has Portugal won the UEFA European Championship?;1;0;2;3 
+How many NBA Finals did Michael Jordan win?;6;5;7;8
+How many PGA Tour did Tiger Wood win?;79;41;53;68
+Who is the world record holder in men's pole vaulting?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
+How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes  
+What is the national sport in India?;Field Hockey;Cricket;Football;Baseball
+Which of these tennis players has won all the grand slams?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
+Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell  
+What is the nationality of the handball player Nikola karabatic?;French;Yugoslav;Ukrainian;German
+Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
+Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
+Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah  

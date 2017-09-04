@@ -248,7 +248,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		private boolean canModifyText = true;
 		private int start;
 
-		public TextWatcherTime(int firstLimitTime, int secondLimitTime, EditText editText) {
+		private TextWatcherTime(int firstLimitTime, int secondLimitTime, EditText editText) {
 			this.firstLimitTime = firstLimitTime;
 			this.secondLimitTime = secondLimitTime;
 			this.editText = editText;
@@ -326,7 +326,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		ImageView imageView;
 		int drawableArrow;
 
-		public redArrowRunnable(ImageView imageView, int drawableArrow) {
+		private redArrowRunnable(ImageView imageView, int drawableArrow) {
 			this.imageView = imageView;
 			this.drawableArrow = drawableArrow;
 		}

@@ -1,17 +1,8 @@
 package com.example.adrien.smartalarm.SQliteService;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.adrien.smartalarm.R;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseSaveAlarmHandler extends SQLiteOpenHelper {
 	public static final String ID_KEY = "Id";
@@ -28,8 +19,11 @@ public class DatabaseSaveAlarmHandler extends SQLiteOpenHelper {
 			+ " TEXT, " + SOUND + " INTEGER, " + ACTIVATED + " INTEGER);";
 	public static final String TABLE_ALARMS_DROP = "DROP TABLE IF EXISTS " + TABLE_ALARMS_NAME + ";";
 
-	public DatabaseSaveAlarmHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-		super(context, name, factory, version);
+	private final static String DATABASE = "database_alarm";
+	private final static int VERSION = 2;
+
+	public DatabaseSaveAlarmHandler(Context context) {
+		super(context, DATABASE, null, VERSION);
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class HistoryDAO extends AbstractQuestionBaseDAO {
 
@@ -14,17 +13,17 @@ public class HistoryDAO extends AbstractQuestionBaseDAO {
 	}
 
 	@Override
-	public int getNumberOfQuestionInFile() {
-		return mDb.rawQuery("select * from " + DatabaseQuestionHandler.TABLE_HISTORY_NAME, null).getCount();
+	public int getNumberOfQuestions(String level) {
+		return mDb.rawQuery("select * from " + DatabaseQuestionHandler.TABLE_HISTORY_NAME + " WHERE "+DatabaseQuestionHandler.LEVEL + "=?",new String[]{level}).getCount();
 	}
 
 	@Override
-	public List<Question> select(int numberOfQuestion) {
+	public List<Question> select(int numberOfQuestion, String level) {
 		String query = "select * from " + DatabaseQuestionHandler.TABLE_HISTORY_NAME;
 		List<Integer> numbersChosen = new ArrayList<>();
 		System.out.println("numberOfQuestions: "+numberOfQuestion);
 		int randomNumber = RANDOM_NUMBER.nextInt(numberOfQuestion) + 1;
-		query += " WHERE " + DatabaseQuestionHandler.ID_KEY + "=" + randomNumber;
+		query += " WHERE (" + DatabaseQuestionHandler.ID_KEY + "=" + randomNumber;
 		numbersChosen.add(randomNumber);
 		StringBuilder buffer = new StringBuilder();
 		for (int i = 1; i < numberOfQuestion; i++) {
@@ -39,8 +38,9 @@ public class HistoryDAO extends AbstractQuestionBaseDAO {
 			buffer.append(randomNumber);
 		}
 		query+=buffer.toString();
+		query+=") AND "+DatabaseQuestionHandler.LEVEL +"=?";
 		List<Question> questionList = new ArrayList<>();
-		Cursor c = mDb.rawQuery(query, null);
+		Cursor c = mDb.rawQuery(query,new String[]{level});
 		String question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3;
 		while (c.moveToNext()) {
 			question = c.getString(1);
@@ -48,7 +48,7 @@ public class HistoryDAO extends AbstractQuestionBaseDAO {
 			wrongAnswer1 = c.getString(3);
 			wrongAnswer2 = c.getString(4);
 			wrongAnswer3 = c.getString(5);
-			questionList.add(new Question(question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3));
+			questionList.add(new Question(question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3,level));
 		}
 		c.close();
 		return questionList;

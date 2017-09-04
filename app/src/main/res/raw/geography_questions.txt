@@ -1,6 +1,47 @@
-Who was the winner of the UEFA Champions League in 2017?,GReal Madrid,Barcelona,Juventus,PSG
-Who was the winner of the UEFA Champions League in 2016?,GReal Madrid,Barcelona,Atletico Madrid,PSG
-Who was the winner of the UEFA Champions League in 2015?,GBarcelona,Real Madrid,Juventus,Atletico Madrid
-Who was the winner of the UEFA Champions League in 2014?,GReal Madrid,Barcelona,Dortmund,Bayern Munich
-Who was the winner of the UEFA Champions League in 2013?,GBayern Munich,Barcelona,Real Madrid,Chelsea
-Who was the winner of the UEFA Champions League in 2012?,GChelsea,Barcelona,Real Madrid,Bayern Munich
+What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
+What is the capital of France?;Paris;Lyon;London;Rome
+What is the capital of the UK?;London;Paris;Manchester;Rome
+What is the capital of Italy?Rome;Paris;Turin;Milan
+What is the capital of Japan?;Tokyo;Seoul;Kyoto;Osaka
+What is the capital of Russia?;Moscow;Saint Petersburg;Paris;Kiev
+What is the capital of Spain?;Madrid;Barcelone;Roma;Sevilla
+What is the capital of Argentina?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
+What is the capital of Mexico?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
+In which continent does France belong?;Europe;Asia;America;Middle East
+In which continent does China belong?;Asia;Europe;America;Middle East
+What is the name of the main river crossing Egypte?The Nile;The Mediterranean Sea;Mississippi;Amazone
+What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
+What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
+What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut
+Medium:
+What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
+What is the capital of France?;Paris;Lyon;London;Rome
+What is the capital of the UK?;London;Paris;Manchester;Rome
+What is the capital of Italy?Rome;Paris;Turin;Milan
+What is the capital of Japan?;Tokyo;Seoul;Kyoto;Osaka
+What is the capital of Russia?;Moscow;Saint Petersburg;Paris;Kiev
+What is the capital of Spain?;Madrid;Barcelone;Roma;Sevilla
+What is the capital of Argentina?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
+What is the capital of Mexico?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
+In which continent does France belong?;Europe;Asia;America;Middle East
+In which continent does China belong?;Asia;Europe;America;Middle East
+What is the name of the main river crossing Egypte?The Nile;The Mediterranean Sea;Mississippi;Amazone
+What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
+What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
+What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut
+Hard:
+What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
+What is the capital of France?;Paris;Lyon;London;Rome
+What is the capital of the UK?;London;Paris;Manchester;Rome
+What is the capital of Italy?Rome;Paris;Turin;Milan
+What is the capital of Japan?;Tokyo;Seoul;Kyoto;Osaka
+What is the capital of Russia?;Moscow;Saint Petersburg;Paris;Kiev
+What is the capital of Spain?;Madrid;Barcelone;Roma;Sevilla
+What is the capital of Argentina?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
+What is the capital of Mexico?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
+In which continent does France belong?;Europe;Asia;America;Middle East
+In which continent does China belong?;Asia;Europe;America;Middle East
+What is the name of the main river crossing Egypte?The Nile;The Mediterranean Sea;Mississippi;Amazone
+What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
+What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
+What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut

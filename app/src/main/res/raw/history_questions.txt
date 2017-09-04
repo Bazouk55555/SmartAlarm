@@ -1,6 +1,41 @@
-Who was the winner of the UEFA Champions League in 2017?,HReal Madrid,Barcelona,Juventus,PSG
-Who was the winner of the UEFA Champions League in 2016?,HReal Madrid,Barcelona,Atletico Madrid,PSG
-Who was the winner of the UEFA Champions League in 2015?,HBarcelona,Real Madrid,Juventus,Atletico Madrid
-Who was the winner of the UEFA Champions League in 2014?,HReal Madrid,Barcelona,Dortmund,Bayern Munich
-Who was the winner of the UEFA Champions League in 2013?,HBayern Munich,Barcelona,Real Madrid,Chelsea
-Who was the winner of the UEFA Champions League in 2012?,HChelsea,Barcelona,Real Madrid,Bayern Munich
+When did the World War II finish?;1945;1939;1918;1944
+When did the World War I finish?;1918;1939;1918;1945
+When were the world trade center towers destroyed(English date format)?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
+Who was the american president from 2008 to 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
+Who was the german dictator during the World War II?;Hitler;Mussolini;Franco;Petain
+How is the genocide suffered by Jewish people dur the World War II called?;Shoah;Sholah;Shaoh;Shosha
+What is the most important city of the judaism?;Jerusalem;Tel Aviv;Medina;Bethlehem
+Who is the most important prophet for the muslim people?;Muhammad;Jesus;Moses;God
+Who discovered America?;Christopher Columbus;Napoleon;Copernic;Archimedes
+Who was the famous french emperor from 1804 to 1814?;Napoleon;Louis XIV;Louis XVI;Charles de Gaulle 
+Which empire believed in the gods called Zeus and Poseidon?;Greek Empire;Roman Empire;Ottoman Empire;British Empire 
+What was the equivalent of the greek god Zeus for the Roman Empire?;Jupiter;Zeus;Apollo;Venus
+What is the meaning of Christmas?;Jesus'birth;Muhammad's birth;The creation of the world;Nothing in particular
+What was the previous name of Russia?;USSR;US;UE;UN
+What is the intergovernmental organization tasked to promote international co-operation?;UN;UE;US;USSR
+Medium:
+Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
+Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
+Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
+Who was the first US President to be assassinated?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
+Who was imprisoned in South Africa for many years and fought against appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
+According to the bible, what was the name of the prophet who split a sea in two parts?;Moses;Jesus;Muhammad;Buddha
+What is the name of Scandinavian pirates and traders who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
+What is the name of the ancestor of the United Nations(UN)?;League of Nations(LN);European Union(UE);Group of Twenty(G20);National Urban League(NUL)
+How is the period 14th-17th centuries in Europe called?;The Renaissance;The Middle Ages;The Post-Colonial period;The Ancient World
+What is the name of the leader of the Indian independence movement against British rule?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
+Hard:
+Medium:
+Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
+Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
+Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
+Who was the first US President to be assassinated?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
+Who was imprisoned in South Africa for many years and fought against appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
+According to the bible, what was the name of the prophet who split a sea in two parts?;Moses;Jesus;Muhammad;Buddha
+What is the name of Scandinavian pirates and traders who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
+What is the name of the ancestor of the United Nations(UN)?;League of Nations(LN);European Union(UE);Group of Twenty(G20);National Urban League(NUL)
+How is the period 14th-17th centuries in Europe called?;The Renaissance;The Middle Ages;The Post-Colonial period;The Ancient World
+What is the name of the leader of the Indian independence movement against British rule?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
+
+
+ 

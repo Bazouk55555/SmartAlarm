@@ -3,6 +3,7 @@ package com.example.adrien.smartalarm.mainActivity;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -27,12 +29,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SmartAlarm extends AppCompatActivity {
 
 	private DialogAdd dialog_add;
 	private DialogRemove dialogRemove;
-	private ListView list_view_alarms;
 	private List<HashMap<String, String>> listMapOfEachAlarm;
 	private List<HashMap<String, Integer>> listMapOfActivates;
 	private SimpleAdapter adapter_alarms;
@@ -53,7 +55,9 @@ public class SmartAlarm extends AppCompatActivity {
 	private CheckBox activateGame = null;
 	private String category = "Random Category";
 	private CategoryDialog categoryDialog = null;
-	private int numberOfQuestions=1;
+	private String level = "Easy";
+	private LevelDialog levelDialog = null;
+	private int numberOfQuestions = 1;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -65,16 +69,10 @@ public class SmartAlarm extends AppCompatActivity {
 		activateGame = (CheckBox) findViewById(R.id.checkbox);
 
 		dialog_add = new DialogAdd(this, this);
-		list_view_alarms = (ListView) findViewById(R.id.list_alarm);
-		ListView list_view_activates = (ListView) findViewById(R.id.list_activate);
+		final ListView list_view_alarms = (ListView) findViewById(R.id.list_alarm);
+		final ListView list_view_activates = (ListView) findViewById(R.id.list_activate);
 		listMapOfEachAlarm = new ArrayList<>();
 		listMapOfActivates = new ArrayList<>();
-		adapter_alarms = new SimpleAdapter(this, listMapOfEachAlarm, R.layout.item_alarm,
-				new String[]{"alarm", "title"}, new int[]{R.id.time, R.id.title});
-		adapter_activates = new SimpleAdapter(this, listMapOfActivates, R.layout.item_activate,
-				new String[]{"alarm_drawable"}, new int[]{R.id.activate});
-		list_view_alarms.setAdapter(adapter_alarms);
-		list_view_activates.setAdapter(adapter_activates);
 
 		alarmManager = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);
 		alarmsHours = new ArrayList<>();
@@ -96,46 +94,49 @@ public class SmartAlarm extends AppCompatActivity {
 			mapOfTheNewAlarm.put("alarm", alarm.getTime());
 			mapOfTheNewAlarm.put("title", alarm.getTitle());
 			listMapOfEachAlarm.add(mapOfTheNewAlarm);
-			adapter_alarms.notifyDataSetChanged();
 			HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
-			if (alarm.getActivated()) {
-				mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
-			} else {
-				mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_off);
-			}
+            if (alarm.getActivated()) {
+                mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
+            } else {
+                mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_off);
+            }
 			listMapOfActivates.add(mapOfTheAlarmDrawable);
-			adapter_activates.notifyDataSetChanged();
+            cancelAnAlarmManager((int)alarm.getId()-1);
 		}
 		alarmBaseDAO.close();
+
+        adapter_alarms = new SimpleAdapterWithBackgroundChanged(this, listMapOfEachAlarm, R.layout.item_alarm,
+                new String[]{"alarm", "title"}, new int[]{R.id.time, R.id.title});
+        adapter_activates = new SimpleAdapterWithBackgroundChanged(this, listMapOfActivates, R.layout.item_activate,
+                new String[]{"alarm_drawable"}, new int[]{R.id.activate});
+        list_view_alarms.setAdapter(adapter_alarms);
+        list_view_activates.setAdapter(adapter_activates);
+        list_view_alarms.requestLayout();
+        list_view_activates.requestLayout();
 
 		list_view_activates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				final ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
-				final View alarmView = list_view_alarms.getChildAt(position);
-				if (alarmsActivated.get(position)) {
-					activatedImageView.setImageResource(R.drawable.alarm_off);
-					activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
-					alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
-					alarmsActivated.set(position, false);
-					Intent intent_to_alarm_ring = new Intent(SmartAlarm.this, AlarmRing.class);
-					PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, position,
-							intent_to_alarm_ring, PendingIntent.FLAG_CANCEL_CURRENT);
-					Calendar cal = Calendar.getInstance();
-					cal.set(Calendar.SECOND, 0);
-					cal.set(Calendar.MINUTE, alarmsMinutes.get(position));
-					cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(position));
-					if (cal.getTime().before(Calendar.getInstance().getTime())) {
-						cal.add(Calendar.DAY_OF_YEAR, 1);
-					}
-					alarmManager.cancel(pendingIntent);
-				} else {
-					activatedImageView.setImageResource(R.drawable.alarm_on);
-					activatedImageView.setBackgroundColor(getResources().getColor(R.color.bright));
-					alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
-					alarmsActivated.set(position, true);
-					setAlarmManager(position, "alarm" + (alarmsSound.get(position) + 1), alarmsTitle.get(position));
-				}
+                ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
+                View alarmView = list_view_alarms.getChildAt(position);
+                AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(SmartAlarm.this);
+                alarmBaseDAO.open();
+                if (alarmsActivated.get(position)) {
+                    activatedImageView.setImageResource(R.drawable.alarm_off);
+                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
+                    alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
+                    alarmsActivated.set(position, false);
+                    cancelAnAlarmManager(position);
+                    alarmBaseDAO.updateActivation(position, false);
+                } else {
+                    activatedImageView.setImageResource(R.drawable.alarm_on);
+                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.bright));
+                    alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
+                    alarmsActivated.set(position, true);
+                    setAlarmManager(position, "alarm" + (alarmsSound.get(position) + 1), alarmsTitle.get(position));
+                    alarmBaseDAO.updateActivation(position, true);
+                }
+                alarmBaseDAO.close();
 			}
 		});
 
@@ -194,13 +195,20 @@ public class SmartAlarm extends AppCompatActivity {
 				}
 				categoryDialog.show();
 				break;
+			case R.id.level_of_question :
+				if (levelDialog == null) {
+					levelDialog = new LevelDialog(this, this);
+				}
+				levelDialog.show();
+				break;
 			case R.id.number_of_question :
 				if (numberQuestionsDialog == null) {
 					numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 				}
 				numberQuestionsDialog.show();
 				break;
-			default:break;
+			default :
+				break;
 		}
 		return true;
 	}
@@ -210,6 +218,7 @@ public class SmartAlarm extends AppCompatActivity {
 		alarmsMinutes.add(minute);
 		alarmsTitle.add(title);
 		alarmsSound.add(soundSelected);
+		alarmsActivated.add(true);
 
 		AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
 		alarmBaseDAO.open();
@@ -221,7 +230,6 @@ public class SmartAlarm extends AppCompatActivity {
 		listMapOfEachAlarm.add(mapOfTheNewAlarm);
 		adapter_alarms.notifyDataSetChanged();
 
-		alarmsActivated.add(true);
 		HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
 		mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
 		listMapOfActivates.add(mapOfTheAlarmDrawable);
@@ -292,6 +300,7 @@ public class SmartAlarm extends AppCompatActivity {
 		intent_to_alarm_ring.putExtra("sound", sound);
 		intent_to_alarm_ring.putExtra("activate_game", activateGame.isChecked());
 		intent_to_alarm_ring.putExtra("category", category);
+		intent_to_alarm_ring.putExtra("level", level);
 		intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, index, intent_to_alarm_ring,
 				PendingIntent.FLAG_CANCEL_CURRENT);
@@ -310,8 +319,16 @@ public class SmartAlarm extends AppCompatActivity {
 		this.uriImage = uriImage;
 	}
 
+	public Uri getUriImage() {
+		return uriImage;
+	}
+
 	public void setUriSound(Uri uriSound) {
 		this.uriSound = uriSound;
+	}
+
+	public Uri getUriSound() {
+		return uriSound;
 	}
 
 	@Override
@@ -341,6 +358,10 @@ public class SmartAlarm extends AppCompatActivity {
 		this.isAlarmSix = isAlarmSix;
 	}
 
+	public boolean getIsAlarmSix() {
+		return isAlarmSix;
+	}
+
 	public DialogAdd getDialogAddImage() {
 		return dialog_add;
 	}
@@ -352,6 +373,15 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public String getCategory() {
 		return category;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+		numberQuestionsDialog = new NumberQuestionsDialog(this, this);
+	}
+
+	public String getLevel() {
+		return level;
 	}
 
 	public void setNumberOfQuestions(int numberOfQuestions) {
@@ -375,9 +405,8 @@ public class SmartAlarm extends AppCompatActivity {
 			intent_to_alarm_ring.putExtra("uri_sound", uriSound);
 			intent_to_alarm_ring.putExtra("sound", "alarm" + (alarmsSound.get(i + 1) + 1));
 			intent_to_alarm_ring.putExtra("activate_game", activateGame.isChecked());
-			if (category != null) {
-				intent_to_alarm_ring.putExtra("category", category);
-			}
+			intent_to_alarm_ring.putExtra("category", category);
+			intent_to_alarm_ring.putExtra("level", level);
 			intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
 			PendingIntent pendingIntent = PendingIntent.getActivity(this, i, intent_to_alarm_ring,
 					PendingIntent.FLAG_CANCEL_CURRENT);
@@ -392,18 +421,42 @@ public class SmartAlarm extends AppCompatActivity {
 
 			alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
 		}
-
-		int size = alarmsHours.size() - 1;
-		Intent intent_to_alarm_ring = new Intent(this, AlarmRing.class);
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, size, intent_to_alarm_ring,
-				PendingIntent.FLAG_CANCEL_CURRENT);
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.SECOND, 0);
-		cal.set(Calendar.MINUTE, alarmsMinutes.get(size));
-		cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(size));
-		if (cal.getTime().before(Calendar.getInstance().getTime())) {
-			cal.add(Calendar.DAY_OF_YEAR, 1);
-		}
-		alarmManager.cancel(pendingIntent);
+        cancelAnAlarmManager(alarmsHours.size()-1);
 	}
+
+	private void cancelAnAlarmManager(int position)
+    {
+        Intent intent_to_alarm_ring = new Intent(SmartAlarm.this, AlarmRing.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, position, intent_to_alarm_ring,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, alarmsMinutes.get(position));
+        cal.set(Calendar.HOUR_OF_DAY, alarmsHours.get(position));
+        if (cal.getTime().before(Calendar.getInstance().getTime())) {
+            cal.add(Calendar.DAY_OF_YEAR, 1);
+        }
+        alarmManager.cancel(pendingIntent);
+    }
+
+    private class SimpleAdapterWithBackgroundChanged extends SimpleAdapter
+    {
+        private SimpleAdapterWithBackgroundChanged(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+            super(context, data, resource, from, to);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+            convertView = super.getView(position, convertView,  parent);
+            //if(!alarmsActivated.isEmpty()) {
+                if (!alarmsActivated.get(position)) {
+                    convertView.setBackgroundColor(getResources().getColor(R.color.dark));
+                } else {
+                    convertView.setBackgroundColor(getResources().getColor(R.color.bright));
+                }
+            //}
+            return convertView;
+        }
+    }
 }

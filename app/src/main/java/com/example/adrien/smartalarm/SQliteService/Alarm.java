@@ -48,4 +48,21 @@ public class Alarm {
 		return isActivated;
 	}
 
+	@Override
+	public boolean equals(Object alarm) {
+		if (alarm == this) {
+			return true;
+		}
+
+		if (!(alarm instanceof Alarm)) {
+			return false;
+		}
+
+		Alarm alarmCompared = (Alarm) alarm;
+		return (this.getId() == alarmCompared.getId() && this.getHour() == alarmCompared.getHour()
+				&& this.getMinute() == alarmCompared.getMinute() && this.getTime().equals(alarmCompared.getTime())
+				&& this.getTitle().equals(alarmCompared.getTitle()) && this.getSound() == alarmCompared.getSound()
+				&& this.getActivated() == alarmCompared.getActivated());
+
+	}
 }

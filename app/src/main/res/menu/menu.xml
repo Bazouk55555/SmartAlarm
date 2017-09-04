@@ -50,6 +50,12 @@
                 android:id="@+id/number_of_question"
                 android:title="Number of questions"
                 app:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/level_of_question"
+                android:title="Level of the questions"
+                app:showAsAction="ifRoom" />
+
         </menu>
 
     </item>

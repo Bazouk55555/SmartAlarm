@@ -38,7 +38,7 @@ public class ImagesGame extends AppCompatActivity {
 		List<Integer> imagesBackgroundList;
 		int score = getIntent().getIntExtra("score", 0);
 		scoreView.setText("Score: " + String.valueOf(score) + "%");
-		if (finalImage) {
+		if (!finalImage) {
 			if (getIntent().getBooleanExtra("hasWon", false)) {
 				imagesBackgroundList = Arrays.asList(R.drawable.image_background_won1, R.drawable.image_background_won2,
 						R.drawable.image_background_won3, R.drawable.image_background_won4,

@@ -1,18 +1,14 @@
 package com.example.adrien.smartalarm.mainActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.adrien.smartalarm.R;
-
-import java.util.List;
 
 public class DialogAdd extends AbstractDialogAddOrRemove {
 

@@ -9,14 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlarmBaseDAO {
-	private final static int VERSION = 1;
-	private final static String DATABASE = "database_alarm";
 
 	private SQLiteDatabase mDb = null;
 	private DatabaseSaveAlarmHandler databaseHandler = null;
 
 	public AlarmBaseDAO(Context pContext) {
-		this.databaseHandler = new DatabaseSaveAlarmHandler(pContext, DATABASE, null, VERSION);
+		this.databaseHandler = new DatabaseSaveAlarmHandler(pContext);
 	}
 
 	public SQLiteDatabase open() {
@@ -65,6 +63,14 @@ public class AlarmBaseDAO {
 		value.put(DatabaseSaveAlarmHandler.SOUND, alarm.getSound());
 		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.ID_KEY + " = ?",
 				new String[]{String.valueOf(alarm.getId())});
+	}
+
+	public void updateActivation(int position, boolean isActivated)
+	{
+		ContentValues value = new ContentValues();
+		value.put(DatabaseSaveAlarmHandler.ACTIVATED, isActivated);
+		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.ID_KEY + " = ?",
+				new String[]{String.valueOf(position+1)});
 	}
 
 	public List<Alarm> select() {

@@ -70,31 +70,31 @@ public class NumberQuestionsDialog extends Dialog {
 			case "Cinema" :
 				CinemaDAO cinemaDAO = new CinemaDAO(smartAlarm);
 				cinemaDAO.open();
-				numberMaximumOfQuestions = cinemaDAO.getNumberOfQuestion();
+				numberMaximumOfQuestions = cinemaDAO.getNumberOfQuestions(smartAlarm.getLevel());
 				cinemaDAO.close();
 				break;
 			case "Geography" :
 				GeographyDAO geographyDAO = new GeographyDAO(smartAlarm);
 				geographyDAO.open();
-				numberMaximumOfQuestions = geographyDAO.getNumberOfQuestion();
+				numberMaximumOfQuestions = geographyDAO.getNumberOfQuestions(smartAlarm.getLevel());
 				geographyDAO.close();
 				break;
 			case "History" :
 				HistoryDAO historyDAO = new HistoryDAO(smartAlarm);
 				historyDAO.open();
-				numberMaximumOfQuestions = historyDAO.getNumberOfQuestion();
+				numberMaximumOfQuestions = historyDAO.getNumberOfQuestions(smartAlarm.getLevel());
 				historyDAO.close();
 				break;
 			case "Music" :
 				MusicDAO musicDAO = new MusicDAO(smartAlarm);
 				musicDAO.open();
-				numberMaximumOfQuestions = musicDAO.getNumberOfQuestion();
+				numberMaximumOfQuestions = musicDAO.getNumberOfQuestions(smartAlarm.getLevel());
 				musicDAO.close();
 				break;
 			case "Sports" :
 				SportsDAO sportsDAO = new SportsDAO(smartAlarm);
 				sportsDAO.open();
-				numberMaximumOfQuestions = sportsDAO.getNumberOfQuestion();
+				numberMaximumOfQuestions = sportsDAO.getNumberOfQuestions(smartAlarm.getLevel());
 				sportsDAO.close();
 				break;
 			default :
@@ -102,11 +102,11 @@ public class NumberQuestionsDialog extends Dialog {
 						new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm),
 						new SportsDAO(smartAlarm));
 				abstractDAOList.get(0).open();
-				numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestion();
+				numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestions(smartAlarm.getLevel());
 				abstractDAOList.get(0).close();
 				for (int i = 1; i < abstractDAOList.size(); i++) {
 					abstractDAOList.get(i).open();
-					int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestion();
+					int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestions(smartAlarm.getLevel());
 					if (maximumOfNewAbstractDAO < numberMaximumOfQuestions) {
 						numberMaximumOfQuestions = maximumOfNewAbstractDAO;
 					}
@@ -216,7 +216,7 @@ public class NumberQuestionsDialog extends Dialog {
 		ImageView imageView;
 		int drawableArrow;
 
-		public redArrowRunnable(ImageView imageView, int drawableArrow) {
+		private redArrowRunnable(ImageView imageView, int drawableArrow) {
 			this.imageView = imageView;
 			this.drawableArrow = drawableArrow;
 		}
@@ -233,7 +233,7 @@ public class NumberQuestionsDialog extends Dialog {
 		private String beforeChange;
 		private boolean canModifyText = true;
 
-		public TextWatcherTime(EditText editText) {
+		private TextWatcherTime(EditText editText) {
 			this.editText = editText;
 		}
 

@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DatabaseQuestionHandler extends SQLiteOpenHelper {
@@ -20,41 +21,45 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 	public static final String WRONG_ANSWER_1 = "First";
 	public static final String WRONG_ANSWER_2 = "Second";
 	public static final String WRONG_ANSWER_3 = "Third";
+	public static final String LEVEL = "Level";
 
 	public static final String TABLE_CINEMA_NAME = "CINEMA";
 	public static final String TABLE_CINEMA_CREATE = "CREATE TABLE " + TABLE_CINEMA_NAME + " (" + ID_KEY
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUESTION + " TEXT, " + ANSWER + " TEXT, " + WRONG_ANSWER_1
-			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT);";
+			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT," + LEVEL + " TEXT);";
 	public static final String TABLE_CINEMA_DROP = "DROP TABLE IF EXISTS " + TABLE_CINEMA_NAME + ";";
 
 	public static final String TABLE_GEOGRAPHY_NAME = "GEOGRAPHY";
 	public static final String TABLE_GEOGRAPHY_CREATE = "CREATE TABLE " + TABLE_GEOGRAPHY_NAME + " (" + ID_KEY
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUESTION + " TEXT, " + ANSWER + " TEXT, " + WRONG_ANSWER_1
-			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT);";
+			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT," + LEVEL + " TEXT);";
 	public static final String TABLE_GEOGRAPHY_DROP = "DROP TABLE IF EXISTS " + TABLE_GEOGRAPHY_NAME + ";";
 
 	public static final String TABLE_HISTORY_NAME = "HISTORY";
 	public static final String TABLE_HISTORY_CREATE = "CREATE TABLE " + TABLE_HISTORY_NAME + " (" + ID_KEY
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUESTION + " TEXT, " + ANSWER + " TEXT, " + WRONG_ANSWER_1
-			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT);";
+			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT," + LEVEL + " TEXT);";
 	public static final String TABLE_HISTORY_DROP = "DROP TABLE IF EXISTS " + TABLE_HISTORY_NAME + ";";
 
 	public static final String TABLE_MUSIC_NAME = "MUSIC";
 	public static final String TABLE_MUSIC_CREATE = "CREATE TABLE " + TABLE_MUSIC_NAME + " (" + ID_KEY
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUESTION + " TEXT, " + ANSWER + " TEXT, " + WRONG_ANSWER_1
-			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT);";
+			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT," + LEVEL + " TEXT);";
 	public static final String TABLE_MUSIC_DROP = "DROP TABLE IF EXISTS " + TABLE_MUSIC_NAME + ";";
 
 	public static final String TABLE_SPORTS_NAME = "SPORTS";
 	public static final String TABLE_SPORTS_CREATE = "CREATE TABLE " + TABLE_SPORTS_NAME + " (" + ID_KEY
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUESTION + " TEXT, " + ANSWER + " TEXT, " + WRONG_ANSWER_1
-			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT);";
+			+ " TEXT, " + WRONG_ANSWER_2 + " TEXT, " + WRONG_ANSWER_3 + " TEXT," + LEVEL + " TEXT);";
 	public static final String TABLE_SPORTS_DROP = "DROP TABLE IF EXISTS " + TABLE_SPORTS_NAME + ";";
+
+	private final static String DATABASE = "database_question";
+	private final static int VERSION = 6;
 
 	private Context dbContext;
 
-	public DatabaseQuestionHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-		super(context, name, factory, version);
+	public DatabaseQuestionHandler(Context context) {
+		super(context, DATABASE, null, VERSION);
 		this.dbContext = context;
 	}
 
@@ -65,6 +70,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 		db.execSQL(TABLE_HISTORY_CREATE);
 		db.execSQL(TABLE_MUSIC_CREATE);
 		db.execSQL(TABLE_SPORTS_CREATE);
+		String a = TABLE_CINEMA_CREATE;
 		loadQuestions(TABLE_CINEMA_NAME, R.raw.cinema_questions, db);
 		loadQuestions(TABLE_GEOGRAPHY_NAME, R.raw.geography_questions, db);
 		loadQuestions(TABLE_HISTORY_NAME, R.raw.history_questions, db);
@@ -88,23 +94,21 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 		db.execSQL(TABLE_GEOGRAPHY_DROP);
 		db.execSQL(TABLE_HISTORY_DROP);
 		db.execSQL(TABLE_MUSIC_DROP);
+		String a = TABLE_CINEMA_DROP;
 		db.execSQL(TABLE_SPORTS_DROP);
 		onCreate(db);
 	}
 
 	private void loadQuestions(String table, int questionsFile, SQLiteDatabase db) {
-		List<String> arrayToFillTheQuestion = new ArrayList<>();
-		for (int i = 0; i < 5; i++) {
-			arrayToFillTheQuestion.add("");
-		}
+		List<String> arrayToFillTheQuestion = Arrays.asList("","","","","");
 		try {
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(dbContext.getResources().openRawResource(questionsFile)));
 			String line;
-			while ((line = br.readLine()) != null) {
+			while (!(line = br.readLine()).equals("Medium:")) {
 				int wordInArray = 0;
 				for (int i = 0; i < line.length(); i++) {
-					if (line.charAt(i) != ',') {
+					if (line.charAt(i) != ';') {
 						arrayToFillTheQuestion.set(wordInArray,
 								arrayToFillTheQuestion.get(wordInArray) + line.charAt(i));
 					} else {
@@ -112,7 +116,41 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 					}
 				}
 				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
-						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4));
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Easy");
+				addQuestion(table, question, db);
+				for (int i = 0; i < 5; i++) {
+					arrayToFillTheQuestion.set(i, "");
+				}
+			}
+			while (!(line = br.readLine()).equals("Hard:")) {
+				int wordInArray = 0;
+				for (int i = 0; i < line.length(); i++) {
+					if (line.charAt(i) != ';') {
+						arrayToFillTheQuestion.set(wordInArray,
+								arrayToFillTheQuestion.get(wordInArray) + line.charAt(i));
+					} else {
+						wordInArray++;
+					}
+				}
+				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Medium");
+				addQuestion(table, question, db);
+				for (int i = 0; i < 5; i++) {
+					arrayToFillTheQuestion.set(i, "");
+				}
+			}
+			while ((line = br.readLine()) != null) {
+				int wordInArray = 0;
+				for (int i = 0; i < line.length(); i++) {
+					if (line.charAt(i) != ';') {
+						arrayToFillTheQuestion.set(wordInArray,
+								arrayToFillTheQuestion.get(wordInArray) + line.charAt(i));
+					} else {
+						wordInArray++;
+					}
+				}
+				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Hard");
 				addQuestion(table, question, db);
 				for (int i = 0; i < 5; i++) {
 					arrayToFillTheQuestion.set(i, "");
@@ -131,6 +169,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 		value.put(WRONG_ANSWER_1, question.getWrongAnswer1());
 		value.put(WRONG_ANSWER_2, question.getWrongAnswer2());
 		value.put(WRONG_ANSWER_3, question.getWrongAnswer3());
+		value.put(LEVEL, question.getLevel());
 		db.insert(table, null, value);
 	}
 }
