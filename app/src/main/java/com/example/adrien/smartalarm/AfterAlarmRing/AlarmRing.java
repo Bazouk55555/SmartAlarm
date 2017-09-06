@@ -129,7 +129,6 @@ public class AlarmRing extends AppCompatActivity {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
 					numberOfQuestions = getIntent().getIntExtra("number_of_questions", 5);
 					categoryDAO.open();
-					System.out.println("numberOfQuestions: "+numberOfQuestions);
 					List<Question> questions = categoryDAO.select(numberOfQuestions,getIntent().getStringExtra("level"));
 					categoryDAO.close();
 					Collections.shuffle(questions);

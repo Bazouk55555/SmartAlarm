@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import android.support.constraint.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class CinemaDAOTest {
 
     private CinemaDAO cinemaDAO= new CinemaDAO(RuntimeEnvironment.application);
@@ -31,6 +31,7 @@ public class CinemaDAOTest {
     @Test
     public void SelectTest()
     {
-        assertEquals(cinemaDAO.select(4).size(),cinemaDAO.getNumberOfQuestionInFile());
+        int numberOfQuestionsSelected = 4;
+        assertEquals(numberOfQuestionsSelected,cinemaDAO.select(numberOfQuestionsSelected,"Easy").size());
     }
 }

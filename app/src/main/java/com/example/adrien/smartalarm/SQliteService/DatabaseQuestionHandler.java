@@ -54,7 +54,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 	public static final String TABLE_SPORTS_DROP = "DROP TABLE IF EXISTS " + TABLE_SPORTS_NAME + ";";
 
 	private final static String DATABASE = "database_question";
-	private final static int VERSION = 6;
+	private final static int VERSION = 2;
 
 	private Context dbContext;
 
@@ -70,7 +70,6 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 		db.execSQL(TABLE_HISTORY_CREATE);
 		db.execSQL(TABLE_MUSIC_CREATE);
 		db.execSQL(TABLE_SPORTS_CREATE);
-		String a = TABLE_CINEMA_CREATE;
 		loadQuestions(TABLE_CINEMA_NAME, R.raw.cinema_questions, db);
 		loadQuestions(TABLE_GEOGRAPHY_NAME, R.raw.geography_questions, db);
 		loadQuestions(TABLE_HISTORY_NAME, R.raw.history_questions, db);

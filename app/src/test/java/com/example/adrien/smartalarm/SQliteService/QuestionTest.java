@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class QuestionTest {
 
-    private Question question = new Question("Question", "Answer", "Wrong Answer 1","Wrong Answer 2","Wrong Answer 3");
+    private Question question = new Question("Question", "Answer", "Wrong Answer 1","Wrong Answer 2","Wrong Answer 3","Medium");
 
     @Test
     public void getQuestionTest() throws Exception {
@@ -36,6 +36,12 @@ public class QuestionTest {
     public void getWrongAnswer3Test() throws Exception {
         String wrongAnswer3Expected = "Wrong Answer 3";
         assertEquals(wrongAnswer3Expected, question.getWrongAnswer3());
+    }
+
+    @Test
+    public void getLevelTest() throws Exception {
+        String levelExpected = "Medium";
+        assertEquals(levelExpected, question.getLevel());
     }
 
 }

@@ -70,39 +70,47 @@ public class SmartAlarmTest {
         assertEquals(false,smartAlarm.getIsAlarmSix());
     }
 
-    /*@Test
-    public void setCategoryTest()
+    @Test
+    public void getAndSetCategoryTest()
     {
-
+        String categoryExpected = "Sports";
+        smartAlarm.setCategory(categoryExpected);
+        assertEquals(categoryExpected,smartAlarm.getCategory());
     }
 
     @Test
-    public void getCategoryTest()
+    public void getAndSetLevelTest()
     {
-
+        String levelExpected = "Medium";
+        smartAlarm.setLevel(levelExpected);
+        assertEquals(levelExpected,smartAlarm.getLevel());
     }
 
     @Test
-    public void getNumberOfQuestionsTest()
+    public void getAndSetNumberOfQuestionsTest()
     {
-
-    }
-
-    @Test
-    public void setNewAlarmTest()
-    {
-
+        int numberOfQuestionsExpected = 5;
+        smartAlarm.setNumberOfQuestions(numberOfQuestionsExpected);
+        assertEquals(numberOfQuestionsExpected,smartAlarm.getNumberOfQuestions());
     }
 
     @Test
     public void changeAlarmTest()
     {
+        smartAlarm.setNewAlarm("02:02","Title",2,2,2);
+        smartAlarm.changeAlarm("03:03","Title",1,3,3,3);
+        assertEquals(2,smartAlarm.getAlarmsMinutes().size());
+        assertEquals((Integer)3,smartAlarm.getAlarmsMinutes().get(1));
+        assertEquals((Integer)3,smartAlarm.getAlarmsMinutes().get(1));
+        assertEquals((Boolean)true,smartAlarm.getAlarmsActivated().get(1));
 
     }
 
     @Test
     public void removeAlarmTest()
     {
-
-    }*/
+        smartAlarm.setNewAlarm("02:02","Title",2,2,2);
+        smartAlarm.removeAlarm(1);
+        assertEquals(1,smartAlarm.getAlarmsMinutes().size());
+    }
 }

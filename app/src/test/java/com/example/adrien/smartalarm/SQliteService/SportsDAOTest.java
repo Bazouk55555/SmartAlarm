@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import android.support.constraint.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class SportsDAOTest {
 
     private SportsDAO sportsDAO= new SportsDAO(RuntimeEnvironment.application);
@@ -31,6 +31,7 @@ public class SportsDAOTest {
     @Test
     public void SelectTest()
     {
-        assertEquals(sportsDAO.select(4).size(),sportsDAO.getNumberOfQuestionInFile());
+        int numberOfQuestionsSelected = 4;
+        assertEquals(numberOfQuestionsSelected,sportsDAO.select(numberOfQuestionsSelected,"Easy").size());
     }
 }

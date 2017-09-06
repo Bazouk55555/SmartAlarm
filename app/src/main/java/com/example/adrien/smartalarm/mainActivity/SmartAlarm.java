@@ -388,6 +388,10 @@ public class SmartAlarm extends AppCompatActivity {
 		this.numberOfQuestions = numberOfQuestions;
 	}
 
+	public int getNumberOfQuestions() {
+		return numberOfQuestions;
+	}
+
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void removeAlarmManager(int position) {
 		for (int i = position; i < alarmsHours.size() - 1; i++) {
@@ -449,13 +453,13 @@ public class SmartAlarm extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent)
         {
             convertView = super.getView(position, convertView,  parent);
-            //if(!alarmsActivated.isEmpty()) {
+            if(!alarmsActivated.isEmpty()) {
                 if (!alarmsActivated.get(position)) {
                     convertView.setBackgroundColor(getResources().getColor(R.color.dark));
                 } else {
                     convertView.setBackgroundColor(getResources().getColor(R.color.bright));
                 }
-            //}
+            }
             return convertView;
         }
     }

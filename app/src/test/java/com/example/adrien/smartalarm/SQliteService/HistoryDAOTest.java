@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import android.support.constraint.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class HistoryDAOTest {
 
     private HistoryDAO historyDAO= new HistoryDAO(RuntimeEnvironment.application);
@@ -31,6 +31,7 @@ public class HistoryDAOTest {
     @Test
     public void SelectTest()
     {
-        assertEquals(historyDAO.select(4).size(),historyDAO.getNumberOfQuestionInFile());
+        int numberOfQuestionsSelected = 4;
+        assertEquals(numberOfQuestionsSelected,historyDAO.select(numberOfQuestionsSelected,"Medium").size());
     }
 }

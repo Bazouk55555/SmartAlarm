@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import android.support.constraint.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class GeographyDAOTest {
 
     private GeographyDAO geographyDAO= new GeographyDAO(RuntimeEnvironment.application);
@@ -31,6 +31,7 @@ public class GeographyDAOTest {
     @Test
     public void SelectTest()
     {
-        assertEquals(geographyDAO.select(4).size(),geographyDAO.getNumberOfQuestionInFile());
+        int numberOfQuestionsSelected = 4;
+        assertEquals(numberOfQuestionsSelected,geographyDAO.select(numberOfQuestionsSelected,"Medium").size());
     }
 }
