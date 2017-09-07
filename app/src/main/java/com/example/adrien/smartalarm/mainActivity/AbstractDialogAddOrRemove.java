@@ -26,7 +26,7 @@ import java.util.List;
 
 public abstract class AbstractDialogAddOrRemove extends Dialog {
 	protected SmartAlarm smartAlarm;
-	protected Spinner list_tone = null;
+	protected Spinner listTone = null;
 	protected Button save = null;
 	protected EditText hours = null;
 	protected EditText minutes = null;
@@ -36,9 +36,9 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	private boolean isLongPressed;
 	private boolean isShortPressed;
 
-	public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm main_activity) {
+	public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm smartAlarm) {
 		super(context);
-		this.smartAlarm = main_activity;
+		this.smartAlarm = smartAlarm;
 		alarms.add("alarm1");
 		alarms.add("alarm2");
 		alarms.add("alarm3");
@@ -51,11 +51,11 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		super.onCreate(savedInstance);
 
 		setCanceledOnTouchOutside(false);
-		list_tone = (Spinner) findViewById(R.id.list_tone);
+		listTone = (Spinner) findViewById(R.id.list_tone);
 		ArrayAdapter<String> adapter = new ArrayAdapter<>(smartAlarm, android.R.layout.simple_spinner_dropdown_item,
 				alarms);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		list_tone.setAdapter(adapter);
+		listTone.setAdapter(adapter);
 
 		Button cancel = (Button) findViewById(R.id.cancel);
 		cancel.setOnClickListener(new View.OnClickListener() {
@@ -128,11 +128,11 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 					} else {
 						number = ((Integer.parseInt(editTextTime.getText().toString()) - 1) + 60) % 60;
 					}
-					String text_number = String.valueOf(number);
+					String textNumber = String.valueOf(number);
 					if (number > -1 && number < 10) {
-						text_number = "0" + text_number;
+						textNumber = "0" + textNumber;
 					}
-					editTextTime.setText(text_number);
+					editTextTime.setText(textNumber);
 					redArrowForShortTime.postDelayed(new redArrowRunnable(arrow, arrowDrawable), 150);
 				}
 			}
@@ -160,11 +160,11 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 									} else {
 										number = ((Integer.parseInt(editTextTime.getText().toString()) - 1) + 60) % 60;
 									}
-									String text_number = String.valueOf(number);
+									String textNumber = String.valueOf(number);
 									if (number > -1 && number < 10) {
-										text_number = "0" + text_number;
+										textNumber = "0" + textNumber;
 									}
-									editTextTime.setText(text_number);
+									editTextTime.setText(textNumber);
 								}
 							});
 							try {

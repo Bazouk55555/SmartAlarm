@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">SmartAlarm</string>
+    <string name="check_box">Check the box if you want to activate the game</string>
+    <string name="double_zero">00</string>
+    <string name="title">Title: </string>
+    <string name="tone">Tone: </string>
+    <string name="save">SAVE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="remove">REMOVE</string>
+    <string name="ok">OK</string>
+    <string name="look_for_image">Look for your image</string>
+    <string name="your_image">Your image: </string>
+    <string name="look_for_sound">Look for your sound</string>
+    <string name="your_sound">Your sound: </string>
+    <string name="category_random">Random Category</string>
+    <string name="category_cinema">Cinema</string>
+    <string name="category_geography">Geography</string>
+    <string name="category_history">History</string>
+    <string name="category_music">Music</string>
+    <string name="category_sports">Sports</string>
+    <string name="choose_category">Choose the category of the questions</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="choose_level">Choose the level of the questions</string>
 </resources>

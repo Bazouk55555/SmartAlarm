@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,8 +8,8 @@
         android:id="@+id/category_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose the category of the questions"
-        android:textSize="30dp"
+        android:text="@string/choose_category"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <RadioGroup
@@ -24,43 +22,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Random Category" />
+            android:text="@string/category_random" />
 
         <RadioButton
             android:id="@+id/category1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cinema" />
+            android:text="@string/category_cinema" />
 
         <RadioButton
             android:id="@+id/category2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Geography" />
+            android:text="@string/category_geography" />
 
         <RadioButton
             android:id="@+id/category3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="History" />
+            android:text="@string/category_history" />
 
         <RadioButton
             android:id="@+id/category4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Music" />
+            android:text="@string/category_music" />
 
         <RadioButton
             android:id="@+id/category5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sports" />
+            android:text="@string/category_sports" />
     </RadioGroup>
 
     <Button
         android:id="@+id/ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK" />
+        android:text="@string/ok" />
 
 </LinearLayout>

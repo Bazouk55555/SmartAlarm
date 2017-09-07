@@ -14,21 +14,21 @@ What is the name of the british national anthem?;God Save the Queen;The Star-Spa
 What is the name of the art form in which singers and musicians perform a dramatic work combining text (libretto) and musical score?;Opera;Theatre;Single;Concert
 How is the official national song called?;National anthem;Opera;Concert;Patriotical Song
 Medium:
-Who wrote the Fifth Symphony?;Ludwig van Beethoven;Amadeus Mozart;Celine Dion;Johann Sebastian Bach
-Which of these singers is a belgian singer?;Stromae;Rihanna;Beyonce;Celine Dion
-Which of these songs is a Beyonce song?;Halo;S&M;Papaoutai;Holy Grail
-Which of these singer is not an american singer?;Celine Dion;Beyonce;JAY-Z;Rihanna
-Fill in the missing word: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
-Who is a famous american blind singer-songwriter musician and composer?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
-Who is known as the King of Pop since the 1980s?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
-Who is a famous french DJ?;David Guetta;Stromae;JAY-Z;James Brown
-Who was an English rock band formed in Liverpool in 1960 composed of 4 people?;The Beatles;One Direction;The Wanted;U2
-Who is known as the King of Rock and Roll?;Elvis Presley;Michael Jackson;Ray Charles;David Guetta
-Which of these songs is a song of Justin Bieber?;Sorry;S&M;Holy Grail;Diamonds
-Which of these instruments is not a string instrument?;Flute;Violon;Guitar;Violin
-What is the name of the british national anthem?;God Save the Queen;The Star-Spangled Banner;The Fifth Symphony;America
-What is the name of the art form in which singers and musicians perform a dramatic work combining text (libretto) and musical score?;Opera;Theatre;Single;Concert
-How is the official national song called?;National anthem;Opera;Concert;Patriotical Song
+Who wrote and sang the famous song "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
+Who rose to fame in 2004 with the release of his debut album "Back to Bedlam", achieving worldwide fame with the singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
+Who was an American singer, songwriter, and poet, best remembered as the lead singer of the Doors?;Jim Morrison;Elvis Presley;Franck Sinatra;James Blunt
+Who sang ”Big Yellow Taxi”, ”Both Sides Now” and ”Woodstock”?;Joni Mitchell;Dusty Springfield;Whitney Houston;Nina Simone
+Who sang "Tiny Dancer", "Rocket Man" and "Your Song"?;Elton John;Elvis Presley;Joni Mitchell;Whitney Houston
+Who sang "I Look To You", "I Believe In You and Me" and "Miracle"?;Whitney Houston;Elton John;Elvis Presley;Joni Mitchell
+Who sang "Purple Rain", "When Doves Cry" and "Little Red Corvette"?;Prince;Whitney Houston;Elton John;Joni Mitchell
+Who sang "Space Oddity", "Life on Mars?" and "Heroes"?;David Bowie;Prince;Whitney Houston;Elton John
+Who was a Jamaican singer-songwriter, musician and guitarist who achieved international fame blending mostly reggae, ska and rocksteady in his compositions?;Bob Marley;David Bowie;Prince;Joni Mitchell
+Who sang "Proud Mary", "River Deep — Mountain High" and "What's Love Got to Do With It"?;Tina Turner;Bob Marley;David Bowie;Prince
+Who was an English singer and the lead singer and one of the founder members of the Rolling Stones?;Mick Jagger;Tina turner;Bob Marley;David Bowie
+Who sang "Shape of You", "Castle on the Hill" and "Tenerife Sea"?;Ed Sheeran;Kendrick Lamar;Mick Jagger;Elton John
+Who sang "HUMBLE", "DNA" and "Swimming Pools (Drank)"?;Kendrick Lamar;Ed Sheeran;Migos;Tina Turner
+Who sang "That's What I Like", "24K Magic" and "Locked Out Of Heaven"?;Bruno Mars;Kendrick Lamar;Ed Sheeran;Bob Marley
+Which band consists of Adam Levine, Jesse Carmichael, Mickey Madden, James Valentine, Flynn and PJ Morton?;Marron 5;The Beatles;One Direction;The Wanted
 Hard:
 Who wrote the Fifth Symphony?;Ludwig van Beethoven;Amadeus Mozart;Celine Dion;Johann Sebastian Bach
 Which of these singers is a belgian singer?;Stromae;Rihanna;Beyonce;Celine Dion

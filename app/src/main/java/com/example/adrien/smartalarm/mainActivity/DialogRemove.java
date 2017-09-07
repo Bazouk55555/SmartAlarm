@@ -20,9 +20,9 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 	private String title;
 	private int soundSelected;
 
-	public DialogRemove(@NonNull Context context, SmartAlarm main_activity, int position, String hour, String minute,
+	public DialogRemove(@NonNull Context context, SmartAlarm smartAlarm, int position, String hour, String minute,
 			String title, int soundSelected) {
-		super(context, main_activity);
+		super(context, smartAlarm);
 		this.hour = hour;
 		this.minute = minute;
 		this.title = title;
@@ -36,7 +36,7 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 		super.onCreate(savedInstance);
 
 		editTitle.setText(title);
-		list_tone.setSelection(soundSelected);
+		listTone.setSelection(soundSelected);
 		save = (Button) findViewById(R.id.save);
 		save.setOnClickListener(new View.OnClickListener() {
 			@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -56,11 +56,11 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 					alertAlarmInDouble();
 				} else {
 					String title = editTitle.getText().toString();
-					soundSelected = list_tone.getSelectedItemPosition();
+					soundSelected = listTone.getSelectedItemPosition();
 					smartAlarm.changeAlarm(time, title, position, Integer.parseInt(hours.getText().toString()),
 							Integer.parseInt(minutes.getText().toString()), soundSelected);
 					if (smartAlarm.getAlarmsActivated().get(position)) {
-						smartAlarm.setAlarmManager(position, list_tone.getSelectedItem().toString(), title);
+						smartAlarm.setAlarmManager(position, listTone.getSelectedItem().toString(), title);
 					}
 					DialogRemove.this.dismiss();
 				}

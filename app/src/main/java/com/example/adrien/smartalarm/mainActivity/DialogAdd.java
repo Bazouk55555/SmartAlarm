@@ -12,8 +12,8 @@ import com.example.adrien.smartalarm.R;
 
 public class DialogAdd extends AbstractDialogAddOrRemove {
 
-	public DialogAdd(@NonNull Context context, SmartAlarm main_activity) {
-		super(context, main_activity);
+	public DialogAdd(@NonNull Context context, SmartAlarm smartAlarm) {
+		super(context, smartAlarm);
 	}
 
 	@Override
@@ -36,9 +36,9 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
 				{
 					String title = editTitle.getText().toString();
 					smartAlarm.setNewAlarm(time, title, hour,
-							minute, list_tone.getSelectedItemPosition());
+							minute, listTone.getSelectedItemPosition());
 					smartAlarm.setAlarmManager(smartAlarm.getAlarmsMinutes().size() - 1,
-							list_tone.getSelectedItem().toString(), title);
+							listTone.getSelectedItem().toString(), title);
 					DialogAdd.this.dismiss();
 				}
 			}

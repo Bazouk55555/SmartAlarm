@@ -27,6 +27,8 @@ import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
 import com.example.adrien.smartalarm.SQliteService.MusicDAO;
 import com.example.adrien.smartalarm.SQliteService.Question;
 import com.example.adrien.smartalarm.SQliteService.SportsDAO;
+import com.example.adrien.smartalarm.mainActivity.IsGameActivated;
+import com.example.adrien.smartalarm.mainActivity.SmartAlarm;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -119,13 +121,15 @@ public class AlarmRing extends AppCompatActivity {
 
 		mediaPlayer.start();
 		ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
-		if (!getIntent().getBooleanExtra("activate_game", false)) {
+		//if (!((IsGameActivated)getIntent().getParcelableExtra("activate_game")).getIsGameActivated()) {
+		if (!SmartAlarm.getIsActivated()) {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (getIntent().getBooleanExtra("activate_game", false)) {
+				//if (((IsGameActivated)getIntent().getParcelableExtra("activate_game")).getIsGameActivated()) {
+				if (SmartAlarm.getIsActivated()) {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
 					numberOfQuestions = getIntent().getIntExtra("number_of_questions", 5);
 					categoryDAO.open();

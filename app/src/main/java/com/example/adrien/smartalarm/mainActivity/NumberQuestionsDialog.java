@@ -42,10 +42,17 @@ public class NumberQuestionsDialog extends Dialog {
 		setContentView(R.layout.dialog_number_of_question);
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
-
 		determinateNumberMaximumOfQuestions();
 
 		numberOfQuestions = (EditText) findViewById(R.id.number_of_questions);
+		int currentNumberOfQuestion = smartAlarm.getNumberOfQuestions();
+		if(currentNumberOfQuestion<numberMaximumOfQuestions) {
+			numberOfQuestions.setText(String.valueOf(currentNumberOfQuestion));
+		}
+		else
+		{
+			numberOfQuestions.setText(String.valueOf(numberMaximumOfQuestions));
+		}
 		numberOfQuestions.addTextChangedListener(new TextWatcherTime(numberOfQuestions));
 
 		redArrowForShortTime = new Handler(Looper.getMainLooper());
@@ -264,5 +271,11 @@ public class NumberQuestionsDialog extends Dialog {
 				canModifyText = true;
 			}
 		}
+	}
+
+	@Override
+	public void onStop()
+	{
+		System.out.println("FINISHED!!!!!!");
 	}
 }

@@ -11,13 +11,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your sound: " />
+            android:text="@string/your_sound" />
 
         <Button
             android:id="@+id/button_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Look for your sound" />
+            android:text="@string/look_for_sound" />
 
     </LinearLayout>
 
@@ -35,13 +35,13 @@
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ok" />
+            android:text="@string/ok" />
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
     </LinearLayout>
 
 </LinearLayout>

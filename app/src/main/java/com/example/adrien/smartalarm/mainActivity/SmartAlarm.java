@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -33,12 +34,12 @@ import java.util.Map;
 
 public class SmartAlarm extends AppCompatActivity {
 
-	private DialogAdd dialog_add;
+	private DialogAdd dialogAdd;
 	private DialogRemove dialogRemove;
 	private List<HashMap<String, String>> listMapOfEachAlarm;
 	private List<HashMap<String, Integer>> listMapOfActivates;
-	private SimpleAdapter adapter_alarms;
-	private SimpleAdapter adapter_activates;
+	private SimpleAdapter adapterAlarms;
+	private SimpleAdapter adapterActivates;
 	private List<Boolean> alarmsActivated;
 	private List<Integer> alarmsHours;
 	private List<Integer> alarmsMinutes;
@@ -53,6 +54,8 @@ public class SmartAlarm extends AppCompatActivity {
 	private MenuItem takeOffSoundMenuItem;
 	private boolean isAlarmSix = false;
 	private CheckBox activateGame = null;
+	//private IsGameActivated isGameActivated;
+	private static boolean isActivated;
 	private String category = "Random Category";
 	private CategoryDialog categoryDialog = null;
 	private String level = "Easy";
@@ -67,10 +70,30 @@ public class SmartAlarm extends AppCompatActivity {
 		setContentView(R.layout.activity_smart_alarm);
 
 		activateGame = (CheckBox) findViewById(R.id.checkbox);
+		//isGameActivated = new IsGameActivated(false);
+		activateGame.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked==true)
+				{
+					isActivated=true;
+					//isGameActivated.setIsGameActivated(true);
+					//b = Boolean.TRUE;
+					//System.out.println("Value of b after setting to TRUE: "+b);
+				}
+				else
+				{
+					isActivated=false;
+					//isGameActivated.setIsGameActivated(false);
+					//b= Boolean.FALSE;
+					//System.out.println("Value of b after setting to FALSE: "+b);
+				}
+			}
+		});
 
-		dialog_add = new DialogAdd(this, this);
-		final ListView list_view_alarms = (ListView) findViewById(R.id.list_alarm);
-		final ListView list_view_activates = (ListView) findViewById(R.id.list_activate);
+		dialogAdd = new DialogAdd(this, this);
+		final ListView listViewAlarms = (ListView) findViewById(R.id.list_alarm);
+		final ListView listViewActivates = (ListView) findViewById(R.id.list_activate);
 		listMapOfEachAlarm = new ArrayList<>();
 		listMapOfActivates = new ArrayList<>();
 
@@ -105,20 +128,20 @@ public class SmartAlarm extends AppCompatActivity {
 		}
 		alarmBaseDAO.close();
 
-        adapter_alarms = new SimpleAdapterWithBackgroundChanged(this, listMapOfEachAlarm, R.layout.item_alarm,
+        adapterAlarms = new SimpleAdapterWithBackgroundChanged(this, listMapOfEachAlarm, R.layout.item_alarm,
                 new String[]{"alarm", "title"}, new int[]{R.id.time, R.id.title});
-        adapter_activates = new SimpleAdapterWithBackgroundChanged(this, listMapOfActivates, R.layout.item_activate,
+        adapterActivates = new SimpleAdapterWithBackgroundChanged(this, listMapOfActivates, R.layout.item_activate,
                 new String[]{"alarm_drawable"}, new int[]{R.id.activate});
-        list_view_alarms.setAdapter(adapter_alarms);
-        list_view_activates.setAdapter(adapter_activates);
-        list_view_alarms.requestLayout();
-        list_view_activates.requestLayout();
+        listViewAlarms.setAdapter(adapterAlarms);
+        listViewActivates.setAdapter(adapterActivates);
+        listViewAlarms.requestLayout();
+        listViewActivates.requestLayout();
 
-		list_view_activates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		listViewActivates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
-                View alarmView = list_view_alarms.getChildAt(position);
+                View alarmView = listViewAlarms.getChildAt(position);
                 AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(SmartAlarm.this);
                 alarmBaseDAO.open();
                 if (alarmsActivated.get(position)) {
@@ -140,7 +163,7 @@ public class SmartAlarm extends AppCompatActivity {
 			}
 		});
 
-		list_view_alarms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		listViewAlarms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
 				dialogRemove = new DialogRemove(SmartAlarm.this, SmartAlarm.this, position,
@@ -166,11 +189,11 @@ public class SmartAlarm extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.add :
-				dialog_add = new DialogAdd(this, this);
+				dialogAdd = new DialogAdd(this, this);
 				if (isAlarmSix) {
-					dialog_add.getAlarms().add("alarm6");
+					dialogAdd.getAlarms().add("alarm6");
 				}
-				dialog_add.show();
+				dialogAdd.show();
 				break;
 			case R.id.add_sound :
 				dialogAddSound = new DialogAddSound(this, this);
@@ -203,6 +226,7 @@ public class SmartAlarm extends AppCompatActivity {
 				break;
 			case R.id.number_of_question :
 				if (numberQuestionsDialog == null) {
+					System.out.println("JE SUIS ICI MAIS JE SAIS PAS PQ!!!!!");
 					numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 				}
 				numberQuestionsDialog.show();
@@ -228,12 +252,12 @@ public class SmartAlarm extends AppCompatActivity {
 		mapOfTheNewAlarm.put("alarm", time);
 		mapOfTheNewAlarm.put("title", title);
 		listMapOfEachAlarm.add(mapOfTheNewAlarm);
-		adapter_alarms.notifyDataSetChanged();
+		adapterAlarms.notifyDataSetChanged();
 
 		HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
 		mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
 		listMapOfActivates.add(mapOfTheAlarmDrawable);
-		adapter_activates.notifyDataSetChanged();
+		adapterActivates.notifyDataSetChanged();
 	}
 
 	public void changeAlarm(String time, String title, int position, int hour, int minute, int soundSelected) {
@@ -250,7 +274,7 @@ public class SmartAlarm extends AppCompatActivity {
 		mapOfTheNewAlarm.put("alarm", time);
 		mapOfTheNewAlarm.put("title", title);
 		listMapOfEachAlarm.set(position, mapOfTheNewAlarm);
-		adapter_alarms.notifyDataSetChanged();
+		adapterAlarms.notifyDataSetChanged();
 	}
 
 	public void removeAlarm(int position) {
@@ -264,11 +288,11 @@ public class SmartAlarm extends AppCompatActivity {
 		alarmBaseDAO.remove(position + 1, alarmsHours.size() - position);
 
 		listMapOfEachAlarm.remove(position);
-		adapter_alarms.notifyDataSetChanged();
+		adapterAlarms.notifyDataSetChanged();
 
 		alarmsActivated.remove(position);
 		listMapOfActivates.remove(position);
-		adapter_activates.notifyDataSetChanged();
+		adapterActivates.notifyDataSetChanged();
 	}
 
 	public List<Integer> getAlarmsMinutes() {
@@ -285,7 +309,7 @@ public class SmartAlarm extends AppCompatActivity {
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void setAlarmManager(int index, String sound, String title) {
-		Intent intent_to_alarm_ring = new Intent(this, AlarmRing.class);
+		Intent intentToAlarmRing = new Intent(this, AlarmRing.class);
 		String hour = (alarmsHours.get(index) >= 0 && alarmsHours.get(index) < 10)
 				? "0" + alarmsHours.get(index)
 				: "" + alarmsHours.get(index);
@@ -293,16 +317,18 @@ public class SmartAlarm extends AppCompatActivity {
 				? "0" + alarmsMinutes.get(index)
 				: "" + alarmsMinutes.get(index);
 		String time = hour + ":" + minute;
-		intent_to_alarm_ring.putExtra("time", time);
-		intent_to_alarm_ring.putExtra("title", title);
-		intent_to_alarm_ring.putExtra("uri_image", uriImage);
-		intent_to_alarm_ring.putExtra("uri_sound", uriSound);
-		intent_to_alarm_ring.putExtra("sound", sound);
-		intent_to_alarm_ring.putExtra("activate_game", activateGame.isChecked());
-		intent_to_alarm_ring.putExtra("category", category);
-		intent_to_alarm_ring.putExtra("level", level);
-		intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, index, intent_to_alarm_ring,
+		intentToAlarmRing.putExtra("time", time);
+		intentToAlarmRing.putExtra("title", title);
+		intentToAlarmRing.putExtra("uri_image", uriImage);
+		intentToAlarmRing.putExtra("uri_sound", uriSound);
+		intentToAlarmRing.putExtra("sound", sound);
+		//intentToAlarmRing.setExtrasClassLoader(IsGameActivated.class.getClassLoader());
+		//System.out.println("Value of isgame before putting in intent: "+isGameActivated.getIsGameActivated());
+		//intentToAlarmRing.putExtra("activate_game", isGameActivated);
+		intentToAlarmRing.putExtra("category", category);
+		intentToAlarmRing.putExtra("level", level);
+		intentToAlarmRing.putExtra("number_of_questions", numberOfQuestions);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, index, intentToAlarmRing,
 				PendingIntent.FLAG_CANCEL_CURRENT);
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.SECOND, 0);
@@ -363,7 +389,7 @@ public class SmartAlarm extends AppCompatActivity {
 	}
 
 	public DialogAdd getDialogAddImage() {
-		return dialog_add;
+		return dialogAdd;
 	}
 
 	public void setCategory(String category) {
@@ -395,7 +421,7 @@ public class SmartAlarm extends AppCompatActivity {
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void removeAlarmManager(int position) {
 		for (int i = position; i < alarmsHours.size() - 1; i++) {
-			Intent intent_to_alarm_ring = new Intent(this, AlarmRing.class);
+			Intent intentToAlarmRing = new Intent(this, AlarmRing.class);
 			String hour = (alarmsHours.get(i + 1) >= 0 && alarmsHours.get(i + 1) < 10)
 					? "0" + alarmsHours.get(i + 1)
 					: "" + alarmsHours.get(i + 1);
@@ -403,16 +429,16 @@ public class SmartAlarm extends AppCompatActivity {
 					? "0" + alarmsMinutes.get(i + 1)
 					: "" + alarmsMinutes.get(i + 1);
 			String time = hour + ":" + minute;
-			intent_to_alarm_ring.putExtra("time", time);
-			intent_to_alarm_ring.putExtra("title", alarmsTitle.get(i + 1));
-			intent_to_alarm_ring.putExtra("uri_image", uriImage);
-			intent_to_alarm_ring.putExtra("uri_sound", uriSound);
-			intent_to_alarm_ring.putExtra("sound", "alarm" + (alarmsSound.get(i + 1) + 1));
-			intent_to_alarm_ring.putExtra("activate_game", activateGame.isChecked());
-			intent_to_alarm_ring.putExtra("category", category);
-			intent_to_alarm_ring.putExtra("level", level);
-			intent_to_alarm_ring.putExtra("number_of_questions", numberOfQuestions);
-			PendingIntent pendingIntent = PendingIntent.getActivity(this, i, intent_to_alarm_ring,
+			intentToAlarmRing.putExtra("time", time);
+			intentToAlarmRing.putExtra("title", alarmsTitle.get(i + 1));
+			intentToAlarmRing.putExtra("uri_image", uriImage);
+			intentToAlarmRing.putExtra("uri_sound", uriSound);
+			intentToAlarmRing.putExtra("sound", "alarm" + (alarmsSound.get(i + 1) + 1));
+			//intentToAlarmRing.putExtra("activate_game", isGameActivated);
+			//intentToAlarmRing.putExtra("category", category);
+			//intentToAlarmRing.putExtra("level", level);
+			intentToAlarmRing.putExtra("number_of_questions", numberOfQuestions);
+			PendingIntent pendingIntent = PendingIntent.getActivity(this, i, intentToAlarmRing,
 					PendingIntent.FLAG_CANCEL_CURRENT);
 			Calendar cal = Calendar.getInstance();
 			cal.set(Calendar.SECOND, 0);
@@ -430,8 +456,8 @@ public class SmartAlarm extends AppCompatActivity {
 
 	private void cancelAnAlarmManager(int position)
     {
-        Intent intent_to_alarm_ring = new Intent(SmartAlarm.this, AlarmRing.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, position, intent_to_alarm_ring,
+        Intent intentToAlarmRing = new Intent(SmartAlarm.this, AlarmRing.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, position, intentToAlarmRing,
                 PendingIntent.FLAG_CANCEL_CURRENT);
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.SECOND, 0);
@@ -463,4 +489,9 @@ public class SmartAlarm extends AppCompatActivity {
             return convertView;
         }
     }
+
+    public static boolean getIsActivated()
+	{
+		return isActivated;
+	}
 }
