@@ -5,8 +5,10 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +36,14 @@ import java.util.Map;
 
 public class SmartAlarm extends AppCompatActivity {
 
+	private static final String IS_GAME_ACTIVATED = "game activated";
+	private static final String URI_SOUND ="uri sound";
+	private static final String URI_IMAGE ="uri image";
+	private static final String IS_ALARM_SIX = "alarm six";
+	private static final String LEVEL = "level";
+	private static final String NUMBER_OF_QUESTIONS = "number of questions";
+	private static final String CATEGORY = "category";
+
 	private DialogAdd dialogAdd;
 	private DialogRemove dialogRemove;
 	private List<HashMap<String, String>> listMapOfEachAlarm;
@@ -53,15 +63,15 @@ public class SmartAlarm extends AppCompatActivity {
 	private DialogAddSound dialogAddSound;
 	private MenuItem takeOffSoundMenuItem;
 	private boolean isAlarmSix = false;
-	private CheckBox activateGame = null;
-	//private IsGameActivated isGameActivated;
 	private static boolean isActivated;
-	private String category = "Random Category";
+	private String category;
 	private CategoryDialog categoryDialog = null;
-	private String level = "Easy";
+	private String level;
 	private LevelDialog levelDialog = null;
-	private int numberOfQuestions = 1;
+	private int numberOfQuestions;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
+	SharedPreferences preferences;
+	SharedPreferences.Editor editor;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	@Override
@@ -69,24 +79,34 @@ public class SmartAlarm extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_smart_alarm);
 
-		activateGame = (CheckBox) findViewById(R.id.checkbox);
-		//isGameActivated = new IsGameActivated(false);
+		preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		editor = preferences.edit();
+		CheckBox activateGame = (CheckBox) findViewById(R.id.checkbox);
+
+		activateGame.setChecked(preferences.getBoolean(IS_GAME_ACTIVATED,false));
+		String uriImageString = preferences.getString(URI_IMAGE, null);
+		String uriSoundString = preferences.getString(URI_SOUND, null);
+		uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
+		uriSound = (uriSoundString!=null)?Uri.parse(uriSoundString):null;
+		isAlarmSix = preferences.getBoolean(IS_ALARM_SIX,false);
+		level = preferences.getString(LEVEL,"Easy");
+		numberOfQuestions = preferences.getInt(NUMBER_OF_QUESTIONS,1);
+		category = preferences.getString(CATEGORY,"Random Category");
+
 		activateGame.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if(isChecked==true)
+				if(isChecked)
 				{
 					isActivated=true;
-					//isGameActivated.setIsGameActivated(true);
-					//b = Boolean.TRUE;
-					//System.out.println("Value of b after setting to TRUE: "+b);
+					editor.putBoolean(IS_GAME_ACTIVATED, true);
+					editor.apply();
 				}
 				else
 				{
 					isActivated=false;
-					//isGameActivated.setIsGameActivated(false);
-					//b= Boolean.FALSE;
-					//System.out.println("Value of b after setting to FALSE: "+b);
+					editor.putBoolean(IS_GAME_ACTIVATED, false);
+					editor.apply();
 				}
 			}
 		});
@@ -343,6 +363,8 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public void setUriImage(Uri uriImage) {
 		this.uriImage = uriImage;
+		editor.putString(URI_IMAGE, String.valueOf(uriImage));
+		editor.apply();
 	}
 
 	public Uri getUriImage() {
@@ -351,6 +373,8 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public void setUriSound(Uri uriSound) {
 		this.uriSound = uriSound;
+		editor.putString(URI_SOUND, String.valueOf(uriSound));
+		editor.apply();
 	}
 
 	public Uri getUriSound() {
@@ -382,19 +406,23 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public void setIsAlarmSix(boolean isAlarmSix) {
 		this.isAlarmSix = isAlarmSix;
+		editor.putBoolean(IS_ALARM_SIX, isAlarmSix);
+		editor.apply();
 	}
 
 	public boolean getIsAlarmSix() {
 		return isAlarmSix;
 	}
 
-	public DialogAdd getDialogAddImage() {
+	public DialogAdd getDialogAdd() {
 		return dialogAdd;
 	}
 
 	public void setCategory(String category) {
 		this.category = category;
 		numberQuestionsDialog = new NumberQuestionsDialog(this, this);
+		editor.putString(CATEGORY, category);
+		editor.apply();
 	}
 
 	public String getCategory() {
@@ -404,6 +432,8 @@ public class SmartAlarm extends AppCompatActivity {
 	public void setLevel(String level) {
 		this.level = level;
 		numberQuestionsDialog = new NumberQuestionsDialog(this, this);
+		editor.putString(LEVEL, level);
+		editor.apply();
 	}
 
 	public String getLevel() {
@@ -412,6 +442,8 @@ public class SmartAlarm extends AppCompatActivity {
 
 	public void setNumberOfQuestions(int numberOfQuestions) {
 		this.numberOfQuestions = numberOfQuestions;
+		editor.putInt(NUMBER_OF_QUESTIONS, numberOfQuestions);
+		editor.apply();
 	}
 
 	public int getNumberOfQuestions() {

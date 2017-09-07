@@ -1,7 +1,9 @@
 package com.example.adrien.smartalarm.AfterAlarmRing;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,7 +30,6 @@ import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
 import com.example.adrien.smartalarm.SQliteService.MusicDAO;
 import com.example.adrien.smartalarm.SQliteService.Question;
 import com.example.adrien.smartalarm.SQliteService.SportsDAO;
-import com.example.adrien.smartalarm.mainActivity.IsGameActivated;
 import com.example.adrien.smartalarm.mainActivity.SmartAlarm;
 
 import java.io.FileNotFoundException;
@@ -45,6 +47,7 @@ public class AlarmRing extends AppCompatActivity {
 	private boolean isAlarmStopped;
 	private int numberOfQuestions;
 	private DialogNewGame dialogNewGame;
+	private Uri uriImage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +131,6 @@ public class AlarmRing extends AppCompatActivity {
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//if (((IsGameActivated)getIntent().getParcelableExtra("activate_game")).getIsGameActivated()) {
 				if (SmartAlarm.getIsActivated()) {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
 					numberOfQuestions = getIntent().getIntExtra("number_of_questions", 5);
@@ -147,20 +149,9 @@ public class AlarmRing extends AppCompatActivity {
 			}
 		});
 
-		Uri uriImage = getIntent().getParcelableExtra("uri_image");
+		uriImage = getIntent().getParcelableExtra("uri_image");
 		if (uriImage != null) {
-			// ActivityCompat.requestPermissions(this,new
-			// String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
-			InputStream inputStream = null;
-			try {
-				inputStream = getContentResolver().openInputStream(uriImage);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-
-			BitmapFactory.Options option = new BitmapFactory.Options();
-			Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
-			findViewById(R.id.main_layout).setBackgroundDrawable(new BitmapDrawable(getResources(), bitmapImage));
+			ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
 		}
 	}
 
@@ -260,19 +251,24 @@ public class AlarmRing extends AppCompatActivity {
 		return numberOfQuestions;
 	}
 
-	/*
-	 * @Override public void onRequestPermissionsResult(int requestCode, String
-	 * permission [], int[] grantResult) { switch(requestCode) { case 2:
-	 * if(grantResult.length>0 && grantResult[0]==
-	 * PackageManager.PERMISSION_GRANTED) { InputStream inputStream=null; try {
-	 * inputStream = getContentResolver().openInputStream(uriImage); } catch
-	 * (FileNotFoundException e) { e.printStackTrace(); }
-	 * 
-	 * BitmapFactory.Options option= new BitmapFactory.Options(); Bitmap bitmapImage
-	 * = BitmapFactory.decodeStream(inputStream, null, option);
-	 * mainLayout.setBackgroundDrawable(new
-	 * BitmapDrawable(getResources(),bitmapImage)); } } }
-	 */
+
+	 @Override public void onRequestPermissionsResult(int requestCode, String permission [], int[] grantResult) {
+		 switch(requestCode) {
+			 case 2:
+			 if(grantResult.length>0 && grantResult[0]==PackageManager.PERMISSION_GRANTED)
+			 {
+				 InputStream inputStream = null;
+				 try {
+					 inputStream = getContentResolver().openInputStream(uriImage);
+				 } catch (FileNotFoundException e) {
+					 e.printStackTrace();
+				 }
+				 BitmapFactory.Options option = new BitmapFactory.Options();
+				 Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
+				 findViewById(R.id.main_layout).setBackgroundDrawable(new BitmapDrawable(getResources(), bitmapImage));
+			 }
+		 }
+	 }
 
 	@Override
 	protected void onStop() {

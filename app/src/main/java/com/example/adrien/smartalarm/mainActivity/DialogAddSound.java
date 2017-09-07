@@ -52,7 +52,7 @@ public class DialogAddSound extends Dialog {
 					smartAlarm.getTakeOffSoundMenuItem().setEnabled(true);
 				}
 				smartAlarm.setIsAlarmSix(false);
-				smartAlarm.getDialogAddImage().getAlarms().add("alarm6");
+				smartAlarm.getDialogAdd().getAlarms().add("alarm6");
 				DialogAddSound.this.dismiss();
 			}
 		});

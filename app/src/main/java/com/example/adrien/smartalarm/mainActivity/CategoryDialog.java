@@ -29,6 +29,27 @@ public class CategoryDialog extends Dialog {
 
 		oKButton = (Button) findViewById(R.id.ok);
 		categoryRadioGroup = (RadioGroup) findViewById(R.id.category_radio_group);
+		switch(smartAlarm.getCategory())
+		{
+			case "Cinema":
+				categoryRadioGroup.check(R.id.category1);
+				break;
+			case "Geography":
+				categoryRadioGroup.check(R.id.category2);
+				break;
+			case "History":
+				categoryRadioGroup.check(R.id.category3);
+				break;
+			case "Music":
+				categoryRadioGroup.check(R.id.category4);
+				break;
+			case "Sports":
+				categoryRadioGroup.check(R.id.category5);
+				break;
+			default:
+				categoryRadioGroup.check(R.id.category6);
+				break;
+		}
 		oKButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

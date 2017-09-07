@@ -29,6 +29,20 @@ public class LevelDialog extends Dialog {
 
 		oKButton = (Button) findViewById(R.id.ok);
 		levelRadioGroup = (RadioGroup) findViewById(R.id.level_radio_group);
+		switch(smartAlarm.getLevel())
+		{
+			case "Easy":
+				levelRadioGroup.check(R.id.easy);
+				break;
+			case "Medium":
+				levelRadioGroup.check(R.id.medium);
+				break;
+			case "Hard":
+				levelRadioGroup.check(R.id.hard);
+				break;
+			default:
+				break;
+		}
 		oKButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
