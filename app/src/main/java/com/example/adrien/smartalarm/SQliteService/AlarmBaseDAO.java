@@ -53,29 +53,19 @@ public class AlarmBaseDAO {
 				new String[]{String.valueOf(id)});
 	}
 
-	public void update(Alarm alarm) {
-
-		ContentValues value = new ContentValues();
-		value.put(DatabaseSaveAlarmHandler.HOUR, alarm.getHour());
-		value.put(DatabaseSaveAlarmHandler.MINUTE, alarm.getMinute());
-		value.put(DatabaseSaveAlarmHandler.TIME, alarm.getTime());
-		value.put(DatabaseSaveAlarmHandler.TITLE, alarm.getTitle());
-		value.put(DatabaseSaveAlarmHandler.SOUND, alarm.getSound());
-		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.ID_KEY + " = ?",
-				new String[]{String.valueOf(alarm.getId())});
-	}
-
-	public void updateActivation(int position, boolean isActivated)
-	{
+	public void updateActivation(int hour, int minute, boolean isActivated) {
 		ContentValues value = new ContentValues();
 		value.put(DatabaseSaveAlarmHandler.ACTIVATED, isActivated);
-		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.ID_KEY + " = ?",
-				new String[]{String.valueOf(position+1)});
+		System.out.println("Heure= "+hour+" minute="+minute);
+		System.out.println("Heure= "+hour+" minute="+minute);
+		System.out.println(DatabaseSaveAlarmHandler.HOUR+ " = "+hour+" AND "+DatabaseSaveAlarmHandler.MINUTE+" = "+minute);
+		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.HOUR + " = "+hour+" AND "+DatabaseSaveAlarmHandler.MINUTE+" = "+minute,null);
 	}
 
 	public List<Alarm> select() {
 		List<Alarm> alarmsList = new ArrayList<>();
-		Cursor c = mDb.rawQuery("select * from " + DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, null);
+		Cursor c = mDb.rawQuery("select * from " + DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME + " ORDER BY "
+				+ DatabaseSaveAlarmHandler.HOUR + "," + DatabaseSaveAlarmHandler.MINUTE, null);
 		int id, hour, minute, sound;
 		String time, title;
 		boolean isActivated;

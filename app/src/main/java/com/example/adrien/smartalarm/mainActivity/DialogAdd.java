@@ -10,6 +10,9 @@ import android.widget.Button;
 
 import com.example.adrien.smartalarm.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DialogAdd extends AbstractDialogAddOrRemove {
 
 	public DialogAdd(@NonNull Context context, SmartAlarm smartAlarm) {
@@ -29,15 +32,21 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
 				String time = getTimeBeforeSave();
 				int hour = Integer.parseInt(hours.getText().toString());
 				int minute = Integer.parseInt(minutes.getText().toString());
-				if(smartAlarm.getAlarmsHours().contains(hour) && smartAlarm.getAlarmsMinutes().contains(minute)) {
+				List<String> alarmsTimeList = new ArrayList<>();
+				for (int i = 0; i < smartAlarm.getAlarmsHours().size(); i++) {
+					alarmsTimeList.add(String.valueOf(smartAlarm.getAlarmsHours().get(i))
+							+ String.valueOf(smartAlarm.getAlarmsMinutes().get(i)));
+				}
+				if (alarmsTimeList.contains(String.valueOf(hour) + String.valueOf(minute))) {
 					alertAlarmInDouble();
 				}
 				else
 				{
 					String title = editTitle.getText().toString();
-					smartAlarm.setNewAlarm(time, title, hour,
-							minute, listTone.getSelectedItemPosition());
-					smartAlarm.setAlarmManager(smartAlarm.getAlarmsMinutes().size() - 1,
+					int newPosition = smartAlarm.getPositionNewAlarm(hour,minute);
+					smartAlarm.setNewAlarm(newPosition,time, title, hour,
+							minute, listTone.getSelectedItemPosition(),true);
+					smartAlarm.setAlarmManager(newPosition,
 							listTone.getSelectedItem().toString(), title);
 					DialogAdd.this.dismiss();
 				}

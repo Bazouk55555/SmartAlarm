@@ -20,7 +20,7 @@ public class SmartAlarmTest {
     @Before
     public void setUp() throws Exception {
         smartAlarm = Robolectric.setupActivity(SmartAlarm.class);
-        smartAlarm.setNewAlarm("01:01","Title",1,1,1);
+        smartAlarm.setNewAlarm(0,"01:01","Title",1,1,1,true);
     }
 
     @Test
@@ -95,21 +95,9 @@ public class SmartAlarmTest {
     }
 
     @Test
-    public void changeAlarmTest()
-    {
-        smartAlarm.setNewAlarm("02:02","Title",2,2,2);
-        smartAlarm.changeAlarm("03:03","Title",1,3,3,3);
-        assertEquals(2,smartAlarm.getAlarmsMinutes().size());
-        assertEquals((Integer)3,smartAlarm.getAlarmsMinutes().get(1));
-        assertEquals((Integer)3,smartAlarm.getAlarmsMinutes().get(1));
-        assertEquals((Boolean)true,smartAlarm.getAlarmsActivated().get(1));
-
-    }
-
-    @Test
     public void removeAlarmTest()
     {
-        smartAlarm.setNewAlarm("02:02","Title",2,2,2);
+        smartAlarm.setNewAlarm(1,"02:02","Title",2,2,2,true);
         smartAlarm.removeAlarm(1);
         assertEquals(1,smartAlarm.getAlarmsMinutes().size());
     }

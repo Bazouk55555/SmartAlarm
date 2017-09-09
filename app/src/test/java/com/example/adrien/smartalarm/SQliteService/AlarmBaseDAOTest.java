@@ -63,21 +63,10 @@ public class AlarmBaseDAOTest {
     }
 
     @Test
-    public void updateTest()
-    {
-        alarmBaseDAO.add(new Alarm(1,1,1, "01:01", "Title",1,true));
-        Alarm alarmExpected = new Alarm(1,2,2, "02:02", "Title2",2,true);
-        alarmBaseDAO.update(alarmExpected);
-        List<Alarm> listAlarm = alarmBaseDAO.select();
-        assertEquals(1, listAlarm.size());
-        assertEquals(alarmExpected,listAlarm.get(0));
-    }
-
-    @Test
     public void updateActivationTest()
     {
         alarmBaseDAO.add(new Alarm(1,1,1, "01:01", "Title",1,true));
-        alarmBaseDAO.updateActivation(0,false);
+        alarmBaseDAO.updateActivation(1,1,false);
         List<Alarm> listAlarm = alarmBaseDAO.select();
         assertEquals(1, listAlarm.size());
         assertEquals(false, listAlarm.get(0).getActivated());
