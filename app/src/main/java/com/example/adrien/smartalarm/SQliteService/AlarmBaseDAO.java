@@ -56,9 +56,6 @@ public class AlarmBaseDAO {
 	public void updateActivation(int hour, int minute, boolean isActivated) {
 		ContentValues value = new ContentValues();
 		value.put(DatabaseSaveAlarmHandler.ACTIVATED, isActivated);
-		System.out.println("Heure= "+hour+" minute="+minute);
-		System.out.println("Heure= "+hour+" minute="+minute);
-		System.out.println(DatabaseSaveAlarmHandler.HOUR+ " = "+hour+" AND "+DatabaseSaveAlarmHandler.MINUTE+" = "+minute);
 		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.HOUR + " = "+hour+" AND "+DatabaseSaveAlarmHandler.MINUTE+" = "+minute,null);
 	}
 

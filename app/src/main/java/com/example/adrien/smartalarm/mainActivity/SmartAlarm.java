@@ -47,9 +47,7 @@ public class SmartAlarm extends AppCompatActivity {
 	private DialogAdd dialogAdd;
 	private DialogRemove dialogRemove;
 	private List<HashMap<String, String>> listMapOfEachAlarm;
-	private List<HashMap<String, Integer>> listMapOfActivates;
 	private SimpleAdapter adapterAlarms;
-	private SimpleAdapter adapterActivates;
 	private List<Boolean> alarmsActivated;
 	private List<Integer> alarmsHours;
 	private List<Integer> alarmsMinutes;
@@ -114,9 +112,7 @@ public class SmartAlarm extends AppCompatActivity {
 
 		dialogAdd = new DialogAdd(this, this);
 		final ListView listViewAlarms = (ListView) findViewById(R.id.list_alarm);
-		final ListView listViewActivates = (ListView) findViewById(R.id.list_activate);
 		listMapOfEachAlarm = new ArrayList<>();
-		listMapOfActivates = new ArrayList<>();
 
 		alarmManager = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);
 		alarmsHours = new ArrayList<>();
@@ -137,62 +133,18 @@ public class SmartAlarm extends AppCompatActivity {
 			HashMap<String, String> mapOfTheNewAlarm = new HashMap<>();
 			mapOfTheNewAlarm.put("alarm", alarm.getTime());
 			mapOfTheNewAlarm.put("title", alarm.getTitle());
-			listMapOfEachAlarm.add(mapOfTheNewAlarm);
-			HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
             if (alarm.getActivated()) {
-                mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
+                mapOfTheNewAlarm.put("alarm_drawable", Integer.toString(R.drawable.alarm_on));
             } else {
-                mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_off);
+                mapOfTheNewAlarm.put("alarm_drawable", Integer.toString(R.drawable.alarm_off));
             }
-			listMapOfActivates.add(mapOfTheAlarmDrawable);
+			listMapOfEachAlarm.add(mapOfTheNewAlarm);
 		}
 		alarmBaseDAO.close();
 
         adapterAlarms = new SimpleAdapterWithBackgroundChanged(this, listMapOfEachAlarm, R.layout.item_alarm,
-                new String[]{"alarm", "title"}, new int[]{R.id.time, R.id.title});
-        adapterActivates = new SimpleAdapterWithBackgroundChanged(this, listMapOfActivates, R.layout.item_activate,
-                new String[]{"alarm_drawable"}, new int[]{R.id.activate});
+                new String[]{"alarm", "title","alarm_drawable"}, new int[]{R.id.time, R.id.title,R.id.activate});
         listViewAlarms.setAdapter(adapterAlarms);
-        listViewActivates.setAdapter(adapterActivates);
-
-		listViewActivates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ImageView activatedImageView = (ImageView) view.findViewById(R.id.activate);
-                View alarmView = listViewAlarms.getChildAt(position);
-                AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(SmartAlarm.this);
-                alarmBaseDAO.open();
-                if (alarmsActivated.get(position)) {
-                    activatedImageView.setImageResource(R.drawable.alarm_off);
-                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.dark));
-                    alarmView.setBackgroundColor(getResources().getColor(R.color.dark));
-                    alarmsActivated.set(position, false);
-                    cancelAnAlarmManager(position);
-                    alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), false);
-                } else {
-                    activatedImageView.setImageResource(R.drawable.alarm_on);
-                    activatedImageView.setBackgroundColor(getResources().getColor(R.color.bright));
-                    alarmView.setBackgroundColor(getResources().getColor(R.color.bright));
-                    alarmsActivated.set(position, true);
-                    setAlarmManager(position, "alarm" + (alarmsSound.get(position) + 1), alarmsTitle.get(position));
-                    alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), true);
-                }
-                alarmBaseDAO.close();
-			}
-		});
-
-		listViewAlarms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, final int position, long id) {
-				dialogRemove = new DialogRemove(SmartAlarm.this, SmartAlarm.this, position,
-						alarmsHours.get(position).toString(), alarmsMinutes.get(position).toString(),
-						alarmsTitle.get(position), alarmsSound.get(position));
-				if (isAlarmSix) {
-					dialogRemove.getAlarms().add("alarm6");
-				}
-				dialogRemove.show();
-			}
-		});
 	}
 
 	@Override
@@ -244,7 +196,6 @@ public class SmartAlarm extends AppCompatActivity {
 				break;
 			case R.id.number_of_question :
 				if (numberQuestionsDialog == null) {
-					System.out.println("JE SUIS ICI MAIS JE SAIS PAS PQ!!!!!");
 					numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 				}
 				numberQuestionsDialog.show();
@@ -269,19 +220,16 @@ public class SmartAlarm extends AppCompatActivity {
 		HashMap<String, String> mapOfTheNewAlarm = new HashMap<>();
 		mapOfTheNewAlarm.put("alarm", time);
 		mapOfTheNewAlarm.put("title", title);
-		listMapOfEachAlarm.add(position,mapOfTheNewAlarm);
-		adapterAlarms.notifyDataSetChanged();
-
-		HashMap<String, Integer> mapOfTheAlarmDrawable = new HashMap<>();
 		if (alarmsActivated.get(position)) {
-			mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_on);
+			mapOfTheNewAlarm.put("alarm_drawable", Integer.toString(R.drawable.alarm_on));
 		}
 		else
 		{
-			mapOfTheAlarmDrawable.put("alarm_drawable", R.drawable.alarm_off);
+			mapOfTheNewAlarm.put("alarm_drawable", Integer.toString(R.drawable.alarm_off));
 		}
-		listMapOfActivates.add(position,mapOfTheAlarmDrawable);
-		adapterActivates.notifyDataSetChanged();
+		listMapOfEachAlarm.add(position,mapOfTheNewAlarm);
+		adapterAlarms.notifyDataSetChanged();
+
 	}
 
 	public void removeAlarm(int position) {
@@ -298,8 +246,6 @@ public class SmartAlarm extends AppCompatActivity {
 		adapterAlarms.notifyDataSetChanged();
 
 		alarmsActivated.remove(position);
-		listMapOfActivates.remove(position);
-		adapterActivates.notifyDataSetChanged();
 	}
 
 	public List<Integer> getAlarmsMinutes() {
@@ -324,14 +270,6 @@ public class SmartAlarm extends AppCompatActivity {
 				? "0" + alarmsMinutes.get(index)
 				: "" + alarmsMinutes.get(index);
 		String time = hour + ":" + minute;
-		System.out.println(index);
-		System.out.println("TIME: "+time);
-		System.out.println("TITLE: "+title);
-		System.out.println("uri_image: "+uriImage);
-		System.out.println("uri_sound: "+uriSound);
-		System.out.println("CATEGORY: "+category);
-		System.out.println("LEVEL: "+level);
-		System.out.println("number_of_q: "+numberOfQuestions);
 		intentToAlarmRing.putExtra("time", time);
 		intentToAlarmRing.putExtra("title", title);
 		intentToAlarmRing.putExtra("uri_image", uriImage);
@@ -456,18 +394,55 @@ public class SmartAlarm extends AppCompatActivity {
             super(context, data, resource, from, to);
         }
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent)
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+		@Override
+        public View getView(final int position, View convertView, ViewGroup parent)
         {
-            convertView = super.getView(position, convertView,  parent);
+            final View convertViewToReturn = super.getView(position, convertView,  parent);
             if(!alarmsActivated.isEmpty()) {
                 if (!alarmsActivated.get(position)) {
-                    convertView.setBackgroundColor(getResources().getColor(R.color.dark));
+                    convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.dark));
                 } else {
-                    convertView.setBackgroundColor(getResources().getColor(R.color.bright));
+                    convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.bright));
                 }
             }
-            return convertView;
+            for(int i = 0;i<2;i++) {
+				((ViewGroup) convertViewToReturn).getChildAt(i).setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialogRemove = new DialogRemove(SmartAlarm.this, SmartAlarm.this, position,
+								alarmsHours.get(position).toString(), alarmsMinutes.get(position).toString(),
+								alarmsTitle.get(position), alarmsSound.get(position));
+						if (isAlarmSix) {
+							dialogRemove.getAlarms().add("alarm6");
+						}
+						dialogRemove.show();
+					}
+				});
+			}
+
+			convertViewToReturn.findViewById(R.id.activate).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(SmartAlarm.this);
+					alarmBaseDAO.open();
+					if (alarmsActivated.get(position)) {
+						((ImageView)v).setImageResource(R.drawable.alarm_off);
+						convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.dark));
+						alarmsActivated.set(position, false);
+						cancelAnAlarmManager(position);
+						alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), false);
+					} else {
+						((ImageView)v).setImageResource(R.drawable.alarm_on);
+						convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.bright));
+						alarmsActivated.set(position, true);
+						setAlarmManager(position, "alarm" + (alarmsSound.get(position) + 1), alarmsTitle.get(position));
+						alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), true);
+					}
+					alarmBaseDAO.close();
+				}
+			});
+			return convertViewToReturn;
         }
     }
 
