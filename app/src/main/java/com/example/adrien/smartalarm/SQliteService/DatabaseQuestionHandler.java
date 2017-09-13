@@ -101,7 +101,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(dbContext.getResources().openRawResource(questionsFile)));
 			String line;
-			while (!(line = br.readLine()).equals("Medium:")) {
+			while (!(line = br.readLine()).equals(dbContext.getResources().getString(R.string.medium))) {
 				int wordInArray = 0;
 				for (int i = 0; i < line.length(); i++) {
 					if (line.charAt(i) != ';') {
@@ -112,13 +112,13 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 					}
 				}
 				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
-						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Easy");
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4), dbContext.getResources().getString(R.string.easy));
 				addQuestion(table, question, db);
 				for (int i = 0; i < 5; i++) {
 					arrayToFillTheQuestion.set(i, "");
 				}
 			}
-			while (!(line = br.readLine()).equals("Hard:")) {
+			while (!(line = br.readLine()).equals(dbContext.getResources().getString(R.string.hard))) {
 				int wordInArray = 0;
 				for (int i = 0; i < line.length(); i++) {
 					if (line.charAt(i) != ';') {
@@ -129,7 +129,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 					}
 				}
 				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
-						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Medium");
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),dbContext.getResources().getString(R.string.medium));
 				addQuestion(table, question, db);
 				for (int i = 0; i < 5; i++) {
 					arrayToFillTheQuestion.set(i, "");
@@ -146,7 +146,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 					}
 				}
 				Question question = new Question(arrayToFillTheQuestion.get(0), arrayToFillTheQuestion.get(1),
-						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),"Hard");
+						arrayToFillTheQuestion.get(2), arrayToFillTheQuestion.get(3), arrayToFillTheQuestion.get(4),dbContext.getResources().getString(R.string.hard));
 				addQuestion(table, question, db);
 				for (int i = 0; i < 5; i++) {
 					arrayToFillTheQuestion.set(i, "");

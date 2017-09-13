@@ -1,0 +1,47 @@
+What is the title of the movie about a boat strucking a Iceberg in April 1912?;Titanic;Boat Trip;Lifeboat;Iceberg
+What is the name of the actor who played in the movies "Titanic", "The Man in the Iron Mask" and "Catch Me If You Can"?;Leonardo DiCaprio;Robert de Niro;Tom Hanks;Brad Pitt
+What is the name of the actor who played in the movies "Inglorious Basterds", "Money Ball" and "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro 
+What is the name of the actor who played in the movies "The Godfather", "Once Upon a Time in America" and "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
+What is the name of the actor who played in the movies "Modern Times", "City Lights" and "The Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
+What is the name of the actor who played in the movies "The Maltese Falcon", "Casablanca" and "The Maltese Falcon"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
+What is the name of the actor who played in the movies "Big", "The Da Vinci Code" and "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
+What is the name of the actress who played in the movies "Out of Africa", "Sophie's Choice" and "Kramer Vs Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
+What is the name of the actress who played Hermione Granger in "Harry Potter"?;Emma Watson;Angelina Jolie;Anne Hathaway;Scarlett Johansson
+What is the name of the actress who played in the movies "The Blind Side", "Gravity" and "28 Days"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
+What is the name of the actress who played in the movies "Flirting", "To Die For" and "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
+What is the name of the actress who played in the movies "Jennifer's Body", "Transformers" and "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
+Who is the American  director, producer, and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
+What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. the Extra-Terrestrial;Harry Potter;Titanic
+What is the title of the most famous movie about witches?;Harry Potter;Jurassic Park;E.T. the Extra-Terrestrial;Gladiator
+Moyen:
+What is the title of the movie about a boat strucking a Iceberg in April 1912?;Titanic;Boat Trip;Lifeboat;Iceberg
+What is the name of the actor who played in the movies "Titanic", "The Man in the Iron Mask" and "Catch Me If You Can"?;Leonardo DiCaprio;Robert de Niro;Tom Hanks;Brad Pitt
+What is the name of the actor who played in the movies "Inglorious Basterds", "Money Ball" and "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro 
+What is the name of the actor who played in the movies "The Godfather", "Once Upon a Time in America" and "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
+What is the name of the actor who played in the movies "Modern Times", "City Lights" and "The Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
+What is the name of the actor who played in the movies "The Maltese Falcon", "Casablanca" and "The Maltese Falcon"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
+What is the name of the actor who played in the movies "Big", "The Da Vinci Code" and "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
+What is the name of the actress who played in the movies "Out of Africa", "Sophie's Choice" and "Kramer Vs Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
+What is the name of the actress who played Hermione Granger in "Harry Potter"?;Emma Watson;Angelina Jolie;Anne Hathaway;Scarlett Johansson
+What is the name of the actress who played in the movies "The Blind Side", "Gravity" and "28 Days"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
+What is the name of the actress who played in the movies "Flirting", "To Die For" and "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
+What is the name of the actress who played in the movies "Jennifer's Body", "Transformers" and "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
+Who is the American  director, producer, and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
+What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. the Extra-Terrestrial;Harry Potter;Titanic
+What is the title of the most famous movie about witches?;Harry Potter;Jurassic Park;E.T. the Extra-Terrestrial;Gladiator
+Difficile:
+What is the title of the movie about a boat strucking a Iceberg in April 1912?;Titanic;Boat Trip;Lifeboat;Iceberg
+What is the name of the actor who played in the movies "Titanic", "The Man in the Iron Mask" and "Catch Me If You Can"?;Leonardo DiCaprio;Robert de Niro;Tom Hanks;Brad Pitt
+What is the name of the actor who played in the movies "Inglorious Basterds", "Money Ball" and "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro 
+What is the name of the actor who played in the movies "The Godfather", "Once Upon a Time in America" and "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
+What is the name of the actor who played in the movies "Modern Times", "City Lights" and "The Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
+What is the name of the actor who played in the movies "The Maltese Falcon", "Casablanca" and "The Maltese Falcon"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
+What is the name of the actor who played in the movies "Big", "The Da Vinci Code" and "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
+What is the name of the actress who played in the movies "Out of Africa", "Sophie's Choice" and "Kramer Vs Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
+What is the name of the actress who played Hermione Granger in "Harry Potter"?;Emma Watson;Angelina Jolie;Anne Hathaway;Scarlett Johansson
+What is the name of the actress who played in the movies "The Blind Side", "Gravity" and "28 Days"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
+What is the name of the actress who played in the movies "Flirting", "To Die For" and "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
+What is the name of the actress who played in the movies "Jennifer's Body", "Transformers" and "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
+Who is the American  director, producer, and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
+What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. the Extra-Terrestrial;Harry Potter;Titanic
+What is the title of the most famous movie about witches?;Harry Potter;Jurassic Park;E.T. the Extra-Terrestrial;Gladiator

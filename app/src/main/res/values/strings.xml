@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartAlarm</string>
+    <string name="check_box">Check the box if you want to activate the game</string>
+    <string name="double_zero">00</string>
+    <string name="title">Title: </string>
+    <string name="tone">Tone: </string>
+    <string name="save">SAVE</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove">REMOVE</string>
+    <string name="ok">OK</string>
+    <string name="look_for_image">Look for your image</string>
+    <string name="your_image">Your image: </string>
+    <string name="look_for_sound">Look for your sound</string>
+    <string name="your_sound">Your sound: </string>
+    <string name="category_random">Random Category</string>
+    <string name="category_cinema">Cinema</string>
+    <string name="category_geography">Geography</string>
+    <string name="category_history">History</string>
+    <string name="category_music">Music</string>
+    <string name="category_sports">Sports</string>
+    <string name="choose_category">Choose the category of the questions</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="choose_level">Choose the level of the questions</string>
+    <string name="alarm1">alarm1</string>
+    <string name="alarm2">alarm2</string>
+    <string name="alarm3">alarm3</string>
+    <string name="alarm4">alarm4</string>
+    <string name="alarm5">alarm5</string>
+    <string name="alarm6">alarm6</string>
+    <string name="good_job">Good job… maybe you are not that sleepy</string>
+    <string name="still_sleepy">Are you still sleeping man???</string>
+    <string name="go_back_to_bed">GO BACK TO BED NOW!!!</string>
+    <string name="take_a_coffee">DONT FORGET TO TAKE A COFFEE!!!</string>
+    <string name="ready_to_go_to_the_gym">WOW YOU ARE READY TO GO TO THE GYM!!!</string>
+    <string name="alarm_already_set_title">Alarm already set</string>
+    <string name="alarm_already_set_message">You have already set an alarm at this time</string>
+    <string name="zero">0</string>
+</resources>
