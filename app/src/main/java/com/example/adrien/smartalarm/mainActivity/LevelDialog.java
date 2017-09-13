@@ -5,6 +5,7 @@ import com.example.adrien.smartalarm.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,6 @@ import android.widget.RadioGroup;
 public class LevelDialog extends Dialog {
 
 	private RadioGroup levelRadioGroup;
-	private Button oKButton;
 	private SmartAlarm smartAlarm;
 
 	public LevelDialog(@NonNull Context context, SmartAlarm smartAlarm) {
@@ -27,21 +27,17 @@ public class LevelDialog extends Dialog {
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
 
-		oKButton = (Button) findViewById(R.id.ok);
+		Button oKButton = (Button) findViewById(R.id.ok);
 		levelRadioGroup = (RadioGroup) findViewById(R.id.level_radio_group);
-		switch(smartAlarm.getLevel())
-		{
-			case "Easy":
-				levelRadioGroup.check(R.id.easy);
-				break;
-			case "Medium":
-				levelRadioGroup.check(R.id.medium);
-				break;
-			case "Hard":
-				levelRadioGroup.check(R.id.hard);
-				break;
-			default:
-				break;
+		String level = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getString(SmartAlarm.LEVEL,smartAlarm.getResources().getString(R.string.easy));
+		if(level.equals(smartAlarm.getResources().getString(R.string.easy))) {
+			levelRadioGroup.check(R.id.easy);
+		}
+		else if(level.equals(smartAlarm.getResources().getString(R.string.medium))) {
+			levelRadioGroup.check(R.id.medium);
+		}
+		else if(level.equals(smartAlarm.getResources().getString(R.string.hard))) {
+			levelRadioGroup.check(R.id.hard);
 		}
 		oKButton.setOnClickListener(new View.OnClickListener() {
 			@Override

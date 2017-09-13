@@ -8,9 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.adrien.smartalarm.R;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -93,7 +91,6 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 		db.execSQL(TABLE_GEOGRAPHY_DROP);
 		db.execSQL(TABLE_HISTORY_DROP);
 		db.execSQL(TABLE_MUSIC_DROP);
-		String a = TABLE_CINEMA_DROP;
 		db.execSQL(TABLE_SPORTS_DROP);
 		onCreate(db);
 	}

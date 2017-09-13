@@ -1,7 +1,7 @@
 What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
 What is the capital of France?;Paris;Lyon;London;Rome
 What is the capital of the UK?;London;Paris;Manchester;Rome
-What is the capital of Italy?Rome;Paris;Turin;Milan
+What is the capital of Italy?;Rome;Paris;Turin;Milan
 What is the capital of Japan?;Tokyo;Seoul;Kyoto;Osaka
 What is the capital of Russia?;Moscow;Saint Petersburg;Paris;Kiev
 What is the capital of Spain?;Madrid;Barcelone;Roma;Sevilla

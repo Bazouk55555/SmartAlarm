@@ -44,24 +44,24 @@ public class ImagesGame extends AppCompatActivity {
 						R.drawable.image_background_won3, R.drawable.image_background_won4,
 						R.drawable.image_background_won5);
 				imageGamesLayout.setBackgroundResource(imagesBackgroundList.get(new Random().nextInt(5)));
-				commentView.setText("Good job...maybe you are not that sleepy");
+				commentView.setText(getResources().getString(R.string.good_job));
 			} else {
 				imagesBackgroundList = Arrays.asList(R.drawable.image_background_lost1,
 						R.drawable.image_background_lost2, R.drawable.image_background_lost3,
 						R.drawable.image_background_lost4, R.drawable.image_background_lost5);
 				imageGamesLayout.setBackgroundResource(imagesBackgroundList.get(new Random().nextInt(5)));
-				commentView.setText("Are you still sleeping man???");
+				commentView.setText(getResources().getString(R.string.still_sleepy));
 			}
 		} else {
 			if (score < 35) {
 				imageGamesLayout.setBackgroundResource(R.drawable.stay_on_bed);
-				commentView.setText("GO BACK TO BED NOW!!!");
+				commentView.setText(getResources().getString(R.string.go_back_to_bed));
 			} else if (score < 65) {
 				imageGamesLayout.setBackgroundResource(R.drawable.take_coffee);
-				commentView.setText("DONT FORGET TO TAKE A COFFEE!!!");
+				commentView.setText(getResources().getString(R.string.take_a_coffee));
 			} else {
 				imageGamesLayout.setBackgroundResource(R.drawable.awake);
-				commentView.setText("WOW YOU ARE READY TO GO TO THE GYM!!!");
+				commentView.setText(getResources().getString(R.string.ready_to_go_to_the_gym));
 			}
 		}
 		final long beginTime = System.currentTimeMillis();

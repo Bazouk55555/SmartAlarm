@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -36,13 +35,13 @@ import java.util.Map;
 
 public class SmartAlarm extends AppCompatActivity {
 
-	private static final String IS_GAME_ACTIVATED = "game activated";
-	private static final String URI_SOUND ="uri sound";
-	private static final String URI_IMAGE ="uri image";
-	private static final String IS_ALARM_SIX = "alarm six";
-	private static final String LEVEL = "level";
-	private static final String NUMBER_OF_QUESTIONS = "number of questions";
-	private static final String CATEGORY = "category";
+	public static final String IS_GAME_ACTIVATED = "game activated";
+	public static final String URI_SOUND ="uri sound";
+	public static final String URI_IMAGE ="uri image";
+	public static final String IS_ALARM_SIX = "alarm six";
+	public static final String LEVEL = "level";
+	public static final String NUMBER_OF_QUESTIONS = "number of questions";
+	public static final String CATEGORY = "category";
 
 	private DialogAdd dialogAdd;
 	private DialogRemove dialogRemove;
@@ -54,21 +53,14 @@ public class SmartAlarm extends AppCompatActivity {
 	private List<String> alarmsTitle;
 	private List<Integer> alarmsSound;
 	private AlarmManager alarmManager;
-	private Uri uriImage;
 	private DialogAddImage dialogAddImage;
 	private MenuItem takeOffImageMenuItem;
-	private Uri uriSound;
 	private DialogAddSound dialogAddSound;
 	private MenuItem takeOffSoundMenuItem;
-	private boolean isAlarmSix = false;
-	private static boolean isActivated;
-	private String category;
 	private CategoryDialog categoryDialog = null;
-	private String level;
 	private LevelDialog levelDialog = null;
-	private int numberOfQuestions;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
-	private SharedPreferences preferences;
+	private static SharedPreferences preferences;
 	private SharedPreferences.Editor editor;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -82,28 +74,17 @@ public class SmartAlarm extends AppCompatActivity {
 		CheckBox activateGame = (CheckBox) findViewById(R.id.checkbox);
 
 		activateGame.setChecked(preferences.getBoolean(IS_GAME_ACTIVATED,false));
-		isActivated = preferences.getBoolean(IS_GAME_ACTIVATED,false);
-		String uriImageString = preferences.getString(URI_IMAGE, null);
-		String uriSoundString = preferences.getString(URI_SOUND, null);
-		uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
-		uriSound = (uriSoundString!=null)?Uri.parse(uriSoundString):null;
-		isAlarmSix = preferences.getBoolean(IS_ALARM_SIX,false);
-		level = preferences.getString(LEVEL,"Easy");
-		numberOfQuestions = preferences.getInt(NUMBER_OF_QUESTIONS,1);
-		category = preferences.getString(CATEGORY,"Random Category");
 
 		activateGame.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked)
 				{
-					isActivated=true;
 					editor.putBoolean(IS_GAME_ACTIVATED, true);
 					editor.apply();
 				}
 				else
 				{
-					isActivated=false;
 					editor.putBoolean(IS_GAME_ACTIVATED, false);
 					editor.apply();
 				}
@@ -160,8 +141,8 @@ public class SmartAlarm extends AppCompatActivity {
 		switch (item.getItemId()) {
 			case R.id.add :
 				dialogAdd = new DialogAdd(this, this);
-				if (isAlarmSix) {
-					dialogAdd.getAlarms().add("alarm6");
+				if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(IS_ALARM_SIX,false)) {
+					dialogAdd.getAlarms().add(getResources().getString(R.string.alarm6));
 				}
 				dialogAdd.show();
 				break;
@@ -174,12 +155,9 @@ public class SmartAlarm extends AppCompatActivity {
 				dialogAddImage.show();
 				break;
 			case R.id.takeof_image :
-				uriImage = null;
 				takeOffImageMenuItem.setEnabled(false);
 				break;
 			case R.id.takeof_sound :
-				uriSound = null;
-				isAlarmSix = false;
 				takeOffSoundMenuItem.setEnabled(false);
 				break;
 			case R.id.category_of_question :
@@ -272,12 +250,7 @@ public class SmartAlarm extends AppCompatActivity {
 		String time = hour + ":" + minute;
 		intentToAlarmRing.putExtra("time", time);
 		intentToAlarmRing.putExtra("title", title);
-		intentToAlarmRing.putExtra("uri_image", uriImage);
-		intentToAlarmRing.putExtra("uri_sound", uriSound);
 		intentToAlarmRing.putExtra("sound", sound);
-		intentToAlarmRing.putExtra("category", category);
-		intentToAlarmRing.putExtra("level", level);
-		intentToAlarmRing.putExtra("number_of_questions", numberOfQuestions);
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, Integer.parseInt(String.valueOf(alarmsHours.get(index)) + String.valueOf(alarmsMinutes.get(index))), intentToAlarmRing,
 				PendingIntent.FLAG_CANCEL_CURRENT);
 		Calendar cal = Calendar.getInstance();
@@ -292,23 +265,13 @@ public class SmartAlarm extends AppCompatActivity {
 	}
 
 	public void setUriImage(Uri uriImage) {
-		this.uriImage = uriImage;
 		editor.putString(URI_IMAGE, String.valueOf(uriImage));
 		editor.apply();
 	}
 
-	public Uri getUriImage() {
-		return uriImage;
-	}
-
 	public void setUriSound(Uri uriSound) {
-		this.uriSound = uriSound;
 		editor.putString(URI_SOUND, String.valueOf(uriSound));
 		editor.apply();
-	}
-
-	public Uri getUriSound() {
-		return uriSound;
 	}
 
 	@Override
@@ -335,13 +298,8 @@ public class SmartAlarm extends AppCompatActivity {
 	}
 
 	public void setIsAlarmSix(boolean isAlarmSix) {
-		this.isAlarmSix = isAlarmSix;
 		editor.putBoolean(IS_ALARM_SIX, isAlarmSix);
 		editor.apply();
-	}
-
-	public boolean getIsAlarmSix() {
-		return isAlarmSix;
 	}
 
 	public DialogAdd getDialogAdd() {
@@ -349,35 +307,20 @@ public class SmartAlarm extends AppCompatActivity {
 	}
 
 	public void setCategory(String category) {
-		this.category = category;
 		numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 		editor.putString(CATEGORY, category);
 		editor.apply();
 	}
 
-	public String getCategory() {
-		return category;
-	}
-
 	public void setLevel(String level) {
-		this.level = level;
 		numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 		editor.putString(LEVEL, level);
 		editor.apply();
 	}
 
-	public String getLevel() {
-		return level;
-	}
-
 	public void setNumberOfQuestions(int numberOfQuestions) {
-		this.numberOfQuestions = numberOfQuestions;
 		editor.putInt(NUMBER_OF_QUESTIONS, numberOfQuestions);
 		editor.apply();
-	}
-
-	public int getNumberOfQuestions() {
-		return numberOfQuestions;
 	}
 
 	public void cancelAnAlarmManager(int index)
@@ -413,7 +356,7 @@ public class SmartAlarm extends AppCompatActivity {
 						dialogRemove = new DialogRemove(SmartAlarm.this, SmartAlarm.this, position,
 								alarmsHours.get(position).toString(), alarmsMinutes.get(position).toString(),
 								alarmsTitle.get(position), alarmsSound.get(position));
-						if (isAlarmSix) {
+						if (PreferenceManager.getDefaultSharedPreferences(SmartAlarm.this).getBoolean(IS_ALARM_SIX,false)) {
 							dialogRemove.getAlarms().add("alarm6");
 						}
 						dialogRemove.show();
@@ -445,11 +388,6 @@ public class SmartAlarm extends AppCompatActivity {
 			return convertViewToReturn;
         }
     }
-
-    public static boolean getIsActivated()
-	{
-		return isActivated;
-	}
 
 	public int getPositionNewAlarm(int hour,int min )
 	{

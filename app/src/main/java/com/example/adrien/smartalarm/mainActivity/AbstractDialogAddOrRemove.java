@@ -39,11 +39,11 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	public AbstractDialogAddOrRemove(@NonNull Context context, SmartAlarm smartAlarm) {
 		super(context);
 		this.smartAlarm = smartAlarm;
-		alarms.add("alarm1");
-		alarms.add("alarm2");
-		alarms.add("alarm3");
-		alarms.add("alarm4");
-		alarms.add("alarm5");
+		alarms.add(smartAlarm.getResources().getString(R.string.alarm1));
+		alarms.add(smartAlarm.getResources().getString(R.string.alarm2));
+		alarms.add(smartAlarm.getResources().getString(R.string.alarm3));
+		alarms.add(smartAlarm.getResources().getString(R.string.alarm4));
+		alarms.add(smartAlarm.getResources().getString(R.string.alarm5));
 	}
 
 	@Override
@@ -75,9 +75,9 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 				if (!hasFocus) {
 					String hourModified = ((EditText) v).getText().toString();
 					if (hourModified.isEmpty()) {
-						((EditText) v).setText("00");
+						((EditText) v).setText(smartAlarm.getResources().getString(R.string.double_zero));
 					} else if (hourModified.length() != 2) {
-						((EditText) v).setText("0" + ((EditText) v).getText().toString());
+						((EditText) v).setText(smartAlarm.getResources().getString(R.string.zero) + ((EditText) v).getText().toString());
 					}
 				}
 			}
@@ -91,9 +91,9 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 				if (!hasFocus) {
 					String minuteModified = ((EditText) v).getText().toString();
 					if (minuteModified.isEmpty()) {
-						((EditText) v).setText("00");
+						((EditText) v).setText(smartAlarm.getResources().getString(R.string.double_zero));
 					} else if (minuteModified.length() != 2) {
-						((EditText) v).setText("0" + ((EditText) v).getText().toString());
+						((EditText) v).setText(smartAlarm.getResources().getString(R.string.zero) + ((EditText) v).getText().toString());
 					}
 				}
 			}
@@ -219,10 +219,10 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	private void checkNonEmptyBeforeSave()
 	{
 		if (hours.getText().toString().isEmpty()) {
-			hours.setText("00");
+			hours.setText(smartAlarm.getResources().getString(R.string.double_zero));
 		}
 		if (minutes.getText().toString().isEmpty()) {
-			minutes.setText("00");
+			minutes.setText(smartAlarm.getResources().getString(R.string.double_zero));
 		}
 	}
 
@@ -234,7 +234,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 		} else {
 			builder = new AlertDialog.Builder(smartAlarm);
 		}
-		builder.setTitle("Alarm already set").setMessage("You have already set an alarm at this time")
+		builder.setTitle(smartAlarm.getResources().getString(R.string.alarm_already_set_title)).setMessage(smartAlarm.getResources().getString(R.string.alarm_already_set_message))
 				.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 					}

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -45,7 +46,7 @@ public class NumberQuestionsDialog extends Dialog {
 		determinateNumberMaximumOfQuestions();
 
 		numberOfQuestions = (EditText) findViewById(R.id.number_of_questions);
-		int currentNumberOfQuestion = smartAlarm.getNumberOfQuestions();
+		int currentNumberOfQuestion = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getInt(SmartAlarm.NUMBER_OF_QUESTIONS,1);
 		if(currentNumberOfQuestion<numberMaximumOfQuestions) {
 			numberOfQuestions.setText(String.valueOf(currentNumberOfQuestion));
 		}
@@ -73,53 +74,53 @@ public class NumberQuestionsDialog extends Dialog {
 	}
 
 	private void determinateNumberMaximumOfQuestions() {
-		switch (smartAlarm.getCategory()) {
-			case "Cinema" :
-				CinemaDAO cinemaDAO = new CinemaDAO(smartAlarm);
-				cinemaDAO.open();
-				numberMaximumOfQuestions = cinemaDAO.getNumberOfQuestions(smartAlarm.getLevel());
-				cinemaDAO.close();
-				break;
-			case "Geography" :
-				GeographyDAO geographyDAO = new GeographyDAO(smartAlarm);
-				geographyDAO.open();
-				numberMaximumOfQuestions = geographyDAO.getNumberOfQuestions(smartAlarm.getLevel());
-				geographyDAO.close();
-				break;
-			case "History" :
-				HistoryDAO historyDAO = new HistoryDAO(smartAlarm);
-				historyDAO.open();
-				numberMaximumOfQuestions = historyDAO.getNumberOfQuestions(smartAlarm.getLevel());
-				historyDAO.close();
-				break;
-			case "Music" :
-				MusicDAO musicDAO = new MusicDAO(smartAlarm);
-				musicDAO.open();
-				numberMaximumOfQuestions = musicDAO.getNumberOfQuestions(smartAlarm.getLevel());
-				musicDAO.close();
-				break;
-			case "Sports" :
-				SportsDAO sportsDAO = new SportsDAO(smartAlarm);
-				sportsDAO.open();
-				numberMaximumOfQuestions = sportsDAO.getNumberOfQuestions(smartAlarm.getLevel());
-				sportsDAO.close();
-				break;
-			default :
-				List<? extends AbstractQuestionBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm),
-						new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm),
-						new SportsDAO(smartAlarm));
-				abstractDAOList.get(0).open();
-				numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestions(smartAlarm.getLevel());
-				abstractDAOList.get(0).close();
-				for (int i = 1; i < abstractDAOList.size(); i++) {
-					abstractDAOList.get(i).open();
-					int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestions(smartAlarm.getLevel());
-					if (maximumOfNewAbstractDAO < numberMaximumOfQuestions) {
-						numberMaximumOfQuestions = maximumOfNewAbstractDAO;
-					}
-					abstractDAOList.get(i).close();
+		String level = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getString(SmartAlarm.LEVEL,smartAlarm.getResources().getString(R.string.easy));
+		String category = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getString(SmartAlarm.CATEGORY,"");
+		if(category.equals(smartAlarm.getResources().getString(R.string.category_cinema))){
+			CinemaDAO cinemaDAO = new CinemaDAO(smartAlarm);
+			cinemaDAO.open();
+			numberMaximumOfQuestions = cinemaDAO.getNumberOfQuestions(level);
+			cinemaDAO.close();
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_geography))) {
+			GeographyDAO geographyDAO = new GeographyDAO(smartAlarm);
+			geographyDAO.open();
+			numberMaximumOfQuestions = geographyDAO.getNumberOfQuestions(level);
+			geographyDAO.close();
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_history))) {
+			HistoryDAO historyDAO = new HistoryDAO(smartAlarm);
+			historyDAO.open();
+			numberMaximumOfQuestions = historyDAO.getNumberOfQuestions(level);
+			historyDAO.close();
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_music))) {
+			MusicDAO musicDAO = new MusicDAO(smartAlarm);
+			musicDAO.open();
+			numberMaximumOfQuestions = musicDAO.getNumberOfQuestions(level);
+			musicDAO.close();
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_sports))) {
+			SportsDAO sportsDAO = new SportsDAO(smartAlarm);
+			sportsDAO.open();
+			numberMaximumOfQuestions = sportsDAO.getNumberOfQuestions(level);
+			sportsDAO.close();
+		}
+		else {
+			List<? extends AbstractQuestionBaseDAO> abstractDAOList = Arrays.asList(new CinemaDAO(smartAlarm),
+					new GeographyDAO(smartAlarm), new HistoryDAO(smartAlarm), new MusicDAO(smartAlarm),
+					new SportsDAO(smartAlarm));
+			abstractDAOList.get(0).open();
+			numberMaximumOfQuestions = abstractDAOList.get(0).getNumberOfQuestions(level);
+			abstractDAOList.get(0).close();
+			for (int i = 1; i < abstractDAOList.size(); i++) {
+				abstractDAOList.get(i).open();
+				int maximumOfNewAbstractDAO = abstractDAOList.get(i).getNumberOfQuestions(level);
+				if (maximumOfNewAbstractDAO < numberMaximumOfQuestions) {
+					numberMaximumOfQuestions = maximumOfNewAbstractDAO;
 				}
-				break;
+				abstractDAOList.get(i).close();
+			}
 		}
 	}
 

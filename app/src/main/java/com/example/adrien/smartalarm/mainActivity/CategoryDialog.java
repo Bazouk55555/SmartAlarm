@@ -3,6 +3,7 @@ package com.example.adrien.smartalarm.mainActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
@@ -29,26 +30,24 @@ public class CategoryDialog extends Dialog {
 
 		oKButton = (Button) findViewById(R.id.ok);
 		categoryRadioGroup = (RadioGroup) findViewById(R.id.category_radio_group);
-		switch(smartAlarm.getCategory())
-		{
-			case "Cinema":
-				categoryRadioGroup.check(R.id.category1);
-				break;
-			case "Geography":
-				categoryRadioGroup.check(R.id.category2);
-				break;
-			case "History":
-				categoryRadioGroup.check(R.id.category3);
-				break;
-			case "Music":
-				categoryRadioGroup.check(R.id.category4);
-				break;
-			case "Sports":
-				categoryRadioGroup.check(R.id.category5);
-				break;
-			default:
-				categoryRadioGroup.check(R.id.category6);
-				break;
+		String category = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getString(SmartAlarm.CATEGORY,"");
+		if(category.equals(smartAlarm.getResources().getString(R.string.category_cinema))){
+			categoryRadioGroup.check(R.id.category1);
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_geography))) {
+			categoryRadioGroup.check(R.id.category2);
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_history))) {
+			categoryRadioGroup.check(R.id.category3);
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_music))) {
+			categoryRadioGroup.check(R.id.category4);
+		}
+		else if(category.equals(smartAlarm.getResources().getString(R.string.category_sports))) {
+			categoryRadioGroup.check(R.id.category5);
+		}
+		else {
+			categoryRadioGroup.check(R.id.category6);
 		}
 		oKButton.setOnClickListener(new View.OnClickListener() {
 			@Override

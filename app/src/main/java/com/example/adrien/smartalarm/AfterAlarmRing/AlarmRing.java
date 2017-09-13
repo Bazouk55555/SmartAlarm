@@ -13,13 +13,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.adrien.smartalarm.R;
@@ -97,59 +97,54 @@ public class AlarmRing extends AppCompatActivity {
 			multiColorViewFlashing(findViewById(R.id.background_title));
 		}
 
-		switch (getIntent().getStringExtra("sound")) {
-			case "alarm1" :
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
-				break;
-			case "alarm2" :
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm2);
-				break;
-			case "alarm3" :
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm3);
-				break;
-			case "alarm4" :
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm4);
-				break;
-			case "alarm5" :
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm5);
-				break;
-			case "alarm6" :
-				Uri uriSound = getIntent().getParcelableExtra("uri_sound");
-				mediaPlayer = MediaPlayer.create(this, uriSound);
-				break;
-			default:
-				mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
-				break;
+		String sound = (getIntent().getStringExtra("sound"));
+		if(sound.equals(getResources().getString(R.string.alarm1))) {
+			mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
+		}
+		else if(sound.equals(getResources().getString(R.string.alarm2))) {
+			mediaPlayer = MediaPlayer.create(this, R.raw.alarm2);
+		}
+		else if(sound.equals(getResources().getString(R.string.alarm3))) {
+			mediaPlayer = MediaPlayer.create(this, R.raw.alarm3);
+		}
+		else if(sound.equals(getResources().getString(R.string.alarm4))) {
+			mediaPlayer = MediaPlayer.create(this, R.raw.alarm4);
+		}
+		else if(sound.equals(getResources().getString(R.string.alarm5))) {
+			mediaPlayer = MediaPlayer.create(this, R.raw.alarm5);
+		}
+		else if(sound.equals(getResources().getString(R.string.alarm6))) {
+			String uriSoundString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_SOUND, null);
+			mediaPlayer = (uriSoundString != null) ? MediaPlayer.create(this, Uri.parse(uriSoundString)) : null;
 		}
 
 		mediaPlayer.start();
 		ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
-		//if (!((IsGameActivated)getIntent().getParcelableExtra("activate_game")).getIsGameActivated()) {
-		if (!SmartAlarm.getIsActivated()) {
+		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (SmartAlarm.getIsActivated()) {
+				if (PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
-					numberOfQuestions = getIntent().getIntExtra("number_of_questions", 5);
+					numberOfQuestions = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getInt(SmartAlarm.NUMBER_OF_QUESTIONS,1);
 					categoryDAO.open();
-					List<Question> questions = categoryDAO.select(numberOfQuestions,getIntent().getStringExtra("level"));
+					List<Question> questions = categoryDAO.select(numberOfQuestions,PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getString(SmartAlarm.LEVEL,getResources().getString(R.string.easy)));
 					categoryDAO.close();
 					Collections.shuffle(questions);
 					dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
 					dialogNewGame.show();
-					isAlarmStopped = true;
 				} else {
-					isAlarmStopped = true;
 					mediaPlayer.stop();
 					onBackPressed();
 				}
+				isAlarmStopped = true;
 			}
 		});
 
-		uriImage = getIntent().getParcelableExtra("uri_image");
+		String uriImageString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_IMAGE,null);
+		uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
 		if (uriImage != null) {
 			ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
 		}
@@ -158,19 +153,24 @@ public class AlarmRing extends AppCompatActivity {
 	private AbstractQuestionBaseDAO chooseCategory() {
 		List<AbstractQuestionBaseDAO> abstractBaseDAOList = Arrays.asList(new CinemaDAO(this), new GeographyDAO(this),
 				new HistoryDAO(this), new MusicDAO(this), new SportsDAO(this));
-		switch (getIntent().getStringExtra("category")) {
-			case "Cinema" :
-				return abstractBaseDAOList.get(0);
-			case "Geography" :
-				return abstractBaseDAOList.get(1);
-			case "History" :
-				return abstractBaseDAOList.get(2);
-			case "Music" :
-				return abstractBaseDAOList.get(3);
-			case "Sports" :
-				return abstractBaseDAOList.get(4);
-			default :
-				return abstractBaseDAOList.get(new Random().nextInt(5));
+		String category = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.CATEGORY,"");
+		if(category.equals(getResources().getString(R.string.category_cinema))) {
+			return abstractBaseDAOList.get(0);
+		}
+		else if(category.equals(getResources().getString(R.string.category_geography))) {
+			return abstractBaseDAOList.get(1);
+		}
+		else if(category.equals(getResources().getString(R.string.category_history))) {
+			return abstractBaseDAOList.get(2);
+		}
+		else if(category.equals(getResources().getString(R.string.category_music))) {
+			return abstractBaseDAOList.get(3);
+		}
+		else if(category.equals(getResources().getString(R.string.category_sports))) {
+			return abstractBaseDAOList.get(4);
+		}
+		else {
+			return abstractBaseDAOList.get(new Random().nextInt(5));
 		}
 	}
 
@@ -289,7 +289,7 @@ public class AlarmRing extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		super.onBackPressed();
 		mediaPlayer.stop();
+		finish();
 	}
 }
