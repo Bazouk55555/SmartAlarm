@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -60,7 +61,6 @@ public class SmartAlarm extends AppCompatActivity {
 	private CategoryDialog categoryDialog = null;
 	private LevelDialog levelDialog = null;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
-	private static SharedPreferences preferences;
 	private SharedPreferences.Editor editor;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -69,7 +69,7 @@ public class SmartAlarm extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_smart_alarm);
 
-		preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		editor = preferences.edit();
 		CheckBox activateGame = (CheckBox) findViewById(R.id.checkbox);
 
@@ -344,9 +344,9 @@ public class SmartAlarm extends AppCompatActivity {
             final View convertViewToReturn = super.getView(position, convertView,  parent);
             if(!alarmsActivated.isEmpty()) {
                 if (!alarmsActivated.get(position)) {
-                    convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.dark));
+                    convertViewToReturn.setBackgroundColor(ContextCompat.getColor(SmartAlarm.this, R.color.dark));
                 } else {
-                    convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.bright));
+                    convertViewToReturn.setBackgroundColor(ContextCompat.getColor(SmartAlarm.this, R.color.bright));
                 }
             }
             for(int i = 0;i<2;i++) {
@@ -371,13 +371,13 @@ public class SmartAlarm extends AppCompatActivity {
 					alarmBaseDAO.open();
 					if (alarmsActivated.get(position)) {
 						((ImageView)v).setImageResource(R.drawable.alarm_off);
-						convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.dark));
+						convertViewToReturn.setBackgroundColor(ContextCompat.getColor(SmartAlarm.this, R.color.dark));
 						alarmsActivated.set(position, false);
 						cancelAnAlarmManager(position);
 						alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), false);
 					} else {
 						((ImageView)v).setImageResource(R.drawable.alarm_on);
-						convertViewToReturn.setBackgroundColor(getResources().getColor(R.color.bright));
+						convertViewToReturn.setBackgroundColor(ContextCompat.getColor(SmartAlarm.this, R.color.bright));
 						alarmsActivated.set(position, true);
 						setAlarmManager(position, "alarm" + (alarmsSound.get(position) + 1), alarmsTitle.get(position));
 						alarmBaseDAO.updateActivation(alarmsHours.get(position),alarmsMinutes.get(position), true);

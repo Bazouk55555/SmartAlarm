@@ -12,6 +12,8 @@ import org.robolectric.annotation.Config;
 
 import android.support.constraint.BuildConfig;
 
+import java.util.List;
+
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class SportsDAOTest {
@@ -32,6 +34,11 @@ public class SportsDAOTest {
     public void SelectTest()
     {
         int numberOfQuestionsSelected = 4;
-        assertEquals(numberOfQuestionsSelected,sportsDAO.select(numberOfQuestionsSelected,"Easy").size());
+        List<Question> questionSelected = sportsDAO.select(numberOfQuestionsSelected, "Easy");
+        assertEquals(numberOfQuestionsSelected,questionSelected.size());
+        for(Question question: questionSelected)
+        {
+            assertEquals("Easy", question.getLevel());
+        }
     }
 }

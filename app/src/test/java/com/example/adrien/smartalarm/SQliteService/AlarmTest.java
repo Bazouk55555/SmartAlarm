@@ -46,7 +46,6 @@ public class AlarmTest {
 
     @Test
     public void getAlarmActivatedTest() throws Exception {
-        boolean isActivatedExpected = true;
-        assertEquals(isActivatedExpected, alarm.getActivated());
+        assertEquals(true, alarm.getActivated());
     }
 }

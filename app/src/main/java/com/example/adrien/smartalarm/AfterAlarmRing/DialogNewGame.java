@@ -84,7 +84,7 @@ public class DialogNewGame extends Dialog {
 								alarmRing.runOnUiThread(new Runnable() {
 									@Override
 									public void run() {
-										alarmRing.onBackPressed();
+										alarmRing.finish();
 									}
 								});
 							}

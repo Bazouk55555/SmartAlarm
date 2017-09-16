@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AfterAlarmRing.AlarmRing"
+            android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>

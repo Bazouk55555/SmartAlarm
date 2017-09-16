@@ -1,7 +1,6 @@
 package com.example.adrien.smartalarm.AfterAlarmRing;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -9,12 +8,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -40,27 +42,27 @@ import java.util.List;
 import java.util.Random;
 
 public class AlarmRing extends AppCompatActivity {
-	private TextView timeView = null;
 	private TextView titleView = null;
 	private MediaPlayer mediaPlayer;
-	private PowerManager.WakeLock wl;
+	//private PowerManager.WakeLock wl;
 	private boolean isAlarmStopped;
 	private int numberOfQuestions;
 	private DialogNewGame dialogNewGame;
 	private Uri uriImage;
 
+	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
-		wl.acquire();
+		//PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		//wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
+		//wl.acquire();
 		this.getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 		setContentView(R.layout.alarm_ring);
-		timeView = (TextView) findViewById(R.id.time);
+		TextView timeView = (TextView) findViewById(R.id.time);
 		titleView = (TextView) findViewById(R.id.title);
 		timeView.setText(getIntent().getStringExtra("time"));
 		titleView.setText(getIntent().getStringExtra("title"));
@@ -118,8 +120,10 @@ public class AlarmRing extends AppCompatActivity {
 			mediaPlayer = (uriSoundString != null) ? MediaPlayer.create(this, Uri.parse(uriSoundString)) : null;
 		}
 
-		mediaPlayer.start();
-		ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+        }
+        ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
 		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
@@ -137,7 +141,7 @@ public class AlarmRing extends AppCompatActivity {
 					dialogNewGame.show();
 				} else {
 					mediaPlayer.stop();
-					onBackPressed();
+					finish();
 				}
 				isAlarmStopped = true;
 			}
@@ -184,25 +188,25 @@ public class AlarmRing extends AppCompatActivity {
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								v.setBackgroundColor(getResources().getColor(R.color.red));
+								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.red));
 							}
 						}, 200);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								v.setBackgroundColor(getResources().getColor(R.color.blue));
+								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.orange));
 							}
 						}, 400);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								v.setBackgroundColor(getResources().getColor(R.color.orange));
+								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.orange));
 							}
 						}, 600);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								v.setBackgroundColor(getResources().getColor(R.color.black));
+								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.black));
 							}
 						}, 800);
 						try {
@@ -214,25 +218,25 @@ public class AlarmRing extends AppCompatActivity {
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								((TextView) v).setTextColor(getResources().getColor(R.color.red));
+								((TextView) v).setTextColor(ContextCompat.getColor(AlarmRing.this, R.color.red));
 							}
 						}, 200);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								((TextView) v).setTextColor(getResources().getColor(R.color.blue));
+								((TextView) v).setTextColor(ContextCompat.getColor(AlarmRing.this, R.color.blue));
 							}
 						}, 400);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								((TextView) v).setTextColor(getResources().getColor(R.color.orange));
+								((TextView) v).setTextColor(ContextCompat.getColor(AlarmRing.this, R.color.orange));
 							}
 						}, 600);
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								((TextView) v).setTextColor(getResources().getColor(R.color.black));
+								((TextView) v).setTextColor(ContextCompat.getColor(AlarmRing.this, R.color.black));
 							}
 						}, 800);
 						try {
@@ -252,7 +256,8 @@ public class AlarmRing extends AppCompatActivity {
 	}
 
 
-	 @Override public void onRequestPermissionsResult(int requestCode, String permission [], int[] grantResult) {
+	 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+	 @Override public void onRequestPermissionsResult(int requestCode, @NonNull String permission [], @NonNull int[] grantResult) {
 		 switch(requestCode) {
 			 case 2:
 			 if(grantResult.length>0 && grantResult[0]==PackageManager.PERMISSION_GRANTED)
@@ -265,7 +270,7 @@ public class AlarmRing extends AppCompatActivity {
 				 }
 				 BitmapFactory.Options option = new BitmapFactory.Options();
 				 Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
-				 findViewById(R.id.main_layout).setBackgroundDrawable(new BitmapDrawable(getResources(), bitmapImage));
+				 findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
 			 }
 		 }
 	 }
@@ -273,9 +278,9 @@ public class AlarmRing extends AppCompatActivity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		if (wl.isHeld()) {
-			wl.release();
-		}
+		//if (wl.isHeld()) {
+		//	wl.release();
+		//}
 	}
 
 	@Override
@@ -290,6 +295,6 @@ public class AlarmRing extends AppCompatActivity {
 	@Override
 	public void onBackPressed() {
 		mediaPlayer.stop();
-		finish();
+		super.onBackPressed();
 	}
 }

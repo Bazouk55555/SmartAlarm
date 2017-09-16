@@ -31,8 +31,8 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	protected EditText hours = null;
 	protected EditText minutes = null;
 	protected EditText editTitle = null;
-	protected List<String> alarms = new ArrayList<String>();
-	protected Handler redArrowForShortTime;
+	private List<String> alarms = new ArrayList<String>();
+	private Handler redArrowForShortTime;
 	private boolean isLongPressed;
 	private boolean isShortPressed;
 
