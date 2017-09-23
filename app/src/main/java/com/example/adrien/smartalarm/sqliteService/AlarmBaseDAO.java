@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.SQliteService;
+package com.example.adrien.smartalarm.sqliteService;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -38,4 +38,14 @@
     <string name="alarm_already_set_title">Alarm already set</string>
     <string name="alarm_already_set_message">You have already set an alarm at this time</string>
     <string name="zero">0</string>
+    <string name="choose_category_menu">Choose the category</string>
+    <string name="number_of_questions_menu">Number of questions</string>
+    <string name="level_of_questions_menu">Level of the questions</string>
+    <string name="configuration_of_the_game">Configuration of the game</string>
+    <string name="add">Add</string>
+    <string name="take_off_the_image">Take off the image</string>
+    <string name="take_off_the_sound">Take off the sound</string>
+    <string name="add_an_image">Add an image</string>
+    <string name="add_a_sound">Add a sound</string>
+    <string name="configuration">Configuration</string>
 </resources>

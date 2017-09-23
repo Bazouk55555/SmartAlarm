@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.SQliteService;
+package com.example.adrien.smartalarm.sqliteService;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -159,6 +159,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 	}
 
 	private void addQuestion(String table, Question question, SQLiteDatabase db) {
+		System.out.println(question);
 		ContentValues value = new ContentValues();
 		value.put(QUESTION, question.getQuestion());
 		value.put(ANSWER, question.getAnswer());

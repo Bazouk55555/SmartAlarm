@@ -15,12 +15,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractQuestionBaseDAO;
-import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
-import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
-import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
-import com.example.adrien.smartalarm.SQliteService.MusicDAO;
-import com.example.adrien.smartalarm.SQliteService.SportsDAO;
+import com.example.adrien.smartalarm.sqliteService.AbstractQuestionBaseDAO;
+import com.example.adrien.smartalarm.sqliteService.CinemaDAO;
+import com.example.adrien.smartalarm.sqliteService.GeographyDAO;
+import com.example.adrien.smartalarm.sqliteService.HistoryDAO;
+import com.example.adrien.smartalarm.sqliteService.MusicDAO;
+import com.example.adrien.smartalarm.sqliteService.SportsDAO;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,6 +47,9 @@ public class NumberQuestionsDialog extends Dialog {
 
 		numberOfQuestions = (EditText) findViewById(R.id.number_of_questions);
 		int currentNumberOfQuestion = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getInt(SmartAlarm.NUMBER_OF_QUESTIONS,1);
+		System.out.println("nombre de question: "+currentNumberOfQuestion);
+		System.out.println("nombre de question maximum: "+numberMaximumOfQuestions);
+
 		if(currentNumberOfQuestion<numberMaximumOfQuestions) {
 			numberOfQuestions.setText(String.valueOf(currentNumberOfQuestion));
 		}
@@ -104,6 +107,7 @@ public class NumberQuestionsDialog extends Dialog {
 			SportsDAO sportsDAO = new SportsDAO(smartAlarm);
 			sportsDAO.open();
 			numberMaximumOfQuestions = sportsDAO.getNumberOfQuestions(level);
+			System.out.println("NOMBRE MAXIMUM IS:"+numberMaximumOfQuestions);
 			sportsDAO.close();
 		}
 		else {

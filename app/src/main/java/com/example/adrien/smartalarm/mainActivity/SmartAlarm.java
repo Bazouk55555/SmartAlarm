@@ -23,10 +23,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.example.adrien.smartalarm.AfterAlarmRing.AlarmRing;
+import com.example.adrien.smartalarm.afterAlarmRing.AlarmRing;
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.Alarm;
-import com.example.adrien.smartalarm.SQliteService.AlarmBaseDAO;
+import com.example.adrien.smartalarm.sqliteService.Alarm;
+import com.example.adrien.smartalarm.sqliteService.AlarmBaseDAO;
 
 import java.util.ArrayList;
 import java.util.Calendar;

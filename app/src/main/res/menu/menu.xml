@@ -5,30 +5,30 @@
     <item
         android:id="@+id/configuration"
         android:icon="@drawable/ic_settings"
-        android:title="Configuration"
+        android:title="@string/configuration"
         app:showAsAction="ifRoom">
 
         <menu>
             <item
                 android:id="@+id/add_sound"
-                android:title="Add a sound"
+                android:title="@string/add_a_sound"
                 app:showAsAction="ifRoom" />
 
             <item
                 android:id="@+id/takeof_sound"
                 android:enabled="false"
-                android:title="Take of the sound"
+                android:title="@string/take_off_the_sound"
                 app:showAsAction="ifRoom" />
 
             <item
                 android:id="@+id/add_image"
-                android:title="Add an image"
+                android:title="@string/add_an_image"
                 app:showAsAction="ifRoom" />
 
             <item
                 android:id="@+id/takeof_image"
                 android:enabled="false"
-                android:title="Take of the image"
+                android:title="@string/take_off_the_image"
                 app:showAsAction="ifRoom" />
         </menu>
 
@@ -37,23 +37,23 @@
     <item
         android:id="@+id/game"
         android:icon="@drawable/ic_game"
-        android:title="Configuration of the game"
+        android:title="@string/configuration_of_the_game"
         app:showAsAction="ifRoom">
 
         <menu>
             <item
                 android:id="@+id/category_of_question"
-                android:title="Choose the category"
+                android:title="@string/choose_category_menu"
                 app:showAsAction="ifRoom" />
 
             <item
                 android:id="@+id/number_of_question"
-                android:title="Number of questions"
+                android:title="@string/number_of_questions_menu"
                 app:showAsAction="ifRoom" />
 
             <item
                 android:id="@+id/level_of_question"
-                android:title="Level of the questions"
+                android:title="@string/level_of_questions_menu"
                 app:showAsAction="ifRoom" />
 
         </menu>
@@ -63,7 +63,7 @@
     <item
         android:id="@+id/add"
         android:icon="@drawable/ic_add"
-        android:title="Add"
+        android:title="@string/add"
         app:showAsAction="ifRoom" />
 
 </menu>

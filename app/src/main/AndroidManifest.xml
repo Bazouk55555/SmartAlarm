@@ -20,12 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AfterAlarmRing.AlarmRing"
+        <activity android:name=".afterAlarmRing.AlarmRing"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>
-        <activity android:name=".AfterAlarmRing.ImagesGame"
+        <activity android:name=".afterAlarmRing.ImagesGame"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:largeHeap="true"/>

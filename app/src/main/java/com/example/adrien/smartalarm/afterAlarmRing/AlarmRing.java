@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.AfterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
 import android.Manifest;
 import android.content.Intent;
@@ -25,13 +25,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.AbstractQuestionBaseDAO;
-import com.example.adrien.smartalarm.SQliteService.CinemaDAO;
-import com.example.adrien.smartalarm.SQliteService.GeographyDAO;
-import com.example.adrien.smartalarm.SQliteService.HistoryDAO;
-import com.example.adrien.smartalarm.SQliteService.MusicDAO;
-import com.example.adrien.smartalarm.SQliteService.Question;
-import com.example.adrien.smartalarm.SQliteService.SportsDAO;
+import com.example.adrien.smartalarm.sqliteService.AbstractQuestionBaseDAO;
+import com.example.adrien.smartalarm.sqliteService.CinemaDAO;
+import com.example.adrien.smartalarm.sqliteService.GeographyDAO;
+import com.example.adrien.smartalarm.sqliteService.HistoryDAO;
+import com.example.adrien.smartalarm.sqliteService.MusicDAO;
+import com.example.adrien.smartalarm.sqliteService.Question;
+import com.example.adrien.smartalarm.sqliteService.SportsDAO;
 import com.example.adrien.smartalarm.mainActivity.SmartAlarm;
 
 import java.io.FileNotFoundException;
@@ -75,22 +75,25 @@ public class AlarmRing extends AppCompatActivity {
 				@Override
 				public void run() {
 					Handler titleMoveHandler = new Handler(Looper.getMainLooper());
+                    final LinearLayout secondLayout = (LinearLayout)findViewById(R.id.second_layout);
 					while (!isAlarmStopped) {
-						titleMoveHandler.post(new Runnable() {
-							@Override
-							public void run() {
-								if (titleView.getX() < findViewById(R.id.second_layout).getWidth()) {
-									titleView.setX(titleView.getX() + 10);
-								} else {
-									titleView.setX(-titleView.getTextSize());
-								}
-							}
-						});
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
+                        if(secondLayout.getWidth()!=0) {
+                            titleMoveHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (titleView.getX() < secondLayout.getWidth()) {
+                                        titleView.setX(titleView.getX() + 10);
+                                    } else {
+                                        titleView.setX(-titleView.getMeasuredWidth());
+                                    }
+                                }
+                            });
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
 					}
 				}
 			});

@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.SQliteService;
+package com.example.adrien.smartalarm.sqliteService;
 
 import static org.junit.Assert.assertEquals;
 

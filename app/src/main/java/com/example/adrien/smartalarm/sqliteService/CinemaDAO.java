@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.SQliteService;
+package com.example.adrien.smartalarm.sqliteService;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,20 +6,21 @@ import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryDAO extends AbstractQuestionBaseDAO {
+public class CinemaDAO extends AbstractQuestionBaseDAO {
 
-	public HistoryDAO(Context pContext) {
+	public CinemaDAO(Context pContext) {
 		super(pContext);
 	}
 
 	@Override
 	public int getNumberOfQuestions(String level) {
-		return mDb.rawQuery("select * from " + DatabaseQuestionHandler.TABLE_HISTORY_NAME + " WHERE "+DatabaseQuestionHandler.LEVEL + "=?",new String[]{level}).getCount();
+		return mDb.rawQuery("select * from " + DatabaseQuestionHandler.TABLE_CINEMA_NAME + " WHERE "
+				+ DatabaseQuestionHandler.LEVEL + "=?", new String[]{level}).getCount();
 	}
 
 	@Override
 	public List<Question> select(int numberOfQuestion, String level) {
-		String query = "select * from " + DatabaseQuestionHandler.TABLE_HISTORY_NAME+ " WHERE "
+		String query = "select * from " + DatabaseQuestionHandler.TABLE_CINEMA_NAME + " WHERE "
 				+ DatabaseQuestionHandler.LEVEL + "=?" + " ORDER BY RANDOM() LIMIT " + numberOfQuestion;
 		List<Question> questionList = new ArrayList<>();
 		Cursor c = mDb.rawQuery(query, new String[]{level});

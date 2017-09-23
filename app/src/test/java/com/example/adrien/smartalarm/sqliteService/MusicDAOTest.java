@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.SQliteService;
+package com.example.adrien.smartalarm.sqliteService;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -16,25 +16,25 @@ import java.util.List;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
-public class SportsDAOTest {
+public class MusicDAOTest {
 
-    private SportsDAO sportsDAO= new SportsDAO(RuntimeEnvironment.application);
+    private MusicDAO musicDAO= new MusicDAO(RuntimeEnvironment.application);
 
     @Before
     public void setUp() throws Exception {
-        sportsDAO.open();
+        musicDAO.open();
     }
 
     @After
     public void tearDown() throws Exception {
-        sportsDAO.close();
+        musicDAO.close();
     }
 
     @Test
     public void SelectTest()
     {
         int numberOfQuestionsSelected = 4;
-        List<Question> questionSelected = sportsDAO.select(numberOfQuestionsSelected, "Easy");
+        List<Question> questionSelected = musicDAO.select(numberOfQuestionsSelected, "Easy");
         assertEquals(numberOfQuestionsSelected,questionSelected.size());
         for(Question question: questionSelected)
         {

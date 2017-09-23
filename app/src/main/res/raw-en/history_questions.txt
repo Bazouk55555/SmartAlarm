@@ -13,7 +13,7 @@ What was the equivalent of the greek god Zeus for the Roman Empire?;Jupiter;Zeus
 What is the meaning of Christmas?;Jesus'birth;Muhammad's birth;The creation of the world;Nothing in particular
 What was the previous name of Russia?;USSR;US;UE;UN
 What is the intergovernmental organization tasked to promote international co-operation?;UN;UE;US;USSR
-Medium:
+Medium
 Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
 Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
 Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
@@ -29,7 +29,7 @@ When was the Russian Revolution which dismantled the Tsarist autocracy and led t
 According to the legend, who suddenly came up with his law of gravity when he was bonked on the head by a falling apple?;Isaac Newton;Archimedes;Albert Einstein;James Clerk Maxwell
 Which roman emperor said:"Veni, vidi, vici" ("I came, I saw, I conquered")?;Julius Caesar;Nero;Constantine the Great;Augustus
 Which prison was stormed by a crowd on 14 July 1789, in the French Revolution, becoming an important symbol for the French Republican movement?;The Bastille;The Eiffel Tower;The Arc de Triomphe;The Palace of Versailles
-Hard:
+Hard
 Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
 Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
 Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV

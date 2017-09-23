@@ -8,8 +8,15 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textStyle="italic" />
+        android:background="@drawable/background_question"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/red" />
 
     <RadioGroup
         android:id="@+id/answer_radio_group"
@@ -18,24 +25,36 @@
 
         <RadioButton
             android:id="@+id/answer_radio_button1"
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true" />
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/answer_radio_button2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/answer_radio_button3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/answer_radio_button4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </RadioGroup>
 
     <Button

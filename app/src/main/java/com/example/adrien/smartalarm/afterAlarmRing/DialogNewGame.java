@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.AfterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,12 +7,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.SQliteService.Question;
+import com.example.adrien.smartalarm.sqliteService.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,8 @@ public class DialogNewGame extends Dialog {
 	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
+
+		getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
 		updateQuestion(0);
 		findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {

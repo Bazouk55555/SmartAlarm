@@ -13,7 +13,7 @@ What is the name of the main river crossing Egypte?The Nile;The Mediterranean Se
 What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
 What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
 What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut
-Moyen:
+Moyen
 What is the capital of Australia?;Canbera;Sydney;Melbourne;Brisbane
 What is the capital of Turkey?;Ankara;Istambul;Antalya;Damascus
 What is the capital of India?;New Delhi;Mumbai;Bangalore;Jakarta
@@ -29,7 +29,7 @@ Which of these countries does not belong to the European Union?;Switzerland;Hung
 What is the largest state of the US?;Alaska;Texas;California;New York
 What is the largest city of the world by population?Tokyo;Jakarta;New Delhi;Mexico City
 Which of these countries is not a border of Brazil?;Chile;Argentina;Uruguay;Colombia
-Difficile:
+Difficile
 What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
 What is the capital of France?;Paris;Lyon;London;Rome
 What is the capital of the UK?;London;Paris;Manchester;Rome

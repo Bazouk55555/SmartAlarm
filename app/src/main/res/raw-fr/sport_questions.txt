@@ -13,7 +13,7 @@ Who won the Men's Olympic Basketball in 2016?;United States;Spain;Argentina;Serb
 What is the nationality of the basketball player Lebron James?;American;English;French;Australian
 What is the color of the card meaning that a player is expelled from the pitch in football?;Red;Yellow;Green;White
 How is called the way of scoring 5 points in rugby?;Try;Goal;Set;Point
-Moyen:
+Moyen
 How many times have New Zealand won the rugby World Cup?;3;1;2;4
 How many gold medals does Michael Phelps hold?;23;28;13;21
 How many F1 World Championship did Michael Schumacher win?;7;6;8;9
@@ -29,7 +29,7 @@ What is the nationality of the handball player Nikola karabatic?;French;Yugoslav
 Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
 Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
 Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah;Roger Federer
-Difficile:
+Difficile
 How many times have New Zealand won the rugby World Cup?;3;1;2;4
 How many gold medals does Michael Phelps hold?;23;28;13;21
 How many F1 World Championship did Michael Schumacher win?;7;6;8;9

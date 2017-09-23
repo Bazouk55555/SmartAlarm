@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.AfterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
 import android.content.Intent;
 import android.os.Bundle;
