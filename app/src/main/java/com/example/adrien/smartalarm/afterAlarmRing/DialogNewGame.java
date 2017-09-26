@@ -48,7 +48,7 @@ public class DialogNewGame extends Dialog {
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
 
-		getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+		//getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
 		updateQuestion(0);
 		findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
