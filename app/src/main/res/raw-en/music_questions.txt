@@ -4,15 +4,15 @@ Which of these songs is a Beyonce song?;Halo;S&M;Papaoutai;Holy Grail
 Which of these singer is not an american singer?;Celine Dion;Beyonce;JAY-Z;Rihanna
 Fill in the missing word: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
 Who is a famous american blind singer-songwriter musician and composer?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
-Who is known as the King of Pop since the 1980s?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
+Who was known as the King of Pop since the 1980s?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
 Who is a famous french DJ?;David Guetta;Stromae;JAY-Z;James Brown
-Who was an English rock band formed in Liverpool in 1960 composed of 4 people?;The Beatles;One Direction;The Wanted;U2
+What was the name of an English rock band formed in Liverpool in 1960 composed of 4 people?;The Beatles;One Direction;The Wanted;U2
 Who is known as the King of Rock and Roll?;Elvis Presley;Michael Jackson;Ray Charles;David Guetta
 Which of these songs is a song of Justin Bieber?;Sorry;S&M;Holy Grail;Diamonds
 Which of these instruments is not a string instrument?;Flute;Violon;Guitar;Violin
 What is the name of the british national anthem?;God Save the Queen;The Star-Spangled Banner;The Fifth Symphony;America
 What is the name of the art form in which singers and musicians perform a dramatic work combining text (libretto) and musical score?;Opera;Theatre;Single;Concert
-How is the official national song called?;National anthem;Opera;Concert;Patriotical Song
+How is an official national song called?;National anthem;Opera;Concert;Patriotical Song
 Medium
 Who wrote and sang the famous song "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
 Who rose to fame in 2004 with the release of his debut album "Back to Bedlam", achieving worldwide fame with the singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
@@ -24,7 +24,7 @@ Who sang "Purple Rain", "When Doves Cry" and "Little Red Corvette"?;Prince;Whitn
 Who sang "Space Oddity", "Life on Mars?" and "Heroes"?;David Bowie;Prince;Whitney Houston;Elton John
 Who was a Jamaican singer-songwriter, musician and guitarist who achieved international fame blending mostly reggae, ska and rocksteady in his compositions?;Bob Marley;David Bowie;Prince;Joni Mitchell
 Who sang "Proud Mary", "River Deep — Mountain High" and "What's Love Got to Do With It"?;Tina Turner;Bob Marley;David Bowie;Prince
-Who was an English singer and the lead singer and one of the founder members of the Rolling Stones?;Mick Jagger;Tina turner;Bob Marley;David Bowie
+Who was an English singer and one of the founder members of the Rolling Stones?;Mick Jagger;Tina turner;Bob Marley;David Bowie
 Who sang "Shape of You", "Castle on the Hill" and "Tenerife Sea"?;Ed Sheeran;Kendrick Lamar;Mick Jagger;Elton John
 Who sang "HUMBLE", "DNA" and "Swimming Pools (Drank)"?;Kendrick Lamar;Ed Sheeran;Migos;Tina Turner
 Who sang "That's What I Like", "24K Magic" and "Locked Out Of Heaven"?;Bruno Mars;Kendrick Lamar;Ed Sheeran;Bob Marley
@@ -49,4 +49,4 @@ Which male artist released a hit song called 'Human' in 2016?;Rory Charles Graha
 Taylor Swift dated which member of One Direction?;Harry Styles;Niall Horan;Liam Payne;Louis Tomlinson
 Which song by Destiny’s Child features on the 1997 Men in Black movie soundtrack?;Killing Time;Dah Dee Dah;Lose My Breath;Say My Name
 Which singer initially performed under the name Davie/Davy Jones?;David Bowie;Prince;Michael Jackson;George Michael
-Which country did the band 'Roxette' come from?;Sweden;Norway;France;Belgium
+Where did the band 'Roxette' come from?;Sweden;Norway;France;Belgium

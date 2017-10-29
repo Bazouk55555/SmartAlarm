@@ -17,31 +17,31 @@ Moyen
 How many times have New Zealand won the rugby World Cup?;3;1;2;4
 How many gold medals does Michael Phelps hold?;23;28;13;21
 How many F1 World Championship did Michael Schumacher win?;7;6;8;9
-How many time has Portugal won the UEFA European Championship?;1;0;2;3 
+How many time has Portugal won the UEFA European Championship?;1;0;2;3
 How many NBA Finals did Michael Jordan win?;6;5;7;8
 How many PGA Tour did Tiger Wood win?;79;41;53;68
 Who is the world record holder in men's pole vaulting?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
-How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes  
+How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes
 What is the national sport in India?;Field Hockey;Cricket;Football;Baseball
 Which of these tennis players has won all the grand slams?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
-Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell  
+Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell
 What is the nationality of the handball player Nikola karabatic?;French;Yugoslav;Ukrainian;German
 Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
 Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
 Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah;Roger Federer
 Difficile
-How many times have New Zealand won the rugby World Cup?;3;1;2;4
-How many gold medals does Michael Phelps hold?;23;28;13;21
-How many F1 World Championship did Michael Schumacher win?;7;6;8;9
-How many time has Portugal won the UEFA European Championship?;1;0;2;3 
-How many NBA Finals did Michael Jordan win?;6;5;7;8
-How many PGA Tour did Tiger Wood win?;79;41;53;68
-Who is the world record holder in men's pole vaulting?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
-How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes  
-What is the national sport in India?;Field Hockey;Cricket;Football;Baseball
-Which of these tennis players has won all the grand slams?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
-Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell  
-What is the nationality of the handball player Nikola karabatic?;French;Yugoslav;Ukrainian;German
-Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
-Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
-Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah  
+When was the 100th edition of the Tour de France?;2011;2012;2013;2014
+What is the men's world record of the 60 meter (in seconds)?;6.39;4.49;5.54;7.01
+How many french cyclist have won the Tour de France?;11;15;19;21
+How many time has Arsenal won the Premier League?;9;13;15;17
+How many british teams have won the UEFA Champions League?;5;3;4;6
+How many times have Rafael Nadal and Roger Federer played each other in Rolland Garros?;5;6;4;7
+Who said:"Football is a simple game. Twenty-two men chase a ball for 90 minutesand at the end, the Germans always win"?;Gary Lineker;Alan Shearer;Thierry Henry;Cass Pennant
+Which sport does not have a rule called "Offside"?;Basketball;Football;Rugby;Ice Hockey
+How long did the longest baseball game last?;8 hours and 25 minutes;3 hours and 45 minutes;5 hours and 10 minutes;7 hours and 15 minutes
+Which countries have won the most olympic golden medals in Men's National Football tournament?;Great Britain and Hungary;Nigeria and Argentina;Brazil and France;Uruguay and Brazil
+How many golden medals has the US Men's National Basketball team won in Olympic tournaments?;15;9;18;21
+When did the first Rolland Garros tournament for women happen?;1922;1925;1933;1919
+What is the largest football stadium in the world?;The North Korean Rungrado May Day Stadium;The Camp Nou;The Estadio Azteca;The Azadi Stadium
+When did Muhammad Ali retire?;1979;1982;1975;1976
+Which country has won the most Africa Cup of Nations in Football?;Egypt;Cameroon;Ivory Coast;Tunisia

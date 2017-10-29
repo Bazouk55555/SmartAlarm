@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import android.content.Context;
 import android.os.Build;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import com.example.adrien.smartalarm.R;
@@ -32,6 +33,8 @@ public class DialogRemove extends AbstractDialogAddOrRemove {
 
     @Override
     protected void onCreate(Bundle savedInstance) {
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_remove);
         super.onCreate(savedInstance);
 

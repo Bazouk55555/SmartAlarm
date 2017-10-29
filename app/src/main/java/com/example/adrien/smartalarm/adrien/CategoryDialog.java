@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,6 +25,9 @@ public class CategoryDialog extends Dialog {
 	}
 
 	protected void onCreate(Bundle savedInstance) {
+
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_category_question);
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);

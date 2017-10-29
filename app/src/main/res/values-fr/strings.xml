@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SmartAlarm</string>
-    <string name="check_box">Check the box if you want to activate the game</string>
+    <string name="check_box">Coche si tu souhaites activer le jeu</string>
     <string name="double_zero">00</string>
     <string name="title">Titre: </string>
     <string name="tone">Sonnerie: </string>
@@ -30,15 +30,15 @@
     <string name="alarm4">alarme4</string>
     <string name="alarm5">alarme5</string>
     <string name="alarm6">alarme6</string>
-    <string name="good_job">Good job… maybe you are not that sleepy</string>
-    <string name="still_sleepy">Are you still sleeping man???</string>
-    <string name="go_back_to_bed">GO BACK TO BED NOW!!!</string>
-    <string name="take_a_coffee">DONT FORGET TO TAKE A COFFEE!!!</string>
-    <string name="ready_to_go_to_the_gym">WOW YOU ARE READY TO GO TO THE GYM!!!</string>
-    <string name="alarm_already_set_title">Alarm already set</string>
-    <string name="alarm_already_set_message">You have already set an alarm at this time</string>
+    <string name="good_job">BONNE REPONSE!! Peut-etre n\'es tu pas si endormi</string>
+    <string name="still_sleepy">Es-tu toujours en train de dormir mon ami(e)???</string>
+    <string name="go_back_to_bed">RETOURNE AU LIT MAINTENANT!!!</string>
+    <string name="take_a_coffee">N\'OUBLIE PAS DE PRENDRE UN CAFE!!!</string>
+    <string name="ready_to_go_to_the_gym">WOAH TU ES PRET POUR UNE SEANCE DE SPORT!!!</string>
+    <string name="alarm_already_set_title">Alarme deja programmee</string>
+    <string name="alarm_already_set_message">Une alarme a deja ete programmee a cette heure</string>
     <string name="zero">0</string>
-    <string name="choose_category_menu">Choose the category</string>
+    <string name="choose_category_menu">Choisis la categorie</string>
     <string name="number_of_questions_menu">Nombre de questions</string>
     <string name="level_of_questions_menu">Niveau des questions</string>
     <string name="configuration_of_the_game">Configuration du jeu</string>
@@ -48,4 +48,8 @@
     <string name="add_an_image">Ajouter une image</string>
     <string name="add_a_sound">Ajouter la sonnerie</string>
     <string name="configuration">Configuration</string>
+    <string name="stop_the_alarm">Arreter l\'alarme</string>
+    <string name="image_loaded">Image chargee</string>
+    <string name="sound_loaded">Son charge</string>
+    <string name="alarm_on">Alarme allumee</string>
 </resources>

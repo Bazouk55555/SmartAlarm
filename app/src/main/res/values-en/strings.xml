@@ -30,8 +30,8 @@
     <string name="alarm4">alarm4</string>
     <string name="alarm5">alarm5</string>
     <string name="alarm6">alarm6</string>
-    <string name="good_job">Good job… maybe you are not that sleepy</string>
-    <string name="still_sleepy">Are you still sleeping man???</string>
+    <string name="good_job">GOOD ANSWER!! Maybe you are not that sleepy</string>
+    <string name="still_sleepy">WRONG ANSWER!! Are you still sleeping (wo)man???</string>
     <string name="go_back_to_bed">GO BACK TO BED NOW!!!</string>
     <string name="take_a_coffee">DONT FORGET TO TAKE A COFFEE!!!</string>
     <string name="ready_to_go_to_the_gym">WOW YOU ARE READY TO GO TO THE GYM!!!</string>
@@ -48,4 +48,8 @@
     <string name="add_an_image">Add an image</string>
     <string name="add_a_sound">Add a sound</string>
     <string name="configuration">Configuration</string>
+    <string name="stop_the_alarm">Stop the alarm</string>
+    <string name="image_loaded">Image loaded</string>
+    <string name="sound_loaded">Sound loaded</string>
+    <string name="alarm_on">Alarm on</string>
 </resources>

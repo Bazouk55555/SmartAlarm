@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 

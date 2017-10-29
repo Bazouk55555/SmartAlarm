@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -49,8 +49,8 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	@Override
 	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
-
 		setCanceledOnTouchOutside(false);
+
 		listTone = (Spinner) findViewById(R.id.list_tone);
 		ArrayAdapter<String> adapter = new ArrayAdapter<>(smartAlarm, android.R.layout.simple_spinner_dropdown_item,
 				alarms);

@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,6 +34,7 @@ public class DialogNewGame extends Dialog {
 	public DialogNewGame(@NonNull Context context, List<Question> questions, MediaPlayer mediaPlayer,
 			AlarmRing alarmRing) {
 		super(context);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_start_game);
 
 		this.questionTextView = (TextView) findViewById(R.id.question);
@@ -125,5 +127,14 @@ public class DialogNewGame extends Dialog {
 
 	@Override
 	public void onBackPressed() {
+	}
+
+	@Override
+	public void show()
+	{
+		if(answerRadioGroup!=null) {
+			((RadioButton)answerRadioGroup.getChildAt(0)).setChecked(true);
+		}
+		super.show();
 	}
 }

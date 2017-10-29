@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -40,6 +41,7 @@ public class NumberQuestionsDialog extends Dialog {
 	}
 
 	protected void onCreate(Bundle savedInstance) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_number_of_question);
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);

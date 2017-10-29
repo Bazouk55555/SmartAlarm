@@ -23,7 +23,7 @@
         android:textSize="25sp" />
 
 
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView
         android:id="@+id/activate"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -31,6 +31,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:layout_weight="2"
+        android:contentDescription="@string/alarm_on"
         android:src="@drawable/alarm_on" />
 
 </LinearLayout>

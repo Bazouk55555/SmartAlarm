@@ -1,34 +1,34 @@
-When did the World War II finish?;1945;1939;1918;1944
-When did the World War I finish?;1918;1939;1918;1945
-When were the world trade center towers destroyed(English date format)?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
-Who was the american president from 2008 to 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
-Who was the german dictator during the World War II?;Hitler;Mussolini;Franco;Petain
-How is the genocide suffered by Jewish people dur the World War II called?;Shoah;Sholah;Shaoh;Shosha
-What is the most important city of the judaism?;Jerusalem;Tel Aviv;Medina;Bethlehem
-Who is the most important prophet for the muslim people?;Muhammad;Jesus;Moses;God
-Who discovered America?;Christopher Columbus;Napoleon;Copernic;Archimedes
-Who was the famous french emperor from 1804 to 1814?;Napoleon;Louis XIV;Louis XVI;Charles de Gaulle 
-Which empire believed in the gods called Zeus and Poseidon?;Greek Empire;Roman Empire;Ottoman Empire;British Empire 
-What was the equivalent of the greek god Zeus for the Roman Empire?;Jupiter;Zeus;Apollo;Venus
-What is the meaning of Christmas?;Jesus'birth;Muhammad's birth;The creation of the world;Nothing in particular
-What was the previous name of Russia?;USSR;US;UE;UN
-What is the intergovernmental organization tasked to promote international co-operation?;UN;UE;US;USSR
+En quelle annee la Seconde Guerre mondiale a-t-elle finis?;1945;1939;1918;1944
+En quelle annee la Premiere Guerre mondiale a-t-elle finis?;1918;1939;1914;1945
+Quelle est la date de destruction des tours jumelles du World trade center?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
+Qui etait le president Americain de 2008 a 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
+Qui etait le dictateur allemand pendant la Seconde Guerre Mondiale?;Hitler;Mussolini;Franco;Petain
+Comment appelle-t-on le genocide qu'ont subis les juifs pendant la Seconde Guerre Mondiale?;Shoah;Sholah;Shaoh;Shosha
+Quelle est la ville la plus important dans la religion juive?;Jerusalem;Tel Aviv;Medina;Bethlehem
+Qui est le prophete le plus important pour les musulmans?;Mahommet;Jesus;Moses;God
+Qui a decouvert l'Amerique?;Christophe Colomb;Napoleon;Copernic;Archimedes
+Qui etait l'empereur francais de 1804 a 1814?;Napoleon;Louis XIV;Louis XVI;Charles de Gaulle
+Quel empire croyait aux dieux tels que Zeus et Poseidon?;L'Empire grec;L'Empire romain;L'Empire Ottoman;L'Empire Britanique
+Qui etait l'equivalent du dieu grec Zeus dans l'Empire Romain?;Jupiter;Zeus;Apollon;Venus
+Quelle est l'origine de Noel?;La naissance de Jesus;La naissance de Mahommet;La creation du monde;Pas d'origine particuliere
+Comment appelait-t-on la Russie en 1970?;URSS;USA;EU;ONU
+Comment appelle-t-on l'organisation intergouvernementale chargee de promouvoir la cooperation internationale?;ONU;EU;USA;URSS
 Moyen
-Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
-Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
-Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
-Who was the first US President to be assassinated?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
-Who was imprisoned in South Africa for many years and fought against appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
-According to the bible, what was the name of the prophet who split a sea in two parts?;Moses;Jesus;Muhammad;Buddha
-What is the name of Scandinavian pirates and traders who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
-What is the name of the ancestor of the United Nations(UN)?;League of Nations(LN);European Union(UE);Group of Twenty(G20);National Urban League(NUL)
-How is the period 14th-17th centuries in Europe called?;The Renaissance;The Middle Ages;The Post-Colonial period;The Ancient World
-What is the name of the leader of the Indian independence movement against British rule?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
-Who was the first female prime minister in the UK?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
-When was the Russian Revolution which dismantled the Tsarist autocracy and led to the eventual rise of the Soviet Union?;1917:1914;1918;1919
-According to the legend, who suddenly came up with his law of gravity when he was bonked on the head by a falling apple?;Isaac Newton;Archimedes;Albert Einstein;James Clerk Maxwell
-Which roman emperor said:"Veni, vidi, vici" ("I came, I saw, I conquered")?;Julius Caesar;Nero;Constantine the Great;Augustus
-Which prison was stormed by a crowd on 14 July 1789, in the French Revolution, becoming an important symbol for the French Republican movement?;The Bastille;The Eiffel Tower;The Arc de Triomphe;The Palace of Versailles
+Qui etait le dicatateur italien pendant la Seconde Guerre Mondiale?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
+Qui a decouvert que la Terre tournait en orbite autour du Soleil?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
+Quel roi francais a ete guillotine?;Louis XVI;Napoleon;Louis XIV;Henry IV
+Qui a ete le premier president des USA a etre assassine?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
+Qui a ete emprisonne en Afrique du Sud pendant plusieurs annees et a combattu contre l'appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
+Selon la Bible, quel etait le nom du prophete qui a separe une mer en deux?;Moise;Jesus;Mahommet;Buddha
+Quel etait le nom des pirates et marchands scandinaves who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
+Quel etait le nom de l'ancetre de l'Organisation des Nations Unies(ONU)?;Societe des Nations(SDN);Union Europeenne(UE);Groupe des Vingt(G20);National Urban League(NUL)
+Comment appelle-t-on la periode 14th-17th siecle en Europe?;La Renaissance;Le Moyen-Age;La periode Post-Coloniale;L'Ancien Monde
+Comment s'appelait lr leader du mouvement d'independence indien contre les lois britaniques?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
+Qui etait la premiere femme Premier Ministre aux Royaumes-Uni?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
+En quelle annee a eu lieu la Revolution Russe qui mit a l'autocratie du Tsar et conduisit a la montee de l'Union Sovietique?;1917:1914;1918;1919
+Selon la legende, qui a soudainement eu l'idee desl ois de la gravite alors qu'une pomme lui tomba sur la tete?;Isaac Newton;Archimedes;Albert Einstein;James Clerk Maxwell
+Quel Empereur romain a dit:"Veni, vidi, vici" ("Je suis venu, J'ai vu, J'ai vaincu")?;Jules Cesar;Neron;Constantin le Grand;Augustus
+Quelle prison fut detruite par la foule le 14 Juillet 1789, pendant la Revolution francaise, devenant alors un symbole important pour le mouvement republicain francais?;La Bastille;La Tour Eiffel;L'Arc de Triomphe;Le chateau de Versailles
 Difficile
 Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
 Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison

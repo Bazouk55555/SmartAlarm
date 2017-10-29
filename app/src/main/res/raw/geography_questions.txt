@@ -9,7 +9,7 @@ What is the capital of Argentina?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
 What is the capital of Mexico?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
 In which continent does France belong?;Europe;Asia;America;Middle East
 In which continent does China belong?;Asia;Europe;America;Middle East
-What is the name of the main river crossing Egypte?The Nile;The Mediterranean Sea;Mississippi;Amazone
+What is the name of the main river crossing Egypte?;The Nile;The Mediterranean Sea;Mississippi;Amazone
 What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
 What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
 What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut
@@ -27,21 +27,17 @@ What is the name of the river that flows through southern England, most notably 
 Which of these countries does not belong to Commonwealth?;Senegal;India;Cameroon;New Zealand
 Which of these countries does not belong to the European Union?;Switzerland;Hungary;Romania;Cyprus
 What is the largest state of the US?;Alaska;Texas;California;New York
-What is the largest city of the world by population?Tokyo;Jakarta;New Delhi;Mexico City
+What is the largest city of the world by population?;Tokyo;Jakarta;New Delhi;Mexico City
 Which of these countries is not a border of Brazil?;Chile;Argentina;Uruguay;Colombia
 Hard
-What is the capital of the US?;Washington D.C.;New York;Las Vegas;San Francisco
-What is the capital of France?;Paris;Lyon;London;Rome
-What is the capital of the UK?;London;Paris;Manchester;Rome
-What is the capital of Italy?Rome;Paris;Turin;Milan
-What is the capital of Japan?;Tokyo;Seoul;Kyoto;Osaka
-What is the capital of Russia?;Moscow;Saint Petersburg;Paris;Kiev
-What is the capital of Spain?;Madrid;Barcelone;Roma;Sevilla
-What is the capital of Argentina?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
-What is the capital of Mexico?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
-In which continent does France belong?;Europe;Asia;America;Middle East
-In which continent does China belong?;Asia;Europe;America;Middle East
-What is the name of the main river crossing Egypte?The Nile;The Mediterranean Sea;Mississippi;Amazone
-What is the name of the ocean between Europe and North America?;The Atlantic Ocean;The Pacific Ocean;The Mediterranean Sea;The Indian Ocean
-What is the capital of Greece?;Athenes;Roma;Damascus;Ankara
-What is the capital of Israel?;Jerusalem;Tel Aviv;Gaza;Beirut
+What is the capital of Canada?;Ottawa;Montreal;Toronto;Vancouver
+What is the capital of Somalia?;Mogadishu;Bosaso;Hargeisa;Galkayo
+What is the capital of Nicaragua?;Managua;Nicaragua city;Nicara;Granada
+What is the capital of Peru?Lima;Cusco;Santiago;Havana
+What is the capital of Chile?;Santiago;Havana;Lima;Arica
+What is the largest country of Africa?;Algeria;Democratic Republic of the Congo;Sudan;Libya
+How many recognised states does Africa have?;54;43;64;71
+How many recognised states does Europe have?;51;35;63;44
+How many recognised states does South America have?;12;21;31;43
+Which of these countries is not a border of Hungary?Bulgaria;Austria;Croatia;Slovenia;
+Which of these countries does not have red on its flag?;Ukraine;Algeria;Japan;Cuba

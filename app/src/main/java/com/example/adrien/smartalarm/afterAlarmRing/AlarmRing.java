@@ -32,7 +32,7 @@ import com.example.adrien.smartalarm.sqliteService.HistoryDAO;
 import com.example.adrien.smartalarm.sqliteService.MusicDAO;
 import com.example.adrien.smartalarm.sqliteService.Question;
 import com.example.adrien.smartalarm.sqliteService.SportsDAO;
-import com.example.adrien.smartalarm.mainActivity.SmartAlarm;
+import com.example.adrien.smartalarm.adrien.SmartAlarm;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -197,7 +197,7 @@ public class AlarmRing extends AppCompatActivity {
 						multiColorHandler.postDelayed(new Runnable() {
 							@Override
 							public void run() {
-								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.orange));
+								v.setBackgroundColor(ContextCompat.getColor(AlarmRing.this, R.color.blue));
 							}
 						}, 400);
 						multiColorHandler.postDelayed(new Runnable() {

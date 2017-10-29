@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien.mainActivity;
 
 import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.adrien.smartalarm.R;
+import com.example.adrien.smartalarm.adrien.SmartAlarm;
+
 import static junit.framework.Assert.assertEquals;
 
 import org.hamcrest.Description;

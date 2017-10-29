@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import com.example.adrien.smartalarm.R;
 
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,6 +24,8 @@ public class LevelDialog extends Dialog {
 	}
 
 	protected void onCreate(Bundle savedInstance) {
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_level_question);
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);

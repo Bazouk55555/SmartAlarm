@@ -20,7 +20,7 @@ public class DatabaseSaveAlarmHandler extends SQLiteOpenHelper {
 	public static final String TABLE_ALARMS_DROP = "DROP TABLE IF EXISTS " + TABLE_ALARMS_NAME + ";";
 
 	private final static String DATABASE = "database_alarm";
-	private final static int VERSION = 2;
+	private final static int VERSION = 3;
 
 	public DatabaseSaveAlarmHandler(Context context) {
 		super(context, DATABASE, null, VERSION);

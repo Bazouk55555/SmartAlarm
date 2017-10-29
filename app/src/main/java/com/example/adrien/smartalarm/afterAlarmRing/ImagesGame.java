@@ -70,21 +70,21 @@ public class ImagesGame extends AppCompatActivity {
 			public void run() {
 				Handler flashingTextHandler = new Handler(Looper.getMainLooper());
 				final String comment = commentView.getText().toString();
-				while (System.currentTimeMillis() <= beginTime + 3000) {
+				while (System.currentTimeMillis() <= beginTime + 10000) {
 					flashingTextHandler.postDelayed(new Runnable() {
 						@Override
 						public void run() {
 							commentView.setText("");
 						}
-					}, 500);
+					}, 1500);
 					flashingTextHandler.postDelayed(new Runnable() {
 						@Override
 						public void run() {
 							commentView.setText(comment);
 						}
-					}, 1000);
+					}, 3000);
 					try {
-						Thread.sleep(1000);
+						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -96,21 +96,23 @@ public class ImagesGame extends AppCompatActivity {
 			@Override
 			public void run() {
 				Handler titleMoveHandler = new Handler(Looper.getMainLooper());
-				while (System.currentTimeMillis() <= beginTime + 3000) {
-					titleMoveHandler.post(new Runnable() {
-						@Override
-						public void run() {
-							if (scoreView.getX() < imageGamesLayout.getWidth()) {
-								scoreView.setX(scoreView.getX() + 10);
-							} else {
-								scoreView.setX(-scoreView.getTextSize());
+				while (System.currentTimeMillis() <= beginTime + 10000) {
+					if(scoreView.getWidth()!=0) {
+						titleMoveHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								if (scoreView.getX() < imageGamesLayout.getWidth()) {
+									scoreView.setX(scoreView.getX() + 10);
+								} else {
+									scoreView.setX(-scoreView.getTextSize());
+								}
 							}
+						});
+						try {
+							Thread.sleep(100);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
 						}
-					});
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
 					}
 				}
 			}
@@ -120,11 +122,13 @@ public class ImagesGame extends AppCompatActivity {
 		handlerGoBack.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Intent result = new Intent();
-				setResult(RESULT_OK, result);
+				if(!finalImage) {
+					Intent result = new Intent();
+					setResult(RESULT_OK, result);
+				}
 				finish();
 			}
-		}, 3000);
+		}, 10000);
 	}
 
 	@Override

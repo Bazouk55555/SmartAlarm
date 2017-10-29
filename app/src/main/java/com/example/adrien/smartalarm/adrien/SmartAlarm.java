@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.mainActivity;
+package com.example.adrien.smartalarm.adrien;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -156,9 +156,12 @@ public class SmartAlarm extends AppCompatActivity {
 				break;
 			case R.id.takeof_image :
 				takeOffImageMenuItem.setEnabled(false);
+				setUriImage(null);
 				break;
 			case R.id.takeof_sound :
 				takeOffSoundMenuItem.setEnabled(false);
+				setUriSound(null);
+				setIsAlarmSix(false);
 				break;
 			case R.id.category_of_question :
 				if (categoryDialog == null) {
@@ -241,17 +244,13 @@ public class SmartAlarm extends AppCompatActivity {
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void setAlarmManager(int index, String sound, String title) {
 		Intent intentToAlarmRing = new Intent(this, AlarmRing.class);
-		String hour = (alarmsHours.get(index) >= 0 && alarmsHours.get(index) < 10)
-				? "0" + alarmsHours.get(index)
-				: "" + alarmsHours.get(index);
-		String minute = (alarmsMinutes.get(index) >= 0 && alarmsMinutes.get(index) < 10)
-				? "0" + alarmsMinutes.get(index)
-				: "" + alarmsMinutes.get(index);
+		String hour = getStringTimeFromanIndexOfListOfNumber(alarmsHours,index);
+		String minute = getStringTimeFromanIndexOfListOfNumber(alarmsMinutes,index);
 		String time = hour + ":" + minute;
 		intentToAlarmRing.putExtra("time", time);
 		intentToAlarmRing.putExtra("title", title);
 		intentToAlarmRing.putExtra("sound", sound);
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, Integer.parseInt(String.valueOf(alarmsHours.get(index)) + String.valueOf(alarmsMinutes.get(index))), intentToAlarmRing,
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, Integer.parseInt(hour+minute), intentToAlarmRing,
 				PendingIntent.FLAG_CANCEL_CURRENT);
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.SECOND, 0);
@@ -326,10 +325,17 @@ public class SmartAlarm extends AppCompatActivity {
 	public void cancelAnAlarmManager(int index)
     {
         Intent intentToAlarmRing = new Intent(SmartAlarm.this, AlarmRing.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, Integer.parseInt(String.valueOf(alarmsHours.get(index)) + String.valueOf(alarmsMinutes.get(index))), intentToAlarmRing,
+        PendingIntent pendingIntent = PendingIntent.getActivity(SmartAlarm.this, Integer.parseInt(getStringTimeFromanIndexOfListOfNumber(alarmsHours,index)+getStringTimeFromanIndexOfListOfNumber(alarmsMinutes,index)), intentToAlarmRing,
                 PendingIntent.FLAG_CANCEL_CURRENT);
         alarmManager.cancel(pendingIntent);
     }
+
+    private String getStringTimeFromanIndexOfListOfNumber(List<Integer> numbers, int index)
+	{
+		return (numbers.get(index) >= 0 && numbers.get(index) < 10)
+				? "0" + numbers.get(index)
+				: "" + numbers.get(index);
+	}
 
     private class SimpleAdapterWithBackgroundChanged extends SimpleAdapter
     {
