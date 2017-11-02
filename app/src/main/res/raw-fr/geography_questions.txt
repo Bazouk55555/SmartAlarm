@@ -27,7 +27,7 @@ What is the name of the river that flows through southern England, most notably 
 Lequel de ces pays n'appartient pas au Commonwealth?;Le Senegal;L'Inde;Le Cameroun;La Nouvelle Zelande
 Lequel de ces pays n'appartient pas a l'Union Europeenne?;La Suisse;La Hongrie;La Roumanie;Chypres
 Quel est le plus large etat des USA?;Alaska;Texas;California;New York
-Quelle est la plus large ville du monde selon le nombre d'habitants?;Tokyo;Jakarta;New Delhi;Mexico City
+Quelle est la plus ville la plus peuplee du monde?;Tokyo;Jakarta;New Delhi;Mexico City
 Lequel de ces pays n'a pas de frontiere avec le Bresil?;Chili;Argentine;Uruguay;Colombie
 Difficile
 Quelle est la capital du Canada?;Ottawa;Montreal;Toronto;Vancouver
@@ -35,7 +35,7 @@ Quelle est la capital de la Somalie?;Mogadishu;Bosaso;Hargeisa;Galkayo
 Quelle est la capital du Nicaragua?;Managua;Nicaragua city;Nicara;Granada
 Quelle est la capital du Peru?Lima;Cusco;Santiago;La Havane
 Quelle est la capital du Chili?;Santiago;Havana;Lima;Arica
-Quel est le plus large pays d'Afrique?;Algerir;Republique democratique du Congo;Soudan;Libye
+Quel est le plus large pays d'Afrique?;Algerir;Republique Democratique du Congo;Soudan;Libye
 Combien d'Etats officiels possede l'Afrique?;54;43;64;71
 Combien d'Etats officiels possede l'Europe?;51;35;63;44
 Combien d'Etats officiels possede l'Amerique du Sud?;12;21;31;43

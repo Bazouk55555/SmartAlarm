@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.adrien;
+package com.example.adrien.smartalarm.smartalarm;
 
 import android.content.Context;
 import android.os.Build;

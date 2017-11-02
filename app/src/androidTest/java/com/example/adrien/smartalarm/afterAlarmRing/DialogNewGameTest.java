@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.adrien.afterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -8,8 +8,8 @@ import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.anything;
 
 import org.junit.Rule;
@@ -17,8 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.afterAlarmRing.AlarmRing;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
 
 import android.app.PendingIntent;
 import android.content.Intent;

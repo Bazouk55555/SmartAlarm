@@ -32,7 +32,7 @@ import com.example.adrien.smartalarm.sqliteService.HistoryDAO;
 import com.example.adrien.smartalarm.sqliteService.MusicDAO;
 import com.example.adrien.smartalarm.sqliteService.Question;
 import com.example.adrien.smartalarm.sqliteService.SportsDAO;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;

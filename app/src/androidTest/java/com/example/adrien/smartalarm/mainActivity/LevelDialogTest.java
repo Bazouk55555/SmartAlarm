@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.adrien.mainActivity;
+package com.example.adrien.smartalarm.mainActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;

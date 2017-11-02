@@ -1,5 +1,6 @@
-package com.example.adrien.smartalarm.adrien.afterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
@@ -18,11 +19,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.afterAlarmRing.AlarmRing;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
 
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.graphics.drawable.Drawable;
 import android.icu.util.Calendar;
 import android.os.Build;
@@ -40,6 +40,8 @@ public class AlarmRingTest {
     @Rule
     public ActivityTestRule<SmartAlarm> mActivityRule =
             new ActivityTestRule<>(SmartAlarm.class);
+
+    private Instrumentation.ActivityMonitor alarmRingActivityMonitor = getInstrumentation().addMonitor(AlarmRing.class.getName(), null, true);
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Test
@@ -80,10 +82,7 @@ public class AlarmRingTest {
         onView(withId(R.id.editTitle)).perform(typeText(title),
                 closeSoftKeyboard());
         onView(withId(R.id.save)).perform(click());
-        //assertTrue(isAlarmSet(hourOfAlarm,minuteOfAlarm));
-        while(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)!=hourOfAlarm || Calendar.getInstance().get(Calendar.MINUTE)!=minuteOfAlarm+1)
-        {
-        }
+        Activity alarmRingActivity = alarmRingActivityMonitor.waitForActivity();
         String currentTimeAlarm = Integer.toString(hourOfAlarm)+":"+Integer.toString(minuteOfAlarm);
         if(hourOfAlarm<10)
         {
@@ -96,23 +95,12 @@ public class AlarmRingTest {
         onView(withId(R.id.time)).check(matches(withText(currentTimeAlarm)));
         onView(withId(R.id.title)).check(matches(withText(title)));
         onView(withId(R.id.stop_alarm)).check(matches(isDisplayed()));
-        //onView(withId(R.id.stop_alarm)).check(matches(withImageView(mActivityRule.getActivity().getResources().getDrawable(R.drawable.ic_stop_alarm,null))));
+        onView(withId(R.id.stop_alarm)).check(matches(withImageView(((ImageView)alarmRingActivity.findViewById(R.id.stop_alarm)).getDrawable())));
         onView(withId(R.id.stop_alarm)).perform(click());
         onData(anything()).inAdapterView(withId(R.id.list_alarm)).atPosition(0).onChildView(withId(R.id.time)).check(matches(withText(currentTimeAlarm)));
         onData(anything()).inAdapterView(withId(R.id.list_alarm)).atPosition(0).perform(click());
         onView(withId(R.id.remove_alarm_layout)).check(matches(isDisplayed()));
         onView(withId(R.id.remove)).perform(click());
-    }
-
-    private boolean isAlarmSet(int hour, int minute) {
-        Intent intent = new Intent(mActivityRule.getActivity(),AlarmRing.class);
-        PendingIntent service = PendingIntent.getService(
-                mActivityRule.getActivity().getApplicationContext(),
-                Integer.parseInt(String.valueOf(hour) + String.valueOf(minute)),
-                intent,
-                PendingIntent.FLAG_NO_CREATE
-        );
-        return service != null;
     }
 
     private Matcher<View> withImageView(final Drawable drawable) {

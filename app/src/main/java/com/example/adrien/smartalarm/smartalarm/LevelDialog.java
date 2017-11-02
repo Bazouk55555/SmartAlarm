@@ -1,4 +1,4 @@
-package com.example.adrien.smartalarm.adrien;
+package com.example.adrien.smartalarm.smartalarm;
 
 import com.example.adrien.smartalarm.R;
 

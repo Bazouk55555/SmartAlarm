@@ -1,5 +1,6 @@
-package com.example.adrien.smartalarm.adrien.afterAlarmRing;
+package com.example.adrien.smartalarm.afterAlarmRing;
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
@@ -17,9 +18,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.afterAlarmRing.AlarmRing;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.icu.util.Calendar;
@@ -28,6 +30,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.widget.TextView;
 
 @RunWith(AndroidJUnit4.class)
 public class ImagesGameTest {
@@ -36,7 +39,11 @@ public class ImagesGameTest {
     public ActivityTestRule<SmartAlarm> mActivityRule =
             new ActivityTestRule<>(SmartAlarm.class);
 
+    private Instrumentation.ActivityMonitor alarmRingActivityMonitor = getInstrumentation().addMonitor(AlarmRing.class.getName(), null, false);
+    private Instrumentation.ActivityMonitor imagesGameActivityMonitor = getInstrumentation().addMonitor(ImagesGame.class.getName(), null, false);
+
     private final int NUMBER_OF_QUESTIONS_TESTED = 3;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Test
     public void alarmDisplayedTest()
@@ -44,7 +51,6 @@ public class ImagesGameTest {
         if(!PreferenceManager.getDefaultSharedPreferences(mActivityRule.getActivity()).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
             onView(withId(R.id.checkbox)).perform(click());
         }
-
         onView(withId(R.id.game)).perform(click());
         onView(withText(mActivityRule.getActivity().getResources().getString(R.string.number_of_questions_menu))).perform(click());
         onView(withId(R.id.number_of_questions)).perform(clearText());
@@ -80,33 +86,70 @@ public class ImagesGameTest {
         onView(withId(R.id.minutes)).perform(typeText(Integer.toString(minuteOfAlarm)),
                 closeSoftKeyboard());
         onView(withId(R.id.save)).perform(click());
-        while(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)!=hourOfAlarm || Calendar.getInstance().get(Calendar.MINUTE)!=minuteOfAlarm+1)
-        {
-        }
+        alarmRingActivityMonitor.waitForActivity();
         onView(withId(R.id.stop_alarm)).perform(click());
         onView(withId(R.id.dialog_game_layout)).check(matches(isDisplayed()));
         onView(withId(R.id.answer_radio_button1)).perform(click());
+        Activity imagesGameActivity;
         int score = 0;
+        int scoreBufferBeforeAnswer;
+        String scoreText;
+        String scoreString;
         for(int i =0;i<NUMBER_OF_QUESTIONS_TESTED-1;i++) {
             onView(withId(R.id.ok)).perform(click());
-            //Tester score ici
-            //int scoreBuffer = ();
+            imagesGameActivity = imagesGameActivityMonitor.getLastActivity();
+            scoreBufferBeforeAnswer = score;
+            scoreText = ((TextView)imagesGameActivity.findViewById(R.id.score)).getText().toString();
+            int j = scoreText.length()-2;
+            scoreString ="";
+            while(scoreText.charAt(j)>='0' && scoreText.charAt(j)<='9')
+            {
+                scoreString = scoreText.charAt(j) + scoreString;
+                j--;
+            }
+            score = Integer.parseInt(scoreString);
+            System.out.println("Le score intermediaire a l etape "+i+" est de: "+score+" et le score buffer est de "+scoreBufferBeforeAnswer);
+            while(((TextView)imagesGameActivity.findViewById(R.id.comment)).getText().toString().equals(""))
+            {
+            }
+            if(scoreBufferBeforeAnswer<score)
+            {
+                onView(withId(R.id.comment)).check(matches(withText(imagesGameActivity.getResources().getString(R.string.good_job))));
+            }
+            else
+            {
+                onView(withId(R.id.comment)).check(matches(withText(imagesGameActivity.getResources().getString(R.string.still_sleepy))));
+            }
             onView(withId(R.id.images_game)).perform(click());
             onView(withId(R.id.dialog_game_layout)).check(matches(isDisplayed()));
         }
         onView(withId(R.id.ok)).perform(click());
+        imagesGameActivity = imagesGameActivityMonitor.getLastActivity();
+        scoreText = ((TextView)imagesGameActivity.findViewById(R.id.score)).getText().toString();
+        int j = scoreText.length()-2;
+        scoreString ="";
+        while(scoreText.charAt(j)>='0' && scoreText.charAt(j)<='9')
+        {
+            scoreString = scoreText.charAt(j) + scoreString;
+            j--;
+        }
+        score = Integer.parseInt(scoreString);
+        System.out.println("THE SCORE IS: "+score);
+        while(((TextView)imagesGameActivity.findViewById(R.id.comment)).getText().toString().equals(""))
+        {
+        }
+        if(score < 35)
+        {
+            onView(withId(R.id.comment)).check(matches(withText(imagesGameActivity.getResources().getString(R.string.go_back_to_bed))));
+        }
+        else if(score < 65)
+        {
+            onView(withId(R.id.comment)).check(matches(withText(imagesGameActivity.getResources().getString(R.string.take_a_coffee))));
+        }
+        else
+        {
+            onView(withId(R.id.comment)).check(matches(withText(imagesGameActivity.getResources().getString(R.string.ready_to_go_to_the_gym))));
+        }
         onView(withId(R.id.images_game)).perform(click());
-        //Check here if intent is launched
-    }
-
-    private boolean isAlarmSet(int hour, int minute) {
-        Intent intent = new Intent(mActivityRule.getActivity(),AlarmRing.class);
-        PendingIntent service = PendingIntent.getService(
-                mActivityRule.getActivity().getApplicationContext(),
-                Integer.parseInt(String.valueOf(hour) + String.valueOf(minute)),
-                intent,
-                PendingIntent.FLAG_NO_CREATE
-        );
-        return service != null;
     }
 }

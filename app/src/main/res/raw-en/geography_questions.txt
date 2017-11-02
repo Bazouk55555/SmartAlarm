@@ -26,8 +26,8 @@ What is the capital of Senegal?;Dakar;Yaounde;Ouagadougou;Bamako
 What is the name of the river that flows through southern England, most notably through London?;The River Thames;The Seine;The River Trent;The River Severn
 Which of these countries does not belong to Commonwealth?;Senegal;India;Cameroon;New Zealand
 Which of these countries does not belong to the European Union?;Switzerland;Hungary;Romania;Cyprus
-What is the largest state of the US?;Alaska;Texas;California;New York
-What is the largest city of the world by population?;Tokyo;Jakarta;New Delhi;Mexico City
+What is the largest state in the US?;Alaska;Texas;California;New York
+What is the most populated city in the world?;Tokyo;Jakarta;New Delhi;Mexico City
 Which of these countries is not a border of Brazil?;Chile;Argentina;Uruguay;Colombia
 Hard
 What is the capital of Canada?;Ottawa;Montreal;Toronto;Vancouver

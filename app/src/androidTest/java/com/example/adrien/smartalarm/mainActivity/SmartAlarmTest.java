@@ -1,24 +1,4 @@
-package com.example.adrien.smartalarm.adrien.mainActivity;
-
-import android.graphics.drawable.ColorDrawable;
-import android.preference.PreferenceManager;
-import android.support.test.espresso.matcher.BoundedMatcher;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.widget.LinearLayout;
-
-import com.example.adrien.smartalarm.R;
-import com.example.adrien.smartalarm.adrien.SmartAlarm;
-
-import static junit.framework.Assert.assertEquals;
-
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+package com.example.adrien.smartalarm.mainActivity;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -33,7 +13,26 @@ import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.Matchers.anything;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import com.example.adrien.smartalarm.R;
+import com.example.adrien.smartalarm.smartalarm.SmartAlarm;
+
+import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
+import android.support.test.espresso.matcher.BoundedMatcher;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.LinearLayout;
 
 @RunWith(AndroidJUnit4.class)
 public class SmartAlarmTest {
