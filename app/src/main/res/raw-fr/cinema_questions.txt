@@ -1,52 +1,52 @@
-Quel est le titre du film a propos d'un bateau percutant un icebert en Avril 1912?;Titanic;Boat Trip;Lifeboat;Iceberg
-Quel est le nom de l'acteur qui a joue dans les films "Titanic", "L'homme au masque de fer" and "Attrape moi si tu peux"?;Leonardo DiCaprio;Robert de Niro;Tom Hanks;Brad Pitt
-Quel est le nom de l'acteur qui a joue dans les films "Inglorious Basterds", "Money Ball" and "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro
-Quel est le nom de l'acteur qui a joue dans les films "The Godfather", "Once Upon a Time in America" and "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
-Quel est le nom de l'acteur qui a joue dans les films "Modern Times", "City Lights" and "The Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
-Quel est le nom de l'acteur qui a joue dans les films "The Maltese Falcon", "Casablanca" and "The Maltese Falcon"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
-Quel est le nom de l'acteur qui a joue dans les films "Big", "The Da Vinci Code" and "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
-Quel est le nom de l'actrice qui a joue dans les films "Out of Africa", "Sophie's Choice" and "Kramer Vs Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
+Quel est le titre du film qui raconte l'histoire d'un bateau percutant un iceberg en Avril 1912?;Titanic;Boat Trip;Lifeboat;Iceberg
+Quel est le nom de l'acteur qui a joue dans les films "Titanic", "L'homme au masque de fer" et "Attrape moi si tu peux"?;Leonardo DiCaprio;Robert de Niro;Tom Hanks;Brad Pitt
+Quel est le nom de l'acteur qui a joue dans les films "Inglorious Basterds", "Money Ball" et "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro
+Quel est le nom de l'acteur qui a joue dans les films "Le Parrain", "Il était une fois en Amérique" et "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
+Quel est le nom de l'acteur qui a joue dans les films "Les Temps Modernes", "Les Lumières de la ville" et "Le Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
+Quel est le nom de l'acteur qui a joue dans les films "Le Faucon maltais", "Casablanca" et "L'Odyssée de l'African Queen"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
+Quel est le nom de l'acteur qui a joue dans les films "Big", "Le Da Vinci Code" et "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
+Quel est le nom de l'actrice qui a joue dans les films "La Ferme africaine", "Le Choix de Sophie" et "Kramer contre Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
 Quel est le nom de l'actrice qui a joue Hermione Granger dans "Harry Potter"?;Emma Watson;Angelina Jolie;Anne Hathaway;Scarlett Johansson
-Quel est le nom de l'actrice qui a joue dans les films "The Blind Side", "Gravity" and "28 Days"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
-Quel est le nom de l'actrice qui a joue dans les films "Flirting", "To Die For" and "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
-Quel est le nom de l'actrice qui a joue dans les films "Jennifer's Body", "Transformers" and "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
-Who is the American  director, producer, and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
-What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. the Extra-Terrestrial;Harry Potter;Titanic
-Quel est le titre du plus celebre film racontant l'histoire de sorciers?;Harry Potter;Jurassic Park;E.T. l'extra-terrestre;Gladiator
+Quel est le nom de l'actrice qui a joue dans les films "The Blind Side", "Gravity" et "28 jours en sursis"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
+Quel est le nom de l'actrice qui a joue dans les films "Flirting", "Prête à tout" et "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
+Quel est le nom de l'actrice qui a joue dans les films "Jennifer's Body", "Transformers" et "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
+Comment s'appelle le réalisateur, scénariste et producteur de cinéma américain notamment connu pour ses films "Jaws", "E.T. l'extra-terrestre" et "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
+What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. l'extra-terrestre;Harry Potter;Titanic
+Quel est le titre du plus celebre film racontant l'histoire de sorciers?;Harry Potter;Jurassic Park;E.T. l'extra-terrestre;Gladiateur
 Moyen
-Qu'ont ces acteurs en commun? Michael Keaton, Val Kilmer, Adam West, George Clooney?;Ils ont tous joue le role de Batman;Ils sont tous amoureux de Jennifer Lopez (dans leur films);Ils sont tous nes a Los-Angeles;Ils sont tous nes dans les annees 50
+Qu'ont les acteurs Michael Keaton, Val Kilmer, Adam West, George Clooney en commun?;Ils ont tous joue le role de Batman;Ils sont tous amoureux de Jennifer Lopez (dans leur films);Ils sont tous nes a Los-Angeles;Ils sont tous nes dans les annees 50
 D'ou vient Jean Claude Van Damme?;Belgique;France;Suisse;Canada
-Dans quel film Brad Pitt, Robert De Niro et Dustin Hoffman sont apparus ensemble?;Sleepers;Twelve Monkeys;Seven Years in Tibet;Seven
-Quel film recent se joue dans la ville de Sheffield?;The Full Monty;Notting Hill;In the Name of the Father;Four Weddings and a Funeral
-Who directed the original version of the film Psycho?;Alfred Hitchcock;James Cameron;Steven Spielberg;Stanley Kubrick
-Quelle compagnie de cinema a une montagne comme logo?;Paramount;Universal;MGM;20th Century Fox
-Which of these films does not star Clint Eastwood?;The Quick and the Dead;Dirty Harry;The Good, the Bad and the Ugly;Space Cowboys
-Which actor became famous after starring in Four Weddings and a Funeral?;Hugh Grant;Sean Connery;Tom Cruise;Wesley Snipes
+Dans quel film Brad Pitt, Robert De Niro et Dustin Hoffman sont apparus ensemble?;Sleepers;L'Armée des douze singes;Sept ans au Tibet;Seven
+Quel film sorti en 1997 se joue dans la ville de Sheffield?;The Full Monty;Notting Hill;Au nom du père;Quatre mariages et un enterrement
+Qui a réalisé la version originale du film Psychose?;Alfred Hitchcock;James Cameron;Steven Spielberg;Stanley Kubrick
+Quelle compagnie de cinéma a une montagne comme logo?;Paramount;Universal;MGM;20th Century Fox
+Dans lequel de ces films Clint Eastwood n'a pas tenu le role principal?;Mort ou vif;L'Inspecteur Harry;Le Bon la Brute et le Truand;Space Cowboys
+Quel acteur devint célèbre après avoir tenu le role principal dans le film Quatre mariages et un enterrement?;Hugh Grant;Sean Connery;Tom Cruise;Wesley Snipes
 Dans lequelle de ces films Sylvester Stallone n'apparait pas?;Predator;Cliffhanger;Rocky;Demolition Man
-Complete le titre de ce film: An Officer and a ______________.;Gentleman;Woman;Genius;Policeman
-Which monster did the makers of Independence Day resurrect?;Godzilla;Pokemon;Hulk;Jurassic Park
-Lequel de ces acteurs n'apparait pas dans le Parain?;Paul Sorvino;Al Pacino;Richard Conte;James Caan
-Which of these films won the Oscar for best picture in 1956?;Around the World in 80 Days 5;The King and I ;Giant;Friendly Persuasion
-Sur quel livre le film Cabaret est il base?;Goodbye to Berlin;Goodbye to All That;Goodbye Paris;Goodbye to Love
-Quel est le nom du personnage joue par Samual L Jackson's dans Star Wars Episode III?;Mace Windu;Bail Organa;Count Dooku;General Grievous
+Complete le titre de ce film: Officier et ______________.;Gentleman;Woman;Genius;Policier
+Quel monstre les cinéastes de Independence Day ont-ils fait ressuscité?;Godzilla;Dracula;Hulk;Freddy Krueger
+Lequel de ces acteurs n'apparait pas dans le Parrain?;Paul Sorvino;Al Pacino;Richard Conte;James Caan
+Lequel de ces film a remporté un Oscar en 1956?;Le Tour du monde en quatre-vingts jours;Le Roi et moi;Géant;La Loi du Seigneur
+Sur quel livre le film Cabaret est il basé?;Goodbye to Berlin;Goodbye to All That;Goodbye Paris;Goodbye to Love
+Quel est le nom du personnage joué par Samual L Jackson dans Star Wars Episode III?;Mace Windu;Bail Organa;Count Dooku;General Grievous
 Difficile
-The Wolf of Wall Street movie is based on the true story of which former American stock broker?;Jordan Belfort;Jordan Belfort;Paul Tudor Jones;Nick Leeson
-Who directed the horror film 'Alien'?;Ridley Scott;Stanley Kubrick;Steven Spielberg;David Lynch
-Qui a joue Baby dans le film Dirty Dancing?;Jennifer Grey;Alyssa Milano;Kaley Cuoco;Jennifer Lawrence
+Comment s'appelle le courtier en Bourse américain qui a inspiré le film Le Loup de Wall Street?;Jordan Belfort;Jesse Livermore;Paul Tudor Jones;Nick Leeson
+Qui a réalisé le film 'Alien'?;Ridley Scott;Stanley Kubrick;Steven Spielberg;David Lynch
+Qui a joué Bébé dans le film Dirty Dancing?;Jennifer Grey;Alyssa Milano;Kaley Cuoco;Jennifer Lawrence
 Dans le film 'Shrek', quel est le nom de la femme de Shrek?;Fiona;Laura;Sonia;Sara
-De quel film Disney la chanson 'Circle of Life' vient-elle?;The Lion King;Aladdin;Beauty and the Beast;The Little Mermaid
+De quel film Disney la chanson "L'Histoire de la vie" vient-elle?;Le Roi Lion;Aladdin;La Belle et la Bete;La Petite Sirène
 De quel film provient cette citation: "You're going out a youngster but you've got to come back a star"?;Apollo 13;Interstellar;Gravity;Armageddon
-De quel film provient cette citation: "We're bigger than US Steel"?;The Godfather;Gladiator;Rocky;Sixth Sense
-De quel film provient cette citation: "If I had one more night to live, I would want to spend it with you"?;Pearl Harbour;Dead Poet's Society;A Beautiful Mind;Love Story
-Which 2008 movie starred Will Smith: Seven ...?;Pounds;I Am Legend;Hitch;Men in Black
-Quelle actrice a joue Winifred en 1993 dans le film Hocus Pocus?;Bette Midler;Kathy Najimy;Sarah Jessica Parker;Vinessa Shaw
-Quelle actrice a joue le role de Sidney dans le film Scream en 1996?;Neve Campbell;Courteney Cox;Rose McGowan;Drew Barrymore
-Quelle actrice celebre a joue le role de Holly dans le film "Breakfast at Tiffany's" et est morte en 1993?;Audrey Hepburn;Patricia Neal;Michelle Pfeiffer;Meryl Streep
-In which movie does Jim Carey unknowingly star as the main character in his own reality television show??;The Truman Show;The Mask;Liar Liar;The Majestic
-Which 1983 film starred Melinda Dillon, Darren McGavin and Peter Billingsley?;A Christmas Story;Slap Shot;Raw Deal;Death Valley
-Which James Bond film was named after Ian Fleming's home in Jamaica?;Goldeneye;Cold;SeaFire;Death is Forever
-Quel est le nom de l'acteur qui a joue le role de Ron Weasley dans les films "Harry Potter"?;Rupert Grint;Daniel Radcliffe;Matthew Lewis;Tom Felton
-What was the title of the film that starred Elvis Presley playing the role of a boxer?;Kid Galahad;Follow That Dream;Elvis on Tour;Elvis: That's the Way It Is
+De quel film provient cette citation: "We're bigger than US Steel"?;Le Parrain;Gladiateur;Rocky;Sixième Sens
+De quel film provient cette citation: "If I had one more night to live, I would want to spend it with you"?;Pearl Harbour;Le Cercle des poètes disparus;Un homme d'exception;Love Story
+Quel film a rendu Will Smith célèbre: Sept ______________?;Vies;Légendes;Pièces;Blacks
+Quelle actrice a joué Winifred en 1993 dans le film Hocus Pocus?;Bette Midler;Kathy Najimy;Sarah Jessica Parker;Vinessa Shaw
+Quelle actrice a joué le role de Sidney dans le film Scream en 1996?;Neve Campbell;Courteney Cox;Rose McGowan;Drew Barrymore
+Quelle actrice célèbre a joué le role de Holly dans le film "Diamants sur canapé" et est morte en 1993?;Audrey Hepburn;Patricia Neal;Michelle Pfeiffer;Meryl Streep
+Dans quel film Jim Carey a le role principal dans un film racontant la vie d'un homme star d'une télé-réalité à son insu?;The Truman Show;The Mask;Menteur, menteur;The Majestic
+Quel film sorti en 1983 a rendu célèbre Melinda Dillon, Darren McGavin and Peter Billingsley?;A Christmas Story;La Castagne;Le Contrat;Death Valley
+Quel titre de film James Bod fut inspiré de la maison de Ian Fleming en Jamaique?;Goldeneye;Cold;SeaFire;Death is Forever
+Quel est le nom de l'acteur qui a joué le role de Ron Weasley dans les films "Harry Potter"?;Rupert Grint;Daniel Radcliffe;Matthew Lewis;Tom Felton
+Quel est le titre du film qui a mis en lumière Elvis Presley qui jouait le role d'un boxeur?;Un direct au coeur;Le Shérif de ces dames;Elvis on Tour;Elvis: That's the Way It Is
 Quel est le nom du chien de Dorothy dans "le magicien d'Oz"?;Toto;Kabumpo;Kalidah;Rak
 Qui a rendu la phrase 'I'll be back' celebre?;Arnold Schwarzenegger;Brad Pitt;Marlon Brando;Robert DeNiro
-Which 1996 British movie was directed by Danny Boyle and featured Ewan McGregor?;Trainspotting;Oliver Twist;Shallow Grave;Moulin Rouge!
+Quel film anglais fut réalisé en 1996 par Danny Boyle et avait pour vedette Ewan McGregor?;Trainspotting;Oliver Twist;Petits meurtres entre amis;Moulin Rouge!

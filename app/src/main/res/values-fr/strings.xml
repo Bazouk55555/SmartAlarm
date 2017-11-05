@@ -49,6 +49,8 @@
     <string name="add_a_sound">Ajouter la sonnerie</string>
     <string name="configuration">Configuration</string>
     <string name="stop_the_alarm">Arreter l\'alarme</string>
+    <string name="arrow_up">Flèche du haut</string>
+    <string name="arrow_down">Flèche du bas</string>
     <string name="image_loaded">Image chargee</string>
     <string name="sound_loaded">Son charge</string>
     <string name="alarm_on">Alarme allumee</string>

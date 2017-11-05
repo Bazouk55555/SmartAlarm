@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -49,8 +48,6 @@ public class DialogNewGame extends Dialog {
 	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
-
-		//getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
 		updateQuestion(0);
 		findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {

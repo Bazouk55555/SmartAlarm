@@ -264,7 +264,6 @@ public class NumberQuestionsDialog extends Dialog {
 		@Override
 		public void afterTextChanged(Editable s) {
 			if (!s.toString().isEmpty() && canModifyText) {
-				System.out.println("HERE: " + s.toString() + " END");
 				canModifyText = false;
 				if (s.toString().substring(0, 1).equals("0")) {
 					editText.setText(beforeChange);
@@ -278,11 +277,5 @@ public class NumberQuestionsDialog extends Dialog {
 				canModifyText = true;
 			}
 		}
-	}
-
-	@Override
-	public void onStop()
-	{
-		System.out.println("FINISHED!!!!!!");
 	}
 }

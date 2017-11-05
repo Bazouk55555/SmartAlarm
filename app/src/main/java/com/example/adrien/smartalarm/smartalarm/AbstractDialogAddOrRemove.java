@@ -31,7 +31,7 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 	protected EditText hours = null;
 	protected EditText minutes = null;
 	protected EditText editTitle = null;
-	private List<String> alarms = new ArrayList<String>();
+	private List<String> alarms = new ArrayList<>();
 	private Handler redArrowForShortTime;
 	private boolean isLongPressed;
 	private boolean isShortPressed;
@@ -310,8 +310,6 @@ public abstract class AbstractDialogAddOrRemove extends Dialog {
 						if (goToNextStep) {
 							if (editText == hours) {
 								minutes.requestFocus();
-							} else if (editText == minutes) {
-								findViewById(R.id.editTitle).requestFocus();
 							}
 						}
 					}

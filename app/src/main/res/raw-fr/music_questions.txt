@@ -2,8 +2,8 @@ Qui a compose la Cinquieme Symphonie?;Ludwig van Beethoven;Amadeus Mozart;Celine
 Lequel de ces chanteurs est Belge?;Stromae;Rihanna;Beyonce;Celine Dion
 Laquelle de ces chansons est une chanson de Beyonce?;Halo;S&M;Papaoutai;Holy Grail
 Lequel de ces chanteurs n'est pas Americain?;Celine Dion;Beyonce;JAY-Z;Rihanna
-Complete avec la note manquantr: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
-Qui est le celebre chanteur et compositeur aveugle americain?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
+Complete avec la note manquante: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
+Comment s'appelle le celebre chanteur et compositeur aveugle americain?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
 Qui etait connu comme le Roi du Pop depuis les annees 1980?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
 Qui est un celebre DJ francais?;David Guetta;Stromae;JAY-Z;James Brown
 Comment s'appelait groupe de rock anglais forme a Liverpool en 1960 et compose de 4 personnes?;Les Beatles;One Direction;The Wanted;U2
@@ -11,42 +11,42 @@ Qui etait connu comme le Roi du Rock and Roll?;Elvis Presley;Michael Jackson;Ray
 Laquelle de ces chansons est une chanson de Justin Bieber?;Sorry;S&M;Holy Grail;Diamonds
 Lequel de ces instruments est un instrument a cordes?;Flute;Violon;Guitar;Violin
 Quel est le titre de l'hymne national anglais?;God Save the Queen;The Star-Spangled Banner;The Fifth Symphony;America
-Comment appelle-t-on une performance musicale dans laquelle les chanteurs et musiciens perform a dramatic work combining text (libretto) and musical score?;Opera;Theatre;Single;Concert
-Comment appelle-t-on une chanson officielle d'un pays?;Hymne National;Opera;Concert;Chanson patriotique
+Comment appelle-t-on une œuvre musicale et théâtrale pour un orchestre et des chanteurs, basée sur un livret qui met en scène des personnages et leur histoire, où les rôles sont chantés?;Opera;Theatre;Single;Concert
+Comment appelle-t-on la chanson officielle d'un pays?;Hymne National;Opera;Concert;Chanson patriotique
 Moyen
-Qui a ecrit et chante la celebre chanson "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
-Who rose to fame in 2004 with the release of his debut album "Back to Bedlam", achieving worldwide fame with the singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
-Who was an American singer, songwriter, and poet, best remembered as the lead singer of the Doors?;Jim Morrison;Elvis Presley;Franck Sinatra;James Blunt
-Qui a chante ”Big Yellow Taxi”, ”Both Sides Now” and ”Woodstock”?;Joni Mitchell;Dusty Springfield;Whitney Houston;Nina Simone
-Qui a chante "Tiny Dancer", "Rocket Man" and "Your Song"?;Elton John;Elvis Presley;Joni Mitchell;Whitney Houston
-Qui a chante "I Look To You", "I Believe In You and Me" and "Miracle"?;Whitney Houston;Elton John;Elvis Presley;Joni Mitchell
-Qui a chante "Purple Rain", "When Doves Cry" and "Little Red Corvette"?;Prince;Whitney Houston;Elton John;Joni Mitchell
-Qui a chante "Space Oddity", "Life on Mars?" and "Heroes"?;David Bowie;Prince;Whitney Houston;Elton John
-Comment s'appelle le chanteur, musicien et guitariste jamaican who achieved international fame blending mostly reggae, ska and rocksteady in his compositions?;Bob Marley;David Bowie;Prince;Joni Mitchell
-Qui a chante "Proud Mary", "River Deep — Mountain High" and "What's Love Got to Do With It"?;Tina Turner;Bob Marley;David Bowie;Prince
-Qui etait un chanteur anglais et l'un des membres fondateurs des Rolling Stones?;Mick Jagger;Tina turner;Bob Marley;David Bowie
-Qui a chante "Shape of You", "Castle on the Hill" and "Tenerife Sea"?;Ed Sheeran;Kendrick Lamar;Mick Jagger;Elton John
-Qui a chante "HUMBLE", "DNA" and "Swimming Pools (Drank)"?;Kendrick Lamar;Ed Sheeran;Migos;Tina Turner
-Qui a chante "That's What I Like", "24K Magic" and "Locked Out Of Heaven"?;Bruno Mars;Kendrick Lamar;Ed Sheeran;Bob Marley
-Quel groupe musical est compose d'Adam Levine, Jesse Carmichael, Mickey Madden, James Valentine, Flynn et PJ Morton?;Marron 5;The Beatles;One Direction;The Wanted
+Qui a écrit et chanté la celebre chanson "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
+Qui est devenu celebre en 2004 avec son album "Back to Bedlam", puis devenu une star mondiale avec ses singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
+Comment s'appelle le chanteur et compositeur américain connu comme étant le chanteur principal du groupe de Rock the Doors?;Jim Morrison;Elvis Presley;Franck Sinatra;James Blunt
+Qui a chanté ”Big Yellow Taxi”, ”Both Sides Now” and ”Woodstock”?;Joni Mitchell;Dusty Springfield;Whitney Houston;Nina Simone
+Qui a chanté "Tiny Dancer", "Rocket Man" and "Your Song"?;Elton John;Elvis Presley;Joni Mitchell;Whitney Houston
+Qui a chanté "I Look To You", "I Believe In You and Me" and "Miracle"?;Whitney Houston;Elton John;Elvis Presley;Joni Mitchell
+Qui a chanté "Purple Rain", "When Doves Cry" and "Little Red Corvette"?;Prince;Whitney Houston;Elton John;Joni Mitchell
+Qui a chanté "Space Oddity", "Life on Mars?" and "Heroes"?;David Bowie;Prince;Whitney Houston;Elton John
+Comment s'appelle le musicien le plus connu et le plus vénéré du reggae qui a permis à la musique jamaïcaine et au mouvement rastafari de connaître une audience planétaire?;Bob Marley;David Bowie;Prince;Joni Mitchell
+Qui a chanté "Proud Mary", "River Deep — Mountain High" and "What's Love Got to Do With It"?;Tina Turner;Bob Marley;David Bowie;Prince
+Qui était un chanteur anglais et l'un des membres fondateurs des Rolling Stones?;Mick Jagger;Tina turner;Bob Marley;David Bowie
+Qui a chanté "Shape of You", "Castle on the Hill" and "Tenerife Sea"?;Ed Sheeran;Kendrick Lamar;Mick Jagger;Elton John
+Qui a chanté "HUMBLE", "DNA" and "Swimming Pools (Drank)"?;Kendrick Lamar;Ed Sheeran;Migos;Tina Turner
+Qui a chanté "That's What I Like", "24K Magic" and "Locked Out Of Heaven"?;Bruno Mars;Kendrick Lamar;Ed Sheeran;Bob Marley
+Quel groupe musical est composé d'Adam Levine, Jesse Carmichael, Mickey Madden, James Valentine, Flynn et PJ Morton?;Marron 5;The Beatles;One Direction;The Wanted
 Difficile
-What 1865 Wagner opera opens on a ship?;Tristan and Isolde;The Victors;Luther's Wedding;Jesus von Nazareth
-Who was the youngest member of The Beatles?;George Harrison;John Lennon;Paul McCartney;Ringo Starr
-Which Spice Girl had a hit song with Bryan Adams?;Melanie Chisholm; Melanie Brown;Emma Bunton;Victoria Beckham
-What does AC/DC stand for?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected/Alternating Command/Direct Command
-Who had a hit song in the 1990s with 'Everyday is a Winding Road'?;Sheryl Crow;Jerry Lee Lewis;Eric Clapton;Sting
-Complete the title of One Direction’s 2011 song: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
-Where did the pop group ABBA come from?;Sweden;Norway;Finland;Netherland
+Quel Opéra de Wagner de 1865 commence sur un bateau?;Tristan and Isolde;The Victors;Luther's Wedding;Jesus von Nazareth
+Qui est le plus jeune membre des Beattles?;George Harrison;John Lennon;Paul McCartney;Ringo Starr
+Quelle Spice Girl a sorti un tube avec Bryan Adams?;Melanie Chisholm; Melanie Brown;Emma Bunton;Victoria Beckham
+Que signifie l'abbréviation AC/DC?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected/Alternating Command/Direct Command
+Qui a sorti un tube dans les années 90 avec 'Everyday is a Winding Road'?;Sheryl Crow;Jerry Lee Lewis;Eric Clapton;Sting
+Complete le titre de cette chanson de 2011 des One Direction: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
+Quel est l'origine du groupe ABBA?;Suède;Norvège;Finlande;Pays-Bas
 Which 1968 Beatle's song written by Paul McCartney was actually written about John Lennon's son Julian?;Hey Jude;Love Me Do;Yesterday;I Want to Hold Your Hand
 Which song did Marvin Gaye have Christmas number one with in the US in 1968?;I Heard It Through The Grapevine;Let's Get It On;Sexual Healing;Mercy Mercy Me
 What year did Elvis have a UK number one with 'Can't Help Falling In Love'?;1962;1963;1964;1965
 Which of Bob Dylan's song was a hit single in the UK and the US in 1965?;Like A Rolling Stone;Gates of Eden;Hurricane;The Times They Are A-Changin’
-What nationality is Shawn Mendes?;Canadian;American;English;Australian
-Which female artist headlined the One Love Manchester concert in 2017?;Ariana Grande;Beyonce;Lady Gaga;Rihanna
-Luis Fonsi and Daddy Yankee collaborated with which male artist in 2017 with a remix of their song Despacito?Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
-Who was crowned winner of American Idol in 2014?;Caleb Johnson;Howard Benson;Aloe Blacc;Jena Irene
-Which male artist released a hit song called 'Human' in 2016?;Rory Charles Graham;Pharoahe Monch;Lawrence Parker;Mark Crew
-Taylor Swift dated which member of One Direction?;Harry Styles;Niall Horan;Liam Payne;Louis Tomlinson
-Which song by Destiny’s Child features on the 1997 Men in Black movie soundtrack?;Killing Time;Dah Dee Dah;Lose My Breath;Say My Name
-Which singer initially performed under the name Davie/Davy Jones?;David Bowie;Prince;Michael Jackson;George Michael
-Where did the band 'Roxette' come from?;Sweden;Norway;France;Belgium
+Quelle est la nationalité de Shawn Mendes?;Canadien;Americain;Anglais;Australien
+quelle chanteuse était la tete d'affiche du concert One Love Manchester en 2017?;Ariana Grande;Beyonce;Lady Gaga;Rihanna
+Quel artiste masculin a collaboré avec Luis Fonsi et Daddy Yankee en 2017 pour le remix de leur chanson Despacito?Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
+Qui a gagné American Idol en 2014?;Caleb Johnson;Howard Benson;Aloe Blacc;Jena Irene
+Quel artiste masculin a sorti sa chanson 'Human' en 2016?;Rory Charles Graham;Pharoahe Monch;Lawrence Parker;Mark Crew
+Quel membre des One Direction est sorti avec Taylor Swift?;Harry Styles;Niall Horan;Liam Payne;Louis Tomlinson
+Quelle chanson de Destiny’s Child figure dans le film "Men in Black"?;Killing Time;Dah Dee Dah;Lose My Breath;Say My Name
+Quel chanteur s'est initialement produit sous le nom de Davie/Davy Jones?;David Bowie;Prince;Michael Jackson;George Michael
+De quel pays est originaire le groupe 'Roxette'?;Suede;Norvege;France;Belgique

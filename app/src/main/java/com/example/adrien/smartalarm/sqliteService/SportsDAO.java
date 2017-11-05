@@ -14,7 +14,6 @@ public class SportsDAO extends AbstractQuestionBaseDAO {
 
 	@Override
 	public int getNumberOfQuestions(String level) {
-		System.out.println("THE LEVEL IS: "+level);
 		return mDb.rawQuery("select * from " + DatabaseQuestionHandler.TABLE_SPORTS_NAME + " WHERE "+DatabaseQuestionHandler.LEVEL + "=?",new String[]{level}).getCount();
 	}
 

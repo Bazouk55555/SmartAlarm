@@ -33,11 +33,11 @@ Hard
 What is the capital of Canada?;Ottawa;Montreal;Toronto;Vancouver
 What is the capital of Somalia?;Mogadishu;Bosaso;Hargeisa;Galkayo
 What is the capital of Nicaragua?;Managua;Nicaragua city;Nicara;Granada
-What is the capital of Peru?Lima;Cusco;Santiago;Havana
+What is the capital of Peru?;Lima;Cusco;Santiago;Havana
 What is the capital of Chile?;Santiago;Havana;Lima;Arica
 What is the largest country of Africa?;Algeria;Democratic Republic of the Congo;Sudan;Libya
 How many recognised states does Africa have?;54;43;64;71
 How many recognised states does Europe have?;51;35;63;44
 How many recognised states does South America have?;12;21;31;43
-Which of these countries is not a border of Hungary?Bulgaria;Austria;Croatia;Slovenia;
+Which of these countries is not a border of Hungary?;Bulgaria;Austria;Croatia;Slovenia;
 Which of these countries does not have red on its flag?;Ukraine;Algeria;Japan;Cuba

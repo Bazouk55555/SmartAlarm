@@ -43,7 +43,7 @@ What year did Elvis have a UK number one with 'Can't Help Falling In Love'?;1962
 Which of Bob Dylan's song was a hit single in the UK and the US in 1965?;Like A Rolling Stone;Gates of Eden;Hurricane;The Times They Are A-Changin’
 What nationality is Shawn Mendes?;Canadian;American;English;Australian
 Which female artist headlined the One Love Manchester concert in 2017?;Ariana Grande;Beyonce;Lady Gaga;Rihanna
-Luis Fonsi and Daddy Yankee collaborated with which male artist in 2017 with a remix of their song Despacito?Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
+Which male artist collaborated with Luis Fonsi and Daddy Yankee in 2017 with a remix of their song Despacito?;Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
 Who was crowned winner of American Idol in 2014?;Caleb Johnson;Howard Benson;Aloe Blacc;Jena Irene
 Which male artist released a hit song called 'Human' in 2016?;Rory Charles Graham;Pharoahe Monch;Lawrence Parker;Mark Crew
 Taylor Swift dated which member of One Direction?;Harry Styles;Niall Horan;Liam Payne;Louis Tomlinson

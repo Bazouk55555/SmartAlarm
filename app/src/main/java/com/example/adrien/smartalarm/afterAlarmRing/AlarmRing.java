@@ -44,7 +44,6 @@ import java.util.Random;
 public class AlarmRing extends AppCompatActivity {
 	private TextView titleView = null;
 	private MediaPlayer mediaPlayer;
-	//private PowerManager.WakeLock wl;
 	private boolean isAlarmStopped;
 	private int numberOfQuestions;
 	private DialogNewGame dialogNewGame;
@@ -54,9 +53,6 @@ public class AlarmRing extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		//wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
-		//wl.acquire();
 		this.getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
@@ -124,6 +120,7 @@ public class AlarmRing extends AppCompatActivity {
 		}
 
         if (mediaPlayer != null) {
+			mediaPlayer.setLooping(true);
             mediaPlayer.start();
         }
         ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
@@ -281,9 +278,6 @@ public class AlarmRing extends AppCompatActivity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		//if (wl.isHeld()) {
-		//	wl.release();
-		//}
 	}
 
 	@Override

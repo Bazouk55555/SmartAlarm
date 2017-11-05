@@ -3,34 +3,34 @@ What is the name of the actor who played in the movies "Titanic", "The Man in th
 What is the name of the actor who played in the movies "Inglorious Basterds", "Money Ball" and "Fight Club"?;Brad Pitt;Tom Hanks;Leonardo Di Caprio;Robert de Niro 
 What is the name of the actor who played in the movies "The Godfather", "Once Upon a Time in America" and "Taxi Driver"?;Robert De Niro;Brad Pitt;Tom Hanks;Leonardo Di Caprio
 What is the name of the actor who played in the movies "Modern Times", "City Lights" and "The Kid"?;Charlie Chaplin;Robert De Niro;Marlon Brando;Humphrey Bogart
-What is the name of the actor who played in the movies "The Maltese Falcon", "Casablanca" and "The Maltese Falcon"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
+What is the name of the actor who played in the movies "The Maltese Falcon", "Casablanca" and "The African Queen"?;Humphrey Bogart;Cary Grant;Charlie Chaplin;John Wayne
 What is the name of the actor who played in the movies "Big", "The Da Vinci Code" and "Forrest Gump"?;Tom Hanks;Leonardo Di Caprio;Robert de Niro;Brad Pitt
 What is the name of the actress who played in the movies "Out of Africa", "Sophie's Choice" and "Kramer Vs Kramer"?;Meryl Streep;Sandra Bullock;Nicole Kidman;Jodie Foster
 What is the name of the actress who played Hermione Granger in "Harry Potter"?;Emma Watson;Angelina Jolie;Anne Hathaway;Scarlett Johansson
 What is the name of the actress who played in the movies "The Blind Side", "Gravity" and "28 Days"?;Sandra Bullock;Nicole Kidman;Jodie Foster;Angelina Jolie
 What is the name of the actress who played in the movies "Flirting", "To Die For" and "Rabbit Hole"?;Nicole Kidman;Jodie Foster;Angelina Jolie;Kate Winslet
 What is the name of the actress who played in the movies "Jennifer's Body", "Transformers" and "Jonah Hex"?;Megan Fox;Scarlett Johansson;Alyssa Milano;Cate Blanchett
-Who is the American  director, producer, and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
+Who is the American  director, producer and screenwriter well known for his movies "Jaws", "E.T. the Extra-Terrestrial" and "Jurassic Park"?;Steven Spielberg;Roman Polanski;George Lucas;Oliver Stone
 What is the title of the most famous movie about dinosaurs?;Jurassic Park;E.T. the Extra-Terrestrial;Harry Potter;Titanic
 What is the title of the most famous movie about witches?;Harry Potter;Jurassic Park;E.T. the Extra-Terrestrial;Gladiator
 Medium
 What do these actors have in common? Michael Keaton, Val Kilmer, Adam West, George Clooney?;All of them have played Batman;They are in love with Jennifer López (in their films);They were all born in Los Angeles;They were all born in the 50s
 Which country is Jean Claude Van Damme from?;Belgium;France;Switzerland;Canada
 In which film did Brad Pitt, Robert De Niro and Dustin Hoffman appear together?;Sleepers;Twelve Monkeys;Seven Years in Tibet;Seven
-Which recent famous film was set in the English city of Sheffield?;The Full Monty;Notting Hill;In the Name of the Father;Four Weddings and a Funeral
+Which recent famous film released in 1997 was set in the English city of Sheffield?;The Full Monty;Notting Hill;In the Name of the Father;Four Weddings and a Funeral
 Who directed the original version of the film Psycho?;Alfred Hitchcock;James Cameron;Steven Spielberg;Stanley Kubrick
 Which film company has a mountain as its logo?;Paramount;Universal;MGM;20th Century Fox
 Which of these films does not star Clint Eastwood?;The Quick and the Dead;Dirty Harry;The Good, the Bad and the Ugly;Space Cowboys
 Which actor became famous after starring in Four Weddings and a Funeral?;Hugh Grant;Sean Connery;Tom Cruise;Wesley Snipes
 Which of these films did Sylvester Stallone not appear in?;Predator;Cliffhanger;Rocky;Demolition Man
 Complete the film title: An Officer and a ______________.;Gentleman;Woman;Genius;Policeman
-Which monster did the makers of Independence Day resurrect?;Godzilla;Pokemon;Hulk;Jurassic Park
+Which monster did the makers of Independence Day resurrect?;Godzilla;Dracula;Hulk;Freddy Krueger
 Which of these actors did not appear in the Godfather?;Paul Sorvino;Al Pacino;Richard Conte;James Caan
-Which of these films won the Oscar for best picture in 1956?;Around the World in 80 Days 5;The King and I ;Giant;Friendly Persuasion
+Which of these films won the Oscar for best picture in 1956?;Around the World in 80 Days;The King and I;Giant;Friendly Persuasion
 Which book is the film Cabaret based on?;Goodbye to Berlin;Goodbye to All That;Goodbye Paris;Goodbye to Love
 What was the name of Samual L Jackson's character in Star Wars Episode III?;Mace Windu;Bail Organa;Count Dooku;General Grievous
 Hard
-The Wolf of Wall Street movie is based on the true story of which former American stock broker?;Jordan Belfort;Jordan Belfort;Paul Tudor Jones;Nick Leeson
+The Wolf of Wall Street movie is based on the true story of which former American stock broker?;Jordan Belfort;Jesse Livermore;Paul Tudor Jones;Nick Leeson
 Who directed the horror film 'Alien'?;Ridley Scott;Stanley Kubrick;Steven Spielberg;David Lynch
 Who played Baby in the film Dirty Dancing?;Jennifer Grey;Alyssa Milano;Kaley Cuoco;Jennifer Lawrence
 In the film 'Shrek', what is the name of Shrek's wife?;Fiona;Laura;Sonia;Sara
@@ -38,13 +38,13 @@ Which Disney film does the song 'Circle of Life' come from?;The Lion King;Aladdi
 Which movie did the following quote come from: "You're going out a youngster but you've got to come back a star"?;Apollo 13;Interstellar;Gravity;Armageddon
 Which movie did the following quote come from: "We're bigger than US Steel"?;The Godfather;Gladiator;Rocky;Sixth Sense
 Which movie did the following quote come from: "If I had one more night to live, I would want to spend it with you"?;Pearl Harbour;Dead Poet's Society;A Beautiful Mind;Love Story
-Which 2008 movie starred Will Smith: Seven ...?;Pounds;I Am Legend;Hitch;Men in Black
+Which 2008 movie starred Will Smith: Seven ______________?;Pounds;Legends;Hitches;Blacks
 Which actress played Winifred in the 1993 movie Hocus Pocus?;Bette Midler;Kathy Najimy;Sarah Jessica Parker;Vinessa Shaw
 Which actress played Sidney in the Scream 1996 movie?;Neve Campbell;Courteney Cox;Rose McGowan;Drew Barrymore
 Which famous actress played Holly in Breakfast at Tiffany's and died in 1993?;Audrey Hepburn;Patricia Neal;Michelle Pfeiffer;Meryl Streep
-In which movie does Jim Carey unknowingly star as the main character in his own reality television show??;The Truman Show;The Mask;Liar Liar;The Majestic
+In which movie does Jim Carey unknowingly star as the main character in his own reality television show?;The Truman Show;The Mask;Liar Liar;The Majestic
 Which 1983 film starred Melinda Dillon, Darren McGavin and Peter Billingsley?;A Christmas Story;Slap Shot;Raw Deal;Death Valley
-Which James Bond film was named after Ian Fleming's home in Jamaica?;Goldeneye;Cold;SeaFire;Death is Forever
+Which James Bond film was named after Ian Fleming's home in Jamaica?;Goldeneye;Octopussy;SeaFire;Death is Forever
 What is the name of the actor who played the role of Ron Weasley in the films "Harry Potter"?;Rupert Grint;Daniel Radcliffe;Matthew Lewis;Tom Felton
 What was the title of the film that starred Elvis Presley playing the role of a boxer?;Kid Galahad;Follow That Dream;Elvis on Tour;Elvis: That's the Way It Is
 What was the name of Dorothy's dog in the Wizard of Oz?;Toto;Kabumpo;Kalidah;Rak

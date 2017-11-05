@@ -1,47 +1,46 @@
-Who won the FIFA world cup in 2014?;Germany;France;Brazil;Spain
-who has won the most grand slams in tennis?;Roger Federer;Novak Djokovic;Rafael Nadal;Pete Sampras
-Who is the world record holder in the 100 meter dash?;Usain Bolt;Asafa Powell;Justin Gatlin;Maurice Green
-Which of these football players has never played for the FC Barcelona?;Zinedine Zidane;Lionel Messi;Carles Puyol;Luis Figo
-How many substitutions are allowed during a football game?;3;0;1;2
-How many sets does a man tennis player need to win to win a Grand Slam match?;3;4;5;2
-Which football player has been bought by the PSG for 222 millions euros?;Neymar Jr;Lionel Messi;Cristiano Ronaldo;Kilian Mbappe 
-What is the national sport in New Zealand?;Rugby;Football;Tennis;Golf
-Which of this football player is an argentinian player?;Diego Maradona;Cristiano Ronaldo;Pele;Neymar Jr
-Which of this tennis player is a swiss player?;Roger Federer;Yannick Noah;Richard Gasquet;David Goffin
-Which of this football player is a belgian player?;Eden Hazard;Antoine Griezmann;Frank Ribery;Karim Benzema
-Who won the Men's Olympic Basketball in 2016?;United States;Spain;Argentina;Serbia
-What is the nationality of the basketball player Lebron James?;American;English;French;Australian
-What is the color of the card meaning that a player is expelled from the pitch in football?;Red;Yellow;Green;White
-How is called the way of scoring 5 points in rugby?;Try;Goal;Set;Point
+Qui a gagné la coupe du monde de football FIFA en 2014?;Allemagne;France;Brésil;Espagne
+Qui a gagné le plus de Grand Chelem en tennis?;Roger Federer;Novak Djokovic;Rafael Nadal;Pete Sampras
+Qui est le recordman mondial du 100m en athlétisme?;Usain Bolt;Asafa Powell;Justin Gatlin;Maurice Green
+Lequel de ces footballeurs n'a jamais joué pour le FC Barcelone?;Zinedine Zidane;Lionel Messi;Carles Puyol;Luis Figo
+Combien de changement sont authorisé pendant un match de football?;3;0;1;2
+Combien de sets un joueur de tennis doit-il gagné pour gagner un match de Grand Chelem?;3;4;5;2
+Lequel de ces footballeurs a été acheté par le PSG pour 222 millions euros?;Neymar Jr;Lionel Messi;Cristiano Ronaldo;Kilian Mbappe
+Quel est le sport national en Nouvelle-Zélande?;Rugby;Football;Tennis;Golf
+Lequel de ces footballeurs est argentin?;Diego Maradona;Cristiano Ronaldo;Pele;Neymar Jr
+Lequel de ces tennismen est suisse?;Roger Federer;Yannick Noah;Richard Gasquet;David Goffin
+Lequel de ces footballeurs est belge?;Eden Hazard;Antoine Griezmann;Frank Ribery;Karim Benzema
+Qui a gagné le tournoi olympique de Basketball en 2016?;Etats-Unis;Espagne;Argentine;Serbie
+Quelle est la nationalité du basketteur Lebron James?;Americain;Anglais;Francais;Australien
+Quelle est la couleur du carton signifiant a un joueur de football qu'il est expulsé du terrain?;Rouge;Jaune;Vert;Blanc
+Comment appelle-t-on le fait de marquer 5 points au Rugby?;Essai;But;Set;Point
 Moyen
-How many times have New Zealand won the rugby World Cup?;3;1;2;4
-How many gold medals does Michael Phelps hold?;23;28;13;21
-How many F1 World Championship did Michael Schumacher win?;7;6;8;9
-How many time has Portugal won the UEFA European Championship?;1;0;2;3
-How many NBA Finals did Michael Jordan win?;6;5;7;8
-How many PGA Tour did Tiger Wood win?;79;41;53;68
-Who is the world record holder in men's pole vaulting?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
-How long is a period of handball match?;30 minutes;40 minutes;45 minutes;60 minutes
-What is the national sport in India?;Field Hockey;Cricket;Football;Baseball
-Which of these tennis players has won all the grand slams?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
-Which of these F1 race car driver has never belonged to Ferrari;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell
-What is the nationality of the handball player Nikola karabatic?;French;Yugoslav;Ukrainian;German
-Which team has won the most UEFA Champions League?;Real Madrid;Barcelona;AC Milan;Bayern Munich
-Which team did not Diego Maradona play for?;River Plate;Boca Juniors;FC Barcelona;Naples
-Which of these tennis players has never won Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah;Roger Federer
+Combien de fois la Nouvelle Zélande a-t-elle gagné la coupe du monde de rugby?;3;1;2;4
+Combien de médailles d'or a gagné Michael Phelps?;23;28;13;21
+Combien de championnat du monde de F1 a gagné Michael Schumacher?;7;6;8;9
+Combien de fois la Portugal a gagné le championnat d'Europe de football?;1;0;2;3
+Combien de finales NBA a gagné Michael Jordan?;6;5;7;8
+Conbien de PGA Tour a gagné Tiger Wood?;79;41;53;68
+Qui est le recordman du monde de saut à la perche masculin?;Renaud Lavillenie;Sergey Bubka;Thiago Braz da Silva;Steven Hooker
+Combien de temps dure une mi-temps de handball?;30 minutes;40 minutes;45 minutes;60 minutes
+Quel est le sport national en Inde?;Field Hockey;Cricket;Football;Baseball
+Lequel de ces tennismen a gagné tous les tournois du Grand Chelem?;Andre Agassi;Pete Sampras;John McEnroe;Stanislas Wawrinka
+Lequel de ces pilote F1 n'a jamais piloté pour Ferrari?;Ayrton Senna;Rubens Barrichello;Felipe Massa;Nigel Mansell
+Quelle est la nationalité du handballeur Nikola karabatic?;Français;Yougoslave;Ukrainien;Allemand
+Quelle équipe a gagné le plus de fois l'UEFA Champions League?;Real Madrid;FC Barcelone;AC Milan;Bayern Munich
+Pour quelle équipe Diego Maradona n'a-t-il jamais joué?;River Plate;Boca Juniors;FC Barcelona;Naples
+Lequel de ces tennismen n'a jamais gagné Rolland Garros?;Andy Murray;Stanislas Wawrinka;Yannick Noah;Roger Federer
 Difficile
-When was the 100th edition of the Tour de France?;2011;2012;2013;2014
-What is the men's world record of the 60 meter (in seconds)?;6.39;4.49;5.54;7.01
-How many french cyclist have won the Tour de France?;11;15;19;21
-How many time has Arsenal won the Premier League?;9;13;15;17
-How many british teams have won the UEFA Champions League?;5;3;4;6
-How many times have Rafael Nadal and Roger Federer played each other in Rolland Garros?;5;6;4;7
-Who said:"Football is a simple game. Twenty-two men chase a ball for 90 minutesand at the end, the Germans always win"?;Gary Lineker;Alan Shearer;Thierry Henry;Cass Pennant
-Which sport does not have a rule called "Offside"?;Basketball;Football;Rugby;Ice Hockey
-How long did the longest baseball game last?;8 hours and 25 minutes;3 hours and 45 minutes;5 hours and 10 minutes;7 hours and 15 minutes
-Which countries have won the most olympic golden medals in Men's National Football tournament?;Great Britain and Hungary;Nigeria and Argentina;Brazil and France;Uruguay and Brazil
-How many golden medals has the US Men's National Basketball team won in Olympic tournaments?;15;9;18;21
-When did the first Rolland Garros tournament for women happen?;1922;1925;1933;1919
-What is the largest football stadium in the world?;The North Korean Rungrado May Day Stadium;The Camp Nou;The Estadio Azteca;The Azadi Stadium
-When did Muhammad Ali retire?;1979;1982;1975;1976
-Which country has won the most Africa Cup of Nations in Football?;Egypt;Cameroon;Ivory Coast;Tunisia
+Quand a eu lieu la 100è édition du Tour de France?;2011;2012;2013;2014
+Quel est le record du monde du 60m (en seconde)?;6.39;4.49;5.54;7.01
+Combien de cyclistes français ont gagné le Tour de France?;11;15;19;21
+Combien de fois Arsenal a gagné la Premier League de football?;9;13;15;17
+Combien d'équipe britannique ont gagné l'UEFA Champions League?;5;3;4;6
+Combien de fois Rafael Nadal et Roger Federer ont-ils joué l'un contre l'autre à Rolland Garros?;5;6;4;7
+Qui a dit:"Le football est un jeu simple, 22 hommes courent après un ballon pendant 90 minutes et, à la fin, les allemands gagnent toujours."?;Gary Lineker;Alan Shearer;Thierry Henry;Cass Pennant
+Quel sport n'a pas de hors-jeu dans ses règles?;Basketball;Football;Rugby;Hockey sur Glace
+Combien de temps a duré la plus longue partie de baseball?;8 heures et 25 minutes;3 heures et 45 minutes;5 heures et 10 minutes;7 heures et 15 minutes
+Quels pays ont gagné le plus de médailles d'or olympiques au tournoi de football masculin?;La Grande-Bretagne et la Hongrie;Le Nigéria et l'Argentine;Le Brésil et la France;L'Uruguay et le Brésil
+Combien de médailles d'or olympiques ont gagné l'équipe masculine américaine de Basketball?;15;9;18;21
+Quel est le plus grand stade de football du monde?;Le Stade du Premier-Mai en Corée du Nord;Le Camp Nou en Espagne;Le Stade Azteca au Mexique;Le Stade Azadi en Iran
+Quand Mohammed Ali a-t-il pris sa retraite?;1979;1982;1975;1976
+Quel pays a gagné le plus de coupe d'Afrique des Nation au Football?;L'Egypte;Le Cameroun;La Côte d'Ivoire;La Tunisie

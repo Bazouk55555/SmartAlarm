@@ -18,7 +18,7 @@ Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlus
 Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
 Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
 Who was the first US President to be assassinated?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
-Who was imprisoned in South Africa for many years and fought against appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
+Who was imprisoned in South Africa for many years and fought against appartheid?;Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
 According to the Bible, what was the name of the prophet who split a sea in two parts?;Moses;Jesus;Muhammad;Buddha
 What was the name of Scandinavian pirates and traders who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
 What was the name of the ancestor of the United Nations(UN)?;League of Nations(LN);European Union(UE);Group of Twenty(G20);National Urban League(NUL)
@@ -30,13 +30,17 @@ According to the legend, who suddenly came up with his law of gravity when he wa
 Which roman emperor said:"Veni, vidi, vici" ("I came, I saw, I conquered")?;Julius Caesar;Nero;Constantine the Great;Augustus
 Which prison was stormed by a crowd on 14 July 1789, in the French Revolution, becoming an important symbol for the French Republican movement?;The Bastille;The Eiffel Tower;The Arc de Triomphe;The Palace of Versailles
 Hard
-Who was the italian dictator during World War II?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
-Who discovered that the earth orbits the sun?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
-Which french king was guillotined?;Louis XVI;Napoleon;Louis XIV;Henry IV
-Who was the first US President to be assassinated?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
-Who was imprisoned in South Africa for many years and fought against appartheid?Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
-According to the bible, what was the name of the prophet who split a sea in two parts?;Moses;Jesus;Muhammad;Buddha
-What is the name of Scandinavian pirates and traders who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
-What is the name of the ancestor of the United Nations(UN)?;League of Nations(LN);European Union(UE);Group of Twenty(G20);National Urban League(NUL)
-How is the period 14th-17th centuries in Europe called?;The Renaissance;The Middle Ages;The Post-Colonial period;The Ancient World
-What is the name of the leader of the Indian independence movement against British rule?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
+Historically, French kings have been crowned in which of its city's cathedral?;Reims;Paris;Lutetia;Strasbourg
+In which month of the year was the Battle of Hastings?;October;November;December;January
+Which king died from a lung infection, aged 15, in 1553?;Edward VI;Edward IV;Henry VII;Henry VIII
+Name the first significant battle in the Jacobite Rising of 1745?;The Battle of Prestonpans;The Battle of Culloden;The Battle of Falkirk Muir;The Battle of Ruthven Barracks
+In the early part of the 18th Century where did public executions in London take place?;Tyburn;Smithfield;Newgate Prison;Tower Hill
+Which king ruled England from 1016 to 1035?;King Cnut;King Harold Harefoot;King Harthacnut;King Harold Godwinson
+Which 1739 to 1748 historical conflict between Britain and Spain is today known by the name first coined by Thomas Carlyle in 1858?;The War of Jenkins' Ear;The Hundred Years' War;The War of the Castilian Succession;The Anglo-Spanish War
+Berlin became the capital of the which kingdom in 1701?;Prussia;Germania;German Federation;German Empire
+Whose book, Prayers or Meditations, became the first book published by an English queen under her own name?;Catherine Parr's;Christy English's;Ellery Queen's;Elizabeth Bathory's
+What name was given to the rule by the British in the Indian subcontinent between 1858 and 1947?;The British Raj;The Brindian Rules; The Establishment Rules;The Colonial Rules
+Which country defeated Russia in a 1904 to 1905 war?;Japan;Germany;The US;France
+What name was given to the English Parliament after Colonel Thomas Pride purged the Long Parliament in 1648?;The Rump Parliament;The British Parliament;The Gentlemen Parliament;The Big Ben Parliament
+Who was the British Prime Minister at the time of the French Revolution?;William Pitt the Younger;Henry Addington;William Petty;William Grenville
+The peace treaty that ended the War of 1812 between the US and the United Kingdom was signed in which Belgian city?;Ghent;Antwerp;Bruges;Charleroi
