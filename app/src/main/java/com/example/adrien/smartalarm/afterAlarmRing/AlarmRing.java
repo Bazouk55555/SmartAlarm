@@ -115,8 +115,14 @@ public class AlarmRing extends AppCompatActivity {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm5);
 		}
 		else if(sound.equals(getResources().getString(R.string.alarm6))) {
-			String uriSoundString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_SOUND, null);
-			mediaPlayer = (uriSoundString != null) ? MediaPlayer.create(this, Uri.parse(uriSoundString)) : null;
+			if(PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_ALARM_SIX,false)) {
+				String uriSoundString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_SOUND, null);
+				mediaPlayer = (uriSoundString != null) ? MediaPlayer.create(this, Uri.parse(uriSoundString)) : null;
+			}
+			else
+			{
+				mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
+			}
 		}
 
         if (mediaPlayer != null) {

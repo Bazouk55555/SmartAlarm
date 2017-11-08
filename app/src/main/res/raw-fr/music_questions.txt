@@ -1,21 +1,21 @@
-Qui a compose la Cinquieme Symphonie?;Ludwig van Beethoven;Amadeus Mozart;Celine Dion;Johann Sebastian Bach
+Qui a composé la Cinquième Symphonie?;Ludwig van Beethoven;Amadeus Mozart;Céline Dion;Johann Sebastian Bach
 Lequel de ces chanteurs est Belge?;Stromae;Rihanna;Beyonce;Celine Dion
 Laquelle de ces chansons est une chanson de Beyonce?;Halo;S&M;Papaoutai;Holy Grail
-Lequel de ces chanteurs n'est pas Americain?;Celine Dion;Beyonce;JAY-Z;Rihanna
-Complete avec la note manquante: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
-Comment s'appelle le celebre chanteur et compositeur aveugle americain?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
-Qui etait connu comme le Roi du Pop depuis les annees 1980?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
-Qui est un celebre DJ francais?;David Guetta;Stromae;JAY-Z;James Brown
-Comment s'appelait groupe de rock anglais forme a Liverpool en 1960 et compose de 4 personnes?;Les Beatles;One Direction;The Wanted;U2
-Qui etait connu comme le Roi du Rock and Roll?;Elvis Presley;Michael Jackson;Ray Charles;David Guetta
+Lequel de ces chanteurs n'est pas Américain?;Celine Dion;Beyonce;JAY-Z;Rihanna
+Complète avec la note manquante: Do Re Mi Fa Sol La ... Do?;Si;Do;La;Mi
+Comment s'appelle le célèbre chanteur et compositeur aveugle américain?;Ray Charles;Ludwig van Beethoven;Amadeus Mozart;David Guetta
+Qui était connu comme le Roi du Pop depuis les années 1980?;Michael Jackson;JAY-Z;Ray Charles;David Guetta
+Qui est un célèbre DJ francais?;David Guetta;Stromae;JAY-Z;James Brown
+Comment s'appelait le groupe de rock anglais formé à Liverpool en 1960 et composé de 4 personnes?;Les Beatles;One Direction;The Wanted;U2
+Qui était connu comme le Roi du Rock and Roll?;Elvis Presley;Michael Jackson;Ray Charles;David Guetta
 Laquelle de ces chansons est une chanson de Justin Bieber?;Sorry;S&M;Holy Grail;Diamonds
-Lequel de ces instruments est un instrument a cordes?;Flute;Violon;Guitar;Violin
+Lequel de ces instruments n'est pas un instrument à cordes?;Flute;Violon;Guitar;Violin
 Quel est le titre de l'hymne national anglais?;God Save the Queen;The Star-Spangled Banner;The Fifth Symphony;America
 Comment appelle-t-on une œuvre musicale et théâtrale pour un orchestre et des chanteurs, basée sur un livret qui met en scène des personnages et leur histoire, où les rôles sont chantés?;Opera;Theatre;Single;Concert
 Comment appelle-t-on la chanson officielle d'un pays?;Hymne National;Opera;Concert;Chanson patriotique
 Moyen
-Qui a écrit et chanté la celebre chanson "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
-Qui est devenu celebre en 2004 avec son album "Back to Bedlam", puis devenu une star mondiale avec ses singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
+Qui a écrit et chanté la célèbre chanson "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
+Qui est devenu célèbre en 2004 avec son album "Back to Bedlam", puis devenu une star mondiale avec ses singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
 Comment s'appelle le chanteur et compositeur américain connu comme étant le chanteur principal du groupe de Rock the Doors?;Jim Morrison;Elvis Presley;Franck Sinatra;James Blunt
 Qui a chanté ”Big Yellow Taxi”, ”Both Sides Now” and ”Woodstock”?;Joni Mitchell;Dusty Springfield;Whitney Houston;Nina Simone
 Qui a chanté "Tiny Dancer", "Rocket Man" and "Your Song"?;Elton John;Elvis Presley;Joni Mitchell;Whitney Houston
@@ -35,18 +35,18 @@ Qui est le plus jeune membre des Beattles?;George Harrison;John Lennon;Paul McCa
 Quelle Spice Girl a sorti un tube avec Bryan Adams?;Melanie Chisholm; Melanie Brown;Emma Bunton;Victoria Beckham
 Que signifie l'abbréviation AC/DC?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected/Alternating Command/Direct Command
 Qui a sorti un tube dans les années 90 avec 'Everyday is a Winding Road'?;Sheryl Crow;Jerry Lee Lewis;Eric Clapton;Sting
-Complete le titre de cette chanson de 2011 des One Direction: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
-Quel est l'origine du groupe ABBA?;Suède;Norvège;Finlande;Pays-Bas
-Which 1968 Beatle's song written by Paul McCartney was actually written about John Lennon's son Julian?;Hey Jude;Love Me Do;Yesterday;I Want to Hold Your Hand
-Which song did Marvin Gaye have Christmas number one with in the US in 1968?;I Heard It Through The Grapevine;Let's Get It On;Sexual Healing;Mercy Mercy Me
-What year did Elvis have a UK number one with 'Can't Help Falling In Love'?;1962;1963;1964;1965
-Which of Bob Dylan's song was a hit single in the UK and the US in 1965?;Like A Rolling Stone;Gates of Eden;Hurricane;The Times They Are A-Changin’
-Quelle est la nationalité de Shawn Mendes?;Canadien;Americain;Anglais;Australien
+Complète le titre de cette chanson de 2011 des One Direction: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
+Quelle est l'origine du groupe ABBA?;Suède;Norvège;Finlande;Pays-Bas
+Quelle chanson des Beatles écrite en 1968 par Paul McCartney était à propos de Julian, le fils John Lennon?;Hey Jude;Love Me Do;Yesterday;I Want to Hold Your Hand
+Quelle chanson de Marvin Gaye était le tube numéro un de Noël aux Etats-Unis en 1968?;I Heard It Through The Grapevine;Let's Get It On;Sexual Healing;Mercy Mercy Me
+En quelle année la chanson 'Can't Help Falling In Love' d'Elvis était le tube numéro un en Grande Bretagne?;1962;1963;1964;1965
+Quelle chanson de Bob Dylan fut un tube au Royaume-Uni et aux Etats-Unis en 1965?;Like A Rolling Stone;Gates of Eden;Hurricane;The Times They Are A-Changin’
+Quelle est la nationalité de Shawn Mendes?;Canadien;Américain;Anglais;Australien
 quelle chanteuse était la tete d'affiche du concert One Love Manchester en 2017?;Ariana Grande;Beyonce;Lady Gaga;Rihanna
-Quel artiste masculin a collaboré avec Luis Fonsi et Daddy Yankee en 2017 pour le remix de leur chanson Despacito?Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
+Quel artiste masculin a collaboré avec Luis Fonsi et Daddy Yankee en 2017 pour le remix de leur chanson Despacito?;Justin Bieber;Stromae;Bruno Mars;Kendrick Lamar
 Qui a gagné American Idol en 2014?;Caleb Johnson;Howard Benson;Aloe Blacc;Jena Irene
 Quel artiste masculin a sorti sa chanson 'Human' en 2016?;Rory Charles Graham;Pharoahe Monch;Lawrence Parker;Mark Crew
 Quel membre des One Direction est sorti avec Taylor Swift?;Harry Styles;Niall Horan;Liam Payne;Louis Tomlinson
 Quelle chanson de Destiny’s Child figure dans le film "Men in Black"?;Killing Time;Dah Dee Dah;Lose My Breath;Say My Name
 Quel chanteur s'est initialement produit sous le nom de Davie/Davy Jones?;David Bowie;Prince;Michael Jackson;George Michael
-De quel pays est originaire le groupe 'Roxette'?;Suede;Norvege;France;Belgique
+De quel pays est originaire le groupe 'Roxette'?;Suède;Norvège;France;Belgique

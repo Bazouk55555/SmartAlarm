@@ -79,4 +79,12 @@ public class AlarmBaseDAO {
 		c.close();
 		return alarmsList;
 	}
+
+	public void updateSoundAlarm(long id, int sound)
+	{
+		ContentValues value = new ContentValues();
+		value.put(DatabaseSaveAlarmHandler.SOUND, sound);
+		mDb.update(DatabaseSaveAlarmHandler.TABLE_ALARMS_NAME, value, DatabaseSaveAlarmHandler.ID_KEY + " = ?",
+				new String[]{String.valueOf(id+1)});
+	}
 }

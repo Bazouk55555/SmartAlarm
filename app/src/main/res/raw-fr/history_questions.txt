@@ -1,45 +1,45 @@
-En quelle annee a finis la Seconde Guerre mondiale?;1945;1939;1918;1944
-En quelle annee a finis la Premiere Guerre mondiale?;1918;1939;1914;1945
-Quelle est la date de destruction des tours jumelles du World trade center?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
-Qui etait le president Americain de 2008 a 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
-Qui etait le dictateur allemand pendant la Seconde Guerre Mondiale?;Hitler;Mussolini;Franco;Petain
-Comment appelle-t-on le genocide qu'ont subis les juifs pendant la Seconde Guerre Mondiale?;Shoah;Sholah;Shaoh;Shosha
-Quelle est la ville la plus important dans la religion juive?;Jerusalem;Tel Aviv;Medina;Bethlehem
-Qui est le prophete le plus important pour les musulmans?;Mahommet;Jesus;Moses;God
-Qui a decouvert l'Amerique?;Christophe Colomb;Napoleon;Copernic;Archimedes
-Qui etait l'empereur francais de 1804 a 1814?;Napoleon;Louis XIV;Louis XVI;Charles de Gaulle
+En quelle année a finis la Seconde Guerre mondiale?;1945;1939;1918;1944
+En quelle année a finis la Premiere Guerre mondiale?;1918;1939;1914;1945
+Quelle est la date de destruction des tours jumelles du World Trade Center?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
+Qui était le président américain de 2008 a 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
+Qui était le dictateur allemand pendant la Seconde Guerre Mondiale?;Hitler;Mussolini;Franco;Petain
+Comment appelle-t-on le génocide qu'ont subis les juifs pendant la Seconde Guerre mondiale?;Shoah;Sholah;Shaoh;Shosha
+Quelle est la ville la plus importante dans la religion juive?;Jerusalem;Tel Aviv;Medina;Bethlehem
+Qui est le prophète le plus important pour les musulmans?;Mahommet;Jésus;Moïse;Dieu
+Qui a découvert l'Amérique?;Christophe Colomb;Napoléon;Copernic;Archimèdes
+Qui était l'empereur francais de 1804 à 1814?;Napoléon;Louis XIV;Louis XVI;Charles de Gaulle
 Quel empire croyait aux dieux tels que Zeus et Poseidon?;L'Empire grec;L'Empire romain;L'Empire Ottoman;L'Empire Britanique
-Qui etait l'equivalent du dieu grec Zeus dans l'Empire Romain?;Jupiter;Zeus;Apollon;Venus
-Quelle est l'origine de Noel?;La naissance de Jesus;La naissance de Mahommet;La creation du monde;Pas d'origine particuliere
+Qui était l'equivalent du dieu grec Zeus dans l'Empire Romain?;Jupiter;Zeus;Apollon;Vénus
+Quelle est l'origine de Noël?;La naissance de Jésus;La naissance de Mahommet;La création du monde;Pas d'origine particulière
 Comment appelait-t-on la Russie en 1970?;URSS;USA;EU;ONU
-Comment appelle-t-on l'organisation intergouvernementale chargee de promouvoir la cooperation internationale?;ONU;EU;USA;URSS
+Comment appelle-t-on l'organisation intergouvernementale chargée de promouvoir la coopération internationale?;ONU;EU;USA;URSS
 Moyen
-Qui etait le dictateur italien pendant la Seconde Guerre Mondiale?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
-Qui a decouvert que la Terre tournait en orbite autour du Soleil?;Galileo Galilei;Nicolaus Copernicus;Archimede;Thomas Edison
-Quel roi francais a ete guillotine?;Louis XVI;Napoleon;Louis XIV;Henry IV
-Qui a ete le premier president des USA a etre assassine?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
-Qui a ete emprisonne en Afrique du Sud pendant plusieurs annees et a combattu contre l'appartheid?;Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
-Selon la Bible, quel etait le nom du prophete qui a separe une mer en deux?;Moise;Jesus;Mahommet;Buddha
-Quel etait le nom des pirates et marchands scandinaves who raided and settled in northwestern Europe in the 8th-11th centuries?;The Vikings;The Celts;The Normans;The Mormons
-Quel etait le nom de l'ancetre de l'Organisation des Nations Unies(ONU)?;Societe des Nations(SDN);Union Europeenne(UE);Groupe des Vingt(G20);National Urban League(NUL)
-Comment appelle-t-on la periode 14th-17th siecle en Europe?;La Renaissance;Le Moyen-Age;La periode Post-Coloniale;L'Ancien Monde
-Comment s'appelait le leader du mouvement d'independence indien contre les lois britaniques?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
-Qui etait la premiere femme Premier Ministre aux Royaumes-Uni?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
-En quelle annee a eu lieu la Revolution Russe qui mit a l'autocratie du Tsar et conduisit a la montee de l'Union Sovietique?;1917:1914;1918;1919
-Selon la legende, qui a soudainement eu l'idee desl ois de la gravite alors qu'une pomme lui tomba sur la tete?;Isaac Newton;Archimedes;Albert Einstein;James Clerk Maxwell
+Qui était le dictateur italien pendant la Seconde Guerre Mondiale?;Benito Mussolini;Silvio Berlusconi;Matteo Renzi;Adolf Hitler
+Qui a découvert que la Terre tournait en orbite autour du Soleil?;Galileo Galilei;Nicolaus Copernicus;Archimède;Thomas Edison
+Quel roi français a été guillotiné?;Louis XVI;Napoléon;Louis XIV;Henri IV
+Qui a été le premier président des USA à être assassiné?;Abraham Lincoln;Franklin D. Roosevelt;John F. Kennedy;William McKinley
+Qui a été emprisonné en Afrique du Sud pendant plusieurs années et a combattu contre l'appartheid?;Nelson Mandela;Gandhi;Barack Obama;Jacob Zuma
+Selon la Bible, quel était le nom du prophète qui a séparé une mer en deux?;Moise;Jesus;Mahommet;Buddha
+Quel était le nom des pirates et marchands scandinaves qui pillaient dans le Nord-Ouest de l'Europe entre le 8th et le 11th siècle?;The Vikings;The Celts;The Normans;The Mormons
+Quel était le nom de l'ancetre de l'Organisation des Nations Unies(ONU)?;Societe des Nations(SDN);Union Europeenne(UE);Groupe des Vingt(G20);National Urban League(NUL)
+Comment appelle-t-on la période 14th-17th siècle en Europe?;La Renaissance;Le Moyen-Age;La période Post-Coloniale;L'Ancien Monde
+Comment s'appelait le leader du mouvement d'indépendence indien contre les lois britaniques?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
+Qui était la première femme Premier Ministre au Royaume-Uni?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
+En quelle année a eu lieu la Révolution Russe qui mit fin à l'autocratie du Tsar et conduisit à la montée de l'Union Soviétique?;1917:1914;1918;1919
+Selon la légende, qui a soudainement eu l'idée des lois de la gravité alors qu'une pomme lui tomba sur la tête?;Isaac Newton;Archimèdes;Albert Einstein;James Clerk Maxwell
 Quel Empereur romain a dit:"Veni, vidi, vici" ("Je suis venu, J'ai vu, J'ai vaincu")?;Jules Cesar;Neron;Constantin le Grand;Augustus
-Quelle prison fut detruite par la foule le 14 Juillet 1789, pendant la Revolution francaise, devenant alors un symbole important pour le mouvement republicain francais?;La Bastille;La Tour Eiffel;L'Arc de Triomphe;Le chateau de Versailles
+Quelle prison fut détruite par la foule le 14 Juillet 1789, pendant la Révolution Francaise, devenant alors un symbole important pour le mouvement républicain francais?;La Bastille;La Tour Eiffel;L'Arc de Triomphe;Le chateau de Versailles
 Difficile
-Dans quelles villes les rois francais etaient couronnes?;Reims;Paris;Lutece;Strasbourg
-En quel mois eu lieu la Bataille d'Hastings?;Octobre;Novembre;Decembre;Janvier
-Quel roi mourrut d'une infection des poumons a l'age de 15 ans en 1553?;Edward VI;Edward IV;Henry VII;Henry VIII
-Comment s'appelle la premiere importante bataille lors de la rebellions des Jacobite en 1745?;La Bataille de Prestonpans;La Bataille de Culloden;La Bataille de Falkirk Muir;La Bataille de Ruthven Barracks
-Au debut du 18e siecle, ou avait lieu les executions publiques a Londres?;Tyburn;Smithfield;La Prison de Newgate;Tower Hill
-Quel roi regna en Angleterre en Angleterre de 1016 a 1035?;Le Roi Cnut;Le Roi Harold Harefoot;Le Roi Harthacnut;Le Roi Harold Godwinson
-Quel conflit historique ayant lieu entre 1739 et 1748 entre Britanniques et Espagnols est aujourd'hui connu selon le nom donne par Thomas Carlyle en 1858?;The War of Jenkins' Ear;The Hundred Years' War;The War of the Castilian Succession;The Anglo-Spanish War
-Berlin devint la capital de quel royaume en 1701?;Prusse;Germania;La Federation Germanique;L'Empire Germanique
-Quel nom fut donne aux lois imposees par les Britanniques sur le territoire indien entre 1858 et 1947?;Les "British Raj";Les lois "Brindian";Les "Establishment Rules";Les "Colonial Rules"
-Quel pays vaincut la Russie penant la guerre de 1904 a 1905?;Le Japon;L'Allemagne;Les Etats-Unis;La France
-Quel nom fut donne au Parlement Britannique suite a l'evincement du Long Parlement par le Colonel Thomas Pride?;Le "Rump Parliament";Le Parlement Britannique;Le "Gentlemen Parliament";Le Parlement Big Ben
-Qui fut le Premier Ministre britannique durant la Revolution Francaise?;William Pitt the Younger;Henry Addington;William Petty;William Grenville
-Dans quelle ville belge fut signe le traite de paix qui mit fin a la guerre de 1812 entre les Etats-Unis et le Royaume-Uni?;Gand;Anvers;Bruges;Charleroi
+Dans quelles villes les rois francais etaient-ils couronnés?;Reims;Paris;Lutèce;Strasbourg
+Pendant quel mois a eu lieu la Bataille d'Hastings?;Octobre;Novembre;Decembre;Janvier
+Quel roi mourut d'une infection des poumons à l'âge de 15 ans en 1553?;Edward VI;Edward IV;Henry VII;Henry VIII
+Comment s'appelle la première importante bataille lors de la rebellions des Jacobite en 1745?;La Bataille de Prestonpans;La Bataille de Culloden;La Bataille de Falkirk Muir;La Bataille de Ruthven Barracks
+Au début du 18e siecle, où avait lieu les executions publiques à Londres?;Tyburn;Smithfield;La Prison de Newgate;Tower Hill
+Quel roi régna en Angleterre de 1016 à 1035?;Le Roi Cnut;Le Roi Harold Harefoot;Le Roi Harthacnut;Le Roi Harold Godwinson
+Quel conflit historique ayant lieu entre 1739 et 1748 entre Britanniques et Espagnols est aujourd'hui connu selon le nom donné par Thomas Carlyle en 1858?;The War of Jenkins' Ear;The Hundred Years' War;The War of the Castilian Succession;The Anglo-Spanish War
+De quel royaume Berlin devint la capital en 1701?;Prusse;Germania;La Federation Germanique;L'Empire Germanique
+Quel nom fut donné aux lois imposées par les Britanniques sur le territoire indien entre 1858 et 1947?;Les "British Raj";Les lois "Brindian";Les "Establishment Rules";Les "Colonial Rules"
+Quel pays vaincut la Russie pendant la guerre de 1904 à 1905?;Le Japon;L'Allemagne;Les Etats-Unis;La France
+Quel nom fut donné au Parlement Britannique suite à l'evincement du Long Parlement par le Colonel Thomas Pride?;Le "Rump Parliament";Le Parlement Britannique;Le "Gentlemen Parliament";Le Parlement Big Ben
+Qui fut le Premier Ministre britannique durant la Révolution Francaise?;William Pitt the Younger;Henry Addington;William Petty;William Grenville
+Dans quelle ville belge fut signe le traite de paix qui mit fin à la guerre de 1812 entre les Etats-Unis et le Royaume-Uni?;Gand;Anvers;Bruges;Charleroi

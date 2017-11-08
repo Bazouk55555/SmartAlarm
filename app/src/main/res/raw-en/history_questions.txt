@@ -1,6 +1,6 @@
 When did the World War II finish?;1945;1939;1918;1944
 When did the World War I finish?;1918;1939;1914;1945
-When were the world trade center towers destroyed(English date format)?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
+When were the World Trade Center towers destroyed(English date format)?;11/09/2001;11/09/2011;11/08/2001;11/09/2002
 Who was the american president from 2008 to 2016?;Barack Obama;Georges Bush;Donald Trump;Bill Clinton
 Who was the german dictator during the World War II?;Hitler;Mussolini;Franco;Petain
 How is the genocide suffered by Jewish people during the World War II called?;Shoah;Sholah;Shaoh;Shosha

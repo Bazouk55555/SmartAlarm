@@ -36,7 +36,7 @@
     <string name="take_a_coffee">DONT FORGET TO TAKE A COFFEE!!!</string>
     <string name="ready_to_go_to_the_gym">WOW YOU ARE READY TO GO TO THE GYM!!!</string>
     <string name="alarm_already_set_title">Alarm already set</string>
-    <string name="alarm_already_set_message">You have already set an alarm at this time</string>
+    <string name="alarm_already_set_message">You have already set an alarm at this time.</string>
     <string name="zero">0</string>
     <string name="choose_category_menu">Choose the category</string>
     <string name="number_of_questions_menu">Number of questions</string>
@@ -54,4 +54,6 @@
     <string name="image_loaded">Image loaded</string>
     <string name="sound_loaded">Sound loaded</string>
     <string name="alarm_on">Alarm on</string>
+    <string name="alarm_six_took_off">Sound removed</string>
+    <string name="alarm_six_took_off_message">Some alarms were set up with the sound taken off. They had been set up with a default alarm.</string>
 </resources>

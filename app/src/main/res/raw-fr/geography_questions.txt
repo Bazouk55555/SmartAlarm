@@ -4,40 +4,40 @@ Quelle est la capitale du Royaume-Uni?;Londres;Paris;Manchester;Rome
 Quelle est la capitale de l'Italie?;Rome;Paris;Turin;Milan
 Quelle est la capitale du Japon?;Tokyo;Seoul;Kyoto;Osaka
 Quelle est la capitale de la Russie?;Moscou;Saint Petersburg;Paris;Kiev
-Quelle est la capitale de l'Espagne?;Madrid;Barcelone;Rome;Seville
+Quelle est la capitale de l'Espagne?;Madrid;Barcelone;Rome;Séville
 Quelle est la capitale de l'Argentine?;Buenos Aires;Sao Paulo;Mexico City;Cordoba
 Quelle est la capitale du Mexique?;Mexico City;Buenos Aires;Sao Paulo;Guadalajara
-Dans quel continent la France se trouve-t-elle?;Europe;Asie;Amerique;Moyen-Orient
-Dans quel continent la Chine se trouve-t-elle?;Asie;Europe;Amerique;Moyen-Orient
-Quel est le nom de la riviere qui traverse l'Egypte?;Le Nil;La mer Mediterranee;Le Mississipi;L'Amazone
-Quel est le nom de l'ocean se situant entre l'Europe et l'Amerique du Nord?;L'Ocean Atalantique;L'Ocean Pacifique;La Mer Mediterranee;L'Ocean Indien
-Quelle est la capitale de la Grece?;Athenes;Rome;Damas;Ankara
-Quelle est la capitale d'Israel?;Jerusalem;Tel Aviv;Gaza;Beyrut
+Dans quel continent la France se trouve-t-elle?;Europe;Asie;Amérique;Moyen-Orient
+Dans quel continent la Chine se trouve-t-elle?;Asie;Europe;Amérique;Moyen-Orient
+Quel est le nom de la rivière qui traverse l'Egypte?;Le Nil;La mer Mediterranée;Le Mississipi;L'Amazone
+Quel est le nom de l'océan se situant entre l'Europe et l'Amérique du Nord?;L'Océan Atlantique;L'Océan Pacifique;La Mer Mediterranée;L'Océan Indien
+Quelle est la capitale de la Grèce?;Athènes;Rome;Damas;Ankara
+Quelle est la capitale d'Israël?;Jerusalem;Tel Aviv;Gaza;Beyrut
 Moyen
 Quelle est la capitale de l'Australie?;Canbera;Sydney;Melbourne;Brisbane
 Quelle est la capitale de la Turquie?;Ankara;Istambul;Antalya;Damas
 Quelle est la capitale de l'Inde?;New Delhi;Mumbai;Bangalore;Jakarta
 Quelle est la capitale de la Suisse?;Berne;Geneve;Bale;Zürich
-Quelle est la capitale du Bresil?;Brasília;São Paulo;Rio De Janeiro;Salvador
+Quelle est la capitale du Brésil?;Brasília;São Paulo;Rio De Janeiro;Salvador
 Quelle est la capitale de la Chine?;Beijing;Shanghai;Guangzhou;Chongqing
 Quelle est la capitale du Maroc?;Casablanca;Marrakesh;Tangier;Fez
-Quelle est la capitale du Cameroun?;Yaounde;Abidjan;Lagos;Bamako
-Quelle est la capitale du Senegal?;Dakar;Yaounde;Ouagadougou;Bamako
-Comment s'appelle la riviere qui traverse le sud de l'Angleterre et plus particulierement Londres?;La Tamise;La Seine;La Trent;La Severn
-Lequel de ces pays n'appartient pas au Commonwealth?;Le Senegal;L'Inde;Le Cameroun;La Nouvelle Zelande
-Lequel de ces pays n'appartient pas a l'Union Europeenne?;La Suisse;La Hongrie;La Roumanie;Chypres
-Quel est le plus large etat des USA?;Alaska;Texas;California;New York
-Quelle est la plus ville la plus peuplee du monde?;Tokyo;Jakarta;New Delhi;Mexico City
-Lequel de ces pays n'a pas de frontiere avec le Bresil?;Chili;Argentine;Uruguay;Colombie
+Quelle est la capitale du Cameroun?;Yaoundé;Abidjan;Lagos;Bamako
+Quelle est la capitale du Sénégal?;Dakar;Yaounde;Ouagadougou;Bamako
+Comment s'appelle la rivière qui traverse le sud de l'Angleterre et plus particulièrement Londres?;La Tamise;La Seine;La Trent;La Severn
+Lequel de ces pays n'appartient pas au Commonwealth?;Le Sénégal;L'Inde;Le Cameroun;La Nouvelle Zélande
+Lequel de ces pays n'appartient pas à l'Union Européenne?;La Suisse;La Hongrie;La Roumanie;Chypres
+Quel est le plus large état des USA?;Alaska;Texas;California;New York
+Quelle est la plus ville la plus peuplée du monde?;Tokyo;Jakarta;New Delhi;Mexico City
+Lequel de ces pays n'a pas de frontière avec le Brésil?;Chili;Argentine;Uruguay;Colombie
 Difficile
-Quelle est la capitale du Canada?;Ottawa;Montreal;Toronto;Vancouver
+Quelle est la capitale du Canada?;Ottawa;Montréal;Toronto;Vancouver
 Quelle est la capitale de la Somalie?;Mogadishu;Bosaso;Hargeisa;Galkayo
 Quelle est la capitale du Nicaragua?;Managua;Nicaragua city;Nicara;Granada
-Quelle est la capitale du Peru?;Lima;Cusco;Santiago;La Havane
+Quelle est la capitale du Péru?;Lima;Cusco;Santiago;La Havane
 Quelle est la capitale du Chili?;Santiago;Havana;Lima;Arica
-Quel est le plus large pays d'Afrique?;L'Algerie;Republique Democratique du Congo;Soudan;Libye
-Combien d'Etats officiels possede l'Afrique?;54;43;64;71
-Combien d'Etats officiels possede l'Europe?;51;35;63;44
-Combien d'Etats officiels possede l'Amerique du Sud?;12;21;31;43
-Lequel de ces pays n'a pas de frontiere avec la Hongrie?;Bulgaria;Austria;Croatia;Slovenia;
-Lequel de ces pays n'a pas de rouge sur son drapeau?;Ukraine;Algeria;Japan;Cuba
+Quel est le plus large pays d'Afrique?;L'Algérie;République Démocratique du Congo;Soudan;Libye
+Combien d'Etats officiels possède l'Afrique?;54;43;64;71
+Combien d'Etats officiels possède l'Europe?;51;35;63;44
+Combien d'Etats officiels possède l'Amérique du Sud?;12;21;31;43
+Lequel de ces pays n'a pas de frontière avec la Hongrie?;Bulgarie;Austria;Croatia;Slovenia;
+Lequel de ces pays n'a pas de rouge sur son drapeau?;Ukraine;Algérie;Japon;Cuba

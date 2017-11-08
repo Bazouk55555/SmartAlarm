@@ -25,22 +25,22 @@ Which actor became famous after starring in Four Weddings and a Funeral?;Hugh Gr
 Which of these films did Sylvester Stallone not appear in?;Predator;Cliffhanger;Rocky;Demolition Man
 Complete the film title: An Officer and a ______________.;Gentleman;Woman;Genius;Policeman
 Which monster did the makers of Independence Day resurrect?;Godzilla;Dracula;Hulk;Freddy Krueger
-Which of these actors did not appear in the Godfather?;Paul Sorvino;Al Pacino;Richard Conte;James Caan
+Which of these actors did not appear in "The Godfather"?;Paul Sorvino;Al Pacino;Richard Conte;James Caan
 Which of these films won the Oscar for best picture in 1956?;Around the World in 80 Days;The King and I;Giant;Friendly Persuasion
-Which book is the film Cabaret based on?;Goodbye to Berlin;Goodbye to All That;Goodbye Paris;Goodbye to Love
+Which book is the film "Cabaret" based on?;Goodbye to Berlin;Goodbye to All That;Goodbye Paris;Goodbye to Love
 What was the name of Samual L Jackson's character in Star Wars Episode III?;Mace Windu;Bail Organa;Count Dooku;General Grievous
 Hard
 The Wolf of Wall Street movie is based on the true story of which former American stock broker?;Jordan Belfort;Jesse Livermore;Paul Tudor Jones;Nick Leeson
-Who directed the horror film 'Alien'?;Ridley Scott;Stanley Kubrick;Steven Spielberg;David Lynch
-Who played Baby in the film Dirty Dancing?;Jennifer Grey;Alyssa Milano;Kaley Cuoco;Jennifer Lawrence
-In the film 'Shrek', what is the name of Shrek's wife?;Fiona;Laura;Sonia;Sara
-Which Disney film does the song 'Circle of Life' come from?;The Lion King;Aladdin;Beauty and the Beast;The Little Mermaid
+Who directed the horror film "Alien"?;Ridley Scott;Stanley Kubrick;Steven Spielberg;David Lynch
+Who played Baby in the film "Dirty Dancing"?;Jennifer Grey;Alyssa Milano;Kaley Cuoco;Jennifer Lawrence
+In the film "Shrek", what is the name of Shrek's wife?;Fiona;Laura;Sonia;Sara
+Which Disney film does the song "Circle of Life" come from?;The Lion King;Aladdin;Beauty and the Beast;The Little Mermaid
 Which movie did the following quote come from: "You're going out a youngster but you've got to come back a star"?;Apollo 13;Interstellar;Gravity;Armageddon
 Which movie did the following quote come from: "We're bigger than US Steel"?;The Godfather;Gladiator;Rocky;Sixth Sense
 Which movie did the following quote come from: "If I had one more night to live, I would want to spend it with you"?;Pearl Harbour;Dead Poet's Society;A Beautiful Mind;Love Story
 Which 2008 movie starred Will Smith: Seven ______________?;Pounds;Legends;Hitches;Blacks
-Which actress played Winifred in the 1993 movie Hocus Pocus?;Bette Midler;Kathy Najimy;Sarah Jessica Parker;Vinessa Shaw
-Which actress played Sidney in the Scream 1996 movie?;Neve Campbell;Courteney Cox;Rose McGowan;Drew Barrymore
+Which actress played Winifred in the 1993 movie "Hocus Pocus"?;Bette Midler;Kathy Najimy;Sarah Jessica Parker;Vinessa Shaw
+Which actress played Sidney in the "Scream" 1996 movie?;Neve Campbell;Courteney Cox;Rose McGowan;Drew Barrymore
 Which famous actress played Holly in Breakfast at Tiffany's and died in 1993?;Audrey Hepburn;Patricia Neal;Michelle Pfeiffer;Meryl Streep
 In which movie does Jim Carey unknowingly star as the main character in his own reality television show?;The Truman Show;The Mask;Liar Liar;The Majestic
 Which 1983 film starred Melinda Dillon, Darren McGavin and Peter Billingsley?;A Christmas Story;Slap Shot;Raw Deal;Death Valley
@@ -48,5 +48,5 @@ Which James Bond film was named after Ian Fleming's home in Jamaica?;Goldeneye;O
 What is the name of the actor who played the role of Ron Weasley in the films "Harry Potter"?;Rupert Grint;Daniel Radcliffe;Matthew Lewis;Tom Felton
 What was the title of the film that starred Elvis Presley playing the role of a boxer?;Kid Galahad;Follow That Dream;Elvis on Tour;Elvis: That's the Way It Is
 What was the name of Dorothy's dog in the Wizard of Oz?;Toto;Kabumpo;Kalidah;Rak
-Who made the quote 'I'll be back' famous?;Arnold Schwarzenegger;Brad Pitt;Marlon Brando;Robert DeNiro
+Who made the quote 'I'll be back' famous?;Arnold Schwarzenegger;Brad Pitt;Marlon Brando;Robert De Niro
 Which 1996 British movie was directed by Danny Boyle and featured Ewan McGregor?;Trainspotting;Oliver Twist;Shallow Grave;Moulin Rouge!

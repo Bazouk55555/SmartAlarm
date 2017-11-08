@@ -19,11 +19,8 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="100sp"
+            android:paddingBottom="100sp"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp" />
 
         <LinearLayout
             android:id="@+id/background_title"
@@ -37,13 +34,10 @@
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:textSize="40sp"
+                android:paddingBottom="100sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100sp" />
 
         <ImageView
             android:id="@+id/stop_alarm"

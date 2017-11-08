@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,8 +46,8 @@ public class SmartAlarm extends AppCompatActivity {
 	public static final String NUMBER_OF_QUESTIONS = "number of questions";
 	public static final String CATEGORY = "category";
 
-	private DialogAdd dialogAdd;
-	private DialogRemove dialogRemove;
+	private AbstractDialogAddOrRemove dialogAdd;
+	private AbstractDialogAddOrRemove dialogRemove;
 	private List<HashMap<String, String>> listMapOfEachAlarm;
 	private SimpleAdapter adapterAlarms;
 	private List<Boolean> alarmsActivated;
@@ -162,6 +164,33 @@ public class SmartAlarm extends AppCompatActivity {
 				takeOffSoundMenuItem.setEnabled(false);
 				setUriSound(null);
 				setIsAlarmSix(false);
+				boolean isAnAlarmSixExisting = false;
+				AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
+				alarmBaseDAO.open();
+				for(int i=0;i<alarmsSound.size();i++)
+				{
+					if(alarmsSound.get(i) == 5)
+					{
+						isAnAlarmSixExisting = true;
+						alarmsSound.set(i,0);
+						alarmBaseDAO.updateSoundAlarm(i,0);
+					}
+				}
+				if(isAnAlarmSixExisting)
+				{
+					AlertDialog.Builder builder;
+					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+						builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+					} else {
+						builder = new AlertDialog.Builder(this);
+					}
+					builder.setTitle(getResources().getString(R.string.alarm_six_took_off)).setMessage(getResources().getString(R.string.alarm_six_took_off_message))
+							.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+								}
+							}).setIcon(android.R.drawable.ic_dialog_alert).show();
+				}
+				alarmBaseDAO.close();
 				break;
 			case R.id.category_of_question :
 				if (categoryDialog == null) {
@@ -197,6 +226,7 @@ public class SmartAlarm extends AppCompatActivity {
 		AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
 		alarmBaseDAO.open();
 		alarmBaseDAO.add(new Alarm(alarmsHours.size(), hour, minute, time, title, soundSelected, isActivated));
+		alarmBaseDAO.close();
 
 		HashMap<String, String> mapOfTheNewAlarm = new HashMap<>();
 		mapOfTheNewAlarm.put("alarm", time);
@@ -222,6 +252,7 @@ public class SmartAlarm extends AppCompatActivity {
 		AlarmBaseDAO alarmBaseDAO = new AlarmBaseDAO(this);
 		alarmBaseDAO.open();
 		alarmBaseDAO.remove(position + 1, alarmsHours.size() - position);
+		alarmBaseDAO.close();
 
 		listMapOfEachAlarm.remove(position);
 		adapterAlarms.notifyDataSetChanged();
@@ -301,7 +332,7 @@ public class SmartAlarm extends AppCompatActivity {
 		editor.apply();
 	}
 
-	public DialogAdd getDialogAdd() {
+	public AbstractDialogAddOrRemove getDialogAdd() {
 		return dialogAdd;
 	}
 
