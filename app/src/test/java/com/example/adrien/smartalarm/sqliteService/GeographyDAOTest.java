@@ -31,7 +31,7 @@ public class GeographyDAOTest {
     }
 
     @Test
-    public void SelectTest()
+    public void selectTest()
     {
         int numberOfQuestionsSelected = 4;
         List<Question> questionSelected = geographyDAO.select(numberOfQuestionsSelected, "Easy");

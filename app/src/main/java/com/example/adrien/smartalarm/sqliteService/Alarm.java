@@ -50,9 +50,6 @@ public class Alarm {
 
 	@Override
 	public boolean equals(Object alarm) {
-		if (alarm == this) {
-			return true;
-		}
 
 		if (!(alarm instanceof Alarm)) {
 			return false;

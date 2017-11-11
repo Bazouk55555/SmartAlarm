@@ -69,6 +69,13 @@ public class SmartAlarmTest {
 	}
 
 	@Test
+	public void setPictureTest() {
+		smartAlarm.setPicture(false);
+		assertEquals(false, PreferenceManager
+				.getDefaultSharedPreferences(smartAlarm.getBaseContext()).getBoolean(SmartAlarm.IS_PICTURE_PRESENT, true));
+	}
+
+	@Test
 	public void getAndSetCategoryTest() {
 		String categoryExpected = "Sports";
 		smartAlarm.setCategory(categoryExpected);

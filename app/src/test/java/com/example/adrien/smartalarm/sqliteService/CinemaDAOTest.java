@@ -31,7 +31,7 @@ public class CinemaDAOTest {
     }
 
     @Test
-    public void SelectTest()
+    public void selectTest()
     {
         int numberOfQuestionsSelected = 4;
         List<Question> questionSelected = cinemaDAO.select(numberOfQuestionsSelected, "Easy");

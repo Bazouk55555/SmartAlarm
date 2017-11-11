@@ -42,6 +42,7 @@ public class SmartAlarm extends AppCompatActivity {
 	public static final String URI_SOUND ="uri sound";
 	public static final String URI_IMAGE ="uri image";
 	public static final String IS_ALARM_SIX = "alarm six";
+	public static final String IS_PICTURE_PRESENT = "picture present";
 	public static final String LEVEL = "level";
 	public static final String NUMBER_OF_QUESTIONS = "number of questions";
 	public static final String CATEGORY = "category";
@@ -63,6 +64,7 @@ public class SmartAlarm extends AppCompatActivity {
 	private CategoryDialog categoryDialog = null;
 	private LevelDialog levelDialog = null;
 	private NumberQuestionsDialog numberQuestionsDialog = null;
+	SharedPreferences preferences;
 	private SharedPreferences.Editor editor;
 
 	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -71,12 +73,10 @@ public class SmartAlarm extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_smart_alarm);
 
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		editor = preferences.edit();
 		CheckBox activateGame = (CheckBox) findViewById(R.id.checkbox);
-
 		activateGame.setChecked(preferences.getBoolean(IS_GAME_ACTIVATED,false));
-
 		activateGame.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -135,6 +135,23 @@ public class SmartAlarm extends AppCompatActivity {
 		getMenuInflater().inflate(R.menu.menu, menu);
 		takeOffImageMenuItem = menu.findItem(R.id.takeof_image);
 		takeOffSoundMenuItem = menu.findItem(R.id.takeof_sound);
+		if(preferences.getBoolean(IS_ALARM_SIX,false))
+		{
+			takeOffSoundMenuItem.setEnabled(true);
+		}
+		else
+		{
+			takeOffSoundMenuItem.setEnabled(false);
+		}
+
+		if(preferences.getBoolean(IS_PICTURE_PRESENT,false))
+		{
+			takeOffImageMenuItem.setEnabled(true);
+		}
+		else
+		{
+			takeOffImageMenuItem.setEnabled(false);
+		}
 		return true;
 	}
 
@@ -143,7 +160,7 @@ public class SmartAlarm extends AppCompatActivity {
 		switch (item.getItemId()) {
 			case R.id.add :
 				dialogAdd = new DialogAdd(this, this);
-				if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(IS_ALARM_SIX,false)) {
+				if (preferences.getBoolean(IS_ALARM_SIX,false)) {
 					dialogAdd.getAlarms().add(getResources().getString(R.string.alarm6));
 				}
 				dialogAdd.show();
@@ -159,6 +176,7 @@ public class SmartAlarm extends AppCompatActivity {
 			case R.id.takeof_image :
 				takeOffImageMenuItem.setEnabled(false);
 				setUriImage(null);
+				setPicture(false);
 				break;
 			case R.id.takeof_sound :
 				takeOffSoundMenuItem.setEnabled(false);
@@ -332,6 +350,11 @@ public class SmartAlarm extends AppCompatActivity {
 		editor.apply();
 	}
 
+	public void setPicture(boolean isPicturePresent) {
+		editor.putBoolean(IS_PICTURE_PRESENT, isPicturePresent);
+		editor.apply();
+	}
+
 	public AbstractDialogAddOrRemove getDialogAdd() {
 		return dialogAdd;
 	}
@@ -393,7 +416,7 @@ public class SmartAlarm extends AppCompatActivity {
 						dialogRemove = new DialogRemove(SmartAlarm.this, SmartAlarm.this, position,
 								alarmsHours.get(position).toString(), alarmsMinutes.get(position).toString(),
 								alarmsTitle.get(position), alarmsSound.get(position));
-						if (PreferenceManager.getDefaultSharedPreferences(SmartAlarm.this).getBoolean(IS_ALARM_SIX,false)) {
+						if (preferences.getBoolean(IS_ALARM_SIX,false)) {
 							dialogRemove.getAlarms().add("alarm6");
 						}
 						dialogRemove.show();

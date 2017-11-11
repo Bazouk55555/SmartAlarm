@@ -31,7 +31,7 @@ public class AlarmBaseDAOTest {
     }
 
     @Test
-    public void AddManyAlarmsTest()
+    public void addManyAlarmsTest()
     {
         alarmBaseDAO.add(new Alarm(1,1,1, "01:01", "Title",1,true));
         alarmBaseDAO.add(new Alarm(2,3,1, "03:01", "Title",1,true));
@@ -42,7 +42,7 @@ public class AlarmBaseDAOTest {
     }
 
     @Test
-    public void AddOnAlarmAndSelectTest()
+    public void addOnAlarmAndSelectTest()
     {
         Alarm alarmExpected = new Alarm(1,1,1, "01:01", "Title",1,true);
         alarmBaseDAO.add(alarmExpected);
@@ -52,7 +52,7 @@ public class AlarmBaseDAOTest {
     }
 
     @Test
-    public void RemoveTest()
+    public void removeTest()
     {
         alarmBaseDAO.add(new Alarm(1,1,1, "01:01", "Title",1,true));
         alarmBaseDAO.add(new Alarm(2,3,1, "03:01", "Title",1,true));

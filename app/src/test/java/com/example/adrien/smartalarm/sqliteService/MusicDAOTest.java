@@ -31,7 +31,7 @@ public class MusicDAOTest {
     }
 
     @Test
-    public void SelectTest()
+    public void selectTest()
     {
         int numberOfQuestionsSelected = 4;
         List<Question> questionSelected = musicDAO.select(numberOfQuestionsSelected, "Easy");

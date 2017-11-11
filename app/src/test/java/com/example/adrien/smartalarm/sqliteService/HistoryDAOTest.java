@@ -31,7 +31,7 @@ public class HistoryDAOTest {
     }
 
     @Test
-    public void SelectTest()
+    public void selectTest()
     {
         int numberOfQuestionsSelected = 4;
         List<Question> questionSelected = historyDAO.select(numberOfQuestionsSelected, "Easy");

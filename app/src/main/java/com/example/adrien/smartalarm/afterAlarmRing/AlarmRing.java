@@ -146,7 +146,9 @@ public class AlarmRing extends AppCompatActivity {
 					dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
 					dialogNewGame.show();
 				} else {
-					mediaPlayer.stop();
+					if(mediaPlayer!=null) {
+						mediaPlayer.stop();
+					}
 					finish();
 				}
 				isAlarmStopped = true;

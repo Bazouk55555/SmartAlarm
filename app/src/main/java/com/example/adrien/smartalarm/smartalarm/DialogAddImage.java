@@ -53,6 +53,7 @@ public class DialogAddImage extends Dialog {
 				if (uriDialog != null) {
 					smartAlarm.getTakeOffImageMenuItem().setEnabled(true);
 				}
+				smartAlarm.setPicture(true);
 				DialogAddImage.this.dismiss();
 			}
 		});

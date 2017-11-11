@@ -31,7 +31,7 @@ public class SportsDAOTest {
     }
 
     @Test
-    public void SelectTest()
+    public void selectTest()
     {
         int numberOfQuestionsSelected = 4;
         List<Question> questionSelected = sportsDAO.select(numberOfQuestionsSelected, "Easy");
