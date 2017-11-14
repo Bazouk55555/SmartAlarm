@@ -25,7 +25,8 @@
         <LinearLayout
             android:id="@+id/background_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100sp">
 
             <TextView
                 android:id="@+id/title"
@@ -34,7 +35,6 @@
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:textSize="40sp"
-                android:paddingBottom="100sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

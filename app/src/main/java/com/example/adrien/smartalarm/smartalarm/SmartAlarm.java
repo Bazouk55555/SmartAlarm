@@ -210,23 +210,19 @@ public class SmartAlarm extends AppCompatActivity {
 				}
 				alarmBaseDAO.close();
 				break;
+			case R.id.all_the_set_up:
+				chooseCategoryOfQuestions();
+				chooseLevelOfQuestions();
+				chooseNumberOfQuestions();
+				break;
 			case R.id.category_of_question :
-				if (categoryDialog == null) {
-					categoryDialog = new CategoryDialog(this, this);
-				}
-				categoryDialog.show();
+				chooseCategoryOfQuestions();
 				break;
 			case R.id.level_of_question :
-				if (levelDialog == null) {
-					levelDialog = new LevelDialog(this, this);
-				}
-				levelDialog.show();
+				chooseLevelOfQuestions();
 				break;
 			case R.id.number_of_question :
-				if (numberQuestionsDialog == null) {
-					numberQuestionsDialog = new NumberQuestionsDialog(this, this);
-				}
-				numberQuestionsDialog.show();
+				chooseNumberOfQuestions();
 				break;
 			default :
 				break;
@@ -417,7 +413,7 @@ public class SmartAlarm extends AppCompatActivity {
 								alarmsHours.get(position).toString(), alarmsMinutes.get(position).toString(),
 								alarmsTitle.get(position), alarmsSound.get(position));
 						if (preferences.getBoolean(IS_ALARM_SIX,false)) {
-							dialogRemove.getAlarms().add("alarm6");
+							dialogRemove.getAlarms().add(getResources().getString(R.string.alarm6));
 						}
 						dialogRemove.show();
 					}
@@ -465,5 +461,27 @@ public class SmartAlarm extends AppCompatActivity {
 			}
 		}
 		return i;
+	}
+
+	private void chooseCategoryOfQuestions()
+	{
+		if (categoryDialog == null) {
+			categoryDialog = new CategoryDialog(this, this);
+		}
+		categoryDialog.show();
+	}
+	private void chooseNumberOfQuestions()
+	{
+		if (numberQuestionsDialog == null) {
+			numberQuestionsDialog = new NumberQuestionsDialog(this, this);
+		}
+		numberQuestionsDialog.show();
+	}
+	private void chooseLevelOfQuestions()
+	{
+		if (levelDialog == null) {
+			levelDialog = new LevelDialog(this, this);
+		}
+		levelDialog.show();
 	}
 }

@@ -42,6 +42,10 @@
 
         <menu>
             <item
+                android:id="@+id/all_the_set_up"
+                android:title="@string/all_the_set_up"
+                app:showAsAction="ifRoom" />
+            <item
                 android:id="@+id/category_of_question"
                 android:title="@string/choose_category_menu"
                 app:showAsAction="ifRoom" />

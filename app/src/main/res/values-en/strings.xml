@@ -54,4 +54,5 @@
     <string name="alarm_on">Alarm on</string>
     <string name="alarm_six_took_off">Sound removed</string>
     <string name="alarm_six_took_off_message">Some alarms were set up with the sound taken off. They had been set up with a default alarm.</string>
+    <string name="all_the_set_up">Set up the whole game</string>
 </resources>

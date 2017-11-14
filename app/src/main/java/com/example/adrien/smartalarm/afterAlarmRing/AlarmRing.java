@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -48,6 +49,9 @@ public class AlarmRing extends AppCompatActivity {
 	private int numberOfQuestions;
 	private DialogNewGame dialogNewGame;
 	private Uri uriImage;
+	private AudioManager audioManager;
+	private int currentAudioMode;
+	private boolean isSpeakerPhoneOn;
 
 	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
@@ -126,6 +130,11 @@ public class AlarmRing extends AppCompatActivity {
 		}
 
         if (mediaPlayer != null) {
+			audioManager = (AudioManager)getSystemService(this.AUDIO_SERVICE);
+			currentAudioMode = audioManager.getMode();
+			isSpeakerPhoneOn = audioManager.isSpeakerphoneOn();
+			audioManager.setMode(AudioManager.MODE_IN_CALL);
+			audioManager.setSpeakerphoneOn(true);
 			mediaPlayer.setLooping(true);
             mediaPlayer.start();
         }
@@ -152,6 +161,8 @@ public class AlarmRing extends AppCompatActivity {
 					finish();
 				}
 				isAlarmStopped = true;
+				audioManager.setMode(currentAudioMode);
+				audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
 			}
 		});
 
@@ -284,11 +295,6 @@ public class AlarmRing extends AppCompatActivity {
 	 }
 
 	@Override
-	protected void onStop() {
-		super.onStop();
-	}
-
-	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == DialogNewGame.CODE_DIALOG_BACK) {
 			if (resultCode == RESULT_OK) {
@@ -300,6 +306,15 @@ public class AlarmRing extends AppCompatActivity {
 	@Override
 	public void onBackPressed() {
 		mediaPlayer.stop();
+		audioManager.setMode(currentAudioMode);
+		audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
 		super.onBackPressed();
+	}
+
+	@Override
+	public void finish(){
+		audioManager.setMode(currentAudioMode);
+		audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
+		super.finish();
 	}
 }

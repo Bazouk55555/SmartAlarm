@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:maxLength="13"
-            android:maxLines="1" />
+            android:singleLine="true" />
 
     </LinearLayout>
 
