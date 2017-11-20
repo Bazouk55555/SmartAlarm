@@ -1,12 +1,14 @@
 package com.example.adrien.smartalarm.smartalarm;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,10 +18,6 @@ import com.example.adrien.smartalarm.R;
 
 public class DialogAddSound extends Dialog {
 
-	public static final int AUTHORIZATION_SOUND = 2;
-	private Button cancel = null;
-	private Button ok = null;
-	private Button lookForSound = null;
 	private SmartAlarm smartAlarm;
 	private Uri uriDialog;
 
@@ -37,7 +35,7 @@ public class DialogAddSound extends Dialog {
 		setContentView(R.layout.dialog_add_sound);
 		setCanceledOnTouchOutside(false);
 
-		cancel = (Button) findViewById(R.id.cancel);
+		Button cancel = (Button) findViewById(R.id.cancel);
 		cancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -46,7 +44,7 @@ public class DialogAddSound extends Dialog {
 			}
 		});
 
-		ok = (Button) findViewById(R.id.ok);
+		Button ok = (Button) findViewById(R.id.ok);
 		ok.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -60,13 +58,13 @@ public class DialogAddSound extends Dialog {
 			}
 		});
 
-		lookForSound = (Button) findViewById(R.id.button_sound);
+		Button lookForSound = (Button) findViewById(R.id.button_sound);
 		lookForSound.setOnClickListener(new View.OnClickListener() {
+			@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 			@Override
 			public void onClick(View v) {
-				smartAlarm.startActivityForResult(
-						new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.INTERNAL_CONTENT_URI),
-						AUTHORIZATION_SOUND);
+				ActivityCompat.requestPermissions(smartAlarm, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+						SmartAlarm.AUTHORIZATION_SOUND);
 			}
 		});
 	}

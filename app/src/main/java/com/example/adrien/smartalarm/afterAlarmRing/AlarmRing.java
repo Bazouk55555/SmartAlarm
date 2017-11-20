@@ -1,8 +1,6 @@
 package com.example.adrien.smartalarm.afterAlarmRing;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,9 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -48,10 +44,10 @@ public class AlarmRing extends AppCompatActivity {
 	private boolean isAlarmStopped;
 	private int numberOfQuestions;
 	private DialogNewGame dialogNewGame;
-	private Uri uriImage;
 	private AudioManager audioManager;
 	private int currentAudioMode;
 	private boolean isSpeakerPhoneOn;
+	private boolean isGameActivated;
 
 	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
@@ -130,7 +126,7 @@ public class AlarmRing extends AppCompatActivity {
 		}
 
         if (mediaPlayer != null) {
-			audioManager = (AudioManager)getSystemService(this.AUDIO_SERVICE);
+			audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
 			currentAudioMode = audioManager.getMode();
 			isSpeakerPhoneOn = audioManager.isSpeakerphoneOn();
 			audioManager.setMode(AudioManager.MODE_IN_CALL);
@@ -142,10 +138,19 @@ public class AlarmRing extends AppCompatActivity {
 		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
+		isGameActivated = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false);
+		if(isGameActivated)
+		{
+			
+		}
+		else
+		{
+
+		}
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
+				if (isGameActivated) {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
 					numberOfQuestions = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getInt(SmartAlarm.NUMBER_OF_QUESTIONS,1);
 					categoryDAO.open();
@@ -167,9 +172,17 @@ public class AlarmRing extends AppCompatActivity {
 		});
 
 		String uriImageString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_IMAGE,null);
-		uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
+		Uri uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
 		if (uriImage != null) {
-			ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2);
+			InputStream inputStream = null;
+			try {
+				inputStream = getContentResolver().openInputStream(uriImage);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			BitmapFactory.Options option = new BitmapFactory.Options();
+			Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
+			findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
 		}
 	}
 
@@ -274,26 +287,6 @@ public class AlarmRing extends AppCompatActivity {
 		return numberOfQuestions;
 	}
 
-
-	 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-	 @Override public void onRequestPermissionsResult(int requestCode, @NonNull String permission [], @NonNull int[] grantResult) {
-		 switch(requestCode) {
-			 case 2:
-			 if(grantResult.length>0 && grantResult[0]==PackageManager.PERMISSION_GRANTED)
-			 {
-				 InputStream inputStream = null;
-				 try {
-					 inputStream = getContentResolver().openInputStream(uriImage);
-				 } catch (FileNotFoundException e) {
-					 e.printStackTrace();
-				 }
-				 BitmapFactory.Options option = new BitmapFactory.Options();
-				 Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
-				 findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
-			 }
-		 }
-	 }
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == DialogNewGame.CODE_DIALOG_BACK) {
@@ -305,14 +298,14 @@ public class AlarmRing extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		mediaPlayer.stop();
-		audioManager.setMode(currentAudioMode);
-		audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
-		super.onBackPressed();
+		if(!isGameActivated) {
+			super.onBackPressed();
+		}
 	}
 
 	@Override
 	public void finish(){
+		mediaPlayer.stop();
 		audioManager.setMode(currentAudioMode);
 		audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
 		super.finish();

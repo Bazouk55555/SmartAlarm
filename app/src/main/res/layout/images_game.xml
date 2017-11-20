@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="@color/red"
-        android:textSize="75sp"
+        android:textSize="60sp"
         android:textStyle="bold" />
 
     <TextView
@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="@color/black"
+        android:paddingTop="100sp"
         android:textSize="50sp"
         android:textStyle="bold" />
 
