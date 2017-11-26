@@ -15,7 +15,7 @@ Comment appelle-t-on une œuvre musicale et théâtrale pour un orchestre et des
 Comment appelle-t-on la chanson officielle d'un pays?;Hymne National;Opera;Concert;Chanson patriotique
 Moyen
 Qui a écrit et chanté la célèbre chanson "New York, New York"?;Franck Sinatra;Michael Jackson;Pete Doherty;Elvis Presley
-Qui est devenu célèbre en 2004 avec son album "Back to Bedlam", puis devenu une star mondiale avec ses singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;
+Qui est devenu célèbre en 2004 avec son album "Back to Bedlam", puis devenu une star mondiale avec ses singles "You're Beautiful" and "Goodbye My Lover"?;James Blunt;Pete Doherty;George Michael;Prince
 Comment s'appelle le chanteur et compositeur américain connu comme étant le chanteur principal du groupe de Rock the Doors?;Jim Morrison;Elvis Presley;Franck Sinatra;James Blunt
 Qui a chanté ”Big Yellow Taxi”, ”Both Sides Now” and ”Woodstock”?;Joni Mitchell;Dusty Springfield;Whitney Houston;Nina Simone
 Qui a chanté "Tiny Dancer", "Rocket Man" and "Your Song"?;Elton John;Elvis Presley;Joni Mitchell;Whitney Houston

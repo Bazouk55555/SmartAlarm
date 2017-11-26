@@ -1,5 +1,6 @@
 package com.example.adrien.smartalarm.afterAlarmRing;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -49,7 +50,6 @@ public class AlarmRing extends AppCompatActivity {
 	private boolean isSpeakerPhoneOn;
 	private boolean isGameActivated;
 
-	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -139,15 +139,9 @@ public class AlarmRing extends AppCompatActivity {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
 		isGameActivated = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false);
-		if(isGameActivated)
-		{
-			
-		}
-		else
-		{
 
-		}
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
+			@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 			@Override
 			public void onClick(View v) {
 				if (isGameActivated) {
@@ -163,11 +157,9 @@ public class AlarmRing extends AppCompatActivity {
 					if(mediaPlayer!=null) {
 						mediaPlayer.stop();
 					}
-					finish();
+					finishAndRemoveTask();
 				}
 				isAlarmStopped = true;
-				audioManager.setMode(currentAudioMode);
-				audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);
 			}
 		});
 
@@ -182,7 +174,9 @@ public class AlarmRing extends AppCompatActivity {
 			}
 			BitmapFactory.Options option = new BitmapFactory.Options();
 			Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
-			findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+				findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
+			}
 		}
 	}
 

@@ -1,6 +1,8 @@
 package com.example.adrien.smartalarm.afterAlarmRing;
 
+import android.app.ActivityManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -67,6 +69,9 @@ public class ImagesGame extends AppCompatActivity {
 			} else {
 				imageGamesLayout.setBackgroundResource(R.drawable.awake);
 				commentView.setText(getResources().getString(R.string.ready_to_go_to_the_gym));
+			}
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				finishAndRemoveTask();
 			}
 		}
 		final long beginTime = System.currentTimeMillis();

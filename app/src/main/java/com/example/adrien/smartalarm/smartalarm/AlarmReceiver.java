@@ -54,7 +54,6 @@ public class AlarmReceiver extends BroadcastReceiver {
             String time = hour + ":" + minute;
             intentToAlarmRing.putExtra("time", time);
             intentToAlarmRing.putExtra("title", alarmsTitle.get(i));
-            System.out.println("LE SON EST: "+alarmsSound.get(i));
             intentToAlarmRing.putExtra("sound", chooseAlarmSoundFromNumber(alarmsSound.get(i),context));
             PendingIntent pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(hour + minute),
                     intentToAlarmRing, PendingIntent.FLAG_CANCEL_CURRENT);
