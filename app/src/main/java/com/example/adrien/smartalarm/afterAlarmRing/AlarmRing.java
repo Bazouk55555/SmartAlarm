@@ -141,7 +141,6 @@ public class AlarmRing extends AppCompatActivity {
 		isGameActivated = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false);
 
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
-			@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 			@Override
 			public void onClick(View v) {
 				if (isGameActivated) {
@@ -157,7 +156,13 @@ public class AlarmRing extends AppCompatActivity {
 					if(mediaPlayer!=null) {
 						mediaPlayer.stop();
 					}
-					finishAndRemoveTask();
+					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+						finishAndRemoveTask();
+					}
+					else
+					{
+						finish();
+					}
 				}
 				isAlarmStopped = true;
 			}

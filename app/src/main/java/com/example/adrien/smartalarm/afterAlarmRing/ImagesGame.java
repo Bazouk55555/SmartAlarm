@@ -73,6 +73,10 @@ public class ImagesGame extends AppCompatActivity {
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 				finishAndRemoveTask();
 			}
+			else
+			{
+				finish();
+			}
 		}
 		final long beginTime = System.currentTimeMillis();
 		Thread flashingTextThread = new Thread(new Runnable() {

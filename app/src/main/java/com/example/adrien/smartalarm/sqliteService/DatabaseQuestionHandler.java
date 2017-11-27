@@ -52,7 +52,7 @@ public class DatabaseQuestionHandler extends SQLiteOpenHelper {
 	public static final String TABLE_SPORTS_DROP = "DROP TABLE IF EXISTS " + TABLE_SPORTS_NAME + ";";
 
 	private final static String DATABASE = "database_question";
-	private final static int VERSION = 1;
+	private final static int VERSION = 2;
 
 	private Context dbContext;
 

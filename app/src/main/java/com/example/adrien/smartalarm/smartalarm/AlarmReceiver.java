@@ -39,16 +39,17 @@ public class AlarmReceiver extends BroadcastReceiver {
         alarmBaseDAO.open();
         List<Alarm> alarmList = alarmBaseDAO.select();
         for (Alarm alarm : alarmList) {
-            if(alarm.getActivated())
-            alarmsHours.add(alarm.getHour());
-            alarmsMinutes.add(alarm.getMinute());
-            alarmsTitle.add(alarm.getTitle());
-            alarmsSound.add(alarm.getSound());
+            if(alarm.getActivated()) {
+                alarmsHours.add(alarm.getHour());
+                alarmsMinutes.add(alarm.getMinute());
+                alarmsTitle.add(alarm.getTitle());
+                alarmsSound.add(alarm.getSound());
+            }
         }
         alarmBaseDAO.close();
         for(int i =0; i<alarmsHours.size();i++) {
             Intent intentToAlarmRing = new Intent(context, AlarmRing.class);
-            intentToAlarmRing.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intentToAlarmRing.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
             String hour = getStringTimeFromAnIndexOfListOfNumber(alarmsHours, i);
             String minute = getStringTimeFromAnIndexOfListOfNumber(alarmsMinutes, i);
             String time = hour + ":" + minute;
