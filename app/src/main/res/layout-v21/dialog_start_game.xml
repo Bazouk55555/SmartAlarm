@@ -3,8 +3,8 @@
     android:id="@+id/dialog_game_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background_question">
+    android:background="@drawable/background_question"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/question"
@@ -33,34 +33,38 @@
                 android:id="@+id/answer_radio_button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/red"
                 android:checked="true"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold|italic"/>
+                android:textStyle="bold|italic" />
 
             <RadioButton
                 android:id="@+id/answer_radio_button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/red"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold|italic"/>
+                android:textStyle="bold|italic" />
 
             <RadioButton
                 android:id="@+id/answer_radio_button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/red"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold|italic|italic"/>
+                android:textStyle="bold|italic|italic" />
 
             <RadioButton
                 android:id="@+id/answer_radio_button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/red"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold|italic"/>
+                android:textStyle="bold|italic" />
         </RadioGroup>
 
         <Button

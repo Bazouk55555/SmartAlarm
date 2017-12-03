@@ -13,7 +13,6 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -72,7 +71,6 @@ public class SmartAlarm extends AppCompatActivity {
 	private SharedPreferences preferences;
 	private SharedPreferences.Editor editor;
 
-	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -279,7 +277,6 @@ public class SmartAlarm extends AppCompatActivity {
 		return alarmsActivated;
 	}
 
-	@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 	public void setAlarmManager(int index, String sound, String title) {
 		Intent intentToAlarmRing = new Intent(this, AlarmRing.class);
 		intentToAlarmRing.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK );
@@ -298,8 +295,13 @@ public class SmartAlarm extends AppCompatActivity {
 		if (cal.getTime().before(Calendar.getInstance().getTime())) {
 			cal.add(Calendar.DAY_OF_YEAR, 1);
 		}
-
-		alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+		}
+		else
+		{
+			alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+		}
 	}
 
 	public void setUriImage(Uri uriImage) {
@@ -327,7 +329,6 @@ public class SmartAlarm extends AppCompatActivity {
 		}
 	}
 
-	@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String permission[], @NonNull int[] grantResult) {
 		switch (requestCode) {
@@ -406,7 +407,6 @@ public class SmartAlarm extends AppCompatActivity {
 			super(context, data, resource, from, to);
 		}
 
-		@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			final View convertViewToReturn = super.getView(position, convertView, parent);

@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.Window;
@@ -60,11 +59,14 @@ public class DialogAddSound extends Dialog {
 
 		Button lookForSound = (Button) findViewById(R.id.button_sound);
 		lookForSound.setOnClickListener(new View.OnClickListener() {
-			@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 			@Override
 			public void onClick(View v) {
-				ActivityCompat.requestPermissions(smartAlarm, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-						SmartAlarm.AUTHORIZATION_SOUND);
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+					ActivityCompat.requestPermissions(smartAlarm,
+							new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, SmartAlarm.AUTHORIZATION_SOUND);
+				} else {
+					ActivityCompat.requestPermissions(smartAlarm, new String[]{}, SmartAlarm.AUTHORIZATION_SOUND);
+				}
 			}
 		});
 	}

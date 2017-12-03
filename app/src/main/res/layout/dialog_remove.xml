@@ -10,7 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -102,7 +103,7 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:maxLength="13"
-            android:singleLine="true" />
+            android:maxLines="1" />
 
     </LinearLayout>
 
@@ -133,12 +134,18 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="@drawable/rounded_button"
+            android:padding="3dp"
             android:text="@string/save" />
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="@drawable/rounded_button"
+            android:padding="3dp"
             android:text="@string/cancel" />
 
     </LinearLayout>
@@ -147,7 +154,10 @@
         android:id="@+id/remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="2dp"
+        android:background="@drawable/rounded_button"
+        android:padding="3dp"
         android:text="@string/remove" />
 
 </LinearLayout>

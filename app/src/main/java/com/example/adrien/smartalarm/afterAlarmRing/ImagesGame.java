@@ -38,8 +38,15 @@ public class ImagesGame extends AppCompatActivity {
 				if(!finalImage) {
 					Intent result = new Intent();
 					setResult(RESULT_OK, result);
+					finish();
 				}
-				finish();
+                else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        finishAndRemoveTask();
+                    } else {
+                        finish();
+                    }
+                }
 			}
 		});
 		List<Integer> imagesBackgroundList;
@@ -69,13 +76,6 @@ public class ImagesGame extends AppCompatActivity {
 			} else {
 				imageGamesLayout.setBackgroundResource(R.drawable.awake);
 				commentView.setText(getResources().getString(R.string.ready_to_go_to_the_gym));
-			}
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-				finishAndRemoveTask();
-			}
-			else
-			{
-				finish();
 			}
 		}
 		final long beginTime = System.currentTimeMillis();
@@ -139,8 +139,15 @@ public class ImagesGame extends AppCompatActivity {
 				if(!finalImage) {
 					Intent result = new Intent();
 					setResult(RESULT_OK, result);
+					finish();
 				}
-				finish();
+                else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        finishAndRemoveTask();
+                    } else {
+                        finish();
+                    }
+                }
 			}
 		}, 10000);
 	}

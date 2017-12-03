@@ -1,5 +1,6 @@
 package com.example.adrien.smartalarm.afterAlarmRing;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,7 +14,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -181,6 +181,10 @@ public class AlarmRing extends AppCompatActivity {
 			Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 				findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
+			}
+			else
+			{
+				findViewById(R.id.main_layout).setBackgroundDrawable(new BitmapDrawable(getResources(), bitmapImage));
 			}
 		}
 	}

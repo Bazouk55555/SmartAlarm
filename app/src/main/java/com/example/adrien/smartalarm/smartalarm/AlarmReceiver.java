@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 
 import com.example.adrien.smartalarm.R;
 import com.example.adrien.smartalarm.afterAlarmRing.AlarmRing;
@@ -19,7 +18,6 @@ import java.util.Calendar;
 import java.util.List;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onReceive(Context context, Intent intent) {
         if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
@@ -28,7 +26,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setAlarmManager(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Activity.ALARM_SERVICE);
         List<Integer> alarmsHours = new ArrayList<>();
@@ -65,7 +62,13 @@ public class AlarmReceiver extends BroadcastReceiver {
             if (cal.getTime().before(Calendar.getInstance().getTime())) {
                 cal.add(Calendar.DAY_OF_YEAR, 1);
             }
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+            }
+            else
+            {
+                alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
+            }
         }
     }
 

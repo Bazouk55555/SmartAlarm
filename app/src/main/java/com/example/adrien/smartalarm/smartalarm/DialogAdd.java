@@ -1,10 +1,8 @@
 package com.example.adrien.smartalarm.smartalarm;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -29,7 +27,6 @@ public class DialogAdd extends AbstractDialogAddOrRemove {
 
 		save = (Button) findViewById(R.id.save);
 		save.setOnClickListener(new View.OnClickListener() {
-			@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 			@Override
 			public void onClick(View v) {
 				String time = getTimeBeforeSave();
