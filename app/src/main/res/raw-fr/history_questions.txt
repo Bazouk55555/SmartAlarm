@@ -25,7 +25,7 @@ Quel était le nom de l'ancetre de l'Organisation des Nations Unies(ONU)?;Societ
 Comment appelle-t-on la période 14th-17th siècle en Europe?;La Renaissance;Le Moyen-Age;La période Post-Coloniale;L'Ancien Monde
 Comment s'appelait le leader du mouvement d'indépendence indien contre les lois britaniques?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
 Qui était la première femme Premier Ministre au Royaume-Uni?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
-En quelle année a eu lieu la Révolution Russe qui mit fin à l'autocratie du Tsar et conduisit à la montée de l'Union Soviétique?;1917:1914;1918;1919
+En quelle année a eu lieu la Révolution Russe qui mit fin à l'autocratie du Tsar et conduisit à la montée de l'Union Soviétique?;1917;1914;1918;1919
 Selon la légende, qui a soudainement eu l'idée des lois de la gravité alors qu'une pomme lui tomba sur la tête?;Isaac Newton;Archimèdes;Albert Einstein;James Clerk Maxwell
 Quel Empereur romain a dit:"Veni, vidi, vici" ("Je suis venu, J'ai vu, J'ai vaincu")?;Jules Cesar;Neron;Constantin le Grand;Augustus
 Quelle prison fut détruite par la foule le 14 Juillet 1789, pendant la Révolution Francaise, devenant alors un symbole important pour le mouvement républicain francais?;La Bastille;La Tour Eiffel;L'Arc de Triomphe;Le chateau de Versailles

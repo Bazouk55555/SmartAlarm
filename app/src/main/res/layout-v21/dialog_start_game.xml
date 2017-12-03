@@ -55,7 +55,7 @@
                 android:buttonTint="@color/red"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold|italic|italic" />
+                android:textStyle="bold|italic" />
 
             <RadioButton
                 android:id="@+id/answer_radio_button4"

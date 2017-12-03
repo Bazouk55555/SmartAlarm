@@ -25,7 +25,7 @@ What was the name of the ancestor of the United Nations(UN)?;League of Nations(L
 How is the period 14th-17th centuries in Europe called?;The Renaissance;The Middle Ages;The Post-Colonial period;The Ancient World
 What was the name of the leader of the Indian independence movement against British rule?;Mahatma Gandhi;Nelson Mandela;Viswanathan Anand;John F. Kennedy
 Who was the first female prime minister in the UK?;Margaret Thatcher;Angela Merkel;Hillary Clinton;Emmeline Pankhurst
-When was the Russian Revolution which dismantled the Tsarist autocracy and led to the eventual rise of the Soviet Union?;1917:1914;1918;1919
+When was the Russian Revolution which dismantled the Tsarist autocracy and led to the eventual rise of the Soviet Union?;1917;1914;1918;1919
 According to the legend, who suddenly came up with his law of gravity when he was bonked on the head by a falling apple?;Isaac Newton;Archimedes;Albert Einstein;James Clerk Maxwell
 Which roman emperor said:"Veni, vidi, vici" ("I came, I saw, I conquered")?;Julius Caesar;Nero;Constantine the Great;Augustus
 Which prison was stormed by a crowd on 14 July 1789, in the French Revolution, becoming an important symbol for the French Republican movement?;The Bastille;The Eiffel Tower;The Arc de Triomphe;The Palace of Versailles
