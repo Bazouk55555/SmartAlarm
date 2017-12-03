@@ -71,25 +71,25 @@ public class AlarmRing extends AppCompatActivity {
 				@Override
 				public void run() {
 					Handler titleMoveHandler = new Handler(Looper.getMainLooper());
-                    final LinearLayout secondLayout = (LinearLayout)findViewById(R.id.second_layout);
+					final LinearLayout secondLayout = (LinearLayout) findViewById(R.id.second_layout);
 					while (!isAlarmStopped) {
-                        if(secondLayout.getWidth()!=0) {
-                            titleMoveHandler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (titleView.getX() < secondLayout.getWidth()) {
-                                        titleView.setX(titleView.getX() + 10);
-                                    } else {
-                                        titleView.setX(-titleView.getMeasuredWidth());
-                                    }
-                                }
-                            });
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
+						if (secondLayout.getWidth() != 0) {
+							titleMoveHandler.post(new Runnable() {
+								@Override
+								public void run() {
+									if (titleView.getX() < secondLayout.getWidth()) {
+										titleView.setX(titleView.getX() + 10);
+									} else {
+										titleView.setX(-titleView.getMeasuredWidth());
+									}
+								}
+							});
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
 					}
 				}
 			});
@@ -99,68 +99,65 @@ public class AlarmRing extends AppCompatActivity {
 		}
 
 		String sound = (getIntent().getStringExtra("sound"));
-		if(sound.equals(getResources().getString(R.string.alarm1))) {
+		if (sound.equals(getResources().getString(R.string.alarm1))) {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
-		}
-		else if(sound.equals(getResources().getString(R.string.alarm2))) {
+		} else if (sound.equals(getResources().getString(R.string.alarm2))) {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm2);
-		}
-		else if(sound.equals(getResources().getString(R.string.alarm3))) {
+		} else if (sound.equals(getResources().getString(R.string.alarm3))) {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm3);
-		}
-		else if(sound.equals(getResources().getString(R.string.alarm4))) {
+		} else if (sound.equals(getResources().getString(R.string.alarm4))) {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm4);
-		}
-		else if(sound.equals(getResources().getString(R.string.alarm5))) {
+		} else if (sound.equals(getResources().getString(R.string.alarm5))) {
 			mediaPlayer = MediaPlayer.create(this, R.raw.alarm5);
-		}
-		else if(sound.equals(getResources().getString(R.string.alarm6))) {
-			if(PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_ALARM_SIX,false)) {
-				String uriSoundString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_SOUND, null);
+		} else if (sound.equals(getResources().getString(R.string.alarm6))) {
+			if (PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_ALARM_SIX,
+					false)) {
+				String uriSoundString = PreferenceManager.getDefaultSharedPreferences(this)
+						.getString(SmartAlarm.URI_SOUND, null);
 				mediaPlayer = (uriSoundString != null) ? MediaPlayer.create(this, Uri.parse(uriSoundString)) : null;
-			}
-			else
-			{
+			} else {
 				mediaPlayer = MediaPlayer.create(this, R.raw.alarm1);
 			}
 		}
 
-        if (mediaPlayer != null) {
-			audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
+		if (mediaPlayer != null) {
+			audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 			currentAudioMode = audioManager.getMode();
 			isSpeakerPhoneOn = audioManager.isSpeakerphoneOn();
 			audioManager.setMode(AudioManager.MODE_IN_CALL);
 			audioManager.setSpeakerphoneOn(true);
 			mediaPlayer.setLooping(true);
-            mediaPlayer.start();
-        }
-        ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
-		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false)) {
+			mediaPlayer.start();
+		}
+		ImageView stopAlarm = (ImageView) findViewById(R.id.stop_alarm);
+		if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED, false)) {
 			stopAlarm.setImageResource(R.drawable.ic_stop_alarm);
 		}
-		isGameActivated = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getBoolean(SmartAlarm.IS_GAME_ACTIVATED,false);
+		isGameActivated = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this)
+				.getBoolean(SmartAlarm.IS_GAME_ACTIVATED, false);
 
 		stopAlarm.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (isGameActivated) {
 					AbstractQuestionBaseDAO categoryDAO = chooseCategory();
-					numberOfQuestions = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getInt(SmartAlarm.NUMBER_OF_QUESTIONS,1);
+					numberOfQuestions = PreferenceManager.getDefaultSharedPreferences(AlarmRing.this)
+							.getInt(SmartAlarm.NUMBER_OF_QUESTIONS, 1);
 					categoryDAO.open();
-					List<Question> questions = categoryDAO.select(numberOfQuestions,PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getString(SmartAlarm.LEVEL,getResources().getString(R.string.easy)));
+					List<Question> questions = categoryDAO.select(numberOfQuestions,
+							PreferenceManager.getDefaultSharedPreferences(AlarmRing.this).getString(SmartAlarm.LEVEL,
+									getResources().getString(R.string.easy)));
 					categoryDAO.close();
 					Collections.shuffle(questions);
 					dialogNewGame = new DialogNewGame(AlarmRing.this, questions, mediaPlayer, AlarmRing.this);
 					dialogNewGame.show();
 				} else {
-					if(mediaPlayer!=null) {
+					if (mediaPlayer != null) {
 						mediaPlayer.stop();
 					}
 					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 						finishAndRemoveTask();
-					}
-					else
-					{
+					} else {
 						finish();
 					}
 				}
@@ -168,8 +165,9 @@ public class AlarmRing extends AppCompatActivity {
 			}
 		});
 
-		String uriImageString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_IMAGE,null);
-		Uri uriImage = (uriImageString!=null)?Uri.parse(uriImageString):null;
+		String uriImageString = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.URI_IMAGE,
+				null);
+		Uri uriImage = (uriImageString != null) ? Uri.parse(uriImageString) : null;
 		if (uriImage != null) {
 			InputStream inputStream = null;
 			try {
@@ -181,9 +179,7 @@ public class AlarmRing extends AppCompatActivity {
 			Bitmap bitmapImage = BitmapFactory.decodeStream(inputStream, null, option);
 			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 				findViewById(R.id.main_layout).setBackground(new BitmapDrawable(getResources(), bitmapImage));
-			}
-			else
-			{
+			} else {
 				findViewById(R.id.main_layout).setBackgroundDrawable(new BitmapDrawable(getResources(), bitmapImage));
 			}
 		}
@@ -192,23 +188,18 @@ public class AlarmRing extends AppCompatActivity {
 	private AbstractQuestionBaseDAO chooseCategory() {
 		List<AbstractQuestionBaseDAO> abstractBaseDAOList = Arrays.asList(new CinemaDAO(this), new GeographyDAO(this),
 				new HistoryDAO(this), new MusicDAO(this), new SportsDAO(this));
-		String category = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.CATEGORY,"");
-		if(category.equals(getResources().getString(R.string.category_cinema))) {
+		String category = PreferenceManager.getDefaultSharedPreferences(this).getString(SmartAlarm.CATEGORY, "");
+		if (category.equals(getResources().getString(R.string.category_cinema))) {
 			return abstractBaseDAOList.get(0);
-		}
-		else if(category.equals(getResources().getString(R.string.category_geography))) {
+		} else if (category.equals(getResources().getString(R.string.category_geography))) {
 			return abstractBaseDAOList.get(1);
-		}
-		else if(category.equals(getResources().getString(R.string.category_history))) {
+		} else if (category.equals(getResources().getString(R.string.category_history))) {
 			return abstractBaseDAOList.get(2);
-		}
-		else if(category.equals(getResources().getString(R.string.category_music))) {
+		} else if (category.equals(getResources().getString(R.string.category_music))) {
 			return abstractBaseDAOList.get(3);
-		}
-		else if(category.equals(getResources().getString(R.string.category_sports))) {
+		} else if (category.equals(getResources().getString(R.string.category_sports))) {
 			return abstractBaseDAOList.get(4);
-		}
-		else {
+		} else {
 			return abstractBaseDAOList.get(new Random().nextInt(5));
 		}
 	}
@@ -301,13 +292,13 @@ public class AlarmRing extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		if(!isGameActivated) {
+		if (!isGameActivated) {
 			super.onBackPressed();
 		}
 	}
 
 	@Override
-	public void finish(){
+	public void finish() {
 		mediaPlayer.stop();
 		audioManager.setMode(currentAudioMode);
 		audioManager.setSpeakerphoneOn(isSpeakerPhoneOn);

@@ -80,9 +80,9 @@ public class DialogNewGame extends Dialog {
 								alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
 							} else {
 								mediaPlayer.stop();
-								DialogNewGame.this.dismiss();
+								dismiss();
 								intentWin.putExtra("final", true);
-								alarmRing.startActivityForResult(intentWin, CODE_DIALOG_BACK);
+								alarmRing.startActivity(intentWin);
 								alarmRing.runOnUiThread(new Runnable() {
 									@Override
 									public void run() {
