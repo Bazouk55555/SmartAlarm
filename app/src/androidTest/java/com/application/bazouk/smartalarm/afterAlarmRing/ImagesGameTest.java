@@ -106,7 +106,6 @@ public class ImagesGameTest {
                 j--;
             }
             score = Integer.parseInt(scoreString);
-            System.out.println("Le score intermediaire a l etape "+i+" est de: "+score+" et le score buffer est de "+scoreBufferBeforeAnswer);
             while(((TextView)imagesGameActivity.findViewById(R.id.comment)).getText().toString().equals(""))
             {
             }
@@ -132,7 +131,6 @@ public class ImagesGameTest {
             j--;
         }
         score = Integer.parseInt(scoreString);
-        System.out.println("THE SCORE IS: "+score);
         while(((TextView)imagesGameActivity.findViewById(R.id.comment)).getText().toString().equals(""))
         {
         }

@@ -108,10 +108,7 @@ public class AlarmRingTest {
             @Override
             public boolean matchesSafely(ImageView imageView1) {
                 Drawable a = imageView1.getDrawable();
-                System.out.println("Here I am 1: "+a);
-                System.out.println("Here I am 4: "+ Integer.toHexString((imageView1.getId())));
                 Drawable b= drawable;
-                System.out.println("Here I am 2: "+b);
                 return imageView1.getDrawable() == drawable;
             }
             @Override
