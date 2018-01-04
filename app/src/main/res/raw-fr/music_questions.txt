@@ -33,7 +33,7 @@ Difficile
 Quel Opéra de Wagner de 1865 commence sur un bateau?;Tristan and Isolde;The Victors;Luther's Wedding;Jesus von Nazareth
 Qui est le plus jeune membre des Beattles?;George Harrison;John Lennon;Paul McCartney;Ringo Starr
 Quelle Spice Girl a sorti un tube avec Bryan Adams?;Melanie Chisholm; Melanie Brown;Emma Bunton;Victoria Beckham
-Que signifie l'abbréviation AC/DC?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected/Alternating Command/Direct Command
+Que signifie l'abbréviation AC/DC?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected;Alternating Command/Direct Command
 Qui a sorti un tube dans les années 90 avec 'Everyday is a Winding Road'?;Sheryl Crow;Jerry Lee Lewis;Eric Clapton;Sting
 Complète le titre de cette chanson de 2011 des One Direction: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
 Quelle est l'origine du groupe ABBA?;Suède;Norvège;Finlande;Pays-Bas

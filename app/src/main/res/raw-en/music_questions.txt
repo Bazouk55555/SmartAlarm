@@ -33,7 +33,7 @@ Hard
 What 1865 Wagner opera opens on a ship?;Tristan and Isolde;The Victors;Luther's Wedding;Jesus von Nazareth
 Who was the youngest member of The Beatles?;George Harrison;John Lennon;Paul McCartney;Ringo Starr
 Which Spice Girl had a hit song with Bryan Adams?;Melanie Chisholm; Melanie Brown;Emma Bunton;Victoria Beckham
-What does AC/DC stand for?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected/Alternating Command/Direct Command
+What does AC/DC stand for?;Alternating Current/Direct Current;Access Control/Direct Control;Always Connected/Discontinue Connected;Alternating Command/Direct Command
 Who had a hit song in the 1990s with 'Everyday is a Winding Road'?;Sheryl Crow;Jerry Lee Lewis;Eric Clapton;Sting
 Complete the title of One Direction’s 2011 song: ‘What Makes You…’?;Beautiful;Cry;Smile;Angry
 Where did the pop group ABBA come from?;Sweden;Norway;Finland;Netherland
