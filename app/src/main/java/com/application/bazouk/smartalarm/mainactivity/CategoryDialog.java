@@ -16,12 +16,13 @@ import com.application.bazouk.smartalarm.R;
 public class CategoryDialog extends Dialog {
 
 	private RadioGroup categoryRadioGroup;
-	private Button oKButton;
 	private SmartAlarm smartAlarm;
+	private boolean isSerieOfDialogs;
 
-	public CategoryDialog(@NonNull Context context, SmartAlarm smartAlarm) {
+	public CategoryDialog(@NonNull Context context, SmartAlarm smartAlarm, boolean isSerieOfDialogs) {
 		super(context);
 		this.smartAlarm = smartAlarm;
+		this.isSerieOfDialogs = isSerieOfDialogs;
 	}
 
 	protected void onCreate(Bundle savedInstance) {
@@ -32,7 +33,7 @@ public class CategoryDialog extends Dialog {
 		super.onCreate(savedInstance);
 		setCanceledOnTouchOutside(false);
 
-		oKButton = (Button) findViewById(R.id.ok);
+		Button oKButton = (Button) findViewById(R.id.ok);
 		categoryRadioGroup = (RadioGroup) findViewById(R.id.category_radio_group);
 		String category = PreferenceManager.getDefaultSharedPreferences(smartAlarm).getString(SmartAlarm.CATEGORY,"");
 		if(category.equals(smartAlarm.getResources().getString(R.string.category_cinema))){
@@ -59,7 +60,16 @@ public class CategoryDialog extends Dialog {
 				int radioButtonSelectedId = categoryRadioGroup.getCheckedRadioButtonId();
 				smartAlarm.setCategory(((RadioButton) findViewById(radioButtonSelectedId)).getText().toString());
 				dismiss();
+				if(isSerieOfDialogs)
+				{
+					smartAlarm.chooseLevelOfQuestions(true);
+				}
 			}
 		});
+	}
+
+	public void setSerieOfDialogs(boolean isSerieOfDialogs)
+	{
+		this.isSerieOfDialogs = isSerieOfDialogs;
 	}
 }

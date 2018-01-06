@@ -203,15 +203,13 @@ public class SmartAlarm extends AppCompatActivity {
 				alarmBaseDAO.close();
 				break;
 			case R.id.all_the_set_up :
-				chooseCategoryOfQuestions();
-				chooseLevelOfQuestions();
-				chooseNumberOfQuestions();
+				chooseCategoryOfQuestions(true);
 				break;
 			case R.id.category_of_question :
-				chooseCategoryOfQuestions();
+				chooseCategoryOfQuestions(false);
 				break;
 			case R.id.level_of_question :
-				chooseLevelOfQuestions();
+				chooseLevelOfQuestions(false);
 				break;
 			case R.id.number_of_question :
 				chooseNumberOfQuestions();
@@ -471,21 +469,29 @@ public class SmartAlarm extends AppCompatActivity {
 		return i;
 	}
 
-	private void chooseCategoryOfQuestions() {
+	private void chooseCategoryOfQuestions(boolean isSerieOfDialogs) {
 		if (categoryDialog == null) {
-			categoryDialog = new CategoryDialog(this, this);
+			categoryDialog = new CategoryDialog(this, this, isSerieOfDialogs);
+		}
+		else
+		{
+			categoryDialog.setSerieOfDialogs(isSerieOfDialogs);
 		}
 		categoryDialog.show();
 	}
-	private void chooseNumberOfQuestions() {
+	public void chooseNumberOfQuestions() {
 		if (numberQuestionsDialog == null) {
 			numberQuestionsDialog = new NumberQuestionsDialog(this, this);
 		}
 		numberQuestionsDialog.show();
 	}
-	private void chooseLevelOfQuestions() {
+	public void chooseLevelOfQuestions(boolean isSerieOfDialogs) {
 		if (levelDialog == null) {
-			levelDialog = new LevelDialog(this, this);
+			levelDialog = new LevelDialog(this, this, isSerieOfDialogs);
+		}
+		else
+		{
+			levelDialog.setSerieOfDialogs(isSerieOfDialogs);
 		}
 		levelDialog.show();
 	}

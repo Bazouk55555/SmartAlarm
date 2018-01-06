@@ -17,10 +17,12 @@ public class LevelDialog extends Dialog {
 
 	private RadioGroup levelRadioGroup;
 	private SmartAlarm smartAlarm;
+    private boolean isSerieOfDialogs;
 
-	public LevelDialog(@NonNull Context context, SmartAlarm smartAlarm) {
+	public LevelDialog(@NonNull Context context, SmartAlarm smartAlarm, boolean isSerieOfDialogs) {
 		super(context);
 		this.smartAlarm = smartAlarm;
+        this.isSerieOfDialogs = isSerieOfDialogs;
 	}
 
 	protected void onCreate(Bundle savedInstance) {
@@ -48,7 +50,17 @@ public class LevelDialog extends Dialog {
 				int radioButtonSelectedId = levelRadioGroup.getCheckedRadioButtonId();
 				smartAlarm.setLevel(((RadioButton) findViewById(radioButtonSelectedId)).getText().toString());
 				dismiss();
+                if(isSerieOfDialogs)
+                {
+                    smartAlarm.chooseNumberOfQuestions();
+                }
 			}
 		});
 	}
+
+	public void setSerieOfDialogs(boolean isSerieOfDialogs)
+	{
+		this.isSerieOfDialogs = isSerieOfDialogs;
+	}
+
 }
