@@ -27,7 +27,6 @@ public class CategoryDialog extends Dialog {
 
 	protected void onCreate(Bundle savedInstance) {
 
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_category_question);
 		super.onCreate(savedInstance);
